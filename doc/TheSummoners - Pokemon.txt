@@ -1,0 +1,65 @@
+﻿APUNTES:
+
+
+CLASE POKEMON
+
+
+Static int contadorPokemon
+- String nameId
+- String name
+- String nickname
+- int hp
+- int attackPower 
+- int defense
+- int special defense
+- int speed
+- int stamina
+- int level
+- collection <Movements>
+- int fertility
+- enum sex
+- colection <Types>
+- State state (or enumerado)
+- Objeto objeto
+- Array learnedMovement(4) <Movement>
+- Enum estado
+- HashMap<Type, List<Movement>> movementList;
+- idAssign(Pokemon nombre, int contadorPokemon) //Private mtehod
++ levelUp(String nombreId)
++ movement(String nameIdOponente);
++ checkAdvantage (String nombreId1, String nombreId2);
++ rest (Pokemon nombreId)
++ learnMovement (Movimiento nombre, Array movimientoAprendido <Movimiento>)
++ assignNewMovement(Array learnedMovement, HashMap movementList)
+
+
+
+
+
+
+CLASE ENTRENADOR
+
+
+* String name;
+* Array (6) <Pokemon name> pokemonTeam;
+* Colection pokemonBox <Pokemon (nombre)>;
+* int pokedollar
+* Array backpack (20) <Objeto (nombre)>;
+Methods:
+* dragToBox(Array pokemonTeam);
+* dragoToTeam(Collection pokemonBox);
+* train (String nameId);
+* capture (Pokemon pokemon); //ponemos el pokemon que queremos capturar y dentro del método asignamos un nuevo pokémon de ese tipo
+* combat(Combat combat);
+* raiseAPokemon (String nameId1, String nameId2): String nameId3;
+
+
+CLASE MOVIMIENTO
+
+
+
+
+* String movementName;
+* Enum movementType;
+* int movementPower;
+*
