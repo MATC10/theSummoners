@@ -1,16 +1,14 @@
-﻿APUNTES:
-
+APUNTES:
 
 CLASE POKEMON
 
-
-Static int contadorPokemon
-- String nameId
-- String name
-- String nickname
-- int hp
-- int attackPower 
-- int defense
+- Static int contadorPokemon; //id del pokémon
+- String nameId;
+- String name;
+- String nickname;
+- int hp;
+- int attackPower:
+- int defense;
 - int special defense
 - int speed
 - int stamina
@@ -18,12 +16,13 @@ Static int contadorPokemon
 - collection <Movements>
 - int fertility
 - enum sex
-- colection <Types>
+- Enum type1Pokemon
+- Enum type2Pokemon
 - State state (or enumerado)
 - Objeto objeto
 - Array learnedMovement(4) <Movement>
-- Enum estado
-- HashMap<Type, List<Movement>> movementList;
+- Enum state
+- HashMap<Enum type, List<Movement>> movementList;
 - idAssign(Pokemon nombre, int contadorPokemon) //Private mtehod
 + levelUp(String nombreId)
 + movement(String nameIdOponente);
@@ -34,32 +33,90 @@ Static int contadorPokemon
 
 
 
-
-
-
 CLASE ENTRENADOR
 
-
-* String name;
-* Array (6) <Pokemon name> pokemonTeam;
-* Colection pokemonBox <Pokemon (nombre)>;
-* int pokedollar
-* Array backpack (20) <Objeto (nombre)>;
+String name;
+Array (6) <Pokemon name> pokemonTeam;
+int[] pokemonBox <Pokemon (nombre)>;
+int pokedollar
+List <Objeto> backPack;
 Methods:
-* dragToBox(Array pokemonTeam);
-* dragoToTeam(Collection pokemonBox);
-* train (String nameId);
-* capture (Pokemon pokemon); //ponemos el pokemon que queremos capturar y dentro del método asignamos un nuevo pokémon de ese tipo
-* combat(Combat combat);
-* raiseAPokemon (String nameId1, String nameId2): String nameId3;
+dragToBox(Array pokemonTeam);
+dragToTeam(Collection pokemonBox);
+train (String nameId);
+capture (Pokemon pokemon); //ponemos el pokemon que queremos capturar y dentro del método asignamos un nuevo pokémon de ese tipo
+combat(Combat combat);
+raiseAPokemon (String nameId1, String nameId2): String nameId3;
+
+CLASE ABSTRACT MOVIMIENTO
+Enum type;
+String movementName;
+int numberOfTurns;
+Enum stateToApply;
+int upgradeToApply;
+int numberOfTurnsDuration;;
+
+	Methods:
+apply(Movement movement);
+
+CLASS IMPROVESTATE EXTENDS MOVIMIENTO
+improveState();
+
+CLASS IMPROVEATTACKS EXTENDS MOVIMIENTO
+int movementPower;
+
+	Methods:
+improveAttack();
+
+CLASS STATS EXTENDS MOVIMIENTO
+	Methods:
+improveStats();
 
 
-CLASE MOVIMIENTO
+ENUM  type: 
+
+
+abstract movimiento (nombre, tipos)
+podría haber una interfaz con aplicar() para mejora  y estado
+
+ataque     mejora      estado
 
 
 
 
-* String movementName;
-* Enum movementType;
-* int movementPower;
-*
+5 . CLASE COMBAT
+
+Trainer trainer1;
+Trainer trainer2;
+Turn turn;
+int playerPokemonKO;
+int rivalPokemonKO;
+combat(Pokemon User, Array<Pokemon> pokemonRival): Entrenador userOrRival;  //Metemos la array de pokemon del bot.
+sendPokedollar(Trainer winnerTrainer);
+
+
+6. CLASE TURN
+int numberTurn;
+int counter;
+
+Methods:
+
+Public void userAction(Movement movementName);
+Public void botAction(Movement movementName);
+
+7. MECÁNICA CAPTURA //En estac clase tendremos que usar expresiones regulares para lo del mote
+
+generateRandomPokemon();
+capturePokemon(Pokemon pokemon); 
+putNicknameToPokemon(Pokemon pokemon); 
+
+8. OBJETOS
+
+String nombre;
+pesa();
+pluma();
+chaleco();
+baston();
+pilas();
+selectObject(String ObjectName);
+//El constructor del objeto recibirá como parámetro el método selectObjectName y creará el objeto con sus características.
