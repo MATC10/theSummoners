@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.VentanaController">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.VentanaController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -86,15 +86,15 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button fx:id="btnCrear" layoutX="294.0" layoutY="175.0" mnemonicParsing="false" onAction="#setPokemonProperties" text="Button" />
-            <TextField fx:id="txtNivel" layoutX="230.0" layoutY="110.0" onAction="#setPokemonNivel" />
-            <TextField fx:id="txtNombre" layoutX="220.0" layoutY="64.0" onAction="#setPokemonNombre" />
-            <Label layoutX="225.0" layoutY="37.0" prefHeight="17.0" prefWidth="168.0" text="Nivel" />
+            <Button fx:id="btnCrear" layoutX="272.0" layoutY="212.0" mnemonicParsing="false" onAction="#setPokemonProperties" text="Press" />
+            <TextField fx:id="txtNivel" layoutX="219.0" layoutY="136.0" onAction="#setPokemonNivel">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></TextField>
+            <TextField fx:id="txtNombre" layoutX="219.0" layoutY="78.0" onAction="#setPokemonNombre" />
+            <Label layoutX="110.0" layoutY="81.0" prefHeight="18.0" prefWidth="89.0" text="Add Name" />
+            <Label fx:id="lblNombre" layoutX="425.0" layoutY="82.0" onDragDetected="#onNombrePuesto" />
+            <Label fx:id="lblNivel" layoutX="105.0" layoutY="140.0" onDragDetected="#onNivelPuesto" text="Name added" />
       </children>
     </AnchorPane>
   </children>
