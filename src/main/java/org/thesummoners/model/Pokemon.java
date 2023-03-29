@@ -27,9 +27,17 @@ public class Pokemon {
     //cuando un pokemon suba a X nivel aprender Y movimiento.
     private HashMap <Integer, Movement> movementLevel;
     //METER AQUÍ ATRIBUTO MOVIMIENTOS?
-    //AQUÍ PONER EN EN CONSTRUCTOR QUE SON 4
-    private String[] learnedMovement;
+
+    private Movement [] learnedMovement;
     private Objeto objeto;
+
+    public Pokemon (String name){
+        this.name = name;
+        this.learnedMovement = new Movement [4];
+
+        AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
+        this.learnedMovement[0] = placaje;
+    }
 
     public static int getCounterPokemon() {
         return counterPokemon;
@@ -183,11 +191,27 @@ public class Pokemon {
         this.movementLevel = movementLevel;
     }
 
-    public String[] getLearnedMovement() {
+    public Movement[] getLearnedMovement() {
         return learnedMovement;
     }
 
-    public void setLearnedMovement(String[] learnedMovement) {
+    public Movement getLearnedMovement1(){
+        return this.learnedMovement[0];
+    }
+
+    public Movement getLearnedMovement2(){
+        return this.learnedMovement[1];
+    }
+
+    public Movement getLearnedMovement3(){
+        return this.learnedMovement[2];
+    }
+
+    public Movement getLearnedMovement4(){
+        return this.learnedMovement[3];
+    }
+
+    public void setLearnedMovement(Movement[] learnedMovement) {
         this.learnedMovement = learnedMovement;
     }
 
@@ -199,11 +223,27 @@ public class Pokemon {
         this.objeto = objeto;
     }
 
+    public void assignMovement1(Movement movement1){
+        this.learnedMovement[0] = movement1;
+    }
+
+    public void assignMovement2(Movement movement2){
+        this.learnedMovement[1] =  movement2;
+    }
+
+    public void assignMovement3(Movement movement3){
+        this.learnedMovement[2] =  movement3;
+    }
+
+    public void assignMovement4(Movement movement4){
+        this.learnedMovement[3] =  movement4;
+    }
+
     //parametro: seleccionamos nombre viejo de movimiento,
     //y nombre nuevo
 
     public void assignNewMovement(String oldMove){
-        learnedMovement = new String[4];
+
         AttackMovement ataque1 = new AttackMovement("Placaje", 5, Type.NORMAL);
         movementLevel.put(5, ataque1);
 
@@ -221,7 +261,7 @@ public class Pokemon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && fertility == pokemon.fertility && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
+        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && fertility == pokemon.fertility && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Objects.equals(movementLevel, pokemon.movementLevel) && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
     }
 
     @Override
@@ -230,4 +270,6 @@ public class Pokemon {
         result = 31 * result + Arrays.hashCode(learnedMovement);
         return result;
     }
+
+
 }

@@ -2,21 +2,23 @@ package org.thesummoners.model;
 
 public abstract class Movement {
 
-    private String movementName;
+    private String name;
     private int numberOfTurns;
     private int numberOfTurnsDuration;
 
-    public Movement(String movementName){
-        this.movementName = movementName;
+
+
+    public Movement(String name){
+        this.name = name;
     }
 
 
-    public String getMovementName() {
-        return movementName;
+    public String getName() {
+        return name;
     }
 
-    public void setMovementName(String movementName) {
-        this.movementName = movementName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getNumberOfTurns() {
@@ -27,7 +29,7 @@ public abstract class Movement {
         this.numberOfTurns = numberOfTurns;
     }
 
-
+/*
     public int getUpgradeToApply() {
         return upgradeToApply;
     }
@@ -42,5 +44,14 @@ public abstract class Movement {
 
     public void setNumberOfTurnsDuration(int getNumberOfTurnsDuration) {
         this.numberOfTurnsDuration = getNumberOfTurnsDuration;
+    }
+
+ */
+
+    @Override
+    public String toString() {
+        return "Movement{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

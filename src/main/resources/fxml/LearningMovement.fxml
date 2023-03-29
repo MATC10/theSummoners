@@ -38,12 +38,12 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.LearningMovement">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -86,27 +86,22 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button fx:id="btnMove1" layoutX="24.0" layoutY="104.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Movement 1" />
+            <Button fx:id="btnMove1" layoutX="24.0" layoutY="104.0" mnemonicParsing="false" onAction="#setMove1" prefHeight="46.0" prefWidth="173.0" text="Movement 1" />
             <Label layoutX="84.0" layoutY="14.0" prefHeight="46.0" prefWidth="161.0" text="Tu Pokémon quiere aprender" />
-            <Text layoutX="260.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="135.13671875" />
             <Label layoutX="226.0" layoutY="60.0" prefHeight="27.0" prefWidth="173.0" text="¿Qué ataque quieres olvidar?">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="418.0" layoutY="141.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo" />
-            <Button fx:id="btnMove2" layoutX="213.0" layoutY="104.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Movement 2" />
-            <Button fx:id="btnMove4" layoutX="213.0" layoutY="217.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Movement 4" />
-            <Button fx:id="btnMove3" layoutX="24.0" layoutY="217.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="173.0" text="Movement 3" />
-            <Text fx:id="TxtMove1" layoutX="38.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movement 1" wrappingWidth="144.13671875" />
-            <Text fx:id="TxtMove2" layoutX="227.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movement 2" wrappingWidth="144.13671875" />
-            <Text fx:id="TxtMove3" layoutX="38.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movement 3" wrappingWidth="144.13671875" />
-            <Text fx:id="TxtMove4" layoutX="227.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movement 4" wrappingWidth="144.13671875" />
+            <Button fx:id="btnNoMove" layoutX="418.0" layoutY="141.0" mnemonicParsing="false" onAction="#setNoMove" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo" />
+            <Button fx:id="btnMove2" layoutX="213.0" layoutY="104.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="46.0" prefWidth="173.0" text="Movement 2" />
+            <Button fx:id="btnMove4" layoutX="213.0" layoutY="217.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="46.0" prefWidth="173.0" text="Movement 4" />
+            <Button fx:id="btnMove3" layoutX="24.0" layoutY="217.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="46.0" prefWidth="173.0" text="Movement 3" />
+            <TextField fx:id="txtMove1" layoutX="36.0" layoutY="154.0" />
+            <TextField fx:id="txtMove2" layoutX="225.0" layoutY="154.0" text="Movement 2" />
+            <TextField fx:id="txtNewMove" layoutX="245.0" layoutY="24.0" text="New Movement" />
+            <TextField fx:id="txtMove4" layoutX="229.0" layoutY="263.0" text="Movement 4" />
+            <TextField fx:id="txtMove3" layoutX="36.0" layoutY="263.0" text="Movement 2" />
       </children>
     </AnchorPane>
   </children>

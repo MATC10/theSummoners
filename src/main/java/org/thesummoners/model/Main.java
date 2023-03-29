@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ventana.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/LearningMovement.fxml")));
         Scene scene = new Scene(root, 600, 400);
         stage.setTitle("Helloooo!");
         stage.setScene(scene);
@@ -22,6 +22,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch();
-
     }
 }
