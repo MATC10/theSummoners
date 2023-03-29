@@ -26,7 +26,6 @@ public class VentanaController {
     public void setPokemonProperties(){
         pokemon.setNombre(txtNombre.getText());
         txtNivel.setText(pokemon.getNombre());
-
     }
 
     @FXML
