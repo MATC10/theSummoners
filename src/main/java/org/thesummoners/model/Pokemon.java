@@ -1,6 +1,7 @@
 package org.thesummoners.model;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Pokemon {
@@ -22,23 +23,28 @@ public class Pokemon {
     private Type type2;
     private State state;
     private Sex sex;
+    //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
+    //cuando un pokemon suba a X nivel aprender Y movimiento.
+    private HashMap <Integer, Movement> movementLevel;
     //METER AQUÍ ATRIBUTO MOVIMIENTOS?
     //AQUÍ PONER EN EN CONSTRUCTOR QUE SON 4
     private String[] learnedMovement;
     private Objeto objeto;
 
     //parametro: seleccionamos nombre viejo de movimiento,
-    // y nombre nuevo
-    public void assignNewMovement(String oldMove, Movement movement){
+    //y nombre nuevo
+
+    public void assignNewMovement(String oldMove){
         learnedMovement = new String[4];
+        movementLevel.put(5, movimiento);
+        if(this.)
         for(int i = 0; i < learnedMovement.length; i++){
-            if(learnedMovement[i].equals(oldMove)){
+            if(learnedMovement[i].name.equals(oldMove)){
                 learnedMovement[i] = newMove;
             }
         }
         for(String a : learnedMovement){
             if (a.equals(oldMove)){
-
             }
         }
     }
