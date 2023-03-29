@@ -31,6 +31,174 @@ public class Pokemon {
     private String[] learnedMovement;
     private Objeto objeto;
 
+    public static int getCounterPokemon() {
+        return counterPokemon;
+    }
+
+    public static void setCounterPokemon(int counterPokemon) {
+        Pokemon.counterPokemon = counterPokemon;
+    }
+
+    public int getIdPokemon() {
+        return idPokemon;
+    }
+
+    public void setIdPokemon(int idPokemon) {
+        this.idPokemon = idPokemon;
+    }
+
+    public int getIdPokedex() {
+        return idPokedex;
+    }
+
+    public void setIdPokedex(int idPokedex) {
+        this.idPokedex = idPokedex;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getFertility() {
+        return fertility;
+    }
+
+    public void setFertility(int fertility) {
+        this.fertility = fertility;
+    }
+
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public void setAttackPower(int attackPower) {
+        this.attackPower = attackPower;
+    }
+
+    public int getSpecialAttack() {
+        return specialAttack;
+    }
+
+    public void setSpecialAttack(int specialAttack) {
+        this.specialAttack = specialAttack;
+    }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public int getSpecialDefense() {
+        return specialDefense;
+    }
+
+    public void setSpecialDefense(int specialDefense) {
+        this.specialDefense = specialDefense;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
+
+    public Type getType1() {
+        return type1;
+    }
+
+    public void setType1(Type type1) {
+        this.type1 = type1;
+    }
+
+    public Type getType2() {
+        return type2;
+    }
+
+    public void setType2(Type type2) {
+        this.type2 = type2;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
+    }
+
+    public HashMap<Integer, Movement> getMovementLevel() {
+        return movementLevel;
+    }
+
+    public void setMovementLevel(HashMap<Integer, Movement> movementLevel) {
+        this.movementLevel = movementLevel;
+    }
+
+    public String[] getLearnedMovement() {
+        return learnedMovement;
+    }
+
+    public void setLearnedMovement(String[] learnedMovement) {
+        this.learnedMovement = learnedMovement;
+    }
+
+    public Objeto getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(Objeto objeto) {
+        this.objeto = objeto;
+    }
+
     //parametro: seleccionamos nombre viejo de movimiento,
     //y nombre nuevo
 
