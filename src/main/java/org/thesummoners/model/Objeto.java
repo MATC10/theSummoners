@@ -16,7 +16,7 @@ public class Objeto {
         //un 20%
         modificador[0] = 1.20f;
         modificador[1] = 1.20f;
-        modificador[2] = 1.20f;
+        modificador[2] = 0.20f;
         this.idObjeto = 1;
     }
 
