@@ -36,17 +36,15 @@ public class Pokemon {
 
     public void assignNewMovement(String oldMove){
         learnedMovement = new String[4];
-        movementLevel.put(5, movimiento);
-        if(this.)
-        for(int i = 0; i < learnedMovement.length; i++){
-            if(learnedMovement[i].name.equals(oldMove)){
-                learnedMovement[i] = newMove;
-            }
+        AttackMovement ataque1 = new AttackMovement("Placaje", 5, Type.NORMAL);
+        movementLevel.put(5, ataque1);
+
+        if(this.movementLevel.containsKey(this.level)){
+
+                    movementLevel.get(this.level);
         }
-        for(String a : learnedMovement){
-            if (a.equals(oldMove)){
-            }
-        }
+
+
     }
 
 
