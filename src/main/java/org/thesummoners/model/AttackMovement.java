@@ -4,8 +4,8 @@ public class AttackMovement extends Movement{
 
     private int movementPower;
     private Type attackType;
-    public AttackMovement(String movementName, int movementPower, Type attackType) {
-        super(movementName);
+    public AttackMovement(String name, int movementPower, Type attackType) {
+        super(name);
         this.movementPower = movementPower;
         this.attackType= attackType;
 
