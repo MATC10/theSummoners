@@ -23,6 +23,8 @@ public class Pokemon {
     private Type type2;
     private State state;
     private Sex sex;
+    private int experience;
+
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
     private HashMap <Integer, Movement> movementLevel;
@@ -77,6 +79,10 @@ public class Pokemon {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
     }
 
     public int getHp() {
@@ -189,6 +195,10 @@ public class Pokemon {
 
     public void setMovementLevel(HashMap<Integer, Movement> movementLevel) {
         this.movementLevel = movementLevel;
+    }
+
+    public int getExperience() {
+        return experience;
     }
 
     public Movement[] getLearnedMovement() {

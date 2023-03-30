@@ -16,16 +16,6 @@ import java.util.Arrays;
 
 public class LearningMovement {
     @FXML
-    private TextField txtNewMove;
-    @FXML
-    private TextField txtMove1;
-    @FXML
-    private TextField txtMove2;
-    @FXML
-    private TextField txtMove3;
-    @FXML
-    private TextField txtMove4;
-    @FXML
     private Button btnNoMove;
     @FXML
     private Button btnMove1;
@@ -35,12 +25,9 @@ public class LearningMovement {
     private Button btnMove3;
     @FXML
     private Button btnMove4;
+    @FXML
+    private Label lblNewMove;
 
-    private Parent root;
-
-    private Scene scene;
-
-    private Stage stage;
 
     private Pokemon pokemon = new Pokemon("Pikachu");
     private AttackMovement ataque1 = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
@@ -50,32 +37,36 @@ public class LearningMovement {
     @FXML
     public void initialize(){
         btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        lblNewMove.setText(ataque2.getName());
     }
     @FXML
     public void setMove1() {
         pokemon.assignMovement1(ataque2);
         btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        //AQUÍ TIENE QUE SALIR UNA VENTANA CON !ENHORABUENA! TU POKEMON HA APRENDENDIDO *EL ATAQUE*
+       // Y LUEGO QUE SE CIERRE ESTA VENTANA Y LA OTRA
     }
 
 
-
-
-    @FXML
-    public void setNoMove() {
-
-    }
     @FXML
     public void setMove2() {
-
+        pokemon.assignMovement1(ataque2);
+        btnMove1.setText(pokemon.getLearnedMovement1().getName());
     }
     @FXML
     public void setMove3() {
-
+        pokemon.assignMovement1(ataque2);
+        btnMove1.setText(pokemon.getLearnedMovement1().getName());
     }
     @FXML
     public void setMove4() {
-
+        pokemon.assignMovement1(ataque2);
+        btnMove1.setText(pokemon.getLearnedMovement1().getName());
     }
 
+    @FXML
+    public void setNoMove() {
+        //AQUÍ TE SALES DE ESTA VENTANA Y VUELVES A LA ANTERIOR
+    }
 
 }
