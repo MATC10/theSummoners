@@ -1,21 +1,20 @@
 package org.thesummoners.model;
 
-import java.util.LinkedList;
+import java.util.List;
 
 public class Trainer {
-
     private String name;
     private Pokemon[] pokemonTeam;
-    private LinkedList<Pokemon> pokemonBox;
+    private List<Pokemon> pokemonBox;
     private int pokedollar;
-    private LinkedList<Objeto> backPack;
+    private List<Objeto> backPack;
 
-    public Trainer(String name){
-        this.name= name;
-        this.backPack = new LinkedList<>();
-        this.pokemonBox = new LinkedList<>();
-        this.pokedollar = 0;
-        this.pokemonTeam = new Pokemon[6];
+    public Trainer(String name, Pokemon[] pokemonTeam, List<Pokemon> pokemonBox, int pokedollar, List<Objeto> backPack) {
+        this.name = name;
+        this.pokemonTeam = pokemonTeam;
+        this.pokemonBox = pokemonBox;
+        this.pokedollar = pokedollar;
+        this.backPack = backPack;
     }
 
     public String getName() {
@@ -34,11 +33,11 @@ public class Trainer {
         this.pokemonTeam = pokemonTeam;
     }
 
-    public LinkedList<Pokemon> getPokemonBox() {
+    public List<Pokemon> getPokemonBox() {
         return pokemonBox;
     }
 
-    public void setPokemonBox(LinkedList<Pokemon> pokemonBox) {
+    public void setPokemonBox(List<Pokemon> pokemonBox) {
         this.pokemonBox = pokemonBox;
     }
 
@@ -50,18 +49,17 @@ public class Trainer {
         this.pokedollar = pokedollar;
     }
 
-    public LinkedList<Objeto> getBackPack() {
+    public List<Objeto> getBackPack() {
         return backPack;
     }
 
-    public void setBackPack(LinkedList<Objeto> backPack) {
+    public void setBackPack(List<Objeto> backPack) {
         this.backPack = backPack;
     }
 
-    public void dragToBox(Pokemon pokemonID){
-        for (Pokemon i: pokemonTeam) {
-            if(pokemonID.equals())
-        }
+    public void dragPokemonIntoBox(Pokemon[] pokemonTeam, int i){
+    pokemonBox.add(pokemonTeam[i]);
+    pokemonTeam[i] = null;
     }
 
 }
