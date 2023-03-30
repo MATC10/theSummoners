@@ -62,6 +62,7 @@ public class LearningMovement {
     public void setMove4() {
         pokemon.assignMovement1(ataque2);
         btnMove1.setText(pokemon.getLearnedMovement1().getName());
+
     }
 
     @FXML

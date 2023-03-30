@@ -261,10 +261,23 @@ public class Pokemon {
 
                     movementLevel.get(this.level);
         }
-
-
     }
 
+    public void rest(){
+        this.stamina += 50;
+        //A LA HORA DE PELEAR TIENE QUE HABER UN TURNO QUE NO PELEE TRAS DORMIR
+    }
+
+    public void levelUp(int experience){
+        //LOS COMBATES DAN EXP A LOS POKEMON
+        if(this.level < 100){
+            this.experience += experience;
+            if(this.experience >= 100){
+                this.level += 1;
+                this.experience -= 100;
+            }
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
