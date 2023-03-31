@@ -1,6 +1,8 @@
 package org.thesummoners.model;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Trainer {
     private String name;
@@ -57,9 +59,35 @@ public class Trainer {
         this.backPack = backPack;
     }
 
-    public void dragPokemonIntoBox(Pokemon[] pokemonTeam, int i){
+    public void dragPokemonIntoBox(int i){
     pokemonBox.add(pokemonTeam[i]);
     pokemonTeam[i] = null;
     }
 
+    public void dragIntoTeam(int i, int idPokemon){
+        //REVISAR SI ES POSIBLE QUITAR EL IDPOKEMON EN EL PARÁMETRO
+        //O CAMBIARLO POR OTRA COSA
+
+        for(Pokemon a : this.pokemonBox){
+            if(a.getIdPokemon() == idPokemon){
+                pokemonTeam[i] = a;
+                pokemonBox.remove(a);
+            }
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trainer trainer = (Trainer) o;
+        return pokedollar == trainer.pokedollar && Objects.equals(name, trainer.name) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Objects.equals(pokemonBox, trainer.pokemonBox) && Objects.equals(backPack, trainer.backPack);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, pokemonBox, pokedollar, backPack);
+        result = 31 * result + Arrays.hashCode(pokemonTeam);
+        return result;
+    }
 }
