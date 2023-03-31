@@ -27,22 +27,41 @@ public class LearningMovement {
     private Button btnMove4;
     @FXML
     private Label lblNewMove;
+    @FXML
+    private Pokemon pokemon;
 
 
-    private Pokemon pokemon = new Pokemon("Pikachu");
-    private AttackMovement ataque1 = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
-    private AttackMovement ataque2 = new AttackMovement ("Pistola Agua", 5, Type.NORMAL);
+    //ESTA VENTANA SALDRÁ CUANDO UN POKÉMON LLEGUE A NIVEL DE APRENDER UN ATAQUE.
+
+    private Pokemon pikachu = new Pokemon("Pikachu");
+    private AttackMovement bombaLodo = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
+    private AttackMovement ataqueIgneo = new AttackMovement ("Ataque Igneo", 5, Type.FIRE);
+
 
 
     @FXML
     public void initialize(){
-        btnMove1.setText(pokemon.getLearnedMovement1().getName());
-        lblNewMove.setText(ataque2.getName());
+        if(pikachu.LearnedMovement(0) != null){
+            btnMove1.setText(pikachu.LearnedMovement(0).getName());
+            pikachu.setLevel(5);
+        }
+        if(pikachu.LearnedMovement(1) != null){
+            btnMove2.setText(pikachu.LearnedMovement(1).getName());
+        }
+        if(pikachu.LearnedMovement(2) != null){
+            btnMove3.setText(pikachu.LearnedMovement(2).getName());
+        }
+        if(pikachu.LearnedMovement(3) != null){
+            btnMove4.setText(pikachu.LearnedMovement(3).getName());
+        }
+        //INDICAMOS QUÉ ATAQUE QUIERE APRENDER, HAY QUE QUITAR PIKACHU Y QUE APAREZCA EL POKEMON CON EL QUE ESTEMOS
+        //COMBATIENDO
+        lblNewMove.setText(pikachu.getMovementLevel().get(pikachu.getLevel()).getName());
     }
     @FXML
     public void setMove1() {
-        pokemon.assignMovement1(ataque2);
-        btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        pikachu.assignMovement(0);
+        btnMove1.setText(pikachu.LearnedMovement(0).getName());
         //AQUÍ TIENE QUE SALIR UNA VENTANA CON !ENHORABUENA! TU POKEMON HA APRENDENDIDO *EL ATAQUE*
        // Y LUEGO QUE SE CIERRE ESTA VENTANA Y LA OTRA
     }
@@ -50,18 +69,19 @@ public class LearningMovement {
 
     @FXML
     public void setMove2() {
-        pokemon.assignMovement1(ataque2);
-        btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        pikachu.assignMovement(1);
+        btnMove1.setText(pikachu.LearnedMovement(1).getName());
     }
     @FXML
     public void setMove3() {
-        pokemon.assignMovement1(ataque2);
-        btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        pikachu.assignMovement(2);
+        btnMove1.setText(pikachu.LearnedMovement(2).getName());
     }
     @FXML
     public void setMove4() {
-        pokemon.assignMovement1(ataque2);
-        btnMove1.setText(pokemon.getLearnedMovement1().getName());
+        pikachu.assignMovement(3);
+        btnMove1.setText(pikachu.LearnedMovement(3).getName());
+
     }
 
     @FXML

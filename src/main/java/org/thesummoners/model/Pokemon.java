@@ -1,11 +1,14 @@
 package org.thesummoners.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
 public class Pokemon {
-    static int counterPokemon;
+    static int counterPokemon = 0;
     private int idPokemon;
     private int idPokedex;
     private String name;
@@ -34,11 +37,23 @@ public class Pokemon {
     private Objeto objeto;
 
     public Pokemon (String name){
+        counterPokemon ++;
         this.name = name;
         this.learnedMovement = new Movement [4];
+        this.idPokemon = counterPokemon;
 
+        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         this.learnedMovement[0] = placaje;
+        AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9, Type.NORMAL);
+        AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
+        AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
+
+        //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
+        HashMap <Integer, Movement> movementLevel = new HashMap<Integer, Movement>(){{put(5, pistolaAgua);
+            put(10,hidroBomba); put(15, salpicadura);}};
+
+        this.movementLevel = movementLevel;
     }
 
     public static int getCounterPokemon() {
@@ -202,24 +217,15 @@ public class Pokemon {
     }
 
     public Movement[] getLearnedMovement() {
+
         return learnedMovement;
     }
 
-    public Movement getLearnedMovement1(){
-        return this.learnedMovement[0];
+    public Movement LearnedMovement(int i){
+
+        return this.learnedMovement[i];
     }
 
-    public Movement getLearnedMovement2(){
-        return this.learnedMovement[1];
-    }
-
-    public Movement getLearnedMovement3(){
-        return this.learnedMovement[2];
-    }
-
-    public Movement getLearnedMovement4(){
-        return this.learnedMovement[3];
-    }
 
     public void setLearnedMovement(Movement[] learnedMovement) {
         this.learnedMovement = learnedMovement;
@@ -233,38 +239,37 @@ public class Pokemon {
         this.objeto = objeto;
     }
 
-    public void assignMovement1(Movement movement1){
-        this.learnedMovement[0] = movement1;
+    public void assignMovement(int i){
+        //QUIERO QUE MEDIANTE ESTE MÉTODO EL POKÉMON APRENDA EL ATAQUE CUANDO LLEGUE A X NIVEL
+        //PARA ELLO USARÉ EL HASHMAP DE movementLevel PARA QUE SALTE LA VENTA Y EL MOVIMIENTO QUE APRENDE
+        //POR LO TANTO NO SERÁ NECE
+
+        this.learnedMovement[i] = movementLevel.get(this.level);
     }
 
-    public void assignMovement2(Movement movement2){
-        this.learnedMovement[1] =  movement2;
+
+    public void rest(){
+        this.stamina += 50;
+        //A LA HORA DE PELEAR TIENE QUE HABER UN TURNO QUE NO PELEE TRAS DORMIR
     }
 
-    public void assignMovement3(Movement movement3){
-        this.learnedMovement[2] =  movement3;
-    }
-
-    public void assignMovement4(Movement movement4){
-        this.learnedMovement[3] =  movement4;
-    }
-
-    //parametro: seleccionamos nombre viejo de movimiento,
-    //y nombre nuevo
-
-    public void assignNewMovement(String oldMove){
-
-        AttackMovement ataque1 = new AttackMovement("Placaje", 5, Type.NORMAL);
-        movementLevel.put(5, ataque1);
-
-        if(this.movementLevel.containsKey(this.level)){
-
-                    movementLevel.get(this.level);
+    public void levelUp(int experience){
+        //LOS COMBATES DAN EXP A LOS POKEMON
+        if(this.level < 100){
+            this.experience += experience;
+            if(this.experience >= 100){
+                this.level += 1;
+                this.experience -= 100;
+            }
         }
-
-
     }
 
+    public ObservableList<Pokemon> getPokemon(){
+        ObservableList<Pokemon> pokemons = FXCollections.observableArrayList();
+        Pokemon pikachu = new Pokemon("Pikachu");
+        pokemons.add(pikachu);
+        return pokemons;
+    }
 
     @Override
     public boolean equals(Object o) {

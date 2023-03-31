@@ -54,34 +54,34 @@ public class DragPokemonIntoBox {
 
     @FXML
     public void pokemonIntoBox1(){
-            trainer.dragPokemonIntoBox(pokemonTeam, 0);
+            trainer.dragPokemonIntoBox(0);
             btn1.setText("No Pokémon");
 
     }
 
     @FXML
     public void pokemonIntoBox2() {
-            trainer.dragPokemonIntoBox(pokemonTeam, 1);
+            trainer.dragPokemonIntoBox(1);
             btn2.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox3(){
-            trainer.dragPokemonIntoBox(pokemonTeam, 2);
+            trainer.dragPokemonIntoBox(2);
             btn3.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox4()  {
-            trainer.dragPokemonIntoBox(pokemonTeam, 3);
+            trainer.dragPokemonIntoBox(3);
             btn4.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox5() {
-            trainer.dragPokemonIntoBox(pokemonTeam, 4);
+            trainer.dragPokemonIntoBox(4);
             btn5.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox6() {
-            trainer.dragPokemonIntoBox(pokemonTeam, 5);
+            trainer.dragPokemonIntoBox(5);
             btn6.setText("No Pokémon");
     }
 
