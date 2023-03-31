@@ -10,6 +10,8 @@ import org.thesummoners.model.Trainer;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.thesummoners.model.Trainer.getTrainer;
+
 public class DragPokemonIntoBox {
     @FXML
     private Button btn1;
@@ -35,9 +37,13 @@ public class DragPokemonIntoBox {
     private  Pokemon [] pokemonTeam = new Pokemon[6];
     private List<Pokemon> pokemonBox = new LinkedList<>();
     private List<Objeto> backPack = new LinkedList<>();
-    private Trainer trainer = new Trainer("MATC",pokemonTeam, pokemonBox, 10, backPack);
+
 
     public void initialize(){
+        Trainer.getTrainer().setName("MATC10");
+        Trainer.getTrainer().setPokemonTeam(pokemonTeam);
+        Trainer.getTrainer().setPokemonBox(pokemonBox);
+        Trainer.getTrainer().setPokedollar(10);
         pokemonTeam[0] = pokemon1;
         pokemonTeam[1] = pokemon2;
         pokemonTeam[2] = pokemon3;
@@ -54,34 +60,34 @@ public class DragPokemonIntoBox {
 
     @FXML
     public void pokemonIntoBox1(){
-            trainer.dragPokemonIntoBox(0);
+            getTrainer().dragPokemonIntoBox(0);
             btn1.setText("No Pokémon");
 
     }
 
     @FXML
     public void pokemonIntoBox2() {
-            trainer.dragPokemonIntoBox(1);
+            getTrainer().dragPokemonIntoBox(1);
             btn2.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox3(){
-            trainer.dragPokemonIntoBox(2);
+            getTrainer().dragPokemonIntoBox(2);
             btn3.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox4()  {
-            trainer.dragPokemonIntoBox(3);
+            getTrainer().dragPokemonIntoBox(3);
             btn4.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox5() {
-            trainer.dragPokemonIntoBox(4);
+            getTrainer().dragPokemonIntoBox(4);
             btn5.setText("No Pokémon");
     }
     @FXML
     public void pokemonIntoBox6() {
-            trainer.dragPokemonIntoBox(5);
+            getTrainer().dragPokemonIntoBox(5);
             btn6.setText("No Pokémon");
     }
 

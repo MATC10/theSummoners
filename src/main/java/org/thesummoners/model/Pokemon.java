@@ -264,6 +264,10 @@ public class Pokemon {
         }
     }
 
+    public void train(){
+        //PENDIENDE DE COMPLETAR
+    }
+
     public ObservableList<Pokemon> getPokemon(){
         ObservableList<Pokemon> pokemons = FXCollections.observableArrayList();
         Pokemon pikachu = new Pokemon("Pikachu");
