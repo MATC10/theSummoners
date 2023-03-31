@@ -5,18 +5,24 @@ import java.util.List;
 import java.util.Objects;
 
 public class Trainer {
+    static Trainer trainer = null;
     private String name;
     private Pokemon[] pokemonTeam;
     private List<Pokemon> pokemonBox;
     private int pokedollar;
     private List<Objeto> backPack;
 
-    public Trainer(String name, Pokemon[] pokemonTeam, List<Pokemon> pokemonBox, int pokedollar, List<Objeto> backPack) {
-        this.name = name;
-        this.pokemonTeam = pokemonTeam;
-        this.pokemonBox = pokemonBox;
-        this.pokedollar = pokedollar;
-        this.backPack = backPack;
+    public Trainer() {
+        this.pokedollar = 100;
+    }
+
+    public static Trainer getTrainer() {
+        synchronized (Trainer.class){
+            if(trainer == null){
+                trainer = new Trainer();
+            }
+        }
+        return trainer;
     }
 
     public String getName() {
