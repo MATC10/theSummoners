@@ -11,8 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.thesummoners.model.Trainer.getTrainer;
-
-public class DragPokemonIntoBox {
+public class PokemonBreeding {
     @FXML
     private Button btn1;
     @FXML
@@ -28,6 +27,7 @@ public class DragPokemonIntoBox {
     @FXML
     private Label lbl1;
 
+   //CREO VARIOS POKEMON Y AL ENTRENADOR PARA PROBAR
     private Pokemon pokemon1 = new Pokemon("Bulbasaur");
     private Pokemon pokemon2 = new Pokemon("Pikachu");
     private Pokemon pokemon3 = new Pokemon("Blastoise");
@@ -43,7 +43,7 @@ public class DragPokemonIntoBox {
         Trainer.getTrainer().setName("MATC10");
         Trainer.getTrainer().setPokemonTeam(pokemonTeam);
         Trainer.getTrainer().setPokemonBox(pokemonBox);
-        Trainer.getTrainer().setPokedollar(10);
+        Trainer.getTrainer().setPokedollar(1000);
         pokemonTeam[0] = pokemon1;
         pokemonTeam[1] = pokemon2;
         pokemonTeam[2] = pokemon3;
@@ -59,35 +59,7 @@ public class DragPokemonIntoBox {
     }
 
     @FXML
-    public void pokemonIntoBox1(){
-            getTrainer().dragPokemonIntoBox(0);
-            btn1.setText("No Pokémon");
-    }
+    public void pokemonBreeding1(){
 
-    @FXML
-    public void pokemonIntoBox2() {
-            getTrainer().dragPokemonIntoBox(1);
-            btn2.setText("No Pokémon");
     }
-    @FXML
-    public void pokemonIntoBox3(){
-            getTrainer().dragPokemonIntoBox(2);
-            btn3.setText("No Pokémon");
-    }
-    @FXML
-    public void pokemonIntoBox4()  {
-            getTrainer().dragPokemonIntoBox(3);
-            btn4.setText("No Pokémon");
-    }
-    @FXML
-    public void pokemonIntoBox5() {
-            getTrainer().dragPokemonIntoBox(4);
-            btn5.setText("No Pokémon");
-    }
-    @FXML
-    public void pokemonIntoBox6() {
-            getTrainer().dragPokemonIntoBox(5);
-            btn6.setText("No Pokémon");
-    }
-
 }

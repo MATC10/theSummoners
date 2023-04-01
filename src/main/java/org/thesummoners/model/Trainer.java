@@ -3,6 +3,7 @@ package org.thesummoners.model;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public class Trainer {
     static Trainer trainer = null;
@@ -79,6 +80,45 @@ public class Trainer {
                 pokemonTeam[i] = a;
                 pokemonBox.remove(a);
             }
+        }
+    }
+
+    public String pokemonBreeding(Pokemon pokemon1, Pokemon pokemon2){
+        //ESTE MÉTODO SE LLAMA raiseAPokemon EN EL DIAGRAMA DE CLASES
+        //HAY QUE ASEGURARSE QUE SE TENGAN, AL MENOS, 2 POKÉMON PARA
+        //PODER CRIAR
+        int counter = 0;
+        int randomSelect;
+        //CREO UNA ARRAY DE 3, POSICIÓN1 PARA EL PRIMER POKEMON SELECCIONADO
+        //POSICIÓN DOS PARA EL SEGUNDO, Y POSICIÓN 3 PARA EL NUEVO POKÉMON;
+        Pokemon[] breeding = new Pokemon[3];
+        for(Pokemon p: pokemonTeam){
+            if(p != null){
+                counter++;
+            }
+        }
+        if(counter < 2){
+            return "Necesitas tener al menos 2 Pokémon en el equipo";
+        }
+        else{
+            Random random = new Random();
+            randomSelect = random.nextInt(2);
+            breeding[0] = pokemon1;
+            breeding[1] = pokemon2;
+            //NECESITAMOS CREAR UN NUEVO POKEMON QUE SERÁ EL QUE TOQUE
+            //EN EL RANDOM, CON EL SEXO RANDOM Y PUEDE QUE ATAQUES COMBINADOS
+            //DE LOS DOS POKÉMON
+
+            /*breeding[randomSelect];
+            pokemonBox.add();
+            breeding[2] =
+             */
+
+            //Se abrirá una nueva ventana con el nuevo pokémon
+            //y todas sus stats
+            return "Enhorabuena ...";
+
+
         }
     }
 
