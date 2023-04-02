@@ -39,7 +39,7 @@ public class Register {
     @FXML
     public void onRegister(ActionEvent event) throws IOException {
 
-        if(txtPass.getText().equals(txtPass2.getText()) && txtUser.getText() != null){
+        if(txtPass.getText().equals(txtPass2.getText()) && txtUser.getText().length() != 0){
             Trainer.getTrainer().setName(txtUser.getText());
             Trainer.getTrainer().setPassword(txtPass.getText());
 
