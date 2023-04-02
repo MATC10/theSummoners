@@ -87,12 +87,14 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="txtUser" layoutX="167.0" layoutY="100.0" promptText="Usuario" />
+            <TextField layoutX="167.0" layoutY="100.0" promptText="Usuario" />
             <Label layoutX="167.0" layoutY="75.0" text="Nombre de usuario" />
             <Label layoutX="167.0" layoutY="141.0" text="Contraseña" />
-            <PasswordField fx:id="TxtPass" layoutX="167.0" layoutY="166.0" promptText="Contraseña" />
-            <Button fx:id="BtnLogin" layoutX="218.0" layoutY="209.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-            <Hyperlink layoutX="139.0" layoutY="248.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
+            <PasswordField layoutX="167.0" layoutY="166.0" promptText="Contraseña" />
+            <Button layoutX="203.0" layoutY="278.0" mnemonicParsing="false" text="Registrarse" />
+            <Label layoutX="167.0" layoutY="207.0" text="Repita contraseña" />
+            <PasswordField layoutX="167.0" layoutY="232.0" promptText="Contraseña" />
+            <Hyperlink layoutX="141.0" layoutY="318.0" text="¿Ya estás registrado? Inicia tu sesión" />
       </children>
     </AnchorPane>
   </children>
