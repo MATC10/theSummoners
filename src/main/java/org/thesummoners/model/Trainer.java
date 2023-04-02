@@ -1,13 +1,11 @@
 package org.thesummoners.model;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public class Trainer {
     static Trainer trainer = null;
     private String name;
+    private String password;
     private Pokemon[] pokemonTeam;
     private List<Pokemon> pokemonBox;
     private int pokedollar;
@@ -15,6 +13,31 @@ public class Trainer {
 
     public Trainer() {
         this.pokedollar = 100;
+
+
+        //PARA HACER PRUEBAS VAMOS A METERLE A INICIALIZAR DISTINTOS ATRIBUTOS EN EL CONSTRUCTOR
+
+        Pokemon [] pokemonTeam = new Pokemon[6];
+        this.pokemonTeam = pokemonTeam;
+
+        List<Pokemon> pokemonBox = new LinkedList<>();
+        this.pokemonBox = pokemonBox;
+        List<Objeto> backPack = new LinkedList<>();
+        this.backPack = backPack;
+
+        Pokemon pokemon1 = new Pokemon("Bulbasaur");
+        Pokemon pokemon2 = new Pokemon("Pikachu");
+        Pokemon pokemon3 = new Pokemon("Blastoise");
+        Pokemon pokemon4 = new Pokemon("Venusaur");
+        Pokemon pokemon5 = new Pokemon("Voltorb");
+        Pokemon pokemon6 = new Pokemon("Mewtwo");
+        this.pokemonTeam[0] = pokemon1;
+        this.pokemonTeam[1] = pokemon2;
+        this.pokemonTeam[2] = pokemon3;
+        this.pokemonTeam[3] = pokemon4;
+        this.pokemonTeam[4] = pokemon5;
+        this.pokemonTeam[5] = pokemon6;
+
     }
 
     public static Trainer getTrainer() {
@@ -28,6 +51,10 @@ public class Trainer {
 
     public String getName() {
         return name;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setName(String name) {
@@ -56,6 +83,10 @@ public class Trainer {
 
     public void setPokedollar(int pokedollar) {
         this.pokedollar = pokedollar;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Objeto> getBackPack() {
