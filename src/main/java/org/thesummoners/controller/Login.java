@@ -23,7 +23,9 @@ public class Login {
     private Button btnLogin;
     @FXML
     private Label lblStatus;
+    @FXML
     private Label lblConnectedOrNot;
+    @FXML
     private Hyperlink hlRegister;
 
     private Parent root;
