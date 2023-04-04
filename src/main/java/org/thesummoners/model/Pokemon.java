@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class Pokemon {
+    //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
+    static Pokemon [] pokedex = new Pokemon[20];
     static int counterPokemon = 0;
     private int idPokemon;
     private int idPokedex;
@@ -33,8 +35,11 @@ public class Pokemon {
     private HashMap <Integer, Movement> movementLevel;
 
     private Movement [] learnedMovement;
+
+    //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
-    //ES POSIBLE QUE UN ATRIBUTO SEA UN STRING "IMAGEN" CON LA URL DE LA IMAGEN
+
+    //ES POSIBLE QUE TENGAMOS QUE AÑADIR ATRIBUTO SEA UN STRING "IMAGEN" CON LA URL DE LA IMAGEN
 
     public Pokemon (String name){
         counterPokemon ++;
