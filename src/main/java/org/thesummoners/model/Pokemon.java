@@ -269,6 +269,7 @@ public class Pokemon {
             if(this.experience >= 100){
                 this.level += 1;
                 this.experience -= 100;
+                adaptStatsToLevel(this.level);
             }
         }
     }
