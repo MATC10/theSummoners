@@ -21,18 +21,34 @@ import java.util.ResourceBundle;
 
 public class MainWindow {
     @FXML
-    private Button btnTeam;
-    @FXML
     private Button btcCatch;
-    @FXML
-    private Button btnShop;
-    @FXML
-    private Button btnPCBill;
+
     @FXML
     private Button btnBattle;
+
     @FXML
     private Button btnBreeding;
 
+    @FXML
+    private Button btnPCBill;
 
+    @FXML
+    private Button btnShop;
+
+    @FXML
+    private Button btnTeam;
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
+
+    @FXML
+    void toDragPokemonIntoBox(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/DragPokemonIntoBox.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
