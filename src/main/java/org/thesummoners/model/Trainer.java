@@ -25,6 +25,7 @@ public class Trainer {
         List<Objeto> backPack = new LinkedList<>();
         this.backPack = backPack;
 
+        /*
         Pokemon pokemon1 = new Pokemon("Bulbasaur");
         Pokemon pokemon2 = new Pokemon("Pikachu");
         Pokemon pokemon3 = new Pokemon("Blastoise");
@@ -37,7 +38,7 @@ public class Trainer {
         this.pokemonTeam[3] = pokemon4;
         this.pokemonTeam[4] = pokemon5;
         this.pokemonTeam[5] = pokemon6;
-
+        */
     }
 
     public static Trainer getTrainer() {

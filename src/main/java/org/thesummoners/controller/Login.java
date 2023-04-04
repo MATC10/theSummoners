@@ -42,7 +42,7 @@ public class Login {
             lblStatus.setText("Conectado");
             lblStatus.setTextFill(Color.GREEN);
 
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ProfessorOak.fxml")));
             scene = new Scene(root, 600, 400);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
@@ -60,7 +60,4 @@ public class Login {
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }

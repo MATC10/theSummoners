@@ -88,18 +88,18 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="txtUser" layoutX="167.0" layoutY="100.0" promptText="Usuario" />
-            <Label layoutX="167.0" layoutY="75.0" text="Nombre de usuario" />
-            <Label layoutX="167.0" layoutY="141.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="167.0" layoutY="166.0" promptText="Contraseña" />
-            <Button fx:id="btnLogin" layoutX="218.0" layoutY="209.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-            <Hyperlink fx:id="hlRegister" layoutX="138.0" layoutY="301.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
+            <TextField fx:id="txtUser" layoutX="147.0" layoutY="100.0" promptText="Usuario" />
+            <Label layoutX="147.0" layoutY="75.0" text="Nombre de usuario" />
+            <Label layoutX="147.0" layoutY="141.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="147.0" layoutY="166.0" promptText="Contraseña" />
+            <Button fx:id="btnLogin" layoutX="198.0" layoutY="209.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+            <Hyperlink fx:id="hlRegister" layoutX="118.0" layoutY="301.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
             <Label fx:id="lblStatus" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="103.0" text="Desconectado" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblConnectedOrNot" layoutX="156.0" layoutY="261.0" prefHeight="18.0" prefWidth="171.0" />
+            <Label fx:id="lblConnectedOrNot" layoutX="130.0" layoutY="255.0" prefHeight="18.0" prefWidth="179.0" textFill="RED" />
       </children>
     </AnchorPane>
   </children>
