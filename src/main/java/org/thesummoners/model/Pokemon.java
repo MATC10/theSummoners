@@ -31,10 +31,10 @@ public class Pokemon {
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
     private HashMap <Integer, Movement> movementLevel;
-    //METER AQUÍ ATRIBUTO MOVIMIENTOS?
 
     private Movement [] learnedMovement;
     private Objeto objeto;
+    //ES POSIBLE QUE UN ATRIBUTO SEA UN STRING "IMAGEN" CON LA URL DE LA IMAGEN
 
     public Pokemon (String name){
         counterPokemon ++;
@@ -93,6 +93,8 @@ public class Pokemon {
     }
 
     public void setNickName(String nickName) {
+        //TENEMOS QUE RESTRINGIR LOS NICKNAMES A NOMBRES APROPIADOS
+
         this.nickName = nickName;
     }
 

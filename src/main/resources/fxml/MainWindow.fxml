@@ -40,7 +40,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.MainWindow">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -81,14 +81,14 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="90.0" layoutY="104.0" mnemonicParsing="false" text="Mi equipo" />
-            <Button layoutX="92.0" layoutY="151.0" mnemonicParsing="false" text="PC de Bill" />
-            <Button layoutX="183.0" layoutY="151.0" mnemonicParsing="false" text="Combate Pokémon" />
-            <Button layoutX="322.0" layoutY="151.0" mnemonicParsing="false" text="Zona de crianza" />
-            <Button layoutX="320.0" layoutY="104.0" mnemonicParsing="false" text="Tienda" />
-            <Button layoutX="184.0" layoutY="104.0" mnemonicParsing="false" text="Capturar Pokémon" />
+            <Button fx:id="btnTeam" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" text="Mi equipo" />
+            <Button fx:id="btnPCBill" layoutX="92.0" layoutY="151.0" mnemonicParsing="false" text="PC de Bill" />
+            <Button fx:id="btnBattle" layoutX="183.0" layoutY="151.0" mnemonicParsing="false" text="Combate Pokémon" />
+            <Button fx:id="btnBreeding" layoutX="322.0" layoutY="151.0" mnemonicParsing="false" text="Zona de crianza" />
+            <Button fx:id="btnShop" layoutX="320.0" layoutY="104.0" mnemonicParsing="false" text="Tienda" />
+            <Button fx:id="btcCatch" layoutX="184.0" layoutY="104.0" mnemonicParsing="false" text="Capturar Pokémon" />
       </children>
     </AnchorPane>
   </children>
