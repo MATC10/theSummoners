@@ -8,8 +8,7 @@ public class Bulbasaur extends Pokemon {
 
     //constructor de prueba
     public Bulbasaur(String name, int level) {
-        super(name);
-        setLevel(level);
+        super(name, level);
     }
 
 

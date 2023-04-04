@@ -41,7 +41,7 @@ public class Pokemon {
 
     //ES POSIBLE QUE TENGAMOS QUE AÑADIR ATRIBUTO SEA UN STRING "IMAGEN" CON LA URL DE LA IMAGEN
 
-    public Pokemon (String name){
+    public Pokemon (String name, int level){
         counterPokemon ++;
         this.name = name;
         this.learnedMovement = new Movement [4];
@@ -59,6 +59,7 @@ public class Pokemon {
             put(10,hidroBomba); put(15, salpicadura);}};
 
         this.movementLevel = movementLevel;
+        adaptStatsToLevel(level);
     }
 
     public static int getCounterPokemon() {
@@ -121,6 +122,7 @@ public class Pokemon {
 
     public void setLevel(int level) {
         this.level = level;
+        adaptStatsToLevel(level);
     }
 
     public int getFertility() {
@@ -275,12 +277,29 @@ public class Pokemon {
         //PENDIENDE DE COMPLETAR
     }
 
+
     public ObservableList<Pokemon> getPokemon(){
         ObservableList<Pokemon> pokemons = FXCollections.observableArrayList();
-        Pokemon pikachu = new Pokemon("Pikachu");
+        Pokemon pikachu = new Pokemon("Pikachu", 1);
         pokemons.add(pikachu);
         return pokemons;
     }
+
+    public void adaptStatsToLevel(int level){
+        //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,
+        //A TODOS LOS POKÉMON CON MÁS DE LEVEL 1
+        if(this.level > 1){
+            this.hp += level;
+            this.attackPower += level/10;
+            this.specialAttack += level/10;
+            this.defense += level/10;
+            this.specialDefense += level/10;
+            this.speed += level/10;
+            this.stamina += level/10;
+        }
+
+    }
+
 
     @Override
     public boolean equals(Object o) {
