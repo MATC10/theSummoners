@@ -33,7 +33,7 @@ public class LearningMovement {
 
     //ESTA VENTANA SALDRÁ CUANDO UN POKÉMON LLEGUE A NIVEL DE APRENDER UN ATAQUE.
 
-    private Pokemon pikachu = new Pokemon("Pikachu");
+    private Pokemon pikachu = new Pokemon("Pikachu", 1);
     private AttackMovement bombaLodo = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
     private AttackMovement ataqueIgneo = new AttackMovement ("Ataque Igneo", 5, Type.FIRE);
 

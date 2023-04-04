@@ -28,12 +28,12 @@ public class DragPokemonIntoBox {
     @FXML
     private Label lbl1;
 
-    private Pokemon pokemon1 = new Pokemon("Bulbasaur");
-    private Pokemon pokemon2 = new Pokemon("Pikachu");
-    private Pokemon pokemon3 = new Pokemon("Blastoise");
-    private Pokemon pokemon4 = new Pokemon("Venusaur");
-    private Pokemon pokemon5 = new Pokemon("Voltorb");
-    private Pokemon pokemon6 = new Pokemon("Mewtwo");
+    private Pokemon pokemon1 = new Pokemon("Bulbasaur", 1);
+    private Pokemon pokemon2 = new Pokemon("Pikachu", 1);
+    private Pokemon pokemon3 = new Pokemon("Blastoise", 1);
+    private Pokemon pokemon4 = new Pokemon("Venusaur", 1);
+    private Pokemon pokemon5 = new Pokemon("Voltorb", 1);
+    private Pokemon pokemon6 = new Pokemon("Mewtwo", 1);
     private  Pokemon [] pokemonTeam = new Pokemon[6];
     private List<Pokemon> pokemonBox = new LinkedList<>();
     private List<Objeto> backPack = new LinkedList<>();
