@@ -50,5 +50,14 @@ public class MainWindow {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void toWantsToFight(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/WantsToFight.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }

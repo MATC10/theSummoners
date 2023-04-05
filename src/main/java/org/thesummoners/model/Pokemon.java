@@ -3,18 +3,17 @@ package org.thesummoners.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
 
 public class Pokemon {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    static Pokemon [] pokedex = new Pokemon[20];
+    static List <Pokemon> pokedex = new LinkedList<>();
     static int counterPokemon = 0;
     private int idPokemon;
     private int idPokedex;
     private String name;
     private String nickName;
+    private String image;
     private int hp;
     private int level;
     private int fertility;
@@ -39,7 +38,7 @@ public class Pokemon {
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
-    //ES POSIBLE QUE TENGAMOS QUE AÑADIR ATRIBUTO SEA UN STRING "IMAGEN" CON LA URL DE LA IMAGEN
+
 
     public Pokemon (String name, int level){
         counterPokemon ++;
@@ -92,6 +91,14 @@ public class Pokemon {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getNickName() {

@@ -41,7 +41,6 @@ public class ChoosedPokemon {
 
     @FXML
     public void toChangeNickName(ActionEvent event) throws IOException {
-        //EL ENLACE HAY QUE CAMBIARLO HASTA CREAR LA VENTANA PARA PONER EL MOTE
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChangePokemonNickName.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
