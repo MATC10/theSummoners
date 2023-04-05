@@ -85,7 +85,7 @@
       <children>
             <Button fx:id="btnTeam" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" text="Mi equipo" />
             <Button fx:id="btnPCBill" layoutX="92.0" layoutY="151.0" mnemonicParsing="false" onAction="#toDragPokemonIntoBox" text="PC de Bill" />
-            <Button fx:id="btnBattle" layoutX="183.0" layoutY="151.0" mnemonicParsing="false" text="Combate Pokémon" />
+            <Button fx:id="btnBattle" layoutX="183.0" layoutY="151.0" mnemonicParsing="false" onAction="#toWantsToFight" text="Combate Pokémon" />
             <Button fx:id="btnBreeding" layoutX="322.0" layoutY="151.0" mnemonicParsing="false" text="Zona de crianza" />
             <Button fx:id="btnShop" layoutX="320.0" layoutY="104.0" mnemonicParsing="false" text="Tienda" />
             <Button fx:id="btcCatch" layoutX="184.0" layoutY="104.0" mnemonicParsing="false" text="Capturar Pokémon" />
