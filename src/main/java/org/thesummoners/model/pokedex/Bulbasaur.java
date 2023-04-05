@@ -7,8 +7,9 @@ import org.thesummoners.model.Pokemon;
 public class Bulbasaur extends Pokemon {
 
     //constructor de prueba
-    public Bulbasaur(String name, int level) {
+    public Bulbasaur(String name, int level, String image) {
         super(name, level);
+        setImage("doc/images/Pokeball.png");
     }
 
 

@@ -33,14 +33,17 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.MainWindow">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.WantsToFight">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -81,15 +84,20 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <Button fx:id="btnTeam" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" text="Mi equipo" />
-            <Button fx:id="btnPCBill" layoutX="92.0" layoutY="151.0" mnemonicParsing="false" onAction="#toDragPokemonIntoBox" text="PC de Bill" />
-            <Button fx:id="btnBattle" layoutX="183.0" layoutY="151.0" mnemonicParsing="false" onAction="#toWantsToFight" text="Combate Pokémon" />
-            <Button fx:id="btnBreeding" layoutX="322.0" layoutY="151.0" mnemonicParsing="false" text="Zona de crianza" />
-            <Button fx:id="btnShop" layoutX="320.0" layoutY="104.0" mnemonicParsing="false" text="Tienda" />
-            <Button fx:id="btcCatch" layoutX="184.0" layoutY="104.0" mnemonicParsing="false" text="Capturar Pokémon" />
-      </children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fx:id="imgEnemy" fitHeight="291.0" fitWidth="200.0" layoutX="61.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblWantsToFight" layoutX="281.0" layoutY="53.0" prefHeight="78.0" prefWidth="329.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnFight" layoutX="346.0" layoutY="183.0" mnemonicParsing="false" onAction="#toFight" prefHeight="116.0" prefWidth="200.0" text="¡Luchar!">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+         </children>
     </AnchorPane>
   </children>
 </VBox>
