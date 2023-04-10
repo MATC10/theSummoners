@@ -319,7 +319,7 @@ public class Pokemon {
 
     public void changeDisplayName(){
         //EL displayName ES EL NOMBRE DEL POKEMON QUE SE MOSTRARÁ EN TODOS LOS SITIOS
-        if(this.nickName.length() > 0){
+        if(this.nickName != null){
             this.displayName = this.nickName;
         }
         else this.displayName = this.name;
