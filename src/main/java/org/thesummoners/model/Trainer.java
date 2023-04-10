@@ -119,10 +119,9 @@ public class Trainer {
             pokemonBox.add(pokemonTeam[i]);
             pokemonTeam[i] = null;
         }
-
     }
 
-    public void dragIntoTeam(int i, int idPokemon){
+    public void dragPokemonIntoTeam(int i, int idPokemon){
         //REVISAR SI ES POSIBLE QUITAR EL IDPOKEMON EN EL PARÁMETRO
         //O CAMBIARLO POR OTRA COSA
 
@@ -173,7 +172,7 @@ public class Trainer {
         }
     }
 
-    public void combat(){
+    public void Fight(){
 
     }
 
