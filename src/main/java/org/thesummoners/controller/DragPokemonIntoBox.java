@@ -42,34 +42,38 @@ public class DragPokemonIntoBox {
     private Stage stage;
 
 
-    private Pokemon pokemon1 = new Pokemon("Bulbasaur", 1);
-    private Pokemon pokemon2 = new Pokemon("Pikachu", 1);
-    private Pokemon pokemon3 = new Pokemon("Blastoise", 1);
-    private Pokemon pokemon4 = new Pokemon("Venusaur", 1);
-    private Pokemon pokemon5 = new Pokemon("Voltorb", 1);
-    private Pokemon pokemon6 = new Pokemon("Mewtwo", 1);
-    private  Pokemon [] pokemonTeam = new Pokemon[6];
-    private List<Pokemon> pokemonBox = new LinkedList<>();
-    private List<Objeto> backPack = new LinkedList<>();
-
-
     public void initialize(){
-        Trainer.getTrainer().setName("MATC10");
-        Trainer.getTrainer().setPokemonTeam(pokemonTeam);
-        Trainer.getTrainer().setPokemonBox(pokemonBox);
-        Trainer.getTrainer().setPokedollar(10);
-        pokemonTeam[0] = pokemon1;
-        pokemonTeam[1] = pokemon2;
-        pokemonTeam[2] = pokemon3;
-        pokemonTeam[3] = pokemon4;
-        pokemonTeam[4] = pokemon5;
-        pokemonTeam[5] = pokemon6;
-        btn1.setText(pokemonTeam[0].getName());
-        btn2.setText(pokemonTeam[1].getName());
-        btn3.setText(pokemonTeam[2].getName());
-        btn4.setText(pokemonTeam[3].getName());
-        btn5.setText(pokemonTeam[4].getName());
-        btn6.setText(pokemonTeam[5].getName());
+        //UNA IDEA AQUÍ ES METER LA FOTO DEL POKEMON ADEMÁS DEL MOTE
+        //PARA ELLO USAMOS EL displayName
+        if(getTrainer().getPokemonTeam()[0] != null){
+            btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
+        }
+        else btn1.setText("No Pokémon");
+
+        if(getTrainer().getPokemonTeam()[1] != null){
+            btn2.setText(getTrainer().getPokemonTeam()[1].getDisplayName());
+        }
+        else btn2.setText("No Pokémon");
+
+        if(getTrainer().getPokemonTeam()[2] != null){
+            btn3.setText(getTrainer().getPokemonTeam()[2].getDisplayName());
+        }
+        else btn3.setText("No Pokémon");
+
+        if(getTrainer().getPokemonTeam()[3] != null){
+            btn4.setText(getTrainer().getPokemonTeam()[3].getDisplayName());
+        }
+        else btn4.setText("No Pokémon");
+
+        if(getTrainer().getPokemonTeam()[4] != null){
+            btn5.setText(getTrainer().getPokemonTeam()[4].getDisplayName());
+        }
+        else btn5.setText("No Pokémon");
+
+        if(getTrainer().getPokemonTeam()[5] != null){
+            btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
+        }
+        else btn6.setText("No Pokémon");
     }
 
     @FXML

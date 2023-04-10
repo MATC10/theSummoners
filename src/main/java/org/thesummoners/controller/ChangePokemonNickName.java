@@ -48,6 +48,10 @@ public class ChangePokemonNickName {
             lblVerify.setTextFill(Color.RED);
         }
         else{
+            //AÑADIMOS MOTE AL PRIMER POKEMON DEL EQUIPO (EL ESCOGIDO POR EL USUARIO)
+            //Y AÑADIMOS EL displayName
+            Trainer.getTrainer().getPokemonTeam()[0].setNickName(txtNickName.getText());
+            Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
             scene = new Scene(root, 600, 400);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

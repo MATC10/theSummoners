@@ -13,6 +13,7 @@ public class Pokemon {
     private int idPokedex;
     private String name;
     private String nickName;
+    private String displayName;
     private String image;
     private int hp;
     private int level;
@@ -109,6 +110,14 @@ public class Pokemon {
         //TENEMOS QUE RESTRINGIR LOS NICKNAMES A NOMBRES APROPIADOS
 
         this.nickName = nickName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public void setExperience(int experience) {
@@ -306,6 +315,14 @@ public class Pokemon {
             this.stamina += level/10;
         }
 
+    }
+
+    public void changeDisplayName(){
+        //EL displayName ES EL NOMBRE DEL POKEMON QUE SE MOSTRARÁ EN TODOS LOS SITIOS
+        if(this.nickName.length() > 0){
+            this.displayName = this.nickName;
+        }
+        else this.displayName = this.name;
     }
 
 

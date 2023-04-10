@@ -99,8 +99,27 @@ public class Trainer {
     }
 
     public void dragPokemonIntoBox(int i){
-    pokemonBox.add(pokemonTeam[i]);
-    pokemonTeam[i] = null;
+        /*
+        - LOS VALORES NULL DE pokemonBox SE COMPLETAN AL AÑADIR NUEVOS PKMN A LA LISTA
+
+       - UNA IDEA ES CREAR UNA NUEVA LISTA POR SI SE AÑADEN EN ALGÚN MOMENTO MUCHOS POKEMON
+        A LA LISTA PERO LUEGO SE TIRAN ESOS POKEMON, PARA QUE NO QUEDEN VALORES NULL AL FINAL
+        DE LA LISTA (AÚN NO SE SABE SI SE VA A IMPLEMENTAR TIRAR POKÉMON)
+         */
+        boolean pokemonAdded = false;
+        for(int s = 0; s < pokemonBox.size(); s++){
+            if(pokemonBox.get(s) == null){
+                pokemonBox.add(s, pokemonTeam[i]);
+                pokemonTeam[i] = null;
+                pokemonAdded = true;
+                break;
+            }
+        }
+        if(!pokemonAdded){
+            pokemonBox.add(pokemonTeam[i]);
+            pokemonTeam[i] = null;
+        }
+
     }
 
     public void dragIntoTeam(int i, int idPokemon){
