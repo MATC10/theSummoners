@@ -41,7 +41,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <children>
@@ -89,26 +88,13 @@
             <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="320.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="363.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="406.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgEnemy" fitHeight="170.0" fitWidth="149.0" layoutX="470.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgEnemy" fitHeight="170.0" fitWidth="149.0" layoutX="477.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgTrainerPokemon" fitHeight="170.0" fitWidth="149.0" layoutX="14.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnMove1" layoutX="185.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="btnMove2" layoutX="405.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="btnMove3" layoutX="185.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="btnMove4" layoutX="405.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Label fx:id="lblTextFight" layoutX="35.0" layoutY="75.0" prefHeight="72.0" prefWidth="412.0" text="Label" />
-            <Label fx:id="lblHpTrainer" layoutX="14.0" layoutY="168.0" prefHeight="18.0" prefWidth="162.0" text="Hp pk trainer" />
-            <Label fx:id="lblHpEnemy" layoutX="470.0" layoutY="34.0" prefHeight="18.0" prefWidth="86.0" text="Hp pk enemy" />
-            <Label fx:id="lblNickPkTrainer" layoutX="14.0" layoutY="147.0" prefHeight="18.0" prefWidth="162.0" text="Nick pk trainer">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblNamePkEnemy" layoutX="470.0" layoutY="14.0" prefHeight="18.0" prefWidth="155.0" text="Name pk enemy">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnChangePokemonFight" layoutX="334.0" layoutY="163.0" mnemonicParsing="false" onAction="#onChangePokemonFight" prefHeight="47.0" prefWidth="130.0" text="Cambiar Pokémon" />
+            <Button fx:id="brnMove1" layoutX="185.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="62.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="brnMove2" layoutX="405.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="62.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="brnMove3" layoutX="185.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="62.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="brnMove4" layoutX="405.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="62.0" prefWidth="207.0" text="Button" />
+            <Label fx:id="lblTextFight" layoutX="39.0" layoutY="73.0" prefHeight="100.0" prefWidth="406.0" text="Label" />
          </children>
     </AnchorPane>
   </children>
