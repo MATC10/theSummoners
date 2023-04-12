@@ -106,7 +106,7 @@ public class Fight {
         //EN CONSTRUCCIÓN
         lblHpTrainer.setText(Integer.toString(firstPokemonTeam().getHp()));
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
-        File file = new File(firstPokemonTeam().getImageBack());
+        File file = new File(firstPokemonTeam().getImage());
         Image image = new Image(file.toURI().toString());
         imgTrainerPokemon.setImage(image);
     }
