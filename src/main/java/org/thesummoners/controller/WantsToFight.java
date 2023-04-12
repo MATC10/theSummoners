@@ -57,7 +57,7 @@ public class WantsToFight {
     @FXML
     void toFight(ActionEvent event) throws IOException {
         //CAMBIAR MAINWINDOW POR TOFIGHT CUANDO HAGA LA OTRA VENTANA DE FIGHT
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Fight.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
