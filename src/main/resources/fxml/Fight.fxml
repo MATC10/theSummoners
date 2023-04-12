@@ -90,11 +90,13 @@
             <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="406.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgEnemy" fitHeight="170.0" fitWidth="149.0" layoutX="477.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgTrainerPokemon" fitHeight="170.0" fitWidth="149.0" layoutX="14.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="brnMove1" layoutX="185.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="brnMove2" layoutX="405.0" layoutY="227.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="brnMove3" layoutX="185.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="62.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="brnMove4" layoutX="405.0" layoutY="297.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="62.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove1" layoutX="184.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove4" layoutX="405.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Label fx:id="lblTextFight" layoutX="39.0" layoutY="73.0" prefHeight="100.0" prefWidth="406.0" text="Label" />
+            <Button fx:id="btnMove5" layoutX="184.0" layoutY="309.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="207.0" text="Descanso" />
+            <Button fx:id="btnChange" layoutX="405.0" layoutY="309.0" mnemonicParsing="false" onAction="#onChangePokemonFight" prefHeight="47.0" prefWidth="207.0" text="Cambiar Pokémon" />
          </children>
     </AnchorPane>
   </children>

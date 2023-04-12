@@ -26,6 +26,12 @@ public class Fight {
     private Button btnMove4;
 
     @FXML
+    private Button btnMove5;
+
+    @FXML
+    private Button btnChange;
+
+    @FXML
     private ImageView imgEnemy;
 
     @FXML
@@ -93,6 +99,11 @@ public class Fight {
 
     @FXML
     public void onMove4(ActionEvent event) {
+
+    }
+
+    @FXML
+    public void onMove5(ActionEvent event) {
 
     }
 
