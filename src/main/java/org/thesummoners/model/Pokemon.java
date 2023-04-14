@@ -15,6 +15,7 @@ public class Pokemon {
     private String nickName;
     private String displayName;
     private String image;
+    private String imageBack;
     private int hp;
     private int level;
     private int fertility;
@@ -203,6 +204,14 @@ public class Pokemon {
 
     public void setType1(Type type1) {
         this.type1 = type1;
+    }
+
+    public String getImageBack() {
+        return imageBack;
+    }
+
+    public void setImageBack(String imageBack) {
+        this.imageBack = imageBack;
     }
 
     public Type getType2() {

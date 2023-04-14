@@ -98,6 +98,18 @@ public class Trainer {
         this.backPack = backPack;
     }
 
+    //CREAMOS UN CONTADOR DE LOS POKEMON QUE TENEMOS EN EL pokemonTeam
+    public int numberPokemonInTeam(){
+        int numberPokemonCounter = 0;
+        for(Pokemon p : this.pokemonTeam){
+            if(p != null){
+                numberPokemonCounter++;
+            }
+        }
+        return numberPokemonCounter;
+    }
+
+
     public void dragPokemonIntoBox(int i){
         /*
         - LOS VALORES NULL DE pokemonBox SE COMPLETAN AL AÑADIR NUEVOS PKMN A LA LISTA
@@ -108,18 +120,19 @@ public class Trainer {
          */
         boolean pokemonAdded = false;
         for(int s = 0; s < pokemonBox.size(); s++){
-            if(pokemonBox.get(s) == null){
+            if(pokemonBox.get(s) == null && numberPokemonInTeam() > 1){
                 pokemonBox.add(s, pokemonTeam[i]);
                 pokemonTeam[i] = null;
                 pokemonAdded = true;
                 break;
             }
         }
-        if(!pokemonAdded){
+        if(!pokemonAdded && numberPokemonInTeam() > 1){
             pokemonBox.add(pokemonTeam[i]);
             pokemonTeam[i] = null;
         }
     }
+
 
     public void dragPokemonIntoTeam(int i, int idPokemon){
         //REVISAR SI ES POSIBLE QUITAR EL IDPOKEMON EN EL PARÁMETRO

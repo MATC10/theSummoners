@@ -30,11 +30,11 @@ public class ChoosedPokemon {
     private Stage stage;
 
 
-    //LA URL DE LA IMAGEN ES ASÍ PORQUE EL POKEMON SE LLAMA IGUAL QUE EL ARCHIVO .PNG
+
     @FXML
     public void initialize(){
         lblTittle.setText("¡Buena elección! tu Pokémon es " + Trainer.getTrainer().getPokemonTeam()[0].getName());
-        File file = new File("doc/images/" + Trainer.getTrainer().getPokemonTeam()[0].getName() + ".png");
+        File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
         Image image = new Image(file.toURI().toString());
         imgPokemon.setImage(image);
     }
