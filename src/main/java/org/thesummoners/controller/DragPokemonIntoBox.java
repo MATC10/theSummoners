@@ -43,8 +43,14 @@ public class DragPokemonIntoBox {
 
 
     public void initialize(){
-        //UNA IDEA AQUÍ ES METER LA FOTO DEL POKEMON ADEMÁS DEL MOTE
-        //PARA ELLO USAMOS EL displayName
+        //UNA IDEA AQUÍ ES METER LA FOTO DEL POKEMON (ADEMÁS DEL MOTE)
+        //METEMOS EL MOTE O NOMBRE DEL POKÉMON USANDO EL displayName
+
+        /*! A T E N C I Ó N !:
+        DEBEMOS INTRODUCIR UNA MECÁNICA PARA QUE
+        NO PODAMOS DEJAR POKÉMON EN LA CAJA SI SOLAMENTE TENEMOS UNO
+        EN EL EQUIPO
+        */
         if(getTrainer().getPokemonTeam()[0] != null){
             btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
         }
@@ -76,36 +82,44 @@ public class DragPokemonIntoBox {
         else btn6.setText("No Pokémon");
     }
 
+
     @FXML
     public void pokemonIntoBox1(){
+        //SI EL HUECO ES NULO SALE "No Pokémon", SI HAY POKÉMON SALE SU DisplayName
             getTrainer().dragPokemonIntoBox(0);
-            btn1.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[0] == null) btn1.setText("No Pokémon");
+            else btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
     }
 
     @FXML
     public void pokemonIntoBox2() {
             getTrainer().dragPokemonIntoBox(1);
-            btn2.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[1] == null) btn2.setText("No Pokémon");
+            else btn2.setText(getTrainer().getPokemonTeam()[1].getDisplayName());
     }
     @FXML
     public void pokemonIntoBox3(){
             getTrainer().dragPokemonIntoBox(2);
-            btn3.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[2] == null) btn3.setText("No Pokémon");
+            else btn3.setText(getTrainer().getPokemonTeam()[2].getDisplayName());
     }
     @FXML
     public void pokemonIntoBox4()  {
             getTrainer().dragPokemonIntoBox(3);
-            btn4.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[3] == null) btn4.setText("No Pokémon");
+            else btn4.setText(getTrainer().getPokemonTeam()[3].getDisplayName());
     }
     @FXML
     public void pokemonIntoBox5() {
             getTrainer().dragPokemonIntoBox(4);
-            btn5.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[4] == null) btn5.setText("No Pokémon");
+            else btn5.setText(getTrainer().getPokemonTeam()[4].getDisplayName());
     }
     @FXML
     public void pokemonIntoBox6() {
             getTrainer().dragPokemonIntoBox(5);
-            btn6.setText("No Pokémon");
+            if(getTrainer().getPokemonTeam()[5] == null) btn6.setText("No Pokémon");
+            else btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
     }
     @FXML
     private void toMainWindow(ActionEvent event) throws IOException {

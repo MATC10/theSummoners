@@ -33,7 +33,7 @@ public class ChangePokemonNickName {
 
     @FXML
     public void initialize(){
-        File file = new File("doc/images/" + Trainer.getTrainer().getPokemonTeam()[0].getName() + ".png");
+        File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
         Image image = new Image(file.toURI().toString());
         imgPokemon.setImage(image);
     }
