@@ -1,18 +1,10 @@
 package org.thesummoners.controller;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import org.thesummoners.model.AttackMovement;
+import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.Pokemon;
 import org.thesummoners.model.Type;
-
-import java.util.Arrays;
 
 public class LearningMovement {
     @FXML

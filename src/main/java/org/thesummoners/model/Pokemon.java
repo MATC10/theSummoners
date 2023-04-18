@@ -2,6 +2,8 @@ package org.thesummoners.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.thesummoners.model.movement.AttackMovement;
+import org.thesummoners.model.movement.Movement;
 
 import java.util.*;
 
@@ -51,7 +53,7 @@ public class Pokemon {
         //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         this.learnedMovement[0] = placaje;
-        AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9, Type.NORMAL);
+        AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
         AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
         AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
 
