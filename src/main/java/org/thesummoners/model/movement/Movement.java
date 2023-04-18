@@ -1,11 +1,9 @@
-package org.thesummoners.model;
+package org.thesummoners.model.movement;
 
 public abstract class Movement {
 
     private String name;
-    private int numberOfTurns;
-    private int numberOfTurnsDuration;
-
+    private int stamina;
 
 
     public Movement(String name){
@@ -17,16 +15,17 @@ public abstract class Movement {
         return name;
     }
 
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public int getNumberOfTurns() {
-        return numberOfTurns;
+    public int getStamina() {
+        return stamina;
     }
 
-    public void setNumberOfTurns(int numberOfTurns) {
-        this.numberOfTurns = numberOfTurns;
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 
 /*
