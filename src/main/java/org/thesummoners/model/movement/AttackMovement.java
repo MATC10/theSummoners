@@ -32,6 +32,7 @@ public class AttackMovement extends Movement implements StamineCalculation{
 
     //SI EL ATAQUE ES DEL MISMO TIPO QUE EL POKÉMON, MULTIPLICAMOS EL DAÑO POR 1.5
     public int improveAttack(){
+
         return power *= 1.5;
     }
 

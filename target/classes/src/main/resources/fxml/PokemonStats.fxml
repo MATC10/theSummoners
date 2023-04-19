@@ -33,14 +33,16 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.MainWindow">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.PokemonStats">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -81,14 +83,20 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnTeam" layoutX="90.0" layoutY="104.0" mnemonicParsing="false" text="Mi equipo" />
-            <Button fx:id="btnPCBill" layoutX="92.0" layoutY="151.0" mnemonicParsing="false" onAction="#toDragPokemonIntoBox" text="PC de Bill" />
-            <Button fx:id="btnBattle" layoutX="183.0" layoutY="151.0" mnemonicParsing="false" onAction="#toWantsToFight" text="Combate Pokémon" />
-            <Button fx:id="btnBreeding" layoutX="322.0" layoutY="151.0" mnemonicParsing="false" text="Zona de crianza" />
-            <Button fx:id="btnShop" layoutX="320.0" layoutY="104.0" mnemonicParsing="false" text="Tienda" />
-            <Button fx:id="btnCatch" layoutX="184.0" layoutY="104.0" mnemonicParsing="false" onAction="#onCatchPokemon" text="Capturar Pokémon" />
+            <Button fx:id="btn3" layoutX="340.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats3" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn2" layoutX="188.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats2" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn1" layoutX="32.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats1" prefHeight="90.0" prefWidth="145.0" text="Button" />
+            <Button fx:id="btn6" layoutX="340.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats6" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn5" layoutX="188.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats5" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn4" layoutX="31.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats4" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Label fx:id="lbl1" layoutX="144.0" layoutY="26.0" prefHeight="46.0" prefWidth="257.0" text="Estadísticas de tus Pokémon" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnBack" layoutX="494.0" layoutY="155.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="90.0" prefWidth="94.0" text="Atrás" />
       </children>
     </AnchorPane>
   </children>
