@@ -2,7 +2,7 @@ package org.thesummoners.model.movement;
 
 import org.thesummoners.model.Type;
 
-public class AttackMovement extends Movement implements StamineCalculation{
+public class AttackMovement extends Movement implements StaminaCalculation {
 
     private int power;
     private Type type;

@@ -1,5 +1,7 @@
 package org.thesummoners.model;
 
+import org.thesummoners.model.objeto.Objeto;
+
 import java.util.*;
 
 public class Trainer {

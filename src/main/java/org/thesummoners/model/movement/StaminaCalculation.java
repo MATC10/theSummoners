@@ -1,5 +1,5 @@
 package org.thesummoners.model.movement;
 
-public interface StamineCalculation {
+public interface StaminaCalculation {
     public void staminaCalculation();
 }

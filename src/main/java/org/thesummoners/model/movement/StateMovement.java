@@ -1,11 +1,10 @@
 package org.thesummoners.model.movement;
 
 import org.thesummoners.model.State;
-import org.thesummoners.model.movement.Movement;
 
 import java.util.Random;
 
-public class StateMovement extends Movement implements StamineCalculation{
+public class StateMovement extends Movement implements StaminaCalculation {
     private State stateToApply;
     private int numberOfTurnsDuration;
 
