@@ -190,26 +190,25 @@ public class Trainer {
     }
 
     public boolean checkPokemonTeamFull(){
-        boolean check = false;
         //SI RETORNA TRUE ES PORQUE HAY ESPACIO LIBRE EN EL TEAM
         for(Pokemon p : getPokemonTeam()){
-            if(p == null) check = true;
-            else return check = false;
+            if(p == null) return true;
         }
-        return check;
+        return false;
     }
 
 
     public boolean capture (Pokemon pokemon){
 
-        /*AQUÍ TENEMOS QUE AÑADIR UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
-        AÑADIMOS EL NUEVO POQUEMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
+
+        /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
+        AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
         CAJA DE POKÉMON (PC de Bill).
         EL PARÁMETRO DE ESTE MÉTODO ES EL POKEMON QUE SE VA A CAPTURAR
          */
-
         //EL pokemon.changeDisplayName() ES PARA DARLE EL NOMBRE DE DISPLAY
-        pokemon.changeDisplayName();
+
+
 
         Random random = new Random();
         int capture = random.nextInt(3);

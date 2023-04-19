@@ -41,7 +41,6 @@ public class ChoosePokemon {
     public void toMainWindowPikachu(ActionEvent event) throws IOException {
         //EL MÉTODO changeDisplayName() ES PARA AÑADIR EL VALOR AL ATRIBUTO displayName
         Trainer.getTrainer().getPokemonTeam()[0] = new Pikachu("Pikachu", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -54,7 +53,6 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowBulbasaur(ActionEvent event) throws IOException {
         Trainer.getTrainer().getPokemonTeam()[0] = new Bulbasaur("Bulbasaur", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -66,7 +64,6 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowSquirtle(ActionEvent event) throws IOException {
         Trainer.getTrainer().getPokemonTeam()[0] = new Squirtle("Squirtle", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -78,7 +75,6 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowCharmander(ActionEvent event) throws IOException {
         Trainer.getTrainer().getPokemonTeam()[0] = new Charmander("Charmander", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

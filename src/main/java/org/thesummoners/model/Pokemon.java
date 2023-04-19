@@ -63,6 +63,7 @@ public class Pokemon {
 
         this.movementLevel = movementLevel;
         adaptStatsToLevel(level);
+        changeDisplayName();
     }
 
     public static int getCounterPokemon() {
