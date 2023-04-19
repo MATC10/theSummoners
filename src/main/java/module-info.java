@@ -4,4 +4,5 @@ module theSummoners {
 
     opens org.thesummoners.model;
     opens org.thesummoners.controller;
+    opens org.thesummoners.model.movements;
 }

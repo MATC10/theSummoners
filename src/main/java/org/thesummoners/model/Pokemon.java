@@ -2,6 +2,8 @@ package org.thesummoners.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.thesummoners.model.movements.AttackMovement;
+import org.thesummoners.model.movements.Movement;
 
 import java.util.*;
 
@@ -31,13 +33,11 @@ public class Pokemon {
     private Sex sex;
     private int experience;
 
-    //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
-    //cuando un pokemon suba a X nivel aprender Y movimiento.
+
     private HashMap <Integer, Movement> movementLevel;
 
     private Movement [] learnedMovement;
 
-    //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
 
@@ -48,14 +48,14 @@ public class Pokemon {
         this.learnedMovement = new Movement [4];
         this.idPokemon = counterPokemon;
 
-        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
+
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         this.learnedMovement[0] = placaje;
         AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9, Type.NORMAL);
         AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
         AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
 
-        //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
+
         HashMap <Integer, Movement> movementLevel = new HashMap<Integer, Movement>(){{put(5, pistolaAgua);
             put(10,hidroBomba); put(15, salpicadura);}};
 
