@@ -185,8 +185,47 @@ public class Trainer {
         }
     }
 
-    public void Fight(){
+    public void fight(){
 
+    }
+
+    public boolean checkPokemonTeamFull(){
+        boolean check = false;
+        //SI RETORNA TRUE ES PORQUE HAY ESPACIO LIBRE EN EL TEAM
+        for(Pokemon p : getPokemonTeam()){
+            if(p == null) check = true;
+            else return check = false;
+        }
+        return check;
+    }
+
+
+    public boolean capture (Pokemon pokemon){
+
+        /*AQUÍ TENEMOS QUE AÑADIR UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
+        AÑADIMOS EL NUEVO POQUEMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
+        CAJA DE POKÉMON (PC de Bill).
+        EL PARÁMETRO DE ESTE MÉTODO ES EL POKEMON QUE SE VA A CAPTURAR
+         */
+
+        //EL pokemon.changeDisplayName() ES PARA DARLE EL NOMBRE DE DISPLAY
+        pokemon.changeDisplayName();
+
+        Random random = new Random();
+        int capture = random.nextInt(3);
+        if (capture == 0) {
+            if(checkPokemonTeamFull()) {
+                for(int i = 0; i < getPokemonTeam().length; i++){
+                    if(getPokemonTeam()[i] == null) {
+                        getPokemonTeam()[i] = pokemon;
+                        return true;
+                    }
+                }
+            }
+            else pokemonBox.add(pokemon);
+            return true;
+        }
+        else return false;
     }
 
     @Override
