@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.thesummoners.model.Pokemon;
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.Trainer;
 
 import java.io.File;
@@ -72,7 +72,7 @@ public class Catch {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
         //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE
-        Trainer.getTrainer().capture(venusaur);
+
         if(Trainer.getTrainer().capture(venusaur)){
             lblText.setText("¡Has capturado a Venusaur, enhorabuena!");
         }

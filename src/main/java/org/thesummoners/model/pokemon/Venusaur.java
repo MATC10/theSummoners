@@ -1,6 +1,4 @@
-package org.thesummoners.model.pokedex;
-
-import org.thesummoners.model.Pokemon;
+package org.thesummoners.model.pokemon;
 
 public class Venusaur extends Pokemon {
     public Venusaur (String name, int level) {

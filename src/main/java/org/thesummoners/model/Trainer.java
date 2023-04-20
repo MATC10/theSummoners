@@ -1,6 +1,7 @@
 package org.thesummoners.model;
 
 import org.thesummoners.model.objeto.Objeto;
+import org.thesummoners.model.pokemon.Pokemon;
 
 import java.util.*;
 

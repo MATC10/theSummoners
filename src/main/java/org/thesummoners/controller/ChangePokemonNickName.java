@@ -9,9 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-import org.thesummoners.model.Pokemon;
 import org.thesummoners.model.Trainer;
 
 import java.io.File;

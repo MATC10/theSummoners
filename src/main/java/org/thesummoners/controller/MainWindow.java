@@ -43,7 +43,7 @@ public class MainWindow {
 
     @FXML
     void toDragPokemonIntoBox(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/DragPokemonIntoBox.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/DragPokemonIntoTeam.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
