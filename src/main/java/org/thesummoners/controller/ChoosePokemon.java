@@ -7,22 +7,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.model.Pokemon;
 import org.thesummoners.model.Trainer;
-import org.thesummoners.model.pokedex.Bulbasaur;
-import org.thesummoners.model.pokedex.Charmander;
-import org.thesummoners.model.pokedex.Pikachu;
-import org.thesummoners.model.pokedex.Squirtle;
+import org.thesummoners.model.pokemon.Bulbasaur;
+import org.thesummoners.model.pokemon.Charmander;
+import org.thesummoners.model.pokemon.Pikachu;
+import org.thesummoners.model.pokemon.Squirtle;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class ChoosePokemon {
     @FXML

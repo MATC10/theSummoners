@@ -1,8 +1,8 @@
 package org.thesummoners.model.movement;
 
-import org.thesummoners.model.Type;
+import org.thesummoners.model.pokemon.Type;
 
-public class AttackMovement extends Movement implements StaminaCalculation {
+public class AttackMovement extends Movement implements IStaminaCalculable {
 
     private int power;
     private Type type;

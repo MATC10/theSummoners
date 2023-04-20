@@ -1,6 +1,4 @@
-package org.thesummoners.model.pokedex;
-
-import org.thesummoners.model.Pokemon;
+package org.thesummoners.model.pokemon;
 
 public class Ivysaur extends Pokemon {
     public Ivysaur (String name, int level) {

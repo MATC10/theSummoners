@@ -1,6 +1,4 @@
-package org.thesummoners.model.pokedex;
-
-import org.thesummoners.model.Pokemon;
+package org.thesummoners.model.pokemon;
 
 public class Pikachu extends Pokemon {
     public Pikachu (String name, int level) {

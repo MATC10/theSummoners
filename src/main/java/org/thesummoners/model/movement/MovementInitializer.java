@@ -1,7 +1,7 @@
 package org.thesummoners.model.movement;
 
 import org.thesummoners.model.State;
-import org.thesummoners.model.Type;
+import org.thesummoners.model.pokemon.Type;
 
 import java.util.ArrayList;
 import java.util.List;

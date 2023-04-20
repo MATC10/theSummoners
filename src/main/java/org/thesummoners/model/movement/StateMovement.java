@@ -4,7 +4,7 @@ import org.thesummoners.model.State;
 
 import java.util.Random;
 
-public class StateMovement extends Movement implements StaminaCalculation {
+public class StateMovement extends Movement implements IStaminaCalculable {
     private State stateToApply;
     private int numberOfTurnsDuration;
 

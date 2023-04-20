@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.thesummoners.model.objeto.Objeto;
-import org.thesummoners.model.Pokemon;
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.Trainer;
 
 import java.util.LinkedList;

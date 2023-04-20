@@ -1,7 +1,8 @@
 package org.thesummoners.model;
 
-import org.thesummoners.model.pokedex.Ivysaur;
-import org.thesummoners.model.pokedex.Venusaur;
+import org.thesummoners.model.pokemon.Ivysaur;
+import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.Venusaur;
 
 import java.util.Random;
 

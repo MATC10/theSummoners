@@ -1,7 +1,9 @@
-package org.thesummoners.model;
+package org.thesummoners.model.pokemon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.thesummoners.model.Sex;
+import org.thesummoners.model.State;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
@@ -10,7 +12,7 @@ import java.util.*;
 
 public class Pokemon {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    static List <Pokemon> pokedex = new LinkedList<>();
+    public static List <Pokemon> pokedex = new LinkedList<>();
     static int counterPokemon = 0;
     private int idPokemon;
     private int idPokedex;
@@ -48,6 +50,7 @@ public class Pokemon {
     public Pokemon (String name, int level){
         counterPokemon ++;
         this.name = name;
+        this.level = level;
         this.learnedMovement = new Movement [4];
         this.idPokemon = counterPokemon;
 
@@ -308,12 +311,7 @@ public class Pokemon {
     }
 
 
-    public ObservableList<Pokemon> getPokemon(){
-        ObservableList<Pokemon> pokemons = FXCollections.observableArrayList();
-        Pokemon pikachu = new Pokemon("Pikachu", 1);
-        pokemons.add(pikachu);
-        return pokemons;
-    }
+
 
     public void adaptStatsToLevel(int level){
         //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,
@@ -355,4 +353,8 @@ public class Pokemon {
     }
 
 
+    @Override
+    public String toString() {
+        return displayName + " nivel: " + level;
+    }
 }

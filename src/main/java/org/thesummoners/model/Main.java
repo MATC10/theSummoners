@@ -4,9 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.thesummoners.model.pokedex.Bulbasaur;
-import org.thesummoners.model.pokedex.Ivysaur;
-import org.thesummoners.model.pokedex.Venusaur;
 
 import java.io.IOException;
 import java.util.Objects;
