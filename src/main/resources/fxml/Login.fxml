@@ -7,6 +7,8 @@
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.paint.Color?>
@@ -46,21 +48,21 @@
    <right>
       <AnchorPane prefHeight="420.0" prefWidth="340.0" style="-fx-background-color: FAFAFA;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="160.0" prefHeight="26.0" prefWidth="82.0" text="Username">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="184.0" prefHeight="26.0" prefWidth="82.0" text="Username">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="210.0" prefHeight="26.0" prefWidth="82.0" text="Password">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="223.0" prefHeight="26.0" prefWidth="82.0" text="Password">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="161.0" promptText="Username" />
-            <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="211.0" promptText="Password" />
+            <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="185.0" promptText="Username" />
+            <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="224.0" promptText="Password" />
             <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Login" />
             <Button fx:id="CancelButton" layoutX="52.0" layoutY="346.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancel" />
-            <Label alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="33.0" prefWidth="144.0" text="Secure login">
+            <Label alignment="CENTER" layoutX="74.0" layoutY="103.0" prefHeight="33.0" prefWidth="144.0" text=" login Page">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="18.0" />
                </font>
@@ -68,6 +70,13 @@
                   <InnerShadow />
                </effect>
             </Label>
+            <ImageView fitHeight="76.0" fitWidth="149.0" layoutX="72.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../WDocumentos/Pokemon/1.png.png" />
+               </image>
+            </ImageView>
+            <Line endX="-67.0" endY="-24.0" layoutX="167.0" layoutY="145.0" startX="-167.0" startY="-24.0" />
+            <Line endX="149.0" endY="-36.0" layoutX="149.0" layoutY="159.0" startX="48.0" startY="-36.0" />
          </children></AnchorPane>
    </right>
 </BorderPane>
