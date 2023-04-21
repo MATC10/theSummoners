@@ -40,6 +40,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Pokeball">
@@ -85,17 +86,19 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="imgPokeball" fitHeight="249.0" fitWidth="281.0" layoutX="180.0" layoutY="86.0" onMouseClicked="#toChoosePokemon" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="237.0" layoutY="14.0" prefHeight="20.0" prefWidth="166.0" text="Esto es una Pokéball">
+            <ImageView fx:id="imgPokeball" fitHeight="249.0" fitWidth="281.0" layoutX="169.0" layoutY="63.0" onMouseClicked="#toChoosePokemon" pickOnBounds="true" preserveRatio="true" />
+            <Label alignment="CENTER" layoutX="190.0" layoutY="21.0" prefHeight="21.0" prefWidth="226.0" text="/ Esto es una Pokéball /">
                <font>
-                  <Font name="Arial Bold" size="16.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="220.0" layoutY="41.0" prefHeight="20.0" prefWidth="201.0" text="¿A qué esperas? ¡Cógela!">
+            <Label alignment="CENTER" layoutX="173.0" layoutY="325.0" prefHeight="20.0" prefWidth="274.0" text="¿A qué esperas? ¡Cógela!">
                <font>
-                  <Font name="Arial Bold" size="16.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
+            <Line endX="85.29289245605469" endY="-4.0" layoutX="119.0" layoutY="34.0" opacity="0.5" startX="-119.0" startY="20.0" />
+            <Line endX="153.00006103515625" layoutX="487.0" layoutY="51.0" opacity="0.5" startX="-84.70709228515625" startY="-19.0" />
       </children>
     </AnchorPane>
   </children>

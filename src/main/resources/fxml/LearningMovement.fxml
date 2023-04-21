@@ -40,6 +40,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.LearningMovement">
@@ -85,25 +86,27 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnMove1" layoutX="28.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove1" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
-            <Label layoutX="115.0" layoutY="14.0" prefHeight="46.0" prefWidth="208.0" text="Tu Pokémon quiere aprender">
+            <Button fx:id="btnMove1" layoutX="28.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove1" prefHeight="66.0" prefWidth="174.0" text="Vacío" textFill="#ad41cf" />
+            <Label alignment="CENTER" layoutX="90.0" layoutY="14.0" prefHeight="46.0" prefWidth="236.0" text="Tu Pokémon quiere aprender : ">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label layoutX="205.0" layoutY="97.0" prefHeight="27.0" prefWidth="201.0" text="¿Qué ataque quieres olvidar?">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#setNoMove" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo" />
-            <Button fx:id="btnMove2" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
-            <Button fx:id="btnMove4" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
-            <Button fx:id="btnMove3" layoutX="28.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
-            <Label fx:id="lblNewMove" layoutX="333.0" layoutY="21.0" prefHeight="34.0" prefWidth="223.0" text="Label">
+            <Label alignment="CENTER" layoutX="205.0" layoutY="97.0" prefHeight="27.0" prefWidth="223.0" text="¿Qué ataque quieres olvidar?">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#setNoMove" prefHeight="100.0" prefWidth="189.0" style="-fx-background-color: AD41CF;" text="Continuar sin aprenderlo" />
+            <Button fx:id="btnMove2" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="66.0" prefWidth="174.0" text="Vacío" textFill="#ad41cf" />
+            <Button fx:id="btnMove4" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="66.0" prefWidth="174.0" text="Vacío" textFill="#ad41cf" />
+            <Button fx:id="btnMove3" layoutX="28.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="66.0" prefWidth="174.0" text="Vacío" textFill="#ad41cf" />
+            <Label fx:id="lblNewMove" layoutX="333.0" layoutY="21.0" prefHeight="34.0" prefWidth="223.0" text="Label" textFill="#ad41cf">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Line endX="107.29289245605469" layoutX="104.0" layoutY="111.0" startX="-104.0" />
+            <Line endX="107.29289245605469" layoutX="533.0" layoutY="110.0" startX="-111.5" />
       </children>
     </AnchorPane>
   </children>

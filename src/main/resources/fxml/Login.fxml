@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -17,7 +18,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sample.controller">
    <left>
-      <AnchorPane layoutX="200.0" layoutY="400.0" prefHeight="439.0" prefWidth="213.0" style="-fx-background-color: AD41CF;" BorderPane.alignment="CENTER">
+      <AnchorPane layoutX="200.0" layoutY="400.0" prefHeight="414.0" prefWidth="223.0" style="-fx-background-color: AD41CF;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" layoutX="6.0" layoutY="120.0" prefHeight="26.0" prefWidth="217.0" text="Pokemon" textAlignment="CENTER">
                <font>
@@ -40,28 +41,34 @@
                </effect>
             </Label>
             <Line endX="71.5" layoutX="126.0" layoutY="165.0" startX="-100.0" />
-            <Line endX="-109.0" endY="-289.4141845703125" layoutX="115.0" layoutY="292.0" startX="-109.0" startY="138.0" />
-            <Line endX="-109.0" endY="-289.4141845703125" layoutX="123.0" layoutY="291.0" startX="-109.0" startY="139.0" />
+            <Line endX="-109.0" endY="-292.0" layoutX="115.0" layoutY="293.0" startX="-109.0" startY="121.5" />
+            <Line endX="-109.0" endY="-289.4141845703125" layoutX="123.0" layoutY="291.0" startX="-109.0" startY="123.5" />
          </children>
       </AnchorPane>
    </left>
    <right>
       <AnchorPane prefHeight="420.0" prefWidth="340.0" style="-fx-background-color: FAFAFA;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="184.0" prefHeight="26.0" prefWidth="82.0" text="Username">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="184.0" prefHeight="26.0" prefWidth="82.0" text="Usuario">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="223.0" prefHeight="26.0" prefWidth="82.0" text="Password">
+            <Label alignment="CENTER" layoutX="25.0" layoutY="223.0" prefHeight="26.0" prefWidth="82.0" text="Contraseña">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="185.0" promptText="Username" />
-            <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="224.0" promptText="Password" />
-            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Login" />
-            <Button fx:id="CancelButton" layoutX="52.0" layoutY="346.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancel" />
+            <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="185.0" promptText="Nombre de usuario" />
+            <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="224.0" promptText="Contraseña" />
+            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Login">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
+            <Button fx:id="CancelButton" layoutX="52.0" layoutY="338.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancel">
+               <font>
+                  <Font size="13.0" />
+               </font></Button>
             <Label alignment="CENTER" layoutX="74.0" layoutY="103.0" prefHeight="33.0" prefWidth="144.0" text=" login Page">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="18.0" />
@@ -77,6 +84,7 @@
             </ImageView>
             <Line endX="-67.0" endY="-24.0" layoutX="167.0" layoutY="145.0" startX="-167.0" startY="-24.0" />
             <Line endX="149.0" endY="-36.0" layoutX="149.0" layoutY="159.0" startX="48.0" startY="-36.0" />
+            <Hyperlink layoutX="63.0" layoutY="383.0" text="¿No estás registrado? registrate" />
          </children></AnchorPane>
    </right>
 </BorderPane>
