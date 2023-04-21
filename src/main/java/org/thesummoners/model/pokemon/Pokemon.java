@@ -12,7 +12,8 @@ import java.util.*;
 
 public class Pokemon {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    public static List <Pokemon> pokedex = new LinkedList<>();
+    public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
+
     static int counterPokemon = 0;
     private int idPokemon;
     private int idPokedex;
@@ -108,6 +109,14 @@ public class Pokemon {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public static ObservableList<Pokemon> getPokedex() {
+        return pokedex;
+    }
+
+    public static void setPokedex(ObservableList<Pokemon> pokedex) {
+        Pokemon.pokedex = pokedex;
     }
 
     public String getNickName() {
