@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="75facc29-d2b9-4a53-b620-6377e5e90c4c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/bd/thesummonersER.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/dia/theSummoners.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Bulbasaur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Charmander.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Ivysaur.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Pikachu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Pokeball.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Profesor_Oak.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/Squirtle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/calvo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/cazaBichos.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/cientifico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/entreGuay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/malabarista.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/marinero.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/pescador.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/pokecolector.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/pokemaniaco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__001__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__002__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__003__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__004__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__005__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__006__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__007__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__008__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__009__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__010__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__011__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__012__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__013__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__014__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__015__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__016__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__017__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__018__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__019__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__020__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__021__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__022__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__023__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__024__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__025__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__026__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__056__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__057__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__063__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__064__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__065__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__066__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__067__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__068__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__113__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__114__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__124__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__129__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__130__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__131__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__142__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__143__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__144__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__145__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__146__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__147__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__148__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__149__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__150__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/spritesback/3a-b__151__xy.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/superNerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/images/venusaur.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2OY4GSPSGBd20terH1GR4NDXO9z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/BadrLahrarti/OneDrive - Cesur-GCoremsa/Documentos/GitHub/theSummoners",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.model.Main" />
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.model.movements.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75facc29-d2b9-4a53-b620-6377e5e90c4c" name="Changes" comment="" />
+      <created>1681724086363</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681724086363</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

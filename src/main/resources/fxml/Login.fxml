@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sample.controller">
    <left>
-      <AnchorPane layoutX="200.0" layoutY="400.0" prefHeight="420.0" prefWidth="216.0" style="-fx-background-color: FFE333;" BorderPane.alignment="CENTER">
+      <AnchorPane layoutX="200.0" layoutY="400.0" prefHeight="439.0" prefWidth="213.0" style="-fx-background-color: AD41CF;" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" layoutX="6.0" layoutY="120.0" prefHeight="26.0" prefWidth="217.0" text="Pokemon" textAlignment="CENTER">
                <font>
@@ -38,6 +38,8 @@
                </effect>
             </Label>
             <Line endX="71.5" layoutX="126.0" layoutY="165.0" startX="-100.0" />
+            <Line endX="-109.0" endY="-289.4141845703125" layoutX="115.0" layoutY="292.0" startX="-109.0" startY="138.0" />
+            <Line endX="-109.0" endY="-289.4141845703125" layoutX="123.0" layoutY="291.0" startX="-109.0" startY="139.0" />
          </children>
       </AnchorPane>
    </left>
@@ -56,8 +58,8 @@
             </Label>
             <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="161.0" promptText="Username" />
             <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="211.0" promptText="Password" />
-            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: E1DA3B;" text="Login" />
-            <Button fx:id="CancelButton" layoutX="52.0" layoutY="346.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: E1DA3B;" text="Cancel" />
+            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Login" />
+            <Button fx:id="CancelButton" layoutX="52.0" layoutY="346.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancel" />
             <Label alignment="CENTER" layoutX="85.0" layoutY="57.0" prefHeight="33.0" prefWidth="144.0" text="Secure login">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="18.0" />
