@@ -1,5 +1,7 @@
 package org.thesummoners.model;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.pokemon.Pokemon;
 
@@ -11,37 +13,16 @@ public class Trainer {
     private String password;
     private Pokemon[] pokemonTeam;
     private List<Pokemon> pokemonBox;
+    public static ObservableList<Pokemon> pokemonPcBill = FXCollections.observableArrayList();
+
+    public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
     private int pokedollar;
-    private List<Objeto> backPack;
-
     public Trainer() {
+
         this.pokedollar = 100;
-
-
-        //PARA HACER PRUEBAS VAMOS A METERLE A INICIALIZAR DISTINTOS ATRIBUTOS EN EL CONSTRUCTOR
 
         Pokemon [] pokemonTeam = new Pokemon[6];
         this.pokemonTeam = pokemonTeam;
-
-        List<Pokemon> pokemonBox = new LinkedList<>();
-        this.pokemonBox = pokemonBox;
-        List<Objeto> backPack = new LinkedList<>();
-        this.backPack = backPack;
-
-        /*
-        Pokemon pokemon1 = new Pokemon("Bulbasaur");
-        Pokemon pokemon2 = new Pokemon("Pikachu");
-        Pokemon pokemon3 = new Pokemon("Blastoise");
-        Pokemon pokemon4 = new Pokemon("Venusaur");
-        Pokemon pokemon5 = new Pokemon("Voltorb");
-        Pokemon pokemon6 = new Pokemon("Mewtwo");
-        this.pokemonTeam[0] = pokemon1;
-        this.pokemonTeam[1] = pokemon2;
-        this.pokemonTeam[2] = pokemon3;
-        this.pokemonTeam[3] = pokemon4;
-        this.pokemonTeam[4] = pokemon5;
-        this.pokemonTeam[5] = pokemon6;
-        */
     }
 
     public static Trainer getTrainer() {
@@ -93,12 +74,20 @@ public class Trainer {
         this.password = password;
     }
 
-    public List<Objeto> getBackPack() {
+    public static ObservableList<Pokemon> getPokemonPcBill() {
+        return pokemonPcBill;
+    }
+
+    public static void setPokemonPcBill(ObservableList<Pokemon> pokemonPcBill) {
+        Trainer.pokemonPcBill = pokemonPcBill;
+    }
+
+    public static ObservableList<Objeto> getBackPack() {
         return backPack;
     }
 
-    public void setBackPack(List<Objeto> backPack) {
-        this.backPack = backPack;
+    public static void setBackPack(ObservableList<Objeto> backPack) {
+        Trainer.backPack = backPack;
     }
 
     //CREAMOS UN CONTADOR DE LOS POKEMON QUE TENEMOS EN EL pokemonTeam
@@ -229,6 +218,25 @@ public class Trainer {
         }
         else return false;
     }
+
+    public ObservableList <Pokemon> pokemonTeamArrayToList(ObservableList <Pokemon> listTeamIntermediary){
+        //EN ESTE MÉTODO PASAMOS LOS POKEMON DEL ARRAY pokemonTeam A UNA LISTA
+        listTeamIntermediary.clear();
+        for(int i = 0; i < Trainer.getTrainer().numberPokemonInTeam(); i++){
+            listTeamIntermediary.add(Trainer.getTrainer().getPokemonTeam()[i]);
+        }
+        return listTeamIntermediary;
+    }
+
+    public void pokemonListToPokemonTeam (ObservableList <Pokemon> listTeamIntermediary){
+        //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
+        // A LA ARRAY pokemonTeam
+        Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
+            Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
+        }
+    }
+
 
     @Override
     public boolean equals(Object o) {
