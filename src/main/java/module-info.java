@@ -7,4 +7,5 @@ module theSummoners {
     opens org.thesummoners.model.movement;
     opens org.thesummoners.model.objeto;
     opens org.thesummoners.model.pokemon;
+    opens org.thesummoners.model.trainer;
 }

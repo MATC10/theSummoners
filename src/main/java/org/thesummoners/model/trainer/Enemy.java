@@ -1,8 +1,7 @@
-package org.thesummoners.model;
+package org.thesummoners.model.trainer;
 
-import org.thesummoners.model.pokemon.Ivysaur;
+
 import org.thesummoners.model.pokemon.Pokemon;
-import org.thesummoners.model.pokemon.Venusaur;
 
 import java.util.Random;
 
@@ -72,8 +71,8 @@ public class Enemy {
         dragPokemonIntoTeam() DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
          */
         Pokemon.pokedex.add(new Pokemon("Bulbasaur", 1));
-        Pokemon.pokedex.add(new Ivysaur("Ivysaur", 1));
-        Pokemon.pokedex.add(new Venusaur("Venusaur", 1));
+        Pokemon.pokedex.add(new Pokemon("Ivysaur", 1));
+        Pokemon.pokedex.add(new Pokemon("Venusaur", 1));
 
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER

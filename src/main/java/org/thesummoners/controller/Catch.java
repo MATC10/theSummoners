@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
-import org.thesummoners.model.Trainer;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,6 +54,7 @@ public class Catch {
         File file2 = new File("doc/images/venusaur.png");
         Image image2 = new Image(file2.toURI().toString());
         imgPokemon.setImage(image2);
+
 
     }
 
