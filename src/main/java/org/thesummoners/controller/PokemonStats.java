@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-import static org.thesummoners.model.Trainer.getTrainer;
+import static org.thesummoners.model.trainer.Trainer.getTrainer;
 
 public class PokemonStats {
 

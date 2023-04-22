@@ -10,7 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.model.Trainer;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
 import java.io.IOException;

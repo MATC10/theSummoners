@@ -10,17 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.DataFormat;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.TransferMode;
 import javafx.stage.Stage;
-import org.thesummoners.model.Trainer;
-import org.thesummoners.model.pokemon.Bulbasaur;
-import org.thesummoners.model.pokemon.Pikachu;
+import org.thesummoners.model.trainer.Trainer;
 import org.thesummoners.model.pokemon.Pokemon;
-import org.thesummoners.model.pokemon.PokemonInitialize;
 
 import java.io.IOException;
 import java.util.Objects;

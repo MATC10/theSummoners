@@ -1,4 +1,4 @@
-package org.thesummoners.model;
+package org.thesummoners.model.pokemon;
 
 public enum State {
     PARALYSED, BURNED, POISONED, ASLEEP, FROZEN, SLEEPY, DEBILITATED

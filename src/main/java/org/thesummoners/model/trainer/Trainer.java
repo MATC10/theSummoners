@@ -1,4 +1,4 @@
-package org.thesummoners.model;
+package org.thesummoners.model.trainer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
