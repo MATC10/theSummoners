@@ -61,15 +61,15 @@
             </Label>
             <TextField fx:id="usernameTextField" layoutX="107.0" layoutY="185.0" promptText="Nombre de usuario" />
             <PasswordField fx:id="passwordField" layoutX="107.0" layoutY="224.0" promptText="Contraseña" />
-            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Login">
+            <Button fx:id="loginButton" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Conecte">
                <font>
                   <Font size="13.0" />
                </font></Button>
-            <Button fx:id="CancelButton" layoutX="52.0" layoutY="338.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancel">
+            <Button fx:id="CancelButton" layoutX="52.0" layoutY="338.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="193.0" style="-fx-background-color: AD41CF;" text="Cancelar">
                <font>
                   <Font size="13.0" />
                </font></Button>
-            <Label alignment="CENTER" layoutX="74.0" layoutY="103.0" prefHeight="33.0" prefWidth="144.0" text=" login Page">
+            <Label alignment="CENTER" layoutX="63.0" layoutY="104.0" prefHeight="33.0" prefWidth="167.0" text="Página de conexión">
                <font>
                   <Font name="Apple Braille Outline 6 Dot" size="18.0" />
                </font>
@@ -82,8 +82,8 @@
                   <Image url="@../../../../../../WDocumentos/Pokemon/1.png.png" />
                </image>
             </ImageView>
-            <Line endX="-67.0" endY="-24.0" layoutX="167.0" layoutY="145.0" startX="-167.0" startY="-24.0" />
-            <Line endX="149.0" endY="-36.0" layoutX="149.0" layoutY="159.0" startX="48.0" startY="-36.0" />
+            <Line endX="-104.0" endY="-24.5" layoutX="167.0" layoutY="145.0" startX="-167.0" startY="-24.0" />
+            <Line endX="149.0" endY="-36.0" layoutX="149.0" layoutY="159.0" startX="81.5" startY="-36.0" />
             <Hyperlink layoutX="63.0" layoutY="383.0" text="¿No estás registrado? registrate" />
          </children></AnchorPane>
    </right>
