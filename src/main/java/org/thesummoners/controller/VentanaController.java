@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.thesummoners.model.Pokemon;
 
 public class VentanaController {
     @FXML
@@ -21,13 +20,15 @@ public class VentanaController {
     private Label lblNivel;
 
     //ESTO NO SE HACE AQUÍ
-    private final Pokemon pokemon = new Pokemon();
+
+
+    /*
     @FXML
     public void setPokemonProperties(){
         pokemon.setNombre(txtNombre.getText());
         txtNivel.setText(pokemon.getNombre());
     }
-
+*/
     @FXML
     public void setPokemonNivel(ActionEvent actionEvent) {
     }
