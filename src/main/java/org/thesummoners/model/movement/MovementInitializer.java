@@ -20,16 +20,16 @@ public class MovementInitializer {
         AttackMovement chuzos = new AttackMovement("Chuzos", 85, Type.ICE);
         AttackMovement fuerzaBruta = new AttackMovement("Fuerza bruta", 120, Type.FIGHTING);
         AttackMovement lanzarrocas = new AttackMovement("Lanzarrocas", 50, Type.ROCK);
-        movementHashMap.put("Ataque",trueno);
-        movementHashMap.put("Ataque",rayoSolar);
-        movementHashMap.put("Ataque",hidrobomba);
-        movementHashMap.put("Ataque",lanzallamas);
-        movementHashMap.put("Ataque",aguijonLetal);
-        movementHashMap.put("Ataque",colaDragon);
-        movementHashMap.put("Ataque",impresionar);
-        movementHashMap.put("Ataque",chuzos);
-        movementHashMap.put("Ataque",fuerzaBruta);
-        movementHashMap.put("Ataque",lanzarrocas);
+        movementHashMap.put("Trueno",trueno);
+        movementHashMap.put("Rayo Solar",rayoSolar);
+        movementHashMap.put("Hidrobomba",hidrobomba);
+        movementHashMap.put("Lanzallamas",lanzallamas);
+        movementHashMap.put("Aguijón Letal",aguijonLetal);
+        movementHashMap.put("Cola Dragón",colaDragon);
+        movementHashMap.put("Impresionar",impresionar);
+        movementHashMap.put("Chuzos",chuzos);
+        movementHashMap.put("Fuerza bruta",fuerzaBruta);
+        movementHashMap.put("Lanzarrocas",lanzarrocas);
 
 
         ImproveMovement colaFerrea = new ImproveMovement("Cola Férrea", 0, 40,0,0);
@@ -42,16 +42,16 @@ public class MovementInitializer {
         ImproveMovement motivacion = new ImproveMovement("Motivación", 40, 40,0, 40);
         ImproveMovement refuerzo = new ImproveMovement("Refuerzo", 0, 0,0,0);
         ImproveMovement nieblaAromatica = new ImproveMovement("Niebla aromática", 40, 0,0, 0);
-        movementHashMap.put("Mejora",colaFerrea);
-        movementHashMap.put("Mejora",danzaDragon);
-        movementHashMap.put("Mejora",amnesia);
-        movementHashMap.put("Mejora",danzaEspada);
-        movementHashMap.put("Mejora",proteccion);
-        movementHashMap.put("Mejora",barrera);
-        movementHashMap.put("Mejora",acupresion);
-        movementHashMap.put("Mejora",motivacion);
-        movementHashMap.put("Mejora",refuerzo);
-        movementHashMap.put("Mejora",nieblaAromatica);
+        movementHashMap.put("Cola Férrea",colaFerrea);
+        movementHashMap.put("Danza dragón",danzaDragon);
+        movementHashMap.put("Barrera",amnesia);
+        movementHashMap.put("Amnesia",danzaEspada);
+        movementHashMap.put("Danza espada",proteccion);
+        movementHashMap.put("Protección",barrera);
+        movementHashMap.put("Acupresión",acupresion);
+        movementHashMap.put("Motivación",motivacion);
+        movementHashMap.put("Refuerzo",refuerzo);
+        movementHashMap.put("Niebla aromática",nieblaAromatica);
 
         StateMovement hipnosis = new StateMovement("Hipnosis", State.ASLEEP);
         StateMovement rayoConfuso = new StateMovement("Rayo Confuso", State.PARALYSED);
@@ -63,16 +63,16 @@ public class MovementInitializer {
         StateMovement polucion = new StateMovement("Polución", State.BURNED);
         StateMovement infierno = new StateMovement("Infierno", State.BURNED);
         StateMovement ventisca = new StateMovement("Ventisca", State.FROZEN);
-        movementHashMap.put("Estado",hipnosis);
-        movementHashMap.put("Estado",rayoConfuso);
-        movementHashMap.put("Estado",toxico);
-        movementHashMap.put("Estado",ascuas);
-        movementHashMap.put("Estado",hiloVenenoso);
-        movementHashMap.put("Estado",rayoHielo);
-        movementHashMap.put("Estado",cantoMortal);
-        movementHashMap.put("Estado",polucion);
-        movementHashMap.put("Estado",infierno);
-        movementHashMap.put("Estado",ventisca);
+        movementHashMap.put("Hipnosis",hipnosis);
+        movementHashMap.put("Rayo Confuso",rayoConfuso);
+        movementHashMap.put("Tóxico",toxico);
+        movementHashMap.put("Ascuas",ascuas);
+        movementHashMap.put("Hilo venenoso",hiloVenenoso);
+        movementHashMap.put("Rayo Hielo",rayoHielo);
+        movementHashMap.put("Canto mortal",cantoMortal);
+        movementHashMap.put("Polución",polucion);
+        movementHashMap.put("Infierno",infierno);
+        movementHashMap.put("Ventisca",ventisca);
 
 
         return movementHashMap;
