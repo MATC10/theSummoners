@@ -1,6 +1,7 @@
 package org.thesummoners.model.movement;
 
-import org.thesummoners.model.State;
+import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
 
 import java.util.ArrayList;
@@ -8,8 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MovementInitializer {
-    public static HashMap<String , Movement> movementHashMap = new HashMap<>();
-    public static HashMap <String,Movement> movementsIntoList() {
+    public static HashMap<Integer, Movement> movementsIntoList() {
         AttackMovement trueno = new AttackMovement("Trueno", 110, Type.ELECTRIC);
         AttackMovement rayoSolar = new AttackMovement("Rayo Solar", 120, Type.PLANT);
         AttackMovement hidrobomba = new AttackMovement("Hidrobomba", 110, Type.WATER);
@@ -20,16 +20,16 @@ public class MovementInitializer {
         AttackMovement chuzos = new AttackMovement("Chuzos", 85, Type.ICE);
         AttackMovement fuerzaBruta = new AttackMovement("Fuerza bruta", 120, Type.FIGHTING);
         AttackMovement lanzarrocas = new AttackMovement("Lanzarrocas", 50, Type.ROCK);
-        movementHashMap.put("Trueno",trueno);
-        movementHashMap.put("Rayo Solar",rayoSolar);
-        movementHashMap.put("Hidrobomba",hidrobomba);
-        movementHashMap.put("Lanzallamas",lanzallamas);
-        movementHashMap.put("Aguijón Letal",aguijonLetal);
-        movementHashMap.put("Cola Dragón",colaDragon);
-        movementHashMap.put("Impresionar",impresionar);
-        movementHashMap.put("Chuzos",chuzos);
-        movementHashMap.put("Fuerza bruta",fuerzaBruta);
-        movementHashMap.put("Lanzarrocas",lanzarrocas);
+        Pokemon.movementLevel.put(4,trueno);
+        Pokemon.movementLevel.put(46,rayoSolar);
+        Pokemon.movementLevel.put(82,hidrobomba);
+        Pokemon.movementLevel.put(61,lanzallamas);
+        Pokemon.movementLevel.put(16,aguijonLetal);
+        Pokemon.movementLevel.put(58,colaDragon);
+        Pokemon.movementLevel.put(22,impresionar);
+        Pokemon.movementLevel.put(76,chuzos);
+        Pokemon.movementLevel.put(37,fuerzaBruta);
+        Pokemon.movementLevel.put(91,lanzarrocas);
 
 
         ImproveMovement colaFerrea = new ImproveMovement("Cola Férrea", 0, 40,0,0);
@@ -42,16 +42,17 @@ public class MovementInitializer {
         ImproveMovement motivacion = new ImproveMovement("Motivación", 40, 40,0, 40);
         ImproveMovement refuerzo = new ImproveMovement("Refuerzo", 0, 0,0,0);
         ImproveMovement nieblaAromatica = new ImproveMovement("Niebla aromática", 40, 0,0, 0);
-        movementHashMap.put("Cola Férrea",colaFerrea);
-        movementHashMap.put("Danza dragón",danzaDragon);
-        movementHashMap.put("Barrera",amnesia);
-        movementHashMap.put("Amnesia",danzaEspada);
-        movementHashMap.put("Danza espada",proteccion);
-        movementHashMap.put("Protección",barrera);
-        movementHashMap.put("Acupresión",acupresion);
-        movementHashMap.put("Motivación",motivacion);
-        movementHashMap.put("Refuerzo",refuerzo);
-        movementHashMap.put("Niebla aromática",nieblaAromatica);
+        Pokemon.movementLevel.put(64,colaFerrea);
+        Pokemon.movementLevel.put(28,danzaDragon);
+        Pokemon.movementLevel.put(40,amnesia);
+        Pokemon.movementLevel.put(88,danzaEspada);
+        Pokemon.movementLevel.put(7,proteccion);
+        Pokemon.movementLevel.put(49,barrera);
+        Pokemon.movementLevel.put(67,acupresion);
+        Pokemon.movementLevel.put(55,motivacion);
+        Pokemon.movementLevel.put(19,refuerzo);
+        Pokemon.movementLevel.put(13,nieblaAromatica);
+
 
         StateMovement hipnosis = new StateMovement("Hipnosis", State.ASLEEP);
         StateMovement rayoConfuso = new StateMovement("Rayo Confuso", State.PARALYSED);
@@ -63,19 +64,19 @@ public class MovementInitializer {
         StateMovement polucion = new StateMovement("Polución", State.BURNED);
         StateMovement infierno = new StateMovement("Infierno", State.BURNED);
         StateMovement ventisca = new StateMovement("Ventisca", State.FROZEN);
-        movementHashMap.put("Hipnosis",hipnosis);
-        movementHashMap.put("Rayo Confuso",rayoConfuso);
-        movementHashMap.put("Tóxico",toxico);
-        movementHashMap.put("Ascuas",ascuas);
-        movementHashMap.put("Hilo venenoso",hiloVenenoso);
-        movementHashMap.put("Rayo Hielo",rayoHielo);
-        movementHashMap.put("Canto mortal",cantoMortal);
-        movementHashMap.put("Polución",polucion);
-        movementHashMap.put("Infierno",infierno);
-        movementHashMap.put("Ventisca",ventisca);
+        Pokemon.movementLevel.put(34,hipnosis);
+        Pokemon.movementLevel.put(52,rayoConfuso);
+        Pokemon.movementLevel.put(70,toxico);
+        Pokemon.movementLevel.put(73,ascuas);
+        Pokemon.movementLevel.put(25,hiloVenenoso);
+        Pokemon.movementLevel.put(79,rayoHielo);
+        Pokemon.movementLevel.put(10,cantoMortal);
+        Pokemon.movementLevel.put(85,polucion);
+        Pokemon.movementLevel.put(43,infierno);
+        Pokemon.movementLevel.put(31,ventisca);
 
 
-        return movementHashMap;
+        return Pokemon.movementLevel;
     }
 
 }
