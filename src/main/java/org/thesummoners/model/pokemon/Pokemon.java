@@ -37,7 +37,7 @@ public class Pokemon {
 
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
-    private HashMap <Integer, Movement> movementLevel;
+    public static HashMap <Integer, Movement> movementLevel;
 
     private Movement [] learnedMovement;
 
