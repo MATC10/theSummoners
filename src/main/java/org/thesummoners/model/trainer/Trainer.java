@@ -2,7 +2,11 @@ package org.thesummoners.model.trainer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TableView;
 import org.thesummoners.model.objeto.Objeto;
+import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
 
 import java.util.*;
@@ -18,8 +22,8 @@ public class Trainer {
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
     private int pokedollar;
     public Trainer() {
-
-        this.pokedollar = 100;
+        //POKEDOLLARS DE PRUEBA
+        this.pokedollar = 10000;
 
         Pokemon [] pokemonTeam = new Pokemon[6];
         this.pokemonTeam = pokemonTeam;
@@ -237,6 +241,33 @@ public class Trainer {
         }
     }
 
+
+
+
+
+
+
+    public boolean ObjetoShop(Button btnBuyObjeto, TableView tvObjeto, TableView tvBackPack){
+        //TODO AÑADIR UNA BARRA DESPLAZADORA O ALGO PARA QUE NO SE MUEVA LA LISTA DE OBJETOS
+        //TODO HACER QUE NO SE PUEDA COMPRAR MÁS CUANDO NO TENGAS DINERO
+
+        ObjetoInitializer.objetoList();
+
+        if(this.getPokedollar() >= 1000){
+
+            btnBuyObjeto.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 1) {
+                    Objeto selectedObjeto = (Objeto) tvObjeto.getSelectionModel().getSelectedItem();
+                    // AGREGA EL OBJETO SELECCIONADO A LA LISTA DE BACKPACK
+                    Trainer.backPack.add(selectedObjeto);
+                    // ACTUALIZA LA VISTA DE LA TABLEVIEW
+                    tvBackPack.setItems(Trainer.getBackPack());
+                }
+        });
+        return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean equals(Object o) {
