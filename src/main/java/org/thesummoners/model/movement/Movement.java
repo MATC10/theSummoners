@@ -6,7 +6,8 @@ public abstract class Movement {
     private int stamina;
 
 
-    public Movement(String name){
+    public Movement(String name,int stamina){
+        this.stamina = stamina;
         this.name = name;
     }
 

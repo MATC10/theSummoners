@@ -1,6 +1,9 @@
 package org.thesummoners.model.objeto;
 
-public abstract class Objeto {
+import javafx.collections.ObservableList;
+
+public class Objeto {
+    public static ObservableList<Objeto> objetoList;
     /*
     TIPOS DE OBJETOS:
     1: PESO

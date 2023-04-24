@@ -40,6 +40,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.ChoosePokemon">
@@ -85,15 +86,29 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnBulbasaur" layoutX="329.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowBulbasaur" prefHeight="138.0" prefWidth="233.0" text="Bulbasaur" />
-            <Button fx:id="btnCharmander" layoutX="328.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowCharmander" prefHeight="138.0" prefWidth="234.0" text="Charmander" />
-            <Button fx:id="btnPikachu" layoutX="77.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowPikachu" prefHeight="138.0" prefWidth="233.0" text="Pikachu" />
-            <Button fx:id="btnSquirtle" layoutX="76.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowSquirtle" prefHeight="138.0" prefWidth="234.0" text="Squirtle" />
-            <Label layoutX="100.0" layoutY="21.0" prefHeight="27.0" prefWidth="439.0" text="Elige qué Pokémon quieres para iniciar tu aventura">
+            <Button fx:id="btnBulbasaur" layoutX="329.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowBulbasaur" prefHeight="138.0" prefWidth="233.0" style="-fx-background-color: AD41CF;" text="Bulbasaur">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="btnCharmander" layoutX="328.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowCharmander" prefHeight="138.0" prefWidth="234.0" style="-fx-background-color: AD41CF;" text="Charmander">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="btnPikachu" layoutX="77.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowPikachu" prefHeight="138.0" prefWidth="233.0" style="-fx-background-color: AD41CF;" text="Pikachu">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="btnSquirtle" layoutX="76.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowSquirtle" prefHeight="138.0" prefWidth="234.0" style="-fx-background-color: AD41CF;" text="Squirtle">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Label alignment="CENTER" layoutX="85.0" layoutY="23.0" prefHeight="25.0" prefWidth="472.0" text="/  Elige qué Pokémon quieres para iniciar tu aventura  /">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+            <Line endX="15.5" layoutX="77.0" layoutY="35.0" startX="-77.0" />
+            <Line endX="79.0" layoutX="562.0" layoutY="36.0" startX="-11.5" />
       </children>
     </AnchorPane>
   </children>

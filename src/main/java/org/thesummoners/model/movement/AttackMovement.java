@@ -7,12 +7,17 @@ public class AttackMovement extends Movement implements StaminaCalculation {
     private int power;
     private Type type;
 
-    public AttackMovement(String name, int power, Type type) {
-        super(name);
+    public AttackMovement(String name, int power, Type type,int stamaine) {
+        super(name,stamaine);
         this.power = power;
         this.type= type;
         staminaCalculation();
     }
+
+    public AttackMovement(String placaje, int power, org.thesummoners.model.pokemon.Type normal,String name,int stamina) {
+        super(name,stamina);
+    }
+
 
     public int getPower() {
         return power;

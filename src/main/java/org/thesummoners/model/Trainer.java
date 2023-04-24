@@ -185,8 +185,12 @@ public class Trainer {
         }
     }
 
-    public void Fight(){
+    public void fight(){
 
+    }
+
+    public boolean capture(Pokemon p) {
+        return true;
     }
 
     @Override
