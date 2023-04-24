@@ -34,6 +34,9 @@ public class Pokemon {
     private State state;
     private Sex sex;
     private int experience;
+    private Objeto objetoEquipado;
+    private Objeto equiparObjeto;
+    private Object desequiparObjeto;
 
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
@@ -43,7 +46,6 @@ public class Pokemon {
 
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
-
 
 
     public Pokemon (String name, int level){
@@ -316,9 +318,16 @@ public class Pokemon {
     public void train(){
         //PENDIENDE DE COMPLETAR
     }
+    public void equiparObjeto(Objeto objeto){
+        this.objetoEquipado = objeto;
+    }
+    public void desequiparObjeto(){
+        this.desequiparObjeto = null;
+    }
 
-
-
+    public Objeto getObjetoEquipado(Objeto objeto) {
+        return objetoEquipado;
+    }
 
     public void adaptStatsToLevel(int level){
         //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,

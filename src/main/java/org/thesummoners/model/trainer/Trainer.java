@@ -295,4 +295,11 @@ public class Trainer {
         result = 31 * result + Arrays.hashCode(pokemonTeam);
         return result;
     }
+    public void manageObject(Pokemon pokemon, Objeto objeto){
+        if (pokemon.getObjetoEquipado(objeto) == null){
+            pokemon.getObjetoEquipado(objeto);
+        }
+        else {pokemon.desequiparObjeto();}
+    }
+
 }
