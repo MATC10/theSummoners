@@ -52,6 +52,7 @@ public class Pokemon {
         this.level = level;
         this.learnedMovement = new Movement [4];
         this.idPokemon = counterPokemon;
+        this.fertility = 5;
 
         //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
