@@ -6,22 +6,15 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.model.Trainer;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 
 public class MainWindow {
     @FXML
-    private Button btcCatch;
+    private Button btnCatch;
 
     @FXML
     private Button btnBattle;
@@ -43,21 +36,61 @@ public class MainWindow {
 
     @FXML
     void toDragPokemonIntoBox(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/DragPokemonIntoBox.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/DragPokemonIntoTeam.fxml")));
         scene = new Scene(root, 600, 400);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("TheSummoners");
-        stage.setScene(scene);
-        stage.show();
-    }
-    @FXML
-    void toWantsToFight(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/WantsToFight.fxml")));
-        scene = new Scene(root, 600, 400);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
     }
 
+    @FXML
+    void toWantsToFight(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/WantsToFight.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void onCatchPokemon(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Catch.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void onPokemonStats(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void toBreedPokemon(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonBreeding.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void onMainWindow(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Shop.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

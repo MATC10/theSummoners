@@ -1,18 +1,10 @@
 package org.thesummoners.model.objeto;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Objeto {
-    public static ObservableList<Objeto> objetoList;
-    /*
-    TIPOS DE OBJETOS:
-    1: PESO
-    2: PLUMA
-    3: CHALECO
-    4: BASTON
-    5: PILAS
-     */
-
+    public static ObservableList<Objeto> objetoList = FXCollections.observableArrayList();
     private static int counter = 0;
     private int idObjeto;
     private String name;
@@ -25,9 +17,9 @@ public class Objeto {
 
     public Objeto(String name) {
         this.name = name;
-        this.counter++;
+        ++counter;
         this.idObjeto = counter;
-        selectObjeto(name);
+        this.selectObjeto(name);
     }
 
     public static int getCounter() {
@@ -39,7 +31,7 @@ public class Objeto {
     }
 
     public int getIdObjeto() {
-        return idObjeto;
+        return this.idObjeto;
     }
 
     public void setIdObjeto(int idObjeto) {
@@ -47,65 +39,59 @@ public class Objeto {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-
     public void pesa() {
-        //Aumenta el ataque y la defensa un 20%, disminuye la velocidad
-        //un 20%
-        this.attack = 1.20f;
-        this.defense = 1.20f;
-        this.speed *= 0.80f;
+        this.attack = 1.2F;
+        this.defense = 1.2F;
+        this.speed *= 0.8F;
     }
 
     public void pluma() {
-        //Aumenta la velocidad un 30%, disminuye la defensa y defensa
-        //especial un 20%
-        this.speed = 1.30f;
-        this.defense = 0.80f;
-        this.specialDefense = 0.80f;
+        this.speed = 1.3F;
+        this.defense = 0.8F;
+        this.specialDefense = 0.8F;
     }
 
     public void chaleco() {
-        //Aumenta la defensa y la defensa especial un 20%,
-        //disminuye la velocidad y el ataque un 15%
-        this.defense = 1.20f;
-        this.specialDefense = 1.20f;
-        this.speed = 0.85f;
-        this.attack = 0.85f;
+        this.defense = 1.2F;
+        this.specialDefense = 1.2F;
+        this.speed = 0.85F;
+        this.attack = 0.85F;
     }
 
     public void baston() {
-        //Aumenta la estamina un 20%, disminuye la velocidad 15%
-        this.stamina = 1.20f;
-        this.speed = 0.85f;
+        this.stamina = 1.2F;
+        this.speed = 0.85F;
     }
 
     public void pilas() {
-        //Aumenta la recuperación de estamina 50%, disminuye la
-        //defensa especial un 30%
-        this.stamina = 1.50f;
-        this.specialDefense = 0.70f;
+        this.stamina = 1.5F;
+        this.specialDefense = 0.7F;
     }
-
 
     public void selectObjeto(String nombre) {
         switch (nombre) {
             case "pesa":
-                pesa();
+                this.pesa();
             case "pluma":
-                pluma();
+                this.pluma();
             case "chaleco":
-                chaleco();
+                this.chaleco();
             case "baston":
-                baston();
+                this.baston();
             case "pilas":
-                pilas();
+                this.pilas();
+            default:
         }
+    }
+
+    public String toString() {
+        return this.name;
     }
 }

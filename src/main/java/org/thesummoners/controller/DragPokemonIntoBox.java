@@ -9,16 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import org.thesummoners.model.Objeto;
-import org.thesummoners.model.Pokemon;
-import org.thesummoners.model.Trainer;
 
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
-import static org.thesummoners.model.Trainer.getTrainer;
+import static org.thesummoners.model.trainer.Trainer.getTrainer;
 
 public class DragPokemonIntoBox {
     @FXML

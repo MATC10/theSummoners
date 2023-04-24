@@ -2,7 +2,7 @@ package org.thesummoners.model.movement;
 
 import java.util.Random;
 
-public class ImproveMovement extends Movement implements StaminaCalculation {
+public class ImproveMovement extends Movement implements IStaminaCalculable {
     private int upgradeAttack;
     private int upgradeSpecialAttack;
     private int upgradeDefense;

@@ -7,9 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.model.Trainer;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.io.IOException;
 import java.util.Objects;

@@ -38,13 +38,13 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.ChangePokemonNickName">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Shop">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -86,17 +86,43 @@
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Label layoutX="99.0" layoutY="40.0" prefHeight="28.0" prefWidth="442.0" text="Elige el mote que le quieres poner a tu Pokémon">
+      <children>
+            <TableView fx:id="tvObjeto" layoutX="29.0" layoutY="41.0" prefHeight="166.0" prefWidth="299.0">
+               <columns>
+                  <TableColumn fx:id="tcName" prefWidth="200.0" text="Nombre" />
+                  <TableColumn fx:id="tcPrice" prefWidth="98.4000244140625" text="Precio" />
+               </columns>
+            </TableView>
+            <Label layoutX="29.0" layoutY="14.0" prefHeight="18.0" prefWidth="252.0" text="Selecciona el objeto que quieras comprar">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNickName" layoutX="217.0" layoutY="132.0" prefHeight="26.0" prefWidth="207.0" promptText="Introduce el mote" />
-            <Label fx:id="lblVerify" layoutX="211.0" layoutY="136.0" prefHeight="18.0" prefWidth="219.0" />
-            <ImageView fx:id="imgPokemon" fitHeight="192.0" fitWidth="231.0" layoutX="205.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnConfirm" layoutX="436.0" layoutY="132.0" mnemonicParsing="false" onAction="#toConfirm" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: AD41CF;" text="Confirmar" />
-         </children>
+            <Label fx:id="lblbuyOrNot" layoutX="59.0" layoutY="304.0" prefHeight="18.0" prefWidth="221.0" />
+            <Label fx:id="lblPokedollars" layoutX="383.0" layoutY="226.0" prefHeight="18.0" prefWidth="145.0" text="Pokedollars: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnMainMenu" layoutX="383.0" layoutY="292.0" mnemonicParsing="false" onAction="#onMainMenu" prefHeight="60.0" prefWidth="202.0" text="Volver" />
+            <Button fx:id="btnBuyObjeto" layoutX="51.0" layoutY="226.0" mnemonicParsing="false" onAction="#onBuyObjeto" prefHeight="60.0" prefWidth="104.0" text="Comprar objeto" />
+            <Label fx:id="lblPokeballs" layoutX="383.0" layoutY="261.0" prefHeight="18.0" prefWidth="145.0" text="Pokeballs:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnBuyPokeball" layoutX="190.0" layoutY="226.0" mnemonicParsing="false" onAction="#onBuyPokeball" prefHeight="60.0" prefWidth="114.0" text="Comprar Pokeball" />
+            <TableView fx:id="tvBackPack" layoutX="383.0" layoutY="41.0" prefHeight="166.0" prefWidth="201.0">
+               <columns>
+                  <TableColumn fx:id="tcNameBackPack" prefWidth="200.80001220703124" text="Nombre" />
+               </columns>
+            </TableView>
+            <Label layoutX="383.0" layoutY="14.0" prefHeight="18.0" prefWidth="252.0" text="Mochila del entrenador">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+      </children>
     </AnchorPane>
   </children>
 </VBox>

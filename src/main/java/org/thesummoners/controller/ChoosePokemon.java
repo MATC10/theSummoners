@@ -7,22 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.model.Pokemon;
-import org.thesummoners.model.Trainer;
-import org.thesummoners.model.pokedex.Bulbasaur;
-import org.thesummoners.model.pokedex.Charmander;
-import org.thesummoners.model.pokedex.Pikachu;
-import org.thesummoners.model.pokedex.Squirtle;
+import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.trainer.Trainer;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 public class ChoosePokemon {
     @FXML
@@ -40,8 +31,11 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowPikachu(ActionEvent event) throws IOException {
         //EL MÉTODO changeDisplayName() ES PARA AÑADIR EL VALOR AL ATRIBUTO displayName
-        Trainer.getTrainer().getPokemonTeam()[0] = new Pikachu("Pikachu", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Pikachu", 1);
+        //AÑADIMOS SUS IMAGENES
+        Trainer.getTrainer().getPokemonTeam()[0].setImage("doc/images/Pikachu.png");
+        Trainer.getTrainer().getPokemonTeam()[0].setImageBack("doc/images/spritesback/3a-b__025__xy.gif");
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -53,8 +47,11 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowBulbasaur(ActionEvent event) throws IOException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Bulbasaur("Bulbasaur", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Bulbasaur", 1);
+        //AÑADIMOS SUS IMAGENES
+        Trainer.getTrainer().getPokemonTeam()[0].setImage("doc/images/Bulbasaur.png");
+        Trainer.getTrainer().getPokemonTeam()[0].setImageBack("doc/images/spritesback/3a-b__001__xy.gif");
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -65,8 +62,11 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowSquirtle(ActionEvent event) throws IOException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Squirtle("Squirtle", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Squirtle", 1);
+        //AÑADIMOS SUS IMAGENES
+        Trainer.getTrainer().getPokemonTeam()[0].setImage("doc/images/Squirtle.png");
+        Trainer.getTrainer().getPokemonTeam()[0].setImageBack("doc/images/spritesback/3a-b__007__xy.gif");
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -77,8 +77,11 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowCharmander(ActionEvent event) throws IOException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Charmander("Charmander", 1);
-        Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Charmander", 1);
+        //AÑADIMOS SUS IMAGENES
+        Trainer.getTrainer().getPokemonTeam()[0].setImage("doc/images/Charmander.png");
+        Trainer.getTrainer().getPokemonTeam()[0].setImageBack("doc/images/spritesback/3a-b__004__xy.gif");
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
