@@ -34,6 +34,9 @@ public class Catch {
     private Label lblNamePokemon;
 
     @FXML
+    private Label lblPokeballs;
+
+    @FXML
     private Label lblText;
     Pokemon venusaur = new Pokemon("Venusaur", 1);
 
@@ -55,6 +58,8 @@ public class Catch {
         Image image2 = new Image(file2.toURI().toString());
         imgPokemon.setImage(image2);
 
+        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
+
 
     }
 
@@ -74,9 +79,8 @@ public class Catch {
         //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE
 
-        if(Trainer.getTrainer().capture(venusaur)){
-            lblText.setText("¡Has capturado a Venusaur, enhorabuena!");
-        }
-        else lblText.setText("No capturado!");
+        Trainer.getTrainer().capture(venusaur, lblText, lblPokeballs);
+
+
     }
 }

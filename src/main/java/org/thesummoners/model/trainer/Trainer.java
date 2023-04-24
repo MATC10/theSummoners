@@ -2,9 +2,7 @@ package org.thesummoners.model.trainer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -16,17 +14,21 @@ public class Trainer {
     private String name;
     private String password;
     private Pokemon[] pokemonTeam;
-    private List<Pokemon> pokemonBox;
     public static ObservableList<Pokemon> pokemonPcBill = FXCollections.observableArrayList();
 
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
     private int pokedollar;
+
+    private int pokeball;
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
 
         Pokemon [] pokemonTeam = new Pokemon[6];
         this.pokemonTeam = pokemonTeam;
+
+        //20 POKEBALL DE PRUEBA
+        this.pokeball = 20;
     }
 
     public static Trainer getTrainer() {
@@ -58,13 +60,6 @@ public class Trainer {
         this.pokemonTeam = pokemonTeam;
     }
 
-    public List<Pokemon> getPokemonBox() {
-        return pokemonBox;
-    }
-
-    public void setPokemonBox(List<Pokemon> pokemonBox) {
-        this.pokemonBox = pokemonBox;
-    }
 
     public int getPokedollar() {
         return pokedollar;
@@ -76,6 +71,14 @@ public class Trainer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getPokeball() {
+        return pokeball;
+    }
+
+    public void setPokeball(int pokeball) {
+        this.pokeball = pokeball;
     }
 
     public static ObservableList<Pokemon> getPokemonPcBill() {
@@ -107,24 +110,25 @@ public class Trainer {
 
 
     public void dragPokemonIntoBox(int i){
+
         /*
-        - LOS VALORES NULL DE pokemonBox SE COMPLETAN AL AÑADIR NUEVOS PKMN A LA LISTA
+        - LOS VALORES NULL DE pokemonPcBill SE COMPLETAN AL AÑADIR NUEVOS PKMN A LA LISTA
 
        - UNA IDEA ES CREAR UNA NUEVA LISTA POR SI SE AÑADEN EN ALGÚN MOMENTO MUCHOS POKEMON
         A LA LISTA PERO LUEGO SE TIRAN ESOS POKEMON, PARA QUE NO QUEDEN VALORES NULL AL FINAL
         DE LA LISTA (AÚN NO SE SABE SI SE VA A IMPLEMENTAR TIRAR POKÉMON)
          */
         boolean pokemonAdded = false;
-        for(int s = 0; s < pokemonBox.size(); s++){
-            if(pokemonBox.get(s) == null && numberPokemonInTeam() > 1){
-                pokemonBox.add(s, pokemonTeam[i]);
+        for(int s = 0; s < pokemonPcBill.size(); s++){
+            if(pokemonPcBill.get(s) == null && numberPokemonInTeam() > 1){
+                pokemonPcBill.add(s, pokemonTeam[i]);
                 pokemonTeam[i] = null;
                 pokemonAdded = true;
                 break;
             }
         }
         if(!pokemonAdded && numberPokemonInTeam() > 1){
-            pokemonBox.add(pokemonTeam[i]);
+            pokemonPcBill.add(pokemonTeam[i]);
             pokemonTeam[i] = null;
         }
     }
@@ -134,10 +138,10 @@ public class Trainer {
         //REVISAR SI ES POSIBLE QUITAR EL IDPOKEMON EN EL PARÁMETRO
         //O CAMBIARLO POR OTRA COSA
 
-        for(Pokemon a : this.pokemonBox){
+        for(Pokemon a : this.pokemonPcBill){
             if(a.getIdPokemon() == idPokemon){
                 pokemonTeam[i] = a;
-                pokemonBox.remove(a);
+                pokemonPcBill.remove(a);
             }
         }
     }
@@ -169,7 +173,7 @@ public class Trainer {
             //DE LOS DOS POKÉMON
 
             /*breeding[randomSelect];
-            pokemonBox.add();
+            pokemonPcBill.add();
             breeding[2] =
              */
 
@@ -194,9 +198,13 @@ public class Trainer {
     }
 
 
-    public boolean capture (Pokemon pokemon){
+    public int pokeballCount(){
 
+        if(this.getPokeball() <= 0) return this.pokeball = 0;
+        else return this.pokeball;
+    }
 
+    public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs){
         /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
         AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
         CAJA DE POKÉMON (PC de Bill).
@@ -204,23 +212,28 @@ public class Trainer {
          */
         //EL pokemon.changeDisplayName() ES PARA DARLE EL NOMBRE DE DISPLAY
 
-
-
+        //TODO MAXIMO 0 POKEBALL HACERLO EN EL METODO DEL TRAINTER DE POKEBALL
+        getTrainer().setPokeball(getPokeball() -1);
+        lblPokeballs.setText(String.valueOf(pokeballCount()));
         Random random = new Random();
         int capture = random.nextInt(3);
-        if (capture == 0) {
+        if (capture == 0 && getTrainer().getPokeball() > 0) {
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon;
-                        return true;
+                        lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
                     }
                 }
             }
-            else pokemonBox.add(pokemon);
-            return true;
+            else pokemonPcBill.add(pokemon);
+            lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!");
         }
-        else return false;
+        else {
+            lblText.setText("No capturado!");
+        }
+        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+
     }
 
     public ObservableList <Pokemon> pokemonTeamArrayToList(ObservableList <Pokemon> listTeamIntermediary){
@@ -240,7 +253,6 @@ public class Trainer {
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }
-
 
 
 
@@ -274,12 +286,12 @@ public class Trainer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trainer trainer = (Trainer) o;
-        return pokedollar == trainer.pokedollar && Objects.equals(name, trainer.name) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Objects.equals(pokemonBox, trainer.pokemonBox) && Objects.equals(backPack, trainer.backPack);
+        return pokedollar == trainer.pokedollar && Objects.equals(name, trainer.name) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Objects.equals(pokemonPcBill, trainer.pokemonPcBill) && Objects.equals(backPack, trainer.backPack);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, pokemonBox, pokedollar, backPack);
+        int result = Objects.hash(name, pokemonPcBill, pokedollar, backPack);
         result = 31 * result + Arrays.hashCode(pokemonTeam);
         return result;
     }
