@@ -89,7 +89,7 @@
             <ImageView fx:id="imgPokemon" fitHeight="307.0" fitWidth="237.0" layoutX="14.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball" fitHeight="211.0" fitWidth="237.0" layoutX="251.0" layoutY="147.0" onMouseClicked="#onTryCatchPokemon" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="lblNamePokemon" layoutX="14.0" layoutY="14.0" text="Name Pokemon" />
-            <Label fx:id="lblText" layoutX="252.0" layoutY="67.0" prefHeight="46.0" prefWidth="237.0" text="Texto, capturado, no capturador, fallar bola" />
+            <Label fx:id="lblText" layoutX="252.0" layoutY="67.0" prefHeight="46.0" prefWidth="237.0" />
             <Button fx:id="btnBack" layoutX="519.0" layoutY="222.0" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="61.0" prefWidth="92.0" text="Volver" />
             <Label fx:id="lblPokeballs" layoutX="444.0" layoutY="23.0" prefHeight="17.0" prefWidth="167.0" text="Pokeballs disponibles">
                <font>

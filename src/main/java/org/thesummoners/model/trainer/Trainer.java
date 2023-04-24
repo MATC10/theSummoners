@@ -204,6 +204,12 @@ public class Trainer {
         else return this.pokeball;
     }
 
+    public int pokedollarCount(){
+
+        if(this.getPokedollar() <= 0) return this.pokedollar = 0;
+        else return this.pokedollar;
+    }
+
     public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs){
         /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
         AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
@@ -255,18 +261,29 @@ public class Trainer {
     }
 
 
+    public void pokeballShop(Label lblPokeballs, Label lblPokedollars, Label lblbuyOrNot){
+        if(getTrainer().getPokedollar() >= 100){
+            getTrainer().setPokeball(getPokeball() + 1);
+            getTrainer().setPokedollar(getPokedollar() - 100);
+            lblbuyOrNot.setText("Pokeball comprada");
+            lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+            lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
+        }
+        else {
+            lblbuyOrNot.setText("No tienes suficientes Pokedollars");
+        }
+    }
 
 
-
-
-    public boolean ObjetoShop(Button btnBuyObjeto, TableView tvObjeto, TableView tvBackPack){
+    public void objetoShop(Button btnBuyObjeto, TableView tvObjeto, TableView tvBackPack, Label lblPokedollars, Label lblbuyOrNot){
         //TODO AÑADIR UNA BARRA DESPLAZADORA O ALGO PARA QUE NO SE MUEVA LA LISTA DE OBJETOS
         //TODO HACER QUE NO SE PUEDA COMPRAR MÁS CUANDO NO TENGAS DINERO
 
         ObjetoInitializer.objetoList();
 
-        if(this.getPokedollar() >= 1000){
-
+        if(this.getPokedollar() >= 500){
+            Trainer.getTrainer().setPokedollar(getPokedollar() - 500);
+            pokedollarCount();
             btnBuyObjeto.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 1) {
                     Objeto selectedObjeto = (Objeto) tvObjeto.getSelectionModel().getSelectedItem();
@@ -276,9 +293,10 @@ public class Trainer {
                     tvBackPack.setItems(Trainer.getBackPack());
                 }
         });
-        return true;
+            lblbuyOrNot.setText("Has comprado un Objeto");
+            lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().pokedollarCount());
         }
-        return false;
+        lblbuyOrNot.setText("No tienes Pokedollars suficientes");
     }
 
     @Override
