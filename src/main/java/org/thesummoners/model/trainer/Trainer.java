@@ -17,6 +17,7 @@ public class Trainer {
 
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
     private int pokedollar;
+    public Pokemon[] pokemonToBreed = new Pokemon[2];
     public Trainer() {
 
         this.pokedollar = 100;
@@ -138,15 +139,11 @@ public class Trainer {
         }
     }
 
-    public String pokemonBreeding(Pokemon pokemon1, Pokemon pokemon2){
+    public String pokemonBreeding(int n){
         //ESTE MÉTODO SE LLAMA raiseAPokemon EN EL DIAGRAMA DE CLASES
         //HAY QUE ASEGURARSE QUE SE TENGAN, AL MENOS, 2 POKÉMON PARA
         //PODER CRIAR
         int counter = 0;
-        int randomSelect;
-        //CREO UNA ARRAY DE 3, POSICIÓN1 PARA EL PRIMER POKEMON SELECCIONADO
-        //POSICIÓN DOS PARA EL SEGUNDO, Y POSICIÓN 3 PARA EL NUEVO POKÉMON;
-        Pokemon[] breeding = new Pokemon[3];
         for(Pokemon p: pokemonTeam){
             if(p != null){
                 counter++;
@@ -156,10 +153,17 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            Random random = new Random();
-            randomSelect = random.nextInt(2);
-            breeding[0] = pokemon1;
-            breeding[1] = pokemon2;
+            if (pokemonToBreed[0] == null)
+                pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
+            else if (pokemonToBreed[1] == null)
+                pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
+            else
+                return "Ya has seleccionado los 2 pokemon";
+
+
+
+
+
             //NECESITAMOS CREAR UN NUEVO POKEMON QUE SERÁ EL QUE TOQUE
             //EN EL RANDOM, CON EL SEXO RANDOM Y PUEDE QUE ATAQUES COMBINADOS
             //DE LOS DOS POKÉMON
@@ -174,6 +178,17 @@ public class Trainer {
             return "Enhorabuena ...";
 
 
+        }
+    }
+
+    public void BreedingPay(){
+        Random rd = new Random();
+        Pokemon son = new Pokemon(pokemonToBreed[rd.nextInt(2)].getDisplayName(),1);
+        for (int i = 0; i < getPokemonTeam().length; i++) {
+            if(getPokemonTeam()[i] == null) {
+                getPokemonTeam()[i] = son;
+                break;
+            }
         }
     }
 
