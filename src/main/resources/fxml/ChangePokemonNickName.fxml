@@ -92,10 +92,10 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNickName" layoutX="217.0" layoutY="132.0" prefHeight="26.0" prefWidth="207.0" promptText="Introduce el mote" />
-            <Label fx:id="lblVerify" layoutX="211.0" layoutY="136.0" prefHeight="18.0" prefWidth="219.0" />
+            <TextField fx:id="txtNickName" layoutX="216.0" layoutY="84.0" prefHeight="26.0" prefWidth="207.0" promptText="Introduce el mote" />
+            <Label fx:id="lblVerify" layoutX="211.0" layoutY="123.0" prefHeight="18.0" prefWidth="219.0" />
             <ImageView fx:id="imgPokemon" fitHeight="192.0" fitWidth="231.0" layoutX="205.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnConfirm" layoutX="436.0" layoutY="132.0" mnemonicParsing="false" onAction="#toConfirm" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: AD41CF;" text="Confirmar" />
+            <Button fx:id="btnConfirm" layoutX="436.0" layoutY="85.0" mnemonicParsing="false" onAction="#toConfirm" prefHeight="26.0" prefWidth="73.0" text="Confirmar" />
          </children>
     </AnchorPane>
   </children>

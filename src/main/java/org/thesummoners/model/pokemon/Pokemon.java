@@ -2,14 +2,9 @@ package org.thesummoners.model.pokemon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-<<<<<<<< HEAD:src/main/java/org/thesummoners/model/Pokemon.java
-import org.thesummoners.model.movements.AttackMovement;
-import org.thesummoners.model.movements.Movement;
-========
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
->>>>>>>> main:src/main/java/org/thesummoners/model/pokemon/Pokemon.java
 
 import java.util.*;
 
@@ -40,17 +35,13 @@ public class Pokemon {
     private Sex sex;
     private int experience;
 
-<<<<<<<< HEAD:src/main/java/org/thesummoners/model/Pokemon.java
-
-    private HashMap <Integer, Movement> movementLevel;
-========
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
     public static HashMap <Integer, Movement> movementLevel;
->>>>>>>> main:src/main/java/org/thesummoners/model/pokemon/Pokemon.java
 
     private Movement [] learnedMovement;
 
+    //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
 
@@ -62,14 +53,14 @@ public class Pokemon {
         this.learnedMovement = new Movement [4];
         this.idPokemon = counterPokemon;
 
-
+        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         this.learnedMovement[0] = placaje;
         AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
         AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
         AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
 
-
+        //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
         HashMap <Integer, Movement> movementLevel = new HashMap<Integer, Movement>(){{put(5, pistolaAgua);
             put(10,hidroBomba); put(15, salpicadura);}};
 

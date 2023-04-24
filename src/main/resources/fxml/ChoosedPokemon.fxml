@@ -97,8 +97,8 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="btnYes" alignment="CENTER" layoutX="49.0" layoutY="307.0" mnemonicParsing="false" onAction="#toChangeNickName" prefHeight="42.0" prefWidth="270.0" style="-fx-background-color: AD41CF;" text="Sí" />
-            <Button fx:id="BtnNo" alignment="CENTER" layoutX="331.0" layoutY="307.0" mnemonicParsing="false" onAction="#toContinue" prefHeight="42.0" prefWidth="258.0" style="-fx-background-color: AD41CF;" text="No" />
+            <Button fx:id="btnYes" layoutX="49.0" layoutY="307.0" mnemonicParsing="false" onAction="#toChangeNickName" prefHeight="42.0" prefWidth="270.0" text="Sí" />
+            <Button fx:id="BtnNo" layoutX="331.0" layoutY="307.0" mnemonicParsing="false" onAction="#toContinue" prefHeight="42.0" prefWidth="258.0" text="No" />
          </children>
     </AnchorPane>
   </children>
