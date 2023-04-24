@@ -47,7 +47,7 @@ public class Shop {
     private Parent root;
     private Scene scene;
     private Stage stage;
-    private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat(new String[]{"application/x-java-serialized-object"});
+
 
 
 
@@ -62,6 +62,9 @@ public class Shop {
         tvBackPack.getColumns().clear();
         tvBackPack.getColumns().add(tcNameBackPack);
         tvBackPack.setItems(Trainer.getBackPack());
+
+
+
 
         //MOSTRAMOS LAS POKEBALL Y POKEDOLLARS
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());

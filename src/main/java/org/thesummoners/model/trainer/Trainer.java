@@ -280,23 +280,20 @@ public class Trainer {
         //TODO HACER QUE NO SE PUEDA COMPRAR MÁS CUANDO NO TENGAS DINERO
 
         ObjetoInitializer.objetoList();
-
-        if(this.getPokedollar() >= 500){
+        Objeto selectedObjeto = (Objeto) tvObjeto.getSelectionModel().getSelectedItem();
+        if(this.getPokedollar() >= 500 && selectedObjeto != null){
             Trainer.getTrainer().setPokedollar(getPokedollar() - 500);
             pokedollarCount();
-            btnBuyObjeto.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 1) {
-                    Objeto selectedObjeto = (Objeto) tvObjeto.getSelectionModel().getSelectedItem();
-                    // AGREGA EL OBJETO SELECCIONADO A LA LISTA DE BACKPACK
-                    Trainer.backPack.add(selectedObjeto);
-                    // ACTUALIZA LA VISTA DE LA TABLEVIEW
-                    tvBackPack.setItems(Trainer.getBackPack());
-                }
-        });
+            // AGREGA EL OBJETO SELECCIONADO A LA LISTA DE BACKPACK
+            Trainer.backPack.add(selectedObjeto);
+            // ACTUALIZA LA VISTA DE LA TABLEVIEW
+            tvBackPack.setItems(Trainer.getBackPack());
+
+
             lblbuyOrNot.setText("Has comprado un Objeto");
             lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().pokedollarCount());
         }
-        lblbuyOrNot.setText("No tienes Pokedollars suficientes");
+        else lblbuyOrNot.setText("No tienes Pokedollars suficientes");
     }
 
     @Override
