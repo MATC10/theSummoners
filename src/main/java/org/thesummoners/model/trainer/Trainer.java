@@ -35,6 +35,14 @@ public class Trainer {
         return trainer;
     }
 
+    public Pokemon[] getPokemonToBreed() {
+        return pokemonToBreed;
+    }
+
+    public void setPokemonToBreed(Pokemon[] pokemonToBreed) {
+        this.pokemonToBreed = pokemonToBreed;
+    }
+
     public String getName() {
         return name;
     }
@@ -190,6 +198,8 @@ public class Trainer {
                 break;
             }
         }
+        Trainer.getTrainer().getPokemonToBreed()[0] = null;
+        Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
 
     public void fight(){
