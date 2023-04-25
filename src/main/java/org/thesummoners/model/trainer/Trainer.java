@@ -167,7 +167,7 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) {
+            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 0) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
                 if (pokemonToBreed[0] == null)
                     pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
                 else if (pokemonToBreed[1] == null)
@@ -210,6 +210,9 @@ public class Trainer {
         }
         Trainer.getTrainer().getPokemonToBreed()[0] = null;
         Trainer.getTrainer().getPokemonToBreed()[1] = null;
+    }
+    public void BreedingConfirmNickname(Pokemon son){
+
     }
 
     public void fight(){

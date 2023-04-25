@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
@@ -34,9 +35,13 @@ public class PokemonBreeding {
     @FXML
     private Button btnPay;
     @FXML
-    private Button prueba;
+    private Button btnMenuPokemonBreeding;
     @FXML
-    private Label lbl1;
+    private Label lblMote;
+    @FXML
+    private TextField txtMote;
+    @FXML
+    private Button btnConfirmMote;
     @FXML
     private Label lblPokedollars;
     private Scene scene;
@@ -77,6 +82,8 @@ public class PokemonBreeding {
         lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
 
         btnPay.setDisable(true);
+        txtMote.setDisable(true);
+        btnConfirmMote.setDisable(true);
 
     }
     @FXML
@@ -135,5 +142,12 @@ public class PokemonBreeding {
         Trainer.getTrainer().setPokedollar(getTrainer().getPokedollar() - 500);
         Trainer.getTrainer().BreedingPay();
         btnPay.setDisable(true);
+        txtMote.setDisable(false);
+        btnConfirmMote.setDisable(false);
+    }
+
+    @FXML
+    public void pokemonBreedConfirmNickname(){
+        lblMote.getText()
     }
 }
