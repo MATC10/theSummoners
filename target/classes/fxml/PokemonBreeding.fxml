@@ -97,7 +97,8 @@
                </font>
             </Label>
             <Button fx:id="prueba" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="34.0" prefWidth="68.0" text="Menu" />
-            <Button fx:id="btnPay" layoutX="355.0" layoutY="280.0" mnemonicParsing="false" onAction="#pokemonBreedPay" prefHeight="46.0" prefWidth="145.0" text="Pagar" />
+            <Button fx:id="btnPay" layoutX="355.0" layoutY="280.0" mnemonicParsing="false" onAction="#pokemonBreedPay" prefHeight="46.0" prefWidth="145.0" text="Pagar - 500$" />
+            <Label fx:id="lblPokedollars" layoutX="435.0" layoutY="60.0" prefHeight="34.0" prefWidth="191.0" text="Label" />
       </children>
     </AnchorPane>
   </children>

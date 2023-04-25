@@ -37,6 +37,8 @@ public class PokemonBreeding {
     private Button prueba;
     @FXML
     private Label lbl1;
+    @FXML
+    private Label lblPokedollars;
     private Scene scene;
     private Parent root;
     private Stage stage;
@@ -72,6 +74,7 @@ public class PokemonBreeding {
             btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
         }
         else btn6.setText("No Pokémon");
+        lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
 
         btnPay.setDisable(true);
 

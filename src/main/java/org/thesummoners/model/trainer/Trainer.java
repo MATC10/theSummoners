@@ -167,12 +167,16 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            if (pokemonToBreed[0] == null)
-                pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
-            else if (pokemonToBreed[1] == null)
-                pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
+            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) {
+                if (pokemonToBreed[0] == null)
+                    pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
+                else if (pokemonToBreed[1] == null)
+                    pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
+                else
+                    return "Ya has seleccionado los 2 pokemon";
+            }
             else
-                return "Ya has seleccionado los 2 pokemon";
+                return "El Pokemon debe ser mínimo nivel 5 para criar";
 
 
 
@@ -252,6 +256,8 @@ public class Trainer {
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon;
                         lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
+                        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+                        break;
                     }
                 }
             }
