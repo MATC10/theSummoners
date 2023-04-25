@@ -229,6 +229,8 @@ public class Trainer {
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon;
                         lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
+                        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+                        break;
                     }
                 }
             }
@@ -255,7 +257,7 @@ public class Trainer {
         //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
         // A LA ARRAY pokemonTeam
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
+        for(int i = 0; i < listTeamIntermediary.size(); i++){
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }
