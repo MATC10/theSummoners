@@ -8,7 +8,7 @@ import org.thesummoners.model.objeto.Objeto;
 
 import java.util.*;
 
-public class Pokemon {
+public class Pokemon implements Cloneable {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
     public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
 
@@ -364,4 +364,17 @@ public class Pokemon {
     public String toString() {
         return displayName + " nivel: " + level;
     }
+
+
+    @Override
+    public Pokemon clone() throws CloneNotSupportedException {
+        //CLONAR POKEMON
+        Pokemon clonedPokemon = (Pokemon) super.clone();
+        clonedPokemon.learnedMovement = learnedMovement.clone();
+        clonedPokemon.objeto = objeto;
+
+        return clonedPokemon;
+    }
 }
+
+
