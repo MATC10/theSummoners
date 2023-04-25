@@ -88,35 +88,49 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding1(){
         Trainer.getTrainer().pokemonBreeding(0);
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
     public void pokemonBreeding2(){
         Trainer.getTrainer().pokemonBreeding(1);
-
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
     public void pokemonBreeding3(){
         Trainer.getTrainer().pokemonBreeding(2);
-
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
     public void pokemonBreeding4(){
         Trainer.getTrainer().pokemonBreeding(3);
-
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
     public void pokemonBreeding5(){
         Trainer.getTrainer().pokemonBreeding(4);
-
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
-    public void pokemonBreeding6(){
+    public void pokemonBreeding6() {
         Trainer.getTrainer().pokemonBreeding(5);
-
+        if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
+            btnPay.setDisable(false);
+        }
     }
     @FXML
     public void pokemonBreedPay(){
         Trainer.getTrainer().setPokedollar(getTrainer().getPokedollar() - 500);
         Trainer.getTrainer().BreedingPay();
+        btnPay.setDisable(true);
     }
 }
