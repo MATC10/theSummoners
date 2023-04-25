@@ -47,43 +47,48 @@ public class Shop {
     private Parent root;
     private Scene scene;
     private Stage stage;
-    private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat(new String[]{"application/x-java-serialized-object"});
 
-    public Shop() {
-    }
+
+
 
     public void initialize() {
-        this.tcName.setCellValueFactory((tf) -> {
-            return new SimpleStringProperty(((Objeto)tf.getValue()).getName());
-        });
-        this.tcPrice.setCellValueFactory((tf) -> {
-            return new SimpleStringProperty("1000");
-        });
-        this.tvObjeto.getColumns().clear();
-        this.tvObjeto.getColumns().addAll(new TableColumn[]{this.tcName, this.tcPrice});
-        this.tvObjeto.getItems().addAll(ObjetoInitializer.objetoList());
-        this.tcNameBackPack.setCellValueFactory(new PropertyValueFactory("name"));
-        this.tvBackPack.getColumns().clear();
-        this.tvBackPack.getColumns().add(this.tcNameBackPack);
-        this.tvBackPack.setItems(Trainer.getBackPack());
+        tcName.setCellValueFactory((tf -> new SimpleStringProperty(tf.getValue().getName())));
+
+        tcPrice.setCellValueFactory((tf-> new SimpleStringProperty("500")));
+        tvObjeto.getColumns().clear();
+        tvObjeto.getColumns().addAll(tcName, tcPrice);
+        tvObjeto.getItems().addAll(ObjetoInitializer.objetoList());
+        tcNameBackPack.setCellValueFactory(new PropertyValueFactory("name"));
+        tvBackPack.getColumns().clear();
+        tvBackPack.getColumns().add(tcNameBackPack);
+        tvBackPack.setItems(Trainer.getBackPack());
+
+
+
+
+        //MOSTRAMOS LAS POKEBALL Y POKEDOLLARS
+        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+        lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
     }
 
     @FXML
     void onBuyObjeto() {
-        Trainer.getTrainer().ObjetoShop(this.btnBuyObjeto, this.tvObjeto, this.tvBackPack);
+        Trainer.getTrainer().objetoShop(btnBuyObjeto, tvObjeto, tvBackPack, lblPokedollars, lblbuyOrNot);
     }
 
     @FXML
     void onBuyPokeball() {
+        Trainer.getTrainer().pokeballShop(lblPokeballs, lblPokedollars, lblbuyOrNot);
     }
 
     @FXML
     void onMainMenu(ActionEvent event) throws IOException {
-        this.root = (Parent)FXMLLoader.load((URL)Objects.requireNonNull(this.getClass().getResource("/fxml/MainWindow.fxml")));
+        this.root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/fxml/MainWindow.fxml")));
         this.scene = new Scene(this.root, 600.0, 400.0);
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         this.stage.setTitle("TheSummoners");
-        this.stage.setScene(this.scene);
+        this.stage.setScene(scene);
         this.stage.show();
+
     }
 }
