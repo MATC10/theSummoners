@@ -102,6 +102,8 @@
             <Label fx:id="lblPokedollars" layoutX="435.0" layoutY="60.0" prefHeight="34.0" prefWidth="191.0" text="Label" />
             <TextField fx:id="txtMote" layoutX="348.0" layoutY="323.0" />
             <Label fx:id="lblMote" layoutX="303.0" layoutY="323.0" prefHeight="25.0" prefWidth="34.0" text="Mote" />
+            <Button fx:id="btnConfirmMote" layoutX="516.0" layoutY="323.0" mnemonicParsing="false" onAction="#pokemonBreedConfirmNickname" text="Confirmar" />
+            <Button fx:id="btnNoMote" layoutX="519.0" layoutY="274.0" mnemonicParsing="false" onAction="#pokemonBreedCancelNickname" text="Sin mote" />
       </children>
     </AnchorPane>
   </children>

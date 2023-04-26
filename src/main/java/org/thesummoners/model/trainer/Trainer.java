@@ -20,6 +20,7 @@ public class Trainer {
     private int pokedollar;
     private int pokeball;
     public Pokemon[] pokemonToBreed = new Pokemon[2];
+    public Pokemon[] pokemonCub = new Pokemon[1];
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
@@ -74,6 +75,14 @@ public class Trainer {
 
     public void setPokedollar(int pokedollar) {
         this.pokedollar = pokedollar;
+    }
+
+    public Pokemon[] getPokemonCub() {
+        return pokemonCub;
+    }
+
+    public void setPokemonCub(Pokemon[] pokemonCub) {
+        this.pokemonCub = pokemonCub;
     }
 
     public void setPassword(String password) {
@@ -205,14 +214,16 @@ public class Trainer {
         for (int i = 0; i < getPokemonTeam().length; i++) {
             if(getPokemonTeam()[i] == null) {
                 getPokemonTeam()[i] = son;
+                pokemonCub[0] = son;
                 break;
             }
         }
         Trainer.getTrainer().getPokemonToBreed()[0] = null;
         Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
-    public void BreedingConfirmNickname(Pokemon son){
-
+    public void BreedingConfirmNickname(String mote){
+        Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
+        setPokemonCub(null);
     }
 
     public void fight(){

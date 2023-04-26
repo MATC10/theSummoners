@@ -44,6 +44,8 @@ public class PokemonBreeding {
     private Button btnConfirmMote;
     @FXML
     private Label lblPokedollars;
+    @FXML
+    private Button btnNoMote;
     private Scene scene;
     private Parent root;
     private Stage stage;
@@ -84,6 +86,8 @@ public class PokemonBreeding {
         btnPay.setDisable(true);
         txtMote.setDisable(true);
         btnConfirmMote.setDisable(true);
+        btnNoMote.setDisable(true);
+
 
     }
     @FXML
@@ -144,10 +148,22 @@ public class PokemonBreeding {
         btnPay.setDisable(true);
         txtMote.setDisable(false);
         btnConfirmMote.setDisable(false);
+        btnNoMote.setDisable(false);
+
     }
 
     @FXML
     public void pokemonBreedConfirmNickname(){
-        lblMote.getText()
+        Trainer.getTrainer().BreedingConfirmNickname(lblMote.getText());
+        btnConfirmMote.setDisable(true);
+        txtMote.setText("ㅤ");
+        txtMote.setDisable(true);
+        btnNoMote.setDisable(true);
+    }
+    @FXML
+    public void pokemonBreedCancelNickname(){
+        txtMote.setDisable(true);
+        btnConfirmMote.setDisable(true);
+        btnNoMote.setDisable(true);
     }
 }

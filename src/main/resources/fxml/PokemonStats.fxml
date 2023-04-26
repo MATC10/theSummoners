@@ -91,7 +91,7 @@
             <Button fx:id="btn6" layoutX="340.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats6" prefHeight="90.0" prefWidth="146.0" text="Button" />
             <Button fx:id="btn5" layoutX="188.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats5" prefHeight="90.0" prefWidth="146.0" text="Button" />
             <Button fx:id="btn4" layoutX="31.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats4" prefHeight="90.0" prefWidth="146.0" text="Button" />
-            <Label fx:id="lbl1" layoutX="144.0" layoutY="26.0" prefHeight="46.0" prefWidth="257.0" text="Estadísticas de tus Pokémon" textAlignment="CENTER">
+            <Label fx:id="lbl1" layoutX="212.0" layoutY="27.0" prefHeight="46.0" prefWidth="257.0" text="Tu equipo Pokémon" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
