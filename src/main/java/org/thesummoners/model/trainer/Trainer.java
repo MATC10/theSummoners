@@ -298,7 +298,7 @@ public class Trainer {
         //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
         // A LA ARRAY pokemonTeam
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
+        for(int i = 0; i < listTeamIntermediary.size(); i++){
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }
