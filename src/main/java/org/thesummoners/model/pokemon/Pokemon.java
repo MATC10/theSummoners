@@ -10,7 +10,6 @@ import java.util.*;
 
 public class Pokemon implements Cloneable {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
 
     static int counterPokemon = 0;
     private int idPokemon;
@@ -108,14 +107,6 @@ public class Pokemon implements Cloneable {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public static ObservableList<Pokemon> getPokedex() {
-        return pokedex;
-    }
-
-    public static void setPokedex(ObservableList<Pokemon> pokedex) {
-        Pokemon.pokedex = pokedex;
     }
 
     public String getNickName() {
