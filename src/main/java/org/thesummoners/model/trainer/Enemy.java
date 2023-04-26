@@ -1,6 +1,7 @@
 package org.thesummoners.model.trainer;
 
 
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 
 import java.util.Random;
@@ -70,14 +71,14 @@ public class Enemy {
         /*AÑADO ESTO EN LA ARRAY POKÉDEX PARA QUE NO DE FALLO EL MÉTODO
         dragPokemonIntoTeam() DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
          */
-        Pokemon.pokedex.add(new Pokemon("Bulbasaur", 1));
-        Pokemon.pokedex.add(new Pokemon("Ivysaur", 1));
-        Pokemon.pokedex.add(new Pokemon("Venusaur", 1));
+        Pokedex.getPokedex().add(new Pokemon("Bulbasaur", 1));
+        Pokedex.getPokedex().add(new Pokemon("Ivysaur", 1));
+        Pokedex.getPokedex().add(new Pokemon("Venusaur", 1));
 
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER
         for(int i = 0; i < enemyTeam.length; i++){
-            this.enemyTeam[i] = Pokemon.pokedex.get(random.nextInt(Pokemon.pokedex.size()));
+            this.enemyTeam[i] =  Pokedex.getPokedex().get(random.nextInt( Pokedex.getPokedex().size()));
             this.enemyTeam[i].setLevel(pokemonTrainerLevel);
         }
     }
