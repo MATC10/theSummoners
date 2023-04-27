@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.Sex;
+import org.thesummoners.model.pokemon.State;
+import org.thesummoners.model.pokemon.Type;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
@@ -38,7 +41,7 @@ public class Catch {
 
     @FXML
     private Label lblText;
-    Pokemon venusaur = new Pokemon("Venusaur", 1);
+    Pokemon venusaur = new Pokemon("Pikachu", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,32, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0, null);
 
     private Parent root;
     private Scene scene;
@@ -52,7 +55,7 @@ public class Catch {
         Image image = new Image(file.toURI().toString());
         imgPokeball.setImage(image);
 
-        //AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
+        //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
 
         File file2 = new File("doc/images/venusaur.png");
         Image image2 = new Image(file2.toURI().toString());

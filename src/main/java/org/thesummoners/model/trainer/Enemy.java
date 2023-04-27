@@ -1,8 +1,7 @@
 package org.thesummoners.model.trainer;
 
 
-import org.thesummoners.model.pokemon.Pokedex;
-import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.*;
 
 import java.util.Random;
 
@@ -19,7 +18,7 @@ public class Enemy {
         //1 Y 3 POKÉMON DE FORMA ALEATORIA.
 
         enemyTeam = new Pokemon[random.nextInt(3)+1];
-        dragPokemonIntoTeam();
+        pokemonIntoTeam();
 
         this.name = name;
         this.image = image;
@@ -57,7 +56,7 @@ public class Enemy {
         this.enemyTeam = enemyTeam;
     }
 
-    public void dragPokemonIntoTeam(){
+    public void pokemonIntoTeam(){
 
         //el nivel del pokemon enemigo tiene que ser del mismo nivel que tu primer
         //pokemon de Trainer.pokemonTeam
@@ -68,12 +67,13 @@ public class Enemy {
                 break;
             }
         }
-        /*AÑADO ESTO EN LA ARRAY POKÉDEX PARA QUE NO DE FALLO EL MÉTODO
-        dragPokemonIntoTeam() DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
-         */
-        Pokedex.getPokedex().add(new Pokemon("Bulbasaur", 1));
-        Pokedex.getPokedex().add(new Pokemon("Ivysaur", 1));
-        Pokedex.getPokedex().add(new Pokemon("Venusaur", 1));
+
+        //FIXME AÑADIR POKEMON A  POKEDEX PARA QUE NO DE FALLO EL MÉTODO pokemonIntoTeam()
+        // DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
+        Pokedex.getPokedex().addAll(new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null),
+                new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null),
+                new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null),
+                new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null));
 
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER

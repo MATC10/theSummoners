@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.Type;
 
 public class AttackMovement extends Movement implements IStaminaCalculable {
@@ -30,10 +31,11 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         this.type = type;
     }
 
-    //SI EL ATAQUE ES DEL MISMO TIPO QUE EL POKÉMON, MULTIPLICAMOS EL DAÑO POR 1.5
-    public int improveAttack(){
-
-        return power *= 1.5;
+    //SI EL ATAQUE ES DEL MISMO TIPO QUE ALGUNO DE LOS DEL POKÉMON, MULTIPLICAMOS EL DAÑO POR 1.5
+    public float improveAttack(Pokemon pokemon, AttackMovement attack){
+        if(pokemon.getType1() == attack.getType() || pokemon.getType2() == attack.getType())
+            return 1.5f;
+        return 1;
     }
 
     @Override
