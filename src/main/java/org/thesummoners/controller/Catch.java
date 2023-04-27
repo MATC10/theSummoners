@@ -41,7 +41,7 @@ public class Catch {
 
     @FXML
     private Label lblText;
-    Pokemon venusaur = new Pokemon("Pikachu", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,32, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0, null);
+    Pokemon venusaur = new Pokemon("Venusaur", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,32, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0, null);
 
     private Parent root;
     private Scene scene;
