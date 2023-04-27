@@ -1,6 +1,7 @@
 module theSummoners {
     requires javafx.fxml;
     requires javafx.controls;
+    requires javafx.base;
 
     opens org.thesummoners.model;
     opens org.thesummoners.controller;
