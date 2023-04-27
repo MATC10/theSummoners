@@ -15,7 +15,7 @@ import java.util.Objects;
 
 import static org.thesummoners.model.trainer.Trainer.getTrainer;
 
-public class PokemonStats {
+public class PokemonTeam {
 
     @FXML
     private Button btn1;

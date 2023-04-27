@@ -20,6 +20,7 @@ public class Trainer {
     private int pokedollar;
     private int pokeball;
     public Pokemon[] pokemonToBreed = new Pokemon[2];
+    public Pokemon[] pokemonCub = new Pokemon[1];
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
@@ -74,6 +75,14 @@ public class Trainer {
 
     public void setPokedollar(int pokedollar) {
         this.pokedollar = pokedollar;
+    }
+
+    public Pokemon[] getPokemonCub() {
+        return pokemonCub;
+    }
+
+    public void setPokemonCub(Pokemon[] pokemonCub) {
+        this.pokemonCub = pokemonCub;
     }
 
     public void setPassword(String password) {
@@ -167,7 +176,7 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) {
+            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 0) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
                 if (pokemonToBreed[0] == null)
                     pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
                 else if (pokemonToBreed[1] == null)
@@ -205,11 +214,16 @@ public class Trainer {
         for (int i = 0; i < getPokemonTeam().length; i++) {
             if(getPokemonTeam()[i] == null) {
                 getPokemonTeam()[i] = son;
+                pokemonCub[0] = son;
                 break;
             }
         }
         Trainer.getTrainer().getPokemonToBreed()[0] = null;
         Trainer.getTrainer().getPokemonToBreed()[1] = null;
+    }
+    public void BreedingConfirmNickname(String mote){
+        Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
+        setPokemonCub(null);
     }
 
     public void fight(){
@@ -284,7 +298,7 @@ public class Trainer {
         //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
         // A LA ARRAY pokemonTeam
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
+        for(int i = 0; i < listTeamIntermediary.size(); i++){
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }

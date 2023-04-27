@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
@@ -34,11 +35,17 @@ public class PokemonBreeding {
     @FXML
     private Button btnPay;
     @FXML
-    private Button prueba;
+    private Button btnMenuPokemonBreeding;
     @FXML
-    private Label lbl1;
+    private Label lblMote;
+    @FXML
+    private TextField txtMote;
+    @FXML
+    private Button btnConfirmMote;
     @FXML
     private Label lblPokedollars;
+    @FXML
+    private Button btnNoMote;
     private Scene scene;
     private Parent root;
     private Stage stage;
@@ -77,6 +84,10 @@ public class PokemonBreeding {
         lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
 
         btnPay.setDisable(true);
+        txtMote.setDisable(true);
+        btnConfirmMote.setDisable(true);
+        btnNoMote.setDisable(true);
+
 
     }
     @FXML
@@ -135,5 +146,24 @@ public class PokemonBreeding {
         Trainer.getTrainer().setPokedollar(getTrainer().getPokedollar() - 500);
         Trainer.getTrainer().BreedingPay();
         btnPay.setDisable(true);
+        txtMote.setDisable(false);
+        btnConfirmMote.setDisable(false);
+        btnNoMote.setDisable(false);
+
+    }
+
+    @FXML
+    public void pokemonBreedConfirmNickname(){
+        Trainer.getTrainer().BreedingConfirmNickname(lblMote.getText());
+        btnConfirmMote.setDisable(true);
+        txtMote.setText("ㅤ"); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
+        txtMote.setDisable(true);
+        btnNoMote.setDisable(true);
+    }
+    @FXML
+    public void pokemonBreedCancelNickname(){
+        txtMote.setDisable(true);
+        btnConfirmMote.setDisable(true);
+        btnNoMote.setDisable(true);
     }
 }

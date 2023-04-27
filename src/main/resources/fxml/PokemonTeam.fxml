@@ -38,13 +38,11 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.DragPokemonIntoTeam">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.PokemonTeam">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -85,38 +83,21 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Label fx:id="lblPcBill" layoutX="33.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="PC de Bill" />
-            <Label fx:id="lblPokemonTeam" layoutX="401.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="Equipo Pokémon" />
-            <Button fx:id="btnToPokemonTeam" layoutX="291.0" layoutY="145.0" mnemonicParsing="false" onAction="#toPokemonTeam" prefHeight="26.0" prefWidth="58.0" text="&gt;&gt;">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Button fx:id="btn3" layoutX="340.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats3" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn2" layoutX="188.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats2" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn1" layoutX="32.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonStats1" prefHeight="90.0" prefWidth="145.0" text="Button" />
+            <Button fx:id="btn6" layoutX="340.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats6" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn5" layoutX="188.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats5" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Button fx:id="btn4" layoutX="31.0" layoutY="200.0" mnemonicParsing="false" onAction="#pokemonStats4" prefHeight="90.0" prefWidth="146.0" text="Button" />
+            <Label fx:id="lbl1" layoutX="212.0" layoutY="27.0" prefHeight="46.0" prefWidth="257.0" text="Tu equipo Pokémon" textAlignment="CENTER">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
-            </Button>
-            <Button fx:id="btnToPcBill" layoutX="291.0" layoutY="203.0" mnemonicParsing="false" onAction="#toPcBill" prefHeight="26.0" prefWidth="58.0" text="&lt;&lt;">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnMainWindow" layoutX="276.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="37.0" prefWidth="88.0" text="Volver">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Button>
-            <TableView fx:id="tvPcBill" layoutX="33.0" layoutY="60.0" prefHeight="286.0" prefWidth="200.0">
-              <columns>
-                <TableColumn fx:id="tcName" prefWidth="158.4000244140625" text="Nombre" />
-                <TableColumn fx:id="tcLevel" prefWidth="40.79998779296875" text="Nivel" />
-              </columns>
-            </TableView>
-            <TableView fx:id="tvPokemonTeam" layoutX="401.0" layoutY="60.0" prefHeight="286.0" prefWidth="200.0">
-               <columns>
-                  <TableColumn fx:id="tcNameTeamPokemon" prefWidth="158.4000244140625" text="Nombre" />
-                  <TableColumn fx:id="tcLevelTeamPokemon" prefWidth="40.79998779296875" text="Nivel" />
-               </columns>
-            </TableView>
-         </children>
+            </Label>
+            <Button fx:id="btnBack" layoutX="494.0" layoutY="155.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="90.0" prefWidth="94.0" text="Atrás" />
+      </children>
     </AnchorPane>
   </children>
 </VBox>
