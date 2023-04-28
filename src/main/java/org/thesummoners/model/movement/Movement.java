@@ -3,6 +3,7 @@ package org.thesummoners.model.movement;
 public abstract class Movement {
 
     private String name;
+    private String movementType;
     private int stamina;
 
 
@@ -10,6 +11,13 @@ public abstract class Movement {
         this.name = name;
     }
 
+    public String getMovementType() {
+        return movementType;
+    }
+
+    public void setMovementType(String movementType) {
+        this.movementType = movementType;
+    }
 
     public String getName() {
         return name;

@@ -1,7 +1,7 @@
 module theSummoners {
     requires javafx.fxml;
     requires javafx.controls;
-    requires javafx.base;
+    requires java.sql;
 
     opens org.thesummoners.model;
     opens org.thesummoners.controller;
