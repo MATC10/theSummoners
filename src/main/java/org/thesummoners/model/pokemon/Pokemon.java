@@ -8,9 +8,8 @@ import org.thesummoners.model.objeto.Objeto;
 
 import java.util.*;
 
-public class Pokemon {
+public class Pokemon implements Cloneable {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
 
     static int counterPokemon = 0;
     private int idPokemon;
@@ -22,7 +21,6 @@ public class Pokemon {
     private String imageBack;
     private int hp;
     private int level;
-    private int fertility;
     private int attackPower;
     private int specialAttack;
     private int defense;
@@ -45,30 +43,44 @@ public class Pokemon {
     private Objeto objeto;
 
 
-
-    public Pokemon (String name, int level){
-        counterPokemon ++;
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) {
         this.name = name;
+        this.idPokedex = idPokedex;
+        this.image = image;
+        this.imageBack = imageBack;
+        this.hp = hp;
         this.level = level;
+        this.attackPower = attackPower;
+        this.specialAttack = specialAttack;
+        this.defense = defense;
+        this.specialDefense = specialDefense;
+        this.speed = speed;
+        this.stamina = stamina;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.state = state;
+        this.sex = sex;
+        this.experience = experience;
         this.learnedMovement = new Movement [4];
-        this.idPokemon = counterPokemon;
-        this.fertility = 5;
-
-        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
+        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         this.learnedMovement[0] = placaje;
         AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
         AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
         AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
-
         //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
         HashMap <Integer, Movement> movementLevel = new HashMap<Integer, Movement>(){{put(5, pistolaAgua);
             put(10,hidroBomba); put(15, salpicadura);}};
-
         this.movementLevel = movementLevel;
+
+        this.objeto = objeto;
+        counterPokemon ++;
+        this.idPokemon = counterPokemon;
+
         adaptStatsToLevel(level);
         changeDisplayName();
     }
+
 
     public static int getCounterPokemon() {
         return counterPokemon;
@@ -110,21 +122,12 @@ public class Pokemon {
         this.image = image;
     }
 
-    public static ObservableList<Pokemon> getPokedex() {
-        return pokedex;
-    }
-
-    public static void setPokedex(ObservableList<Pokemon> pokedex) {
-        Pokemon.pokedex = pokedex;
-    }
-
     public String getNickName() {
         return nickName;
     }
 
     public void setNickName(String nickName) {
         //TENEMOS QUE RESTRINGIR LOS NICKNAMES A NOMBRES APROPIADOS
-
         this.nickName = nickName;
     }
 
@@ -135,6 +138,7 @@ public class Pokemon {
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
+
 
     public void setExperience(int experience) {
         this.experience = experience;
@@ -157,13 +161,6 @@ public class Pokemon {
         adaptStatsToLevel(level);
     }
 
-    public int getFertility() {
-        return fertility;
-    }
-
-    public void setFertility(int fertility) {
-        this.fertility = fertility;
-    }
 
     public int getAttackPower() {
         return attackPower;
@@ -350,12 +347,12 @@ public class Pokemon {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && fertility == pokemon.fertility && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Objects.equals(movementLevel, pokemon.movementLevel) && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
+        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Objects.equals(movementLevel, pokemon.movementLevel) && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(idPokemon, idPokedex, name, nickName, hp, level, fertility, attackPower, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, objeto);
+        int result = Objects.hash(idPokemon, idPokedex, name, nickName, hp, level, attackPower, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, objeto);
         result = 31 * result + Arrays.hashCode(learnedMovement);
         return result;
     }
@@ -365,4 +362,17 @@ public class Pokemon {
     public String toString() {
         return displayName + " nivel: " + level;
     }
+
+
+    @Override
+    public Pokemon clone() throws CloneNotSupportedException {
+        //CLONAR POKEMON
+        Pokemon clonedPokemon = (Pokemon) super.clone();
+        clonedPokemon.learnedMovement = learnedMovement.clone();
+        clonedPokemon.objeto = objeto;
+
+        return clonedPokemon;
+    }
 }
+
+

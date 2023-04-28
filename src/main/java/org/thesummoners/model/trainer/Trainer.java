@@ -210,7 +210,10 @@ public class Trainer {
 
     public void BreedingPay(){
         Random rd = new Random();
+        //FIXME CODIGO COMENTADO PARA QUE NO DE ERROR
+        /*
         Pokemon son = new Pokemon(pokemonToBreed[rd.nextInt(2)].getDisplayName(),1);
+
         for (int i = 0; i < getPokemonTeam().length; i++) {
             if(getPokemonTeam()[i] == null) {
                 getPokemonTeam()[i] = son;
@@ -218,6 +221,7 @@ public class Trainer {
                 break;
             }
         }
+        */
         Trainer.getTrainer().getPokemonToBreed()[0] = null;
         Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
@@ -298,7 +302,7 @@ public class Trainer {
         //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
         // A LA ARRAY pokemonTeam
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
+        for(int i = 0; i < listTeamIntermediary.size(); i++){
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }

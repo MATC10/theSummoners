@@ -156,7 +156,7 @@ public class PokemonBreeding {
     public void pokemonBreedConfirmNickname(){
         Trainer.getTrainer().BreedingConfirmNickname(lblMote.getText());
         btnConfirmMote.setDisable(true);
-        txtMote.setText("ㅤ");
+        txtMote.setText("ㅤ"); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
         txtMote.setDisable(true);
         btnNoMote.setDisable(true);
     }
