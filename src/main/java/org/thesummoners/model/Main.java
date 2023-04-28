@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.sql.*;
 
 public class Main extends Application {
     @Override
@@ -19,6 +20,25 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/TheSummoners";
+        String usuario = "root";
+        String password = "";
+        String consulta = "SELECT * FROM pokedex";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, usuario, password);
+            //Statement statement = connection.createStatement();
+            //ResultSet resultado = statement.executeQuery(consulta);
+
+
+            System.out.println("Conectado");
+        } catch (SQLException e) {
+            System.out.println("Error");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
         launch();
     }
 }

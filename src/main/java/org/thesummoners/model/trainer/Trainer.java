@@ -6,6 +6,9 @@ import javafx.scene.control.*;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.Sex;
+import org.thesummoners.model.pokemon.State;
+import org.thesummoners.model.pokemon.Type;
 
 import java.util.*;
 
@@ -230,7 +233,11 @@ public class Trainer {
         setPokemonCub(null);
     }
 
-    public void fight(){
+    public void fight(Pokemon pokemonTeam, Pokemon pokemonEnemy) throws CloneNotSupportedException {
+        Pokemon pokemon1 = (Pokemon) pokemonTeam.clone();
+        Pokemon pokemon2 = (Pokemon) pokemonEnemy.clone();
+
+
 
     }
 
@@ -342,6 +349,7 @@ public class Trainer {
         }
         else lblbuyOrNot.setText("No tienes Pokedollars suficientes");
     }
+
 
     @Override
     public boolean equals(Object o) {

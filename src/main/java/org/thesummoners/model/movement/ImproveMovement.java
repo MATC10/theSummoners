@@ -15,6 +15,7 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
         this.upgradeSpecialAttack = upgradeSpecialAttack;
         this.upgradeDefense = upgradeDefense;
         this.upgradeSpecialDefense = upgradeSpecialDefense;
+        this.setMovementType("improve");
         TurnsDurationcalculation();
         staminaCalculation();
     }

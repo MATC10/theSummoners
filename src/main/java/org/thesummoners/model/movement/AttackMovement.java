@@ -12,6 +12,7 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         super(name);
         this.power = power;
         this.type= type;
+        this.setMovementType("attack");
         staminaCalculation();
     }
 
