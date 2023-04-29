@@ -37,6 +37,8 @@ public class Pokemon {
     private Objeto objetoEquipado;
     private Objeto equiparObjeto;
     private Object desequiparObjeto;
+    private int health;
+    private Object item;
 
     //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
     //cuando un pokemon suba a X nivel aprender Y movimiento.
@@ -368,9 +370,38 @@ public class Pokemon {
         return result;
     }
 
-
     @Override
     public String toString() {
         return displayName + " nivel: " + level;
+    }
+
+    public Pokemon(String name, int level, int health){
+        this.name = name;
+        this.level = level;
+        this.health = health;
+    }
+
+    public void setItem(Object item){
+        this.item = null;
+    }
+    public void removeITEM(){
+        this.item = null;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public Object getItem() {
+        return item;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon[name="  +name + ", level=" + level +", health="+ health + ", item=" + item + "]"
     }
 }

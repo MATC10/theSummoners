@@ -15,13 +15,11 @@ public class equipedPokemon {
 
     private VBox vbox;
     private MenuBar menuBar;
-    private AnchorPane anchorPane;
     private Label equiparObjeto;
     private Button atras;
     private Button adelante;
     private Button Equipar;
     private Button Desequipar;
-    private ScrollPane selectObject;
 
 
     FXMLLoader loader = new FXMLLoader(getClass().getResource("equipedPokemon.fxml"));
@@ -43,11 +41,7 @@ public class equipedPokemon {
         @FXML
         void adelanteButton(ActionEvent event){
         }
-
-
-
-
-    public void selectObject () {
+        public void selectObject () {
         VBox vBox = new VBox();
         for (int i = 1; i <= 5; i++){
             Label label = new Label("Label" + i);
@@ -56,9 +50,5 @@ public class equipedPokemon {
         ScrollPane scrollPane = new ScrollPane();
         Scene scene = new Scene(scrollPane);
     }
-
-
-
-
 
 }
