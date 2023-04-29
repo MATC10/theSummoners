@@ -13,7 +13,7 @@ public class Pokedex {
     //TIPOS FUERTES CONTRA OTROS
 
 
-    public static ObservableList<Pokemon> getPokedex() {
+    public static ObservableList<Pokemon> getPokedex() throws CloneNotSupportedException {
         pokedex.clear();
         pokedex.add(new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null));
         pokedex.add(new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null));

@@ -351,18 +351,44 @@ public class Trainer {
     }
 
 
+    public void unequipObject(Pokemon pokemon){
+        //TODO METODO PARA DESEQUIPAR EL OBJETO
+        //TODO HACER MÉTODO PARA EQUIPAR OBJETO AL POKÉMON TENIENDO EN CUENTA SI YA TIENE OTRO PUESTO
+        //TODO TENER EN CUENTA QUE PODEMOS HACER QUE LA MOCHILA ESTÉ EN TABLEVIEW
+    }
+
+    public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
+        //MÉTODO PARA ENTRENAR POKÉMONS
+        //FIXME LOS POKEMON SON LOS MISMOS, SUBES A UNO Y SUBEN TODOS LOS DEL MISMO TIPO A LA VEZ
+        if(p != null){
+            int priceTrain = p.getLevel() * 20;
+            if(this.getPokedollar() >= priceTrain && p.getLevel() < 100){
+                p.adaptStatsToLevel(p.getLevel() + 1, p);
+                this.setPokedollar(this.getPokedollar() - priceTrain);
+                pokedollarCount();
+                lblPokedollars.setText("Pokedollars disponibles: " + this.getPokedollar());
+                lblActualLevel.setText("Nivel actual: " + p.getLevel());
+                lblPrice.setText("Precio: " + priceTrain);
+                lblLevel.setText("Has entrenado a " + p.getDisplayName());
+            }
+            else lblLevel.setText("No has podido entrear a " + p.getDisplayName());
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trainer trainer = (Trainer) o;
-        return pokedollar == trainer.pokedollar && Objects.equals(name, trainer.name) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Objects.equals(pokemonPcBill, trainer.pokemonPcBill) && Objects.equals(backPack, trainer.backPack);
+        return pokedollar == trainer.pokedollar && pokeball == trainer.pokeball && Objects.equals(name, trainer.name) && Objects.equals(password, trainer.password) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Arrays.equals(pokemonToBreed, trainer.pokemonToBreed) && Arrays.equals(pokemonCub, trainer.pokemonCub);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, pokemonPcBill, pokedollar, backPack);
+        int result = Objects.hash(name, password, pokedollar, pokeball);
         result = 31 * result + Arrays.hashCode(pokemonTeam);
+        result = 31 * result + Arrays.hashCode(pokemonToBreed);
+        result = 31 * result + Arrays.hashCode(pokemonCub);
         return result;
     }
 }

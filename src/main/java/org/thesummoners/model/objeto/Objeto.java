@@ -46,33 +46,89 @@ public class Objeto {
         this.name = name;
     }
 
+    public static ObservableList<Objeto> getObjetoList() {
+        return objetoList;
+    }
+
+    public static void setObjetoList(ObservableList<Objeto> objetoList) {
+        Objeto.objetoList = objetoList;
+    }
+
+    public float getAttack() {
+        return attack;
+    }
+
+    public void setAttack(float attack) {
+        this.attack = attack;
+    }
+
+    public float getSpecialAttack() {
+        return specialAttack;
+    }
+
+    public void setSpecialAttack(float specialAttack) {
+        this.specialAttack = specialAttack;
+    }
+
+    public float getDefense() {
+        return defense;
+    }
+
+    public void setDefense(float defense) {
+        this.defense = defense;
+    }
+
+    public float getSpecialDefense() {
+        return specialDefense;
+    }
+
+    public void setSpecialDefense(float specialDefense) {
+        this.specialDefense = specialDefense;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    public float getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(float stamina) {
+        this.stamina = stamina;
+    }
+
     public void pesa() {
-        this.attack = 1.2F;
-        this.defense = 1.2F;
-        this.speed *= 0.8F;
+        this.attack = 1.2f;
+        this.defense = 1.2f;
+        this.speed *= 0.8f;
     }
 
     public void pluma() {
-        this.speed = 1.3F;
-        this.defense = 0.8F;
-        this.specialDefense = 0.8F;
+        this.speed = 1.3f;
+        this.defense = 0.8f;
+        this.specialDefense = 0.8f;
     }
 
     public void chaleco() {
-        this.defense = 1.2F;
-        this.specialDefense = 1.2F;
-        this.speed = 0.85F;
-        this.attack = 0.85F;
+        this.defense = 1.2f;
+        this.specialDefense = 1.2f;
+        this.speed = 0.85f;
+        this.attack = 0.85f;
     }
 
     public void baston() {
-        this.stamina = 1.2F;
-        this.speed = 0.85F;
+        this.stamina = 1.2f;
+        this.speed = 0.85f;
     }
 
     public void pilas() {
-        this.stamina = 1.5F;
-        this.specialDefense = 0.7F;
+        this.stamina = 1.5f;
+        this.specialDefense = 0.7f;
     }
 
     public void selectObjeto(String nombre) {

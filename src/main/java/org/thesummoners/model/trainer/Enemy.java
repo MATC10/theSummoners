@@ -13,7 +13,7 @@ public class Enemy {
     private Pokemon[] enemyTeam;
     Random random = new Random();
 
-    public Enemy(String name, String image){
+    public Enemy(String name, String image) throws CloneNotSupportedException {
         //EL ENTRENADO ENEMIGO TENDRÁ UN EQUIPO POKÉMON DE ENTRE
         //1 Y 3 POKÉMON DE FORMA ALEATORIA.
 
@@ -56,7 +56,7 @@ public class Enemy {
         this.enemyTeam = enemyTeam;
     }
 
-    public void pokemonIntoTeam(){
+    public void pokemonIntoTeam() throws CloneNotSupportedException {
 
         //el nivel del pokemon enemigo tiene que ser del mismo nivel que tu primer
         //pokemon de Trainer.pokemonTeam

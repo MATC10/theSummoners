@@ -8,7 +8,7 @@ public class ObjetoInitializer {
 
     public static ObservableList<Objeto> objetoList() {
         Objeto.objetoList.clear();
-        Objeto.objetoList.addAll(new Objeto[]{new Objeto("peso"), new Objeto("pluma"), new Objeto("chaleco"), new Objeto("baston"), new Objeto("pilas")});
+        Objeto.objetoList.addAll(new Objeto[]{new Objeto("pesa"), new Objeto("pluma"), new Objeto("chaleco"), new Objeto("baston"), new Objeto("pilas")});
         return Objeto.objetoList;
     }
 }

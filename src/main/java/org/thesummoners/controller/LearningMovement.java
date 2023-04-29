@@ -31,10 +31,12 @@ public class LearningMovement {
     private AttackMovement bombaLodo = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
     private AttackMovement ataqueIgneo = new AttackMovement ("Ataque Igneo", 5, Type.FIRE);
 
+    public LearningMovement() throws CloneNotSupportedException {
+    }
 
 
     @FXML
-    public void initialize(){
+    public void initialize() throws CloneNotSupportedException {
         if(pikachu.LearnedMovement(0) != null){
             btnMove1.setText(pikachu.LearnedMovement(0).getName());
             pikachu.setLevel(5);

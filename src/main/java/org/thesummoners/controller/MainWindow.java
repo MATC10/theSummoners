@@ -30,6 +30,9 @@ public class MainWindow {
 
     @FXML
     private Button btnTeam;
+
+    @FXML
+    private Button btnTrain;
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -87,6 +90,16 @@ public class MainWindow {
     @FXML
     public void onMainWindow(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Shop.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void onTrain(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Train.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");

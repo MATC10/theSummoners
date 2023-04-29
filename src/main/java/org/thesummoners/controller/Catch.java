@@ -60,7 +60,7 @@ public class Catch {
         p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
 
         //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
-        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel());
+        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
 
         File file2 = new File(p.getImage());
         Image image2 = new Image(file2.toURI().toString());
