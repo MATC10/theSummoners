@@ -262,7 +262,7 @@ public class Trainer {
         else return this.pokedollar;
     }
 
-    public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs){
+    public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs) throws CloneNotSupportedException {
         /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
         AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
         CAJA DE POKÉMON (PC de Bill).
@@ -279,14 +279,14 @@ public class Trainer {
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
-                        getPokemonTeam()[i] = pokemon;
+                        getPokemonTeam()[i] = pokemon.clone();
                         lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;
                     }
                 }
             }
-            else pokemonPcBill.add(pokemon);
+            else pokemonPcBill.add(pokemon.clone());
             lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!");
         }
         else {
