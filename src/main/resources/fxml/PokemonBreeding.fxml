@@ -85,15 +85,15 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btn3" layoutX="435.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonBreeding3" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Button fx:id="btn2" layoutX="243.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonBreeding2" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Button fx:id="btn1" layoutX="48.0" layoutY="100.0" mnemonicParsing="false" onAction="#pokemonBreeding1" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Button fx:id="btn6" layoutX="435.0" layoutY="240.0" mnemonicParsing="false" onAction="#pokemonBreeding6" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Button fx:id="btn5" layoutX="243.0" layoutY="240.0" mnemonicParsing="false" onAction="#pokemonBreeding5" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Button fx:id="btn4" layoutX="48.0" layoutY="239.0" mnemonicParsing="false" onAction="#pokemonBreeding4" prefHeight="102.0" prefWidth="157.0" text="Button" />
-            <Label fx:id="lbl1" layoutX="92.0" layoutY="22.0" prefHeight="46.0" prefWidth="458.0" text="Elige dos pokémon para dejar en la zona de crianza">
+            <Button fx:id="btn3" layoutX="435.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonBreeding3" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Button fx:id="btn2" layoutX="243.0" layoutY="101.0" mnemonicParsing="false" onAction="#pokemonBreeding2" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Button fx:id="btn1" layoutX="48.0" layoutY="100.0" mnemonicParsing="false" onAction="#pokemonBreeding1" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Button fx:id="btn6" layoutX="435.0" layoutY="240.0" mnemonicParsing="false" onAction="#pokemonBreeding6" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Button fx:id="btn5" layoutX="243.0" layoutY="240.0" mnemonicParsing="false" onAction="#pokemonBreeding5" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Button fx:id="btn4" layoutX="48.0" layoutY="239.0" mnemonicParsing="false" onAction="#pokemonBreeding4" prefHeight="102.0" prefWidth="157.0" style="-fx-background-color: BF6DF1;" text="Button" />
+            <Label fx:id="lbl1" layoutX="46.0" layoutY="23.0" prefHeight="43.0" prefWidth="566.0" text="Elige dos pokémon para dejar en la zona de crianza" textFill="#bf6df1">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="Verdana Bold" size="19.0" />
                </font>
             </Label>
       </children>

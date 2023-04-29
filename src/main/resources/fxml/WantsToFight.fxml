@@ -87,12 +87,12 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fx:id="imgEnemy" fitHeight="291.0" fitWidth="200.0" layoutX="61.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblWantsToFight" layoutX="281.0" layoutY="53.0" prefHeight="78.0" prefWidth="329.0" text="Label">
+            <Label fx:id="lblWantsToFight" layoutX="281.0" layoutY="53.0" prefHeight="78.0" prefWidth="329.0" text="Label" textFill="#bf6df1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnFight" layoutX="346.0" layoutY="183.0" mnemonicParsing="false" onAction="#toFight" prefHeight="116.0" prefWidth="200.0" text="¡Luchar!">
+            <Button fx:id="btnFight" layoutX="346.0" layoutY="204.0" mnemonicParsing="false" onAction="#toFight" prefHeight="95.0" prefWidth="200.0" style="-fx-background-color: BF6DF1;" text="¡Luchar!">
                <font>
                   <Font size="28.0" />
                </font>

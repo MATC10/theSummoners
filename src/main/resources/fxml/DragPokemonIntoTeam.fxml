@@ -87,19 +87,25 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <Label fx:id="lblPcBill" layoutX="33.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="PC de Bill" />
-            <Label fx:id="lblPokemonTeam" layoutX="401.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="Equipo Pokémon" />
-            <Button fx:id="btnToPokemonTeam" layoutX="291.0" layoutY="145.0" mnemonicParsing="false" onAction="#toPokemonTeam" prefHeight="26.0" prefWidth="58.0" text="&gt;&gt;">
+            <Label fx:id="lblPcBill" alignment="CENTER" layoutX="33.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="PC de Bill" textFill="#bf6df1">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="lblPokemonTeam" alignment="CENTER" layoutX="401.0" layoutY="26.0" prefHeight="18.0" prefWidth="200.0" text="Equipo Pokémon" textFill="#bf6df1">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Button fx:id="btnToPokemonTeam" layoutX="291.0" layoutY="145.0" mnemonicParsing="false" onAction="#toPokemonTeam" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: BF6DF1;" text="&gt;&gt;">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnToPcBill" layoutX="291.0" layoutY="203.0" mnemonicParsing="false" onAction="#toPcBill" prefHeight="26.0" prefWidth="58.0" text="&lt;&lt;">
+            <Button fx:id="btnToPcBill" layoutX="291.0" layoutY="203.0" mnemonicParsing="false" onAction="#toPcBill" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: BF6DF1;" text="&lt;&lt;">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <Button fx:id="btnMainWindow" layoutX="276.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="37.0" prefWidth="88.0" text="Volver">
+            <Button fx:id="btnMainWindow" layoutX="276.0" layoutY="308.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="37.0" prefWidth="88.0" style="-fx-background-color: BF6DF1;" text="Volver">
                <font>
                   <Font size="16.0" />
                </font>
