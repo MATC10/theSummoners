@@ -369,12 +369,7 @@ public class Pokemon {
         result = 31 * result + Arrays.hashCode(learnedMovement);
         return result;
     }
-
-    @Override
-    public String toString() {
-        return displayName + " nivel: " + level;
-    }
-
+    
     public Pokemon(String name, int level, int health){
         this.name = name;
         this.level = level;
@@ -402,6 +397,6 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon[name="  +name + ", level=" + level +", health="+ health + ", item=" + item + "]"
+        return displayName + "Pokemon[name="  +name + ", level=" + level +", health="+ health + ", item=" + item + "]";
     }
 }
