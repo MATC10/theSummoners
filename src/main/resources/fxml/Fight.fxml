@@ -101,7 +101,7 @@
             <Label fx:id="lblHpTrainer" layoutX="25.0" layoutY="192.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
             <Label fx:id="lblNamePkEnemy" layoutX="477.0" layoutY="13.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
             <Label fx:id="lblHpEnemy" layoutX="477.0" layoutY="36.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
-            <Button fx:id="prueba" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
+            <Button fx:id="prueba" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: BF6DF1;" text="Volver a menú principal (provisional para prueba)" />
          </children>
     </AnchorPane>
   </children>

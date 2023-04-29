@@ -87,8 +87,8 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <ImageView fx:id="imgProfesorOak" fitHeight="312.0" fitWidth="200.0" layoutX="40.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblProfesorOak" layoutX="250.0" layoutY="6.0" prefHeight="278.0" prefWidth="384.0" text="Label" />
-            <Button fx:id="btnNext" layoutX="284.0" layoutY="292.0" mnemonicParsing="false" onAction="#toPokeball" prefHeight="45.0" prefWidth="270.0" text="Continuar">
+            <Label fx:id="lblProfesorOak" layoutX="250.0" layoutY="6.0" prefHeight="278.0" prefWidth="384.0" text="Label" textFill="#bf6df1" />
+            <Button fx:id="btnNext" layoutX="284.0" layoutY="292.0" mnemonicParsing="false" onAction="#toPokeball" prefHeight="45.0" prefWidth="270.0" style="-fx-background-color: BF6DF1;" text="Continuar">
                <font>
                   <Font size="25.0" />
                </font>

@@ -90,12 +90,12 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="375.0" prefWidth="457.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="368.0" prefWidth="514.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="txtUser" layoutX="280.0" layoutY="127.0" promptText="Usuario" />
-            <Label layoutX="280.0" layoutY="97.0" text="Nombre de usuario" />
-            <Label layoutX="280.0" layoutY="165.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="280.0" layoutY="189.0" promptText="Contraseña" />
+            <TextField fx:id="txtUser" layoutX="288.0" layoutY="128.0" promptText="Usuario" />
+            <Label layoutX="288.0" layoutY="98.0" text="Nombre de usuario" />
+            <Label layoutX="288.0" layoutY="165.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="288.0" layoutY="189.0" promptText="Contraseña" />
             <Button fx:id="btnLogin" layoutX="336.0" layoutY="260.0" mnemonicParsing="false" onAction="#Login" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: BF6DF1;" text="Login" />
             <Hyperlink fx:id="hlRegister" layoutX="254.0" layoutY="318.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
             <Label fx:id="lblStatus" alignment="CENTER" layoutX="376.0" layoutY="14.0" prefHeight="18.0" prefWidth="132.0" text="estado : Desconectado" textFill="RED">
@@ -103,8 +103,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblConnectedOrNot" layoutX="130.0" layoutY="255.0" prefHeight="18.0" prefWidth="179.0" textFill="RED" />
-            <AnchorPane prefHeight="378.0" prefWidth="227.0" style="-fx-background-color: BF6DF1;">
+            <Label fx:id="lblConnectedOrNot" layoutX="278.0" layoutY="234.0" prefHeight="18.0" prefWidth="179.0" textFill="RED" />
+            <AnchorPane prefHeight="369.0" prefWidth="227.0" style="-fx-background-color: BF6DF1;">
                <children>
                   <Label alignment="CENTER" layoutX="27.0" layoutY="116.0" prefHeight="49.0" prefWidth="186.0" text="The Summoners">
                      <font>

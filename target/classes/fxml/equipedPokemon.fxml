@@ -37,13 +37,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.equipedPokemon">
@@ -89,60 +88,33 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button layoutX="467.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" text="Equipar" />
-            <Button layoutX="467.0" layoutY="197.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" text="Desquipar" />
-            <Label alignment="CENTER" layoutX="192.0" layoutY="14.0" prefHeight="49.0" prefWidth="306.0" text="Elige un objeto para tu pokemon ">
+            <Button layoutX="467.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: BF6DF1;" text="Equipar">
                <font>
-                  <Font size="20.0" />
+                  <Font size="16.0" />
+               </font></Button>
+            <Button layoutX="467.0" layoutY="197.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="136.0" style="-fx-background-color: BF6DF1;" text="Desquipar">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+            <Label alignment="CENTER" layoutX="176.0" layoutY="14.0" prefHeight="49.0" prefWidth="306.0" text="Elige un objeto para tu pokemon " textFill="#bf6df1">
+               <font>
+                  <Font name="System Bold" size="20.0" />
                </font></Label>
-            <Button layoutX="196.0" layoutY="314.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="volver" />
-            <Button layoutX="313.0" layoutY="314.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" text="adelante" />
-            <ScrollPane fitToWidth="true" layoutX="48.0" layoutY="78.0" prefHeight="202.0" prefWidth="373.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="363.0">
-                     <children>
-                        <GridPane gridLinesVisible="true" prefHeight="200.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.4" AnchorPane.rightAnchor="-170.0" AnchorPane.topAnchor="0.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="370.0" minWidth="10.0" prefWidth="286.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="352.0" text="pesa">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="352.0" text="pilas" GridPane.rowIndex="4">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button alignment="CENTER" layoutX="10.0" layoutY="50.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="352.0" text="chaleco" GridPane.rowIndex="2">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button alignment="CENTER" layoutX="10.0" layoutY="90.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="352.0" text="pluma" GridPane.rowIndex="1">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                              <Button alignment="CENTER" layoutX="10.0" layoutY="130.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="352.0" text="bastón" GridPane.rowIndex="3">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </GridPane>
-                     </children></AnchorPane>
-              </content>
-            </ScrollPane>
+            <Button layoutX="197.0" layoutY="314.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" style="-fx-background-color: BF6DF1;" text="volver">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button layoutX="338.0" layoutY="314.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="98.0" style="-fx-background-color: BF6DF1;" text="adelante">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <TableView layoutX="36.0" layoutY="75.0" prefHeight="215.0" prefWidth="394.0">
+              <columns>
+                <TableColumn prefWidth="114.0" text="Objetos" />
+                <TableColumn prefWidth="283.0" text="Propriedad" />
+              </columns>
+            </TableView>
+            <Line endX="-46.0" endY="49.0" layoutX="196.0" layoutY="54.0" startX="-46.0" startY="236.0" />
       </children>
     </AnchorPane>
   </children>
