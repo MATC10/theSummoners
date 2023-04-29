@@ -359,7 +359,6 @@ public class Trainer {
 
     public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
         //MÉTODO PARA ENTRENAR POKÉMONS
-        //FIXME LOS POKEMON SON LOS MISMOS, SUBES A UNO Y SUBEN TODOS LOS DEL MISMO TIPO A LA VEZ
         if(p != null){
             int priceTrain = p.getLevel() * 20;
             if(this.getPokedollar() >= priceTrain && p.getLevel() < 100){
