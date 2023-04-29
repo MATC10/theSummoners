@@ -3,6 +3,8 @@ package org.thesummoners.model.trainer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import org.thesummoners.model.movement.AttackMovement;
+import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -233,12 +235,26 @@ public class Trainer {
         setPokemonCub(null);
     }
 
-    public void fight(Pokemon pokemonTeam, Pokemon pokemonEnemy) throws CloneNotSupportedException {
-        Pokemon pokemon1 = (Pokemon) pokemonTeam.clone();
-        Pokemon pokemon2 = (Pokemon) pokemonEnemy.clone();
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws CloneNotSupportedException {
+        //TODO CALCULAR QUIEN ATACA EN EL PRIMER TURNO SEGÚN LA VELOCIDAD DEL PRIMER POKEMON
+        //Pokemon p1 = (Pokemon) pokemon1.clone();
+        //Pokemon p2 = (Pokemon) pokemon2.clone();
+        //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
 
+        AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+        //FALTA METER LOS DISTINTOS TIMOS DE MOVIMIENTO, LOS POKEMON DIBILITADOS, LOS TURNOS, CAMBIOS DE POKEMON...
 
+        int hpPokemon1 = pokemon1.getHp();
+        int hpPokemon2 = pokemon2.getHp();
 
+        //TODO CREAR AQUÍ OTRO IF PARA QUE A LOS POKEMON DEL EQUIPO QUE GANA SE LES QUITEN LOS ESTADOS Y VUELVAN A ALIVE
+        //TODO SALVO A LOS QUE ESTÉN DEBILITADOS
+        //HAGO ESTO AL FINAL PARA QUE LOS POKEMON
+        pokemon1.adaptStatsToLevel(pokemon1.getLevel(), pokemon1);
+        pokemon1.setHp(hpPokemon1);
+
+        pokemon2.adaptStatsToLevel(pokemon2.getLevel(), pokemon2);
+        pokemon2.setHp(hpPokemon2);
     }
 
     public boolean checkPokemonTeamFull(){

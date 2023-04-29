@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.Type;
 
@@ -39,17 +40,27 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         return 1;
     }
 
-    public void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement){
+    public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement){
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
         if(movement.getMovementType().equals("attack")){
             float baseDamage = pokemon1.getAttackPower() + pokemon1.getSpecialAttack();
             float summedAmountDamage = 0;
 
-            //if(pokemon1.get)
+            //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN EL TIPO DE MOVIMIENTO DE ATAQUE
+            if(movement.getMovementType().equals(pokemon1.getType1()) ||
+                    movement.getMovementType().equals(pokemon1.getType2())){
+                summedAmountDamage += (baseDamage * 1.5f) - baseDamage;
+            }
 
+            //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN LOS TIPOS DE POKÉMON
+            summedAmountDamage += (baseDamage * Pokedex.compareAdvantage(pokemon1, pokemon2) - baseDamage);
 
+            baseDamage += summedAmountDamage;
 
+            pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
 
+            //AHORA CAMBIAR EL POKEMON2 A DEBILITADO SI TIENE 0 DE VIDA
+            //¿HACERLO EN OTRO MÉTODO?
 
         }
         /*
@@ -89,7 +100,7 @@ if(p2.getState==debilited){
 
     @Override
     public void staminaCalculation() {
-        this.setStamina(this.getPower() / 2);
+        this.setStamina(getStamina() - (this.getPower() / 2));
     }
 
 

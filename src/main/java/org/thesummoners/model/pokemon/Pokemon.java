@@ -144,7 +144,9 @@ public class Pokemon implements Cloneable {
     }
 
     public void setHp(int hp) {
+        //INCLUÍDO UN MÉTODO PARA QUE NO SE PUEDA BAJAR DE 0 DE VIDA
         this.hp = hp;
+        minimumHp ();
     }
 
     public int getLevel() {
@@ -412,6 +414,12 @@ public class Pokemon implements Cloneable {
 
     }
 
+    public void minimumHp (){
+        //MÉTODO PARA NO BAJAR DE 0 DE VIDA, INCLUIDO EN setHp();
+        if(this.hp <= 0){
+            this.hp = 0;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

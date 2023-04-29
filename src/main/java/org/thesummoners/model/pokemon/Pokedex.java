@@ -88,7 +88,7 @@ public class Pokedex {
                 strong.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
                 strong.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())
         )
-            return 2.0f;
+            return 2f;
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES DEBIL CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X0.5
         if(weak.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
                 weak.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()) ||
