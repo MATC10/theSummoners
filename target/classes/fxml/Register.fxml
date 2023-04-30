@@ -42,13 +42,15 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="588.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Register">
+<VBox prefHeight="401.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Register">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -89,15 +91,15 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="370.0" prefWidth="569.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="370.0" prefWidth="569.0" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="txtUser" layoutX="274.0" layoutY="81.0" promptText="Usuario" />
-            <Label layoutX="274.0" layoutY="55.0" text="Nombre de usuario" />
-            <Label layoutX="273.0" layoutY="119.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="274.0" layoutY="147.0" promptText="Contraseña" />
+            <TextField fx:id="txtUser" layoutX="283.0" layoutY="106.0" promptText="Usuario" />
+            <Label layoutX="282.0" layoutY="80.0" text="Nombre de usuario" />
+            <Label alignment="CENTER" layoutX="281.0" layoutY="142.0" prefHeight="17.0" prefWidth="70.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="283.0" layoutY="167.0" promptText="Contraseña" />
             <Button fx:id="btnRegister" layoutX="311.0" layoutY="278.0" mnemonicParsing="false" onAction="#onRegister" prefHeight="28.0" prefWidth="104.0" style="-fx-background-color: BF6DF1;" text="Registrarse" />
-            <Label layoutX="273.0" layoutY="185.0" text="Repita contraseña" />
-            <PasswordField fx:id="txtPass2" layoutX="274.0" layoutY="211.0" promptText="Contraseña" />
+            <Label layoutX="285.0" layoutY="202.0" text="Repita contraseña" />
+            <PasswordField fx:id="txtPass2" layoutX="283.0" layoutY="227.0" promptText="Contraseña" />
             <Hyperlink fx:id="hlLogin" layoutX="259.0" layoutY="326.0" onAction="#toLogin" text="¿Ya estás registrado? Inicia tu sesión" />
             <Label fx:id="lblErrorRegister" layoutX="58.0" layoutY="253.0" prefHeight="18.0" prefWidth="322.0" />
             <AnchorPane prefHeight="363.0" prefWidth="222.0" style="-fx-background-color: BF6DF1;">
@@ -131,6 +133,11 @@
                   <Line endX="73.5" layoutX="130.0" layoutY="152.0" startX="-100.0" />
                </children>
             </AnchorPane>
+            <ImageView fitHeight="53.0" fitWidth="133.0" layoutX="305.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-image: BF6DF1;">
+               <image>
+                  <Image url="@../../../../../../WDocumentos/Pokemon/1.png.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>
