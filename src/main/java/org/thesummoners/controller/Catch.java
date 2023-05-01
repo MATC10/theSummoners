@@ -40,6 +40,9 @@ public class Catch {
     @FXML
     private Label lblText;
 
+    @FXML
+    private Label lblLevel;
+
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -67,7 +70,7 @@ public class Catch {
         imgPokemon.setImage(image2);
 
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
-
+        lblLevel.setText("Level: " +p.getLevel());
 
     }
 
