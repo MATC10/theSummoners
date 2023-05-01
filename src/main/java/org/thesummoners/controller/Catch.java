@@ -12,12 +12,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.*;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 public class Catch {
 
@@ -38,23 +39,30 @@ public class Catch {
 
     @FXML
     private Label lblText;
-    Pokemon venusaur = new Pokemon("Venusaur", 1);
 
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private Pokemon p;
 
     @FXML
-    void initialize()  {
+    void initialize() throws CloneNotSupportedException {
         //AQUÍ HABRÁ UN POKEMON ALEATORIO
 
         File file = new File("doc/images/Pokeball.png");
         Image image = new Image(file.toURI().toString());
         imgPokeball.setImage(image);
 
-        //AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
+        //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
 
-        File file2 = new File("doc/images/venusaur.png");
+        Random random = new Random();
+        //CLONAMOS EN p EL NUEVO POKEMON
+        p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
+
+        //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
+        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
+
+        File file2 = new File(p.getImage());
         Image image2 = new Image(file2.toURI().toString());
         imgPokemon.setImage(image2);
 
@@ -74,12 +82,12 @@ public class Catch {
     }
 
     @FXML
-    void onTryCatchPokemon(MouseEvent event) {
+    void onTryCatchPokemon(MouseEvent event) throws CloneNotSupportedException {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
         //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE
 
-        Trainer.getTrainer().capture(venusaur, lblText, lblPokeballs);
+        Trainer.getTrainer().capture(p, lblText, lblPokeballs);
 
 
     }

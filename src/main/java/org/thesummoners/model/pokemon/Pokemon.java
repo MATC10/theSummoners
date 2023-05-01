@@ -8,9 +8,8 @@ import org.thesummoners.model.objeto.Objeto;
 
 import java.util.*;
 
-public class Pokemon {
+public class Pokemon implements Cloneable {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
-    public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
 
     static int counterPokemon = 0;
     private int idPokemon;
@@ -22,7 +21,6 @@ public class Pokemon {
     private String imageBack;
     private int hp;
     private int level;
-    private int fertility;
     private int attackPower;
     private int specialAttack;
     private int defense;
@@ -45,30 +43,39 @@ public class Pokemon {
     private Objeto objeto;
 
 
-
-    public Pokemon (String name, int level){
-        counterPokemon ++;
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) throws CloneNotSupportedException {
         this.name = name;
+        this.idPokedex = idPokedex;
+        this.image = image;
+        this.imageBack = imageBack;
+        this.hp = hp;
         this.level = level;
+        this.attackPower = attackPower;
+        this.specialAttack = specialAttack;
+        this.defense = defense;
+        this.specialDefense = specialDefense;
+        this.speed = speed;
+        this.stamina = stamina;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.state = state;
+        this.sex = sex;
+        this.experience = experience;
         this.learnedMovement = new Movement [4];
-        this.idPokemon = counterPokemon;
-        this.fertility = 5;
-
-        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
+        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         this.learnedMovement[0] = placaje;
         AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
         AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
         AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
-
         //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
-        HashMap <Integer, Movement> movementLevel = new HashMap<Integer, Movement>(){{put(5, pistolaAgua);
-            put(10,hidroBomba); put(15, salpicadura);}};
 
-        this.movementLevel = movementLevel;
-        adaptStatsToLevel(level);
+        this.objeto = objeto;
+        counterPokemon ++;
+        this.idPokemon = counterPokemon;
         changeDisplayName();
     }
+
 
     public static int getCounterPokemon() {
         return counterPokemon;
@@ -110,21 +117,12 @@ public class Pokemon {
         this.image = image;
     }
 
-    public static ObservableList<Pokemon> getPokedex() {
-        return pokedex;
-    }
-
-    public static void setPokedex(ObservableList<Pokemon> pokedex) {
-        Pokemon.pokedex = pokedex;
-    }
-
     public String getNickName() {
         return nickName;
     }
 
     public void setNickName(String nickName) {
         //TENEMOS QUE RESTRINGIR LOS NICKNAMES A NOMBRES APROPIADOS
-
         this.nickName = nickName;
     }
 
@@ -136,6 +134,7 @@ public class Pokemon {
         this.displayName = displayName;
     }
 
+
     public void setExperience(int experience) {
         this.experience = experience;
     }
@@ -145,25 +144,19 @@ public class Pokemon {
     }
 
     public void setHp(int hp) {
+        //INCLUÍDO UN MÉTODO PARA QUE NO SE PUEDA BAJAR DE 0 DE VIDA
         this.hp = hp;
+        minimumHp ();
     }
 
     public int getLevel() {
         return level;
     }
 
-    public void setLevel(int level) {
+    public void setLevel(int level) throws CloneNotSupportedException {
         this.level = level;
-        adaptStatsToLevel(level);
     }
 
-    public int getFertility() {
-        return fertility;
-    }
-
-    public void setFertility(int fertility) {
-        this.fertility = fertility;
-    }
 
     public int getAttackPower() {
         return attackPower;
@@ -285,7 +278,9 @@ public class Pokemon {
     }
 
     public void setObjeto(Objeto objeto) {
+        //AL ASIGNAR UN OBJETO RECIBES LAS MEJORAS CORRESPONDIENTES AUTOMÁTICAMENTE
         this.objeto = objeto;
+        statisticsWithObjeto(this, objeto);
     }
 
     public void assignMovement(int i){
@@ -302,14 +297,14 @@ public class Pokemon {
         //A LA HORA DE PELEAR TIENE QUE HABER UN TURNO QUE NO PELEE TRAS DORMIR
     }
 
-    public void levelUp(int experience){
+    public void levelUp(int experience) throws CloneNotSupportedException {
         //LOS COMBATES DAN EXP A LOS POKEMON
         if(this.level < 100){
             this.experience += experience;
             if(this.experience >= 100){
                 this.level += 1;
                 this.experience -= 100;
-                adaptStatsToLevel(this.level);
+                adaptStatsToLevel(this.level, this);
             }
         }
     }
@@ -321,19 +316,55 @@ public class Pokemon {
 
 
 
-    public void adaptStatsToLevel(int level){
-        //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,
-        //A TODOS LOS POKÉMON CON MÁS DE LEVEL 1
-        if(this.level > 1){
-            this.hp += level;
-            this.attackPower += level/10;
-            this.specialAttack += level/10;
-            this.defense += level/10;
-            this.specialDefense += level/10;
-            this.speed += level/10;
-            this.stamina += level/10;
-        }
+    public void adaptStatsToLevel(int level, Pokemon pokemon) throws CloneNotSupportedException {
+        //ESTE MÉTODO CAMBIA LAS ESTADÍSTICAS DEL POKÉMON SEGÚN SU NIVEL
+        //TODO: EN COMBATE USAMOS EL MÉTODO levelUp() PARA DAR EXPERIENCIA Y QUE LO HAGA TODO SOLO
+        if(level <= 100 && level > 0) {
 
+
+            Pokemon newPokemon = null;
+
+            for (Pokemon p : Pokedex.getPokedex()) {
+                if (pokemon.getName().equals(p.getName())) {
+                    newPokemon = p.clone();
+                }
+            }
+
+            //SI TIENE OBJETO SE LO QUITAMOS PARA CALCULAR LAS ESTADÍSITCAS
+            boolean equippedPokemon = false;
+
+            if (pokemon.getObjeto() != null) {
+                equippedPokemon = true;
+            }
+
+            //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,
+            //A TODOS LOS POKÉMON CON MÁS DE LEVEL 1
+            if (level > 1) {
+                pokemon.setHp(newPokemon.getHp() + (level * 20));
+                pokemon.setAttackPower(newPokemon.getAttackPower() + (level / 5));
+                pokemon.setSpecialAttack(newPokemon.getSpecialAttack() + (level / 5));
+                pokemon.setSpecialAttack(newPokemon.getDefense() + (level / 5));
+                pokemon.setSpecialDefense(newPokemon.getSpecialDefense() + (level / 5));
+                pokemon.setSpeed(newPokemon.getSpeed() + (level / 5));
+                pokemon.setStamina(newPokemon.getStamina() + (level / 5));
+            } else if (level < 1) {
+                pokemon.setHp(newPokemon.getHp());
+                pokemon.setAttackPower(newPokemon.getAttackPower());
+                pokemon.setSpecialAttack(newPokemon.getSpecialAttack());
+                pokemon.setSpecialAttack(newPokemon.getDefense());
+                pokemon.setSpecialDefense(newPokemon.getSpecialDefense());
+                pokemon.setSpeed(newPokemon.getSpeed());
+                pokemon.setStamina(newPokemon.getStamina());
+            }
+
+
+            //SI TENÍA OBJETO SE LO DEVOLVEMOS Y RECALCULA LAS ESTADÍSTICAS
+            if (equippedPokemon) {
+                pokemon.setObjeto(objeto);
+            }
+
+            pokemon.setLevel(level);
+        }
     }
 
     public void changeDisplayName(){
@@ -344,25 +375,84 @@ public class Pokemon {
         else this.displayName = this.name;
     }
 
+    public boolean statisticsWithObjeto(Pokemon pokemon, Objeto objeto){
+        //SEGÚN EL OBJETO EQUIPADO, EL POKÉMON TENDRÁ DETERMINADAS ESTADÍSTICAS
+        //SE DEBE HACER OTRO MÉTODO PARA RECUPERAR SUS STATS BASE AL QUITAR EL OBJETO
+        if(pokemon.getObjeto().getName().equals("pesa")){
+            pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
+            pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
+            pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
+            return true;
+        }
+        else if (pokemon.getObjeto().getName().equals("pluma")){
+            pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
+            pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
+            pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
+            return true;
+        }
+        else if(pokemon.getObjeto().getName().equals("chaleco")){
+            pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
+            pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
+            pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
+            pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
+            return true;
+        }
+        else if(pokemon.getObjeto().getName().equals("baston")){
+            pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
+            pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
+            return true;
+        }
+        else if(pokemon.getObjeto().getName().equals("pilas")){
+            pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
+            pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
+            return true;
+        }
+        return false;
+    }
+
+    public void statisticsWithoutObjeto(Pokemon pokemon){
+
+    }
+
+    public void minimumHp (){
+        //MÉTODO PARA NO BAJAR DE 0 DE VIDA, INCLUIDO EN setHp();
+        if(this.hp <= 0){
+            this.hp = 0;
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && fertility == pokemon.fertility && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Objects.equals(movementLevel, pokemon.movementLevel) && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
+        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && experience == pokemon.experience && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && Objects.equals(displayName, pokemon.displayName) && Objects.equals(image, pokemon.image) && Objects.equals(imageBack, pokemon.imageBack) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(idPokemon, idPokedex, name, nickName, hp, level, fertility, attackPower, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, objeto);
+        int result = Objects.hash(idPokemon, idPokedex, name, nickName, displayName, image, imageBack, hp, level, attackPower, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, experience, objeto);
         result = 31 * result + Arrays.hashCode(learnedMovement);
         return result;
     }
-
 
     @Override
     public String toString() {
         return displayName + " nivel: " + level;
     }
+
+
+
+
+    @Override
+    public Pokemon clone() throws CloneNotSupportedException {
+        //CLONAR POKEMON
+        Pokemon clonedPokemon = (Pokemon) super.clone();
+        clonedPokemon.learnedMovement = learnedMovement.clone();
+        clonedPokemon.objeto = objeto;
+
+        return clonedPokemon;
+    }
 }
+
+

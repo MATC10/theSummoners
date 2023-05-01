@@ -206,45 +206,50 @@ public class DragPokemonIntoTeam {
     @FXML
     void toPcBill() {
         //TODO REVISAR POSIBLES BUGS
-        btnToPcBill.setOnMouseClicked(event -> {
+
             //SOLAMENTE PODEMOS PASAR POKEMON HASTA UN MÁXIMO DE 6 AL EQUIPO POKÉMON
-            if (listTeamIntermediary.size() > 1) {
-                if (event.getClickCount() == 1) {
-                    Pokemon selectedPokemon = tvPokemonTeam.getSelectionModel().getSelectedItem();
+             Pokemon selectedPokemon = tvPokemonTeam.getSelectionModel().getSelectedItem();
+            if (listTeamIntermediary.size() > 1 && selectedPokemon != null) {
                     // AGREGA EL POKÉMON SELECCIONADO A LA LISTA NUEVA
                     Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
                     // ACTUALIZA LA VISTA DE LA TABLEVIEW
                     tvPcBill.setItems( Trainer.getTrainer().getPokemonPcBill());
                     // ELIMINA EL POKÉMON SELECCIONADO DEL PC DE BILL
                     tvPokemonTeam.getItems().remove(selectedPokemon);
-                    System.out.println(listTeamIntermediary.size());
-                }
+                    // ACTUALIZA LA VISTA DE LA TABLE
+                    tvPokemonTeam.setItems(listTeamIntermediary);
+                    System.out.println("LIST INTERMEDIARY" + listTeamIntermediary.size());
+
             }
-        });
+
     }
 
     @FXML
     void toPokemonTeam() {
         //TODO REVISAR POSIBLES BUGS
-        btnToPokemonTeam.setOnMouseClicked(event -> {
+
             //SOLAMENTE PODEMOS PASAR POKEMON HASTA UN MÁXIMO DE 6 AL EQUIPO POKÉMON
-            if (listTeamIntermediary.size() < 6) {
-            if (event.getClickCount() == 1) {
-                Pokemon selectedPokemon = tvPcBill.getSelectionModel().getSelectedItem();
+        Pokemon selectedPokemon = tvPcBill.getSelectionModel().getSelectedItem();
+            if (listTeamIntermediary.size() < 6 && selectedPokemon != null) {
                     // AGREGA EL POKÉMON SELECCIONADO A LA LISTA NUEVA
                 listTeamIntermediary.add(selectedPokemon);
                     // ACTUALIZA LA VISTA DE LA TABLEVIEW
                     tvPokemonTeam.setItems(listTeamIntermediary);
                     // ELIMINA EL POKÉMON SELECCIONADO DEL PC DE BILL
                     tvPcBill.getItems().remove(selectedPokemon);
-                    Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
-                }
+                    //ACTUALIZA VISTA
+                    tvPcBill.setItems( Trainer.getTrainer().getPokemonPcBill());
+                    System.out.println("PC BILL" +Trainer.getTrainer().getPokemonPcBill());
+                    //Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
+
             }
-        });
+
     }
 
     @FXML
     void toMainWindow(ActionEvent event) throws IOException {
+        Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
+        listTeamIntermediary.clear();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 400, 440);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

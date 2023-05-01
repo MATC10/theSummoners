@@ -11,7 +11,7 @@ import java.util.List;
 public class MovementInitializer {
     public static HashMap<Integer, Movement> movementsIntoList() {
         AttackMovement trueno = new AttackMovement("Trueno", 110, Type.ELECTRIC);
-        AttackMovement rayoSolar = new AttackMovement("Rayo Solar", 120, Type.PLANT);
+        AttackMovement rayoSolar = new AttackMovement("Rayo Solar", 120, Type.GRASS);
         AttackMovement hidrobomba = new AttackMovement("Hidrobomba", 110, Type.WATER);
         AttackMovement lanzallamas = new AttackMovement("Lanzallamas", 95, Type.FIRE);
         AttackMovement aguijonLetal = new AttackMovement("Aguijón Letal", 50, Type.BUG);

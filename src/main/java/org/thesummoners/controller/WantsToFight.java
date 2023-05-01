@@ -32,7 +32,7 @@ public class WantsToFight {
     Random aleatorio = new Random();
 
     @FXML
-    public void initialize(){
+    public void initialize() throws CloneNotSupportedException {
         int arrayValor = aleatorio.nextInt(10);
         Enemy.enemyArray[0] = new Enemy("Pescador", "doc/images/pescador.png");
         Enemy.enemyArray[1] = new Enemy("Entre.guay", "doc/images/entreGuay.png");

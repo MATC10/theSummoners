@@ -12,6 +12,7 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
         super(name);
         this.stateToApply = stateToApply;
+        this.setMovementType("state");
         TurnsDurationcalculation();
         staminaCalculation();
     }
@@ -39,6 +40,6 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
     @Override
     public void staminaCalculation() {
-        this.setStamina(this.getNumberOfTurnsDuration() * 10);
+        this.setStamina( this.getStamina() - (this.getNumberOfTurnsDuration() * 10));
     }
 }

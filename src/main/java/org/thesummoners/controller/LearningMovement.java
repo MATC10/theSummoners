@@ -4,6 +4,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.Sex;
+import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
 
 public class LearningMovement {
@@ -25,14 +27,16 @@ public class LearningMovement {
 
     //ESTA VENTANA SALDRÁ CUANDO UN POKÉMON LLEGUE A NIVEL DE APRENDER UN ATAQUE.
 
-    private Pokemon pikachu = new Pokemon("Pikachu", 1);
+    private Pokemon pikachu = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null);
     private AttackMovement bombaLodo = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
     private AttackMovement ataqueIgneo = new AttackMovement ("Ataque Igneo", 5, Type.FIRE);
 
+    public LearningMovement() throws CloneNotSupportedException {
+    }
 
 
     @FXML
-    public void initialize(){
+    public void initialize() throws CloneNotSupportedException {
         if(pikachu.LearnedMovement(0) != null){
             btnMove1.setText(pikachu.LearnedMovement(0).getName());
             pikachu.setLevel(5);

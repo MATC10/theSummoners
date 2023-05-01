@@ -89,6 +89,7 @@
             <Button fx:id="btnBreeding" layoutX="322.0" layoutY="151.0" mnemonicParsing="false" onAction="#toBreedPokemon" text="Zona de crianza" />
             <Button fx:id="btnShop" layoutX="320.0" layoutY="104.0" mnemonicParsing="false" onAction="#onMainWindow" text="Tienda" />
             <Button fx:id="btnCatch" layoutX="184.0" layoutY="104.0" mnemonicParsing="false" onAction="#onCatchPokemon" text="Capturar Pokémon" />
+            <Button fx:id="btnTrain" layoutX="92.0" layoutY="187.0" mnemonicParsing="false" onAction="#onTrain" text="Train" />
       </children>
     </AnchorPane>
   </children>
