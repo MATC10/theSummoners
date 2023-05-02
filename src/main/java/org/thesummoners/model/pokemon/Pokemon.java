@@ -6,6 +6,8 @@ import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 
+
+
 import java.util.*;
 
 public class Pokemon implements Cloneable {
@@ -22,6 +24,7 @@ public class Pokemon implements Cloneable {
     private int hp;
     private int level;
     private int attackPower;
+    private int fertility;
     private int specialAttack;
     private int defense;
     private int specialDefense;
@@ -43,7 +46,7 @@ public class Pokemon implements Cloneable {
     private Objeto objeto;
 
 
-    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) throws CloneNotSupportedException {
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) {
         this.name = name;
         this.idPokedex = idPokedex;
         this.image = image;
@@ -60,6 +63,7 @@ public class Pokemon implements Cloneable {
         this.type2 = type2;
         this.state = state;
         this.sex = sex;
+        this.fertility = 5;
         this.experience = experience;
         this.learnedMovement = new Movement [4];
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
@@ -99,6 +103,14 @@ public class Pokemon implements Cloneable {
 
     public void setIdPokedex(int idPokedex) {
         this.idPokedex = idPokedex;
+    }
+
+    public int getFertility() {
+        return fertility;
+    }
+
+    public void setFertility(int fertility) {
+        this.fertility = fertility;
     }
 
     public String getName() {

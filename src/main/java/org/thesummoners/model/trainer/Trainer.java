@@ -7,10 +7,11 @@ import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
-import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+import org.thesummoners.model.pokemon.Sex;
 
 import java.util.*;
 
@@ -168,9 +169,6 @@ public class Trainer {
     }
 
     public String pokemonBreeding(int n){
-        //ESTE MÉTODO SE LLAMA raiseAPokemon EN EL DIAGRAMA DE CLASES
-        //HAY QUE ASEGURARSE QUE SE TENGAN, AL MENOS, 2 POKÉMON PARA
-        //PODER CRIAR
         int counter = 0;
         for(Pokemon p: pokemonTeam){
             if(p != null){
@@ -181,54 +179,38 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 0) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
-                if (pokemonToBreed[0] == null)
-                    pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
-                else if (pokemonToBreed[1] == null)
-                    pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
-                else
-                    return "Ya has seleccionado los 2 pokemon";
-            }
-            else
-                return "El Pokemon debe ser mínimo nivel 5 para criar";
-
-
-
-
-
-            //NECESITAMOS CREAR UN NUEVO POKEMON QUE SERÁ EL QUE TOQUE
-            //EN EL RANDOM, CON EL SEXO RANDOM Y PUEDE QUE ATAQUES COMBINADOS
-            //DE LOS DOS POKÉMON
-
-            /*breeding[randomSelect];
-            pokemonPcBill.add();
-            breeding[2] =
-             */
-
-            //Se abrirá una nueva ventana con el nuevo pokémon
-            //y todas sus stats
+            if(Trainer.getTrainer().getPokemonTeam()[n].getFertility() > 0) {
+                if (Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
+                    if (pokemonToBreed[0] == null)
+                        pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
+                    else if (pokemonToBreed[1] == null)
+                        pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
+                    else
+                        return "Ya has seleccionado los 2 pokemon";
+                } else
+                    return "El Pokemon debe ser mínimo nivel 5 para criar";
+            }else
+                return "El pokemon no tiene fertilidad";
             return "Enhorabuena ...";
-
-
         }
     }
 
-    public void BreedingPay(){
+    public String BreedingPay(){
         Random rd = new Random();
         //FIXME CODIGO COMENTADO PARA QUE NO DE ERROR
-        /*
-        Pokemon son = new Pokemon(pokemonToBreed[rd.nextInt(2)].getDisplayName(),1);
-
-        for (int i = 0; i < getPokemonTeam().length; i++) {
-            if(getPokemonTeam()[i] == null) {
-                getPokemonTeam()[i] = son;
-                pokemonCub[0] = son;
-                break;
+        if (Trainer.getTrainer().getPokedollar() >= 500) {
+            Pokemon son = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif", 135, 1, 55, 50, 40, 50, 90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null);
+            if (Objects.equals(pokemonToBreed[0].getName(), "Bulbasaur") || Objects.equals(pokemonToBreed[1].getName(), "Bulbasaur"))
+                Pokedex.getPokedex().get(1);
+            for (int i = 0; i < getPokemonTeam().length; i++) {
+                if (getPokemonTeam()[i] == null) {
+                    getPokemonTeam()[i] = son;
+                    pokemonCub[0] = son;
+                    break;
+                }
             }
         }
-        */
-        Trainer.getTrainer().getPokemonToBreed()[0] = null;
-        Trainer.getTrainer().getPokemonToBreed()[1] = null;
+        return "Te faltan perras";
     }
     public void BreedingConfirmNickname(String mote){
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
