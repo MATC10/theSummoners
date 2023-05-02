@@ -68,6 +68,6 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
 
     @Override
     public void staminaCalculation() {
-        this.setStamina(this.getNumberOfTurnsDuration() * 10);
+        this.setStamina(getStamina() - (this.getNumberOfTurnsDuration() * 10));
     }
 }

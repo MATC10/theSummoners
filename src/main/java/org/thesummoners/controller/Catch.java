@@ -40,6 +40,9 @@ public class Catch {
     @FXML
     private Label lblText;
 
+    @FXML
+    private Label lblLevel;
+
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -60,14 +63,14 @@ public class Catch {
         p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
 
         //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
-        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel());
+        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
 
         File file2 = new File(p.getImage());
         Image image2 = new Image(file2.toURI().toString());
         imgPokemon.setImage(image2);
 
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
-
+        lblLevel.setText("Level: " +p.getLevel());
 
     }
 
@@ -82,7 +85,7 @@ public class Catch {
     }
 
     @FXML
-    void onTryCatchPokemon(MouseEvent event) {
+    void onTryCatchPokemon(MouseEvent event) throws CloneNotSupportedException {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
         //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE

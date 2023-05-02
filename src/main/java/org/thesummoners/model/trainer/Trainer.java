@@ -3,6 +3,8 @@ package org.thesummoners.model.trainer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import org.thesummoners.model.movement.AttackMovement;
+import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -233,12 +235,26 @@ public class Trainer {
         setPokemonCub(null);
     }
 
-    public void fight(Pokemon pokemonTeam, Pokemon pokemonEnemy) throws CloneNotSupportedException {
-        Pokemon pokemon1 = (Pokemon) pokemonTeam.clone();
-        Pokemon pokemon2 = (Pokemon) pokemonEnemy.clone();
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws CloneNotSupportedException {
+        //TODO CALCULAR QUIEN ATACA EN EL PRIMER TURNO SEGÚN LA VELOCIDAD DEL PRIMER POKEMON
+        //Pokemon p1 = (Pokemon) pokemon1.clone();
+        //Pokemon p2 = (Pokemon) pokemon2.clone();
+        //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
 
+        AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+        //FALTA METER LOS DISTINTOS TIMOS DE MOVIMIENTO, LOS POKEMON DIBILITADOS, LOS TURNOS, CAMBIOS DE POKEMON...
 
+        int hpPokemon1 = pokemon1.getHp();
+        int hpPokemon2 = pokemon2.getHp();
 
+        //TODO CREAR AQUÍ OTRO IF PARA QUE A LOS POKEMON DEL EQUIPO QUE GANA SE LES QUITEN LOS ESTADOS Y VUELVAN A ALIVE
+        //TODO SALVO A LOS QUE ESTÉN DEBILITADOS
+        //HAGO ESTO AL FINAL PARA QUE LOS POKEMON
+        pokemon1.adaptStatsToLevel(pokemon1.getLevel(), pokemon1);
+        pokemon1.setHp(hpPokemon1);
+
+        pokemon2.adaptStatsToLevel(pokemon2.getLevel(), pokemon2);
+        pokemon2.setHp(hpPokemon2);
     }
 
     public boolean checkPokemonTeamFull(){
@@ -262,7 +278,7 @@ public class Trainer {
         else return this.pokedollar;
     }
 
-    public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs){
+    public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs) throws CloneNotSupportedException {
         /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
         AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
         CAJA DE POKÉMON (PC de Bill).
@@ -279,14 +295,14 @@ public class Trainer {
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
-                        getPokemonTeam()[i] = pokemon;
+                        getPokemonTeam()[i] = pokemon.clone();
                         lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;
                     }
                 }
             }
-            else pokemonPcBill.add(pokemon);
+            else pokemonPcBill.add(pokemon.clone());
             lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!");
         }
         else {
@@ -351,18 +367,43 @@ public class Trainer {
     }
 
 
+    public void unequipObject(Pokemon pokemon){
+        //TODO METODO PARA DESEQUIPAR EL OBJETO
+        //TODO HACER MÉTODO PARA EQUIPAR OBJETO AL POKÉMON TENIENDO EN CUENTA SI YA TIENE OTRO PUESTO
+        //TODO TENER EN CUENTA QUE PODEMOS HACER QUE LA MOCHILA ESTÉ EN TABLEVIEW
+    }
+
+    public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
+        //MÉTODO PARA ENTRENAR POKÉMONS
+        if(p != null){
+            int priceTrain = p.getLevel() * 20;
+            if(this.getPokedollar() >= priceTrain && p.getLevel() < 100){
+                p.adaptStatsToLevel(p.getLevel() + 1, p);
+                this.setPokedollar(this.getPokedollar() - priceTrain);
+                pokedollarCount();
+                lblPokedollars.setText("Pokedollars disponibles: " + this.getPokedollar());
+                lblActualLevel.setText("Nivel actual: " + p.getLevel());
+                lblPrice.setText("Precio: " + priceTrain);
+                lblLevel.setText("Has entrenado a " + p.getDisplayName());
+            }
+            else lblLevel.setText("No has podido entrear a " + p.getDisplayName());
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Trainer trainer = (Trainer) o;
-        return pokedollar == trainer.pokedollar && Objects.equals(name, trainer.name) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Objects.equals(pokemonPcBill, trainer.pokemonPcBill) && Objects.equals(backPack, trainer.backPack);
+        return pokedollar == trainer.pokedollar && pokeball == trainer.pokeball && Objects.equals(name, trainer.name) && Objects.equals(password, trainer.password) && Arrays.equals(pokemonTeam, trainer.pokemonTeam) && Arrays.equals(pokemonToBreed, trainer.pokemonToBreed) && Arrays.equals(pokemonCub, trainer.pokemonCub);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(name, pokemonPcBill, pokedollar, backPack);
+        int result = Objects.hash(name, password, pokedollar, pokeball);
         result = 31 * result + Arrays.hashCode(pokemonTeam);
+        result = 31 * result + Arrays.hashCode(pokemonToBreed);
+        result = 31 * result + Arrays.hashCode(pokemonCub);
         return result;
     }
 }
