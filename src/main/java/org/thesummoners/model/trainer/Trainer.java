@@ -24,8 +24,10 @@ public class Trainer {
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
     private int pokedollar;
     private int pokeball;
+    private Turns turn;
     public Pokemon[] pokemonToBreed = new Pokemon[2];
     public Pokemon[] pokemonCub = new Pokemon[1];
+
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
@@ -235,13 +237,30 @@ public class Trainer {
         setPokemonCub(null);
     }
 
-    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws CloneNotSupportedException {
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn) throws CloneNotSupportedException {
+        //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
+        Random random = new Random();
+        int counter = 0;
+
+        //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
+        if(turn.isCurrentTurn() == true){
+            AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+        }
+        else{
+            //SI EL POKEMON QUE EMPIEZA ES DEL ENEMIGO, ES FALSE
+            for(Movement m : pokemon2.getLearnedMovement()){
+                if(m != null) counter++;
+            }
+            //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
+            AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)]);
+        }
+
         //TODO CALCULAR QUIEN ATACA EN EL PRIMER TURNO SEGÚN LA VELOCIDAD DEL PRIMER POKEMON
         //Pokemon p1 = (Pokemon) pokemon1.clone();
         //Pokemon p2 = (Pokemon) pokemon2.clone();
         //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
 
-        AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+
         //FALTA METER LOS DISTINTOS TIMOS DE MOVIMIENTO, LOS POKEMON DIBILITADOS, LOS TURNOS, CAMBIOS DE POKEMON...
 
         int hpPokemon1 = pokemon1.getHp();
@@ -255,6 +274,7 @@ public class Trainer {
 
         pokemon2.adaptStatsToLevel(pokemon2.getLevel(), pokemon2);
         pokemon2.setHp(hpPokemon2);
+        turn.nextTurn(turn.isCurrentTurn());
     }
 
     public boolean checkPokemonTeamFull(){
@@ -363,7 +383,7 @@ public class Trainer {
             lblbuyOrNot.setText("Has comprado un Objeto");
             lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().pokedollarCount());
         }
-        else lblbuyOrNot.setText("No tienes Pokedollars suficientes");
+        else lblbuyOrNot.setText("No has comprado ningún objeto");
     }
 
 
