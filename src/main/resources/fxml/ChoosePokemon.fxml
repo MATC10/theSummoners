@@ -95,7 +95,7 @@
                </font></Button>
             <Button fx:id="btnPikachu" layoutX="77.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowPikachu" prefHeight="138.0" prefWidth="233.0" style="-fx-background-color: BF6DF1;" text="Pikachu">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="20.0" />
                </font></Button>
             <Button fx:id="btnSquirtle" layoutX="76.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowSquirtle" prefHeight="138.0" prefWidth="234.0" style="-fx-background-color: BF6DF1;" text="Squirtle">
                <font>
