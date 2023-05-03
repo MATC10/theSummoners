@@ -42,6 +42,8 @@ public class PokemonStats {
     private Label lblMovement3;
     @FXML
     private Label lblMovement4;
+    @FXML
+    private Label lblObjeto;
 
     @FXML
     private Label lblStatsPokemonName;
@@ -53,36 +55,44 @@ public class PokemonStats {
     private Scene scene;
     private Stage stage;
 
-    public void initialize(){
-        lblHP.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getHp()));
-        lblAttack.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getAttackPower()));
-        lblDefense.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getDefense()));
-        lblSpecialAttack.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialAttack()));
-        lblSpecialDefense.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialDefense()));
-        lblSpeed.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpeed()));
-        Trainer.getTrainer().pokemonCub[0].changeDisplayName();
-        lblStatsPokemonName.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName());
+    public void initialize() {
+        if (Trainer.getTrainer().pokemonCub[0] != null) {
+            lblHP.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getHp()));
+            lblAttack.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getAttackPower()));
+            lblDefense.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getDefense()));
+            lblSpecialAttack.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialAttack()));
+            lblSpecialDefense.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialDefense()));
+            lblSpeed.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpeed()));
+            Trainer.getTrainer().pokemonCub[0].changeDisplayName();
+            lblStatsPokemonName.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName());
 
-        File file = new File(Trainer.getTrainer().pokemonCub[0].getImage());
-        Image image = new Image(file.toURI().toString());
-        imgPokemonStats.setImage(image);
+            File file = new File(Trainer.getTrainer().pokemonCub[0].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemonStats.setImage(image);
 
-        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0] != null)
-            lblMovement1.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
-        else
-            lblMovement1.setText("Movimiento sin apender");
-        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1] != null)
-            lblMovement2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
-        else
-            lblMovement2.setText("Movimiento sin apender");
-        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2] != null)
-            lblMovement3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
-        else
-            lblMovement3.setText("Movimiento sin apender");
-        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3] != null)
-            lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
-        else
-            lblMovement4.setText("Movimiento sin apender");
+            if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0] != null)
+                lblMovement1.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+            else
+                lblMovement1.setText("Movimiento sin apender");
+            if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1] != null)
+                lblMovement2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+            else
+                lblMovement2.setText("Movimiento sin apender");
+            if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2] != null)
+                lblMovement3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+            else
+                lblMovement3.setText("Movimiento sin apender");
+            if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3] != null)
+                lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+            else
+                lblMovement4.setText("Movimiento sin apender");
+
+            Trainer.getTrainer().setPokemonCub(null);
+        } else {
+            //AQUÍ SE PONE EL CÓDIGO DEL POKEMON QUE HA SUBIDO DE NIVEL, USANDO LÓGICA PARECIA A LA DE ARRIBA
+            //SE PODRÁ ACCEDER A ESTA VENTAN SI ES UN CACHORRO, SI CAPTURAMOS A UN POKEMON ( LO METEMOS EN UN
+            // ARRAY DE 1 PARECIDO A LA FUNCION DEL POKEMON CUB) Y DESDE EL POKEMON TEAM (YA SABEMOS LA POSICION DE LA ARRAY DE POKEMON TEAM
+        }
     }
     @FXML
     void toMainWindow(ActionEvent event) throws IOException {

@@ -29,6 +29,7 @@ public class Trainer {
     public Pokemon[] pokemonToBreed = new Pokemon[2];
     public Pokemon[] pokemonCub = new Pokemon[1];
 
+
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
@@ -182,7 +183,7 @@ public class Trainer {
         }
         else{
             if(Trainer.getTrainer().getPokemonTeam()[n].getFertility() > 0) {
-                if (Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
+                if (Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) {
                     if (pokemonToBreed[0] == null)
                         pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
                     else if (pokemonToBreed[1] == null)
@@ -298,6 +299,7 @@ public class Trainer {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon.clone();
+                        getPokemonCub()[0] = pokemon;
                         lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;

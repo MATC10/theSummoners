@@ -157,7 +157,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnMainWindow" layoutX="531.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="36.0" prefWidth="46.0" text="🏠">
+            <Button fx:id="btnMainWindow" layoutX="17.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="36.0" prefWidth="46.0" text="🏠">
                <font>
                   <Font size="19.0" />
                </font>
@@ -203,6 +203,16 @@
                </font>
             </Label>
             <Label fx:id="lblMovement4" layoutX="312.0" layoutY="174.0" prefHeight="27.0" prefWidth="181.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="466.0" layoutY="65.0" prefHeight="36.0" prefWidth="61.0" text="Objeto:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblObjeto" layoutX="448.0" layoutY="100.0" prefHeight="27.0" prefWidth="143.0" text="Label">
                <font>
                   <Font size="15.0" />
                </font>
