@@ -69,7 +69,13 @@ public class PokemonStats {
             File file = new File(Trainer.getTrainer().pokemonCub[0].getImage());
             Image image = new Image(file.toURI().toString());
             imgPokemonStats.setImage(image);
+            //COMPRUEBA QUE TENGA OBJETO
+            if (Trainer.getTrainer().pokemonCub[0].getObjeto() != null)
+                lblObjeto.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getObjeto()));
+            else
+                lblObjeto.setText("No tiene ningún objeto");
 
+            //COMPRUEBA SI TIENE MOVIMIENTOS
             if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0] != null)
                 lblMovement1.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
             else
@@ -88,10 +94,6 @@ public class PokemonStats {
                 lblMovement4.setText("Movimiento sin apender");
 
             Trainer.getTrainer().setPokemonCub(null);
-        } else {
-            //AQUÍ SE PONE EL CÓDIGO DEL POKEMON QUE HA SUBIDO DE NIVEL, USANDO LÓGICA PARECIA A LA DE ARRIBA
-            //SE PODRÁ ACCEDER A ESTA VENTAN SI ES UN CACHORRO, SI CAPTURAMOS A UN POKEMON ( LO METEMOS EN UN
-            // ARRAY DE 1 PARECIDO A LA FUNCION DEL POKEMON CUB) Y DESDE EL POKEMON TEAM (YA SABEMOS LA POSICION DE LA ARRAY DE POKEMON TEAM
         }
     }
     @FXML

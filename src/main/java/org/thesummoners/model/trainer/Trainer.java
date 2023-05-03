@@ -299,7 +299,6 @@ public class Trainer {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon.clone();
-                        getPokemonCub()[0] = pokemon;
                         lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;

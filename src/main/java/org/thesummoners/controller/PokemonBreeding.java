@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -50,6 +48,18 @@ public class PokemonBreeding {
     private Button btnNoMote;
     @FXML
     private Label lblPokedollars;
+    @FXML
+    private CheckBox chk1;
+    @FXML
+    private CheckBox chk2;
+    @FXML
+    private CheckBox chk3;
+    @FXML
+    private CheckBox chk4;
+    @FXML
+    private CheckBox chk5;
+    @FXML
+    private CheckBox chk6;
     /*@FXML
     private ImageView imgPokemonBreed1;
     @FXML
@@ -57,7 +67,7 @@ public class PokemonBreeding {
     private Scene scene;
     private Parent root;
     private Stage stage;
-
+    //TODO PONER QUE TIENE QUE HABER AL MENOS UN CARÁCTER PARA CONFIRMAR MOTE
 
     public void initialize(){
         if(getTrainer().getPokemonTeam()[0] != null){
@@ -88,7 +98,9 @@ public class PokemonBreeding {
         if(getTrainer().getPokemonTeam()[5] != null){
             btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
         }
-        else btn6.setText("No Pokémon");
+        else {
+            btn6.setText("No Pokémon");
+        }
         lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
 
         btnPay.setDisable(true);
@@ -121,6 +133,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(0);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn2.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
         /*File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
         Image image = new Image(file.toURI().toString());
@@ -132,6 +149,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(1);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -139,6 +161,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(2);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn2.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -146,6 +173,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(3);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn2.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -153,6 +185,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(4);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn2.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -160,6 +197,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(5);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn2.setDisable(true);
         }
     }
     @FXML
