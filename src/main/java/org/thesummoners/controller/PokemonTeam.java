@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -79,33 +80,69 @@ public class PokemonTeam {
     }
 
     @FXML
-    void pokemonStats1(ActionEvent event) {
-
+    void pokemonStats1(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[0];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void pokemonStats2(ActionEvent event) {
-
+    void pokemonStats2(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[1];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void pokemonStats3(ActionEvent event) {
-
+    void pokemonStats3(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[2];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void pokemonStats4(ActionEvent event) {
-
+    void pokemonStats4(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[3];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void pokemonStats5(ActionEvent event) {
-
+    void pokemonStats5(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[4];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void pokemonStats6(ActionEvent event) {
-
+    void pokemonStats6(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[5];
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML

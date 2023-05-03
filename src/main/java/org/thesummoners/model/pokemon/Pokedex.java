@@ -99,5 +99,4 @@ public class Pokedex {
         //SI NO SUCEDE NADA DE LO ANTERIOR ATACA X1
         return 1;
     }
-
 }
