@@ -35,9 +35,20 @@ public class PokemonStats {
     @FXML
     private Label lblSpeed;
     @FXML
+    private Label lblMovement1;
+    @FXML
+    private Label lblMovement2;
+    @FXML
+    private Label lblMovement3;
+    @FXML
+    private Label lblMovement4;
+
+    @FXML
     private Label lblStatsPokemonName;
     @FXML
     private ImageView imgPokemonStats;
+    @FXML
+    private Button btnMainWindow;
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -56,8 +67,32 @@ public class PokemonStats {
         Image image = new Image(file.toURI().toString());
         imgPokemonStats.setImage(image);
 
+        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0] != null)
+            lblMovement1.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+        else
+            lblMovement1.setText("Movimiento sin apender");
+        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1] != null)
+            lblMovement2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+        else
+            lblMovement2.setText("Movimiento sin apender");
+        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2] != null)
+            lblMovement3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+        else
+            lblMovement3.setText("Movimiento sin apender");
+        if(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3] != null)
+            lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+        else
+            lblMovement4.setText("Movimiento sin apender");
     }
-
+    @FXML
+    void toMainWindow(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }

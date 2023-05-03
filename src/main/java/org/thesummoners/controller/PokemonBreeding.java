@@ -192,9 +192,15 @@ public class PokemonBreeding {
         stage.show();
     }
     @FXML
-    public void pokemonBreedCancelNickname(){
+    public void pokemonBreedCancelNickname(ActionEvent event) throws IOException {
         txtMote.setDisable(true);
         btnConfirmMote.setDisable(true);
         btnNoMote.setDisable(true);
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 }

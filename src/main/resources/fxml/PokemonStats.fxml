@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -83,36 +84,129 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="375.0" prefWidth="629.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Label layoutX="271.0" layoutY="29.0" prefHeight="36.0" prefWidth="155.0" text="Estadísticas de ">
+            <Label layoutX="285.0" layoutY="29.0" prefHeight="36.0" prefWidth="155.0" text="Estadísticas de ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="lblStatsPokemonName" layoutX="426.0" layoutY="29.0" prefHeight="36.0" prefWidth="128.0" text="Label">
+            <Label fx:id="lblStatsPokemonName" layoutX="440.0" layoutY="29.0" prefHeight="36.0" prefWidth="181.0" text="Label">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <ImageView fx:id="imgPokemonStats" fitHeight="146.0" fitWidth="155.0" layoutX="78.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="36.0" layoutY="204.0" text="HP:" />
-            <Label layoutX="24.0" layoutY="225.0" text="Ataque:" />
-            <Label layoutX="22.0" layoutY="252.0" text="Defensa:" />
-            <Label layoutX="16.0" layoutY="276.0" text="A. Especial:" />
-            <Label layoutX="16.0" layoutY="304.0" text="D. Especial:" />
-            <Label layoutX="18.0" layoutY="330.0" text="Velocidad:" />
-            <Label fx:id="lblHP" layoutX="73.0" layoutY="204.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
-            <Label fx:id="lblAttack" layoutX="73.0" layoutY="225.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
-            <Label fx:id="lblDefense" layoutX="73.0" layoutY="252.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
-            <Label fx:id="lblSpecialAttack" layoutX="83.0" layoutY="276.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
-            <Label fx:id="lblSpecialDefense" layoutX="83.0" layoutY="304.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
-            <Label fx:id="lblSpeed" layoutX="83.0" layoutY="330.0" prefHeight="17.0" prefWidth="46.0" text="Label" />
+            <ImageView fx:id="imgPokemonStats" fitHeight="188.0" fitWidth="207.0" layoutX="52.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="39.0" layoutY="234.0" text="HP:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="259.0" text="Ataque:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="288.0" text="Defensa:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="234.0" text="A. Especial:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="135.0" layoutY="262.0" text="D. Especial:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="288.0" text="Velocidad:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHP" layoutX="79.0" layoutY="234.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAttack" layoutX="79.0" layoutY="259.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDefense" layoutX="79.0" layoutY="288.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSpecialAttack" layoutX="235.0" layoutY="234.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSpecialDefense" layoutX="235.0" layoutY="262.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblSpeed" layoutX="235.0" layoutY="288.0" prefHeight="17.0" prefWidth="46.0" text="Label">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnMainWindow" layoutX="531.0" layoutY="14.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="36.0" prefWidth="46.0" text="🏠">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Label layoutX="285.0" layoutY="65.0" prefHeight="36.0" prefWidth="155.0" text="Movimientos:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="281.0" layoutY="87.0" prefHeight="36.0" prefWidth="27.0" text="1 - ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="281.0" layoutY="113.0" prefHeight="36.0" prefWidth="27.0" text="2 - ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="281.0" layoutY="141.0" prefHeight="36.0" prefWidth="27.0" text="3 - ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="281.0" layoutY="170.0" prefHeight="36.0" prefWidth="27.0" text="4 - ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMovement1" layoutX="312.0" layoutY="92.0" prefHeight="27.0" prefWidth="181.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMovement2" layoutX="312.0" layoutY="118.0" prefHeight="27.0" prefWidth="181.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMovement3" layoutX="312.0" layoutY="146.0" prefHeight="27.0" prefWidth="181.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMovement4" layoutX="312.0" layoutY="174.0" prefHeight="27.0" prefWidth="181.0" text="Label">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
       </children>
     </AnchorPane>
   </children>

@@ -197,10 +197,9 @@ public class Trainer {
         }
     }
 
-    public String BreedingPay() throws CloneNotSupportedException {
+    public void BreedingPay() throws CloneNotSupportedException {
         Random rd = new Random();
         Pokemon son = null;
-        //FIXME CODIGO COMENTADO PARA QUE NO DE ERROR
         if (Trainer.getTrainer().getPokedollar() >= 500) {
             for (Pokemon p : Pokedex.getPokedex()) {
                 if(getPokemonToBreed()[rd.nextInt(2)].getName().equals(p.getName())) {
@@ -215,7 +214,6 @@ public class Trainer {
                 }
             }
         }
-        return "Te faltan perras";
     }
     public void BreedingConfirmNickname(String mote){
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
@@ -300,14 +298,14 @@ public class Trainer {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon.clone();
-                        lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
+                        lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;
                     }
                 }
             }
             else pokemonPcBill.add(pokemon.clone());
-            lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!");
+            lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
         }
         else {
             lblText.setText("No capturado!");
