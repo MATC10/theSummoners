@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="402.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Login">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="368.0" prefWidth="514.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TextField fx:id="txtUser" layoutX="288.0" layoutY="128.0" promptText="Usuario" />
+            <Label layoutX="288.0" layoutY="98.0" text="Nombre de usuario" />
+            <Label layoutX="288.0" layoutY="165.0" text="Contraseña" />
+            <PasswordField fx:id="txtPass" layoutX="288.0" layoutY="189.0" promptText="Contraseña" />
+            <Button fx:id="btnLogin" layoutX="336.0" layoutY="260.0" mnemonicParsing="false" onAction="#Login" prefHeight="27.0" prefWidth="64.0" style="-fx-background-color: BF6DF1;" text="Login" />
+            <Hyperlink fx:id="hlRegister" layoutX="254.0" layoutY="318.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
+            <Label fx:id="lblStatus" alignment="CENTER" layoutX="376.0" layoutY="14.0" prefHeight="18.0" prefWidth="132.0" text="estado : Desconectado" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblConnectedOrNot" layoutX="278.0" layoutY="234.0" prefHeight="18.0" prefWidth="179.0" textFill="RED" />
+            <AnchorPane prefHeight="369.0" prefWidth="227.0" style="-fx-background-color: BF6DF1;">
+               <children>
+                  <Label alignment="CENTER" layoutX="27.0" layoutY="116.0" prefHeight="49.0" prefWidth="186.0" text="The Summoners">
+                     <font>
+                        <Font name="Verdana Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.3307839632034302" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="164.0" prefHeight="49.0" prefWidth="146.0" text="Pokemon">
+                     <font>
+                        <Font name="Verdana Bold" size="18.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.34608030319213867" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Label>
+                  <Line endX="-100.0" endY="-61.0" layoutX="107.0" layoutY="61.0" startX="-100.0" startY="316.0" />
+                  <Line endX="-103.5" endY="293.5" fill="#000000b5" layoutX="118.0" layoutY="84.0" startX="-103.5" startY="-84.0" />
+                  <Line endX="74.0" endY="1.0" layoutX="119.0" layoutY="164.0" startX="-72.0" startY="1.0" />
+                  <Circle fill="#000000b6" layoutX="41.0" layoutY="92.0" radius="14.0" stroke="BLACK" strokeType="INSIDE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Circle>
+                  <Circle fill="TRANSPARENT" layoutX="120.0" layoutY="153.0" radius="97.0" stroke="BLACK" strokeType="INSIDE">
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color opacity="0.6214148998260498" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Circle>
+               </children>
+            </AnchorPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

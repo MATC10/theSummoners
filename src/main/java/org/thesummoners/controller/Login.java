@@ -34,28 +34,24 @@ public class Login {
 
 
     @FXML
-    public void Login(ActionEvent event) throws IOException {
-        //Si el el usuario es el mismo que el nombre del Trainer registrado anteriormente y que la contraseña del
-        //Trainer, entonces puede acceder al MainWindow
-
-        if(txtUser.getText().equals(Trainer.getTrainer().getName()) && txtPass.getText().equals(Trainer.getTrainer().getPassword())){
+    public void Login(ActionEvent event) throws IOException{
+        if (txtUser.getText().equals(Trainer.getTrainer().getName())&& txtPass.getText().equals(Trainer.getTrainer().getPassword())){
             lblStatus.setText("Conectado");
             lblStatus.setTextFill(Color.GREEN);
 
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ProfessorOak.fxml")));
-            scene = new Scene(root, 600, 400);
+            scene = new Scene(root,600,400);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            }
-        else lblConnectedOrNot.setText("Usuario o contraseña incorrectos");
-    }
-
-    public void hlRegister(ActionEvent event) throws IOException {
+        }
+        else lblConnectedOrNot.setText("Usuario o Contrasena Incorrectos ");
+        }
+        public void hlRegister(ActionEvent event)throws IOException{
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Register.fxml")));
-        scene = new Scene(root, 400, 440);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root,400,440);
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
