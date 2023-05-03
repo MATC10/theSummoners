@@ -102,6 +102,9 @@ public class Fight {
 
     @FXML
     public void initialize(){
+
+        Turns turn = new Turns();
+
         //PONEMOS EL NOMBRE DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
         lblDisplayPkTrainer.setText(firstPokemonTeam().getDisplayName());
         //EN CONSTRUCCIÓN
