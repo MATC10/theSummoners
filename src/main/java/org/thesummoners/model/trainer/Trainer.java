@@ -239,16 +239,31 @@ public class Trainer {
     }
 
     public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+        //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
+        int staminaPokemon1 = pokemon1.getStamina();
+        int staminaPokemon2 = pokemon2.getStamina();
+
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
         int counter = 0;
         //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
         if((turn.isCurrentTurn() == true)){
-            State.applyState(pokemon1, turn, lblTextFight);
+            State.applyState(pokemon1, staminaPokemon1, lblTextFight);
+
+            //TODO EN ESTE PUNTO PODRÍA PREGUNTAR SI QUIERES CAMBIAR DE POKEMON
+
             if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
                     pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
-                AttackMovement.attackCombat(pokemon1, pokemon2, movement);
-                StateMovement.stateCombat(pokemon2, movement);
+                //COMPROBAR QUE TIENE STAMINA DISPONIBLE
+                if(pokemon1.getStamina() >= movement.getStamina()){
+                    AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+                    StateMovement.stateCombat(pokemon2, movement);
+                }
+                //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
+                else {
+                    pokemon1.setState(State.RESTING);
+                    lblTextFight.setText(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
+                }
             }
         }
         else{
@@ -256,15 +271,27 @@ public class Trainer {
             for(Movement m : pokemon2.getLearnedMovement()){
                 if(m != null) counter++;
             }
-            State.applyState(pokemon2, turn, lblTextFight);
+            State.applyState(pokemon2, staminaPokemon2, lblTextFight);
             //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
-            //TODO REVISAR STATEMOVEMENTS LOS PARAMETROS DE ENTRADA DE POKEMON
+
             if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
                     pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN) {
-                AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)]);
-                StateMovement.stateCombat(pokemon1, pokemon1.getLearnedMovement()[random.nextInt(counter)]);
+                if(pokemon1.getStamina() >= movement.getStamina()){
+                    AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)]);
+                    StateMovement.stateCombat(pokemon1, pokemon1.getLearnedMovement()[random.nextInt(counter)]);
+                }
+                else {
+                    pokemon2.setState(State.RESTING);
+                    lblTextFight.setText(pokemon2.getDisplayName() + " se encuentra dormido para recargar Stamina");
+                }
+
             }
         }
+
+        //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
+        Thread.sleep(1000);
+
+
 
         //TODO CALCULAR QUIEN ATACA EN EL PRIMER TURNO SEGÚN LA VELOCIDAD DEL PRIMER POKEMON
         //Pokemon p1 = (Pokemon) pokemon1.clone();
@@ -272,7 +299,7 @@ public class Trainer {
         //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
 
 
-        //FALTA METER LOS DISTINTOS TIMOS DE MOVIMIENTO, LOS POKEMON DIBILITADOS, LOS TURNOS, CAMBIOS DE POKEMON...
+        //FALTA METER LOS DISTINTOS TIPOS DE MOVIMIENTO, LOS POKEMON DEBILITADOS, LOS TURNOS, CAMBIOS DE POKEMON...
 
         int hpPokemon1 = pokemon1.getHp();
         int hpPokemon2 = pokemon2.getHp();
