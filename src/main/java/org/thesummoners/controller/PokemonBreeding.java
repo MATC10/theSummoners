@@ -163,7 +163,7 @@ public class PokemonBreeding {
         }
     }
     @FXML
-    public void pokemonBreedPay(){
+    public void pokemonBreedPay() throws CloneNotSupportedException {
         Trainer.getTrainer().setPokedollar(getTrainer().getPokedollar() - 500);
         Trainer.getTrainer().BreedingPay();
         lblPokedollars.setText("Pokedollars: " + getTrainer().getPokedollar());
@@ -179,7 +179,7 @@ public class PokemonBreeding {
 
     @FXML
     public void pokemonBreedConfirmNickname(ActionEvent event) throws IOException{
-        Trainer.getTrainer().BreedingConfirmNickname(lblMote.getText());
+        Trainer.getTrainer().BreedingConfirmNickname(txtMote.getText());
         btnConfirmMote.setDisable(true);
         txtMote.setText(""); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
         txtMote.setDisable(true);

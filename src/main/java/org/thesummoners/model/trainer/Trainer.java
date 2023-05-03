@@ -195,13 +195,16 @@ public class Trainer {
         }
     }
 
-    public String BreedingPay(){
+    public String BreedingPay() throws CloneNotSupportedException {
         Random rd = new Random();
+        Pokemon son = null;
         //FIXME CODIGO COMENTADO PARA QUE NO DE ERROR
         if (Trainer.getTrainer().getPokedollar() >= 500) {
-            Pokemon son = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif", 135, 1, 55, 50, 40, 50, 90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null);
-            if (Objects.equals(pokemonToBreed[0].getName(), "Bulbasaur") || Objects.equals(pokemonToBreed[1].getName(), "Bulbasaur"))
-                Pokedex.getPokedex().get(1);
+            for (Pokemon p : Pokedex.getPokedex()) {
+                if(getPokemonToBreed()[rd.nextInt(2)].getName().equals(p.getName())) {
+                    son = p.clone();
+                }
+            }
             for (int i = 0; i < getPokemonTeam().length; i++) {
                 if (getPokemonTeam()[i] == null) {
                     getPokemonTeam()[i] = son;
@@ -214,7 +217,6 @@ public class Trainer {
     }
     public void BreedingConfirmNickname(String mote){
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
-        setPokemonCub(null);
     }
 
     public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws CloneNotSupportedException {
