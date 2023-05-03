@@ -2,7 +2,10 @@ package org.thesummoners.model.movement;
 
 import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+
+import java.util.Random;
 
 public class AttackMovement extends Movement implements IStaminaCalculable {
 
@@ -41,14 +44,21 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
     }
 
     public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement){
+        //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
+        Random random = new Random();
+        int attackOrNot = random.nextInt(2);
+        if(pokemon1.getState() == State.PARALYSED && attackOrNot == 0){
+
+
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-        if(movement.getMovementType().equals("attack")){
+        if(movement.getMovementType().equals("attack")) {
             float baseDamage = pokemon1.getAttackPower() + pokemon1.getSpecialAttack();
             float summedAmountDamage = 0;
 
+
             //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN EL TIPO DE MOVIMIENTO DE ATAQUE
-            if(movement.getMovementType().equals(pokemon1.getType1()) ||
-                    movement.getMovementType().equals(pokemon1.getType2())){
+            if (movement.getMovementType().equals(pokemon1.getType1()) ||
+                    movement.getMovementType().equals(pokemon1.getType2())) {
                 summedAmountDamage += (baseDamage * 1.5f) - baseDamage;
             }
 
@@ -61,41 +71,9 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
 
             //AHORA CAMBIAR EL POKEMON2 A DEBILITADO SI TIENE 0 DE VIDA
             //¿HACERLO EN OTRO MÉTODO?
-
         }
-        /*
-        AÑADIR QUIEN ATACA PRIMERO
+        }
 
-metedo boton ataque(p1,p2,move1){
-método fight(p1,p2){
-(AÑADIR EL DAÑO DEL POSIBLE OBJETO, HACER LOS CALCULOS DE LOS MULTIPLICADORES SOBRE LA STAT BASE DE ATAQUE Y TENER LA CANTIDAD DE DAÑO QUE SE SUBE PARA LUEGO SUMARLO)
-if(move1.getType==p1.getType1 || move1.getType==p1.getType2){
-danioSumado+=(danioBase*1.5 - danioBase);
-}
-
-danioSumado+= (danioBase* move1.checkAdvantage(P1, P2)) - danioBase;
-
-//HACER AQUÍ EL METODO PARA SUMAR EL DAÑO PRODUCIDO POR LLEVAR OBJETO
-
-
-
-danioBase+= danioSumado;
-
-p2.setHp(p2.getHp - danioSumado);
-
-if(p2.getHp <= 0){
-p2.setState(State.DEBILITED)
-}
-}
-
-
-if(p2.getState==debilited){
-*sacar otro pokemon*
-}
-}
-
-}
-         */
     }
 
     @Override

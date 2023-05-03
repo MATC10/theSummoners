@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
+import org.thesummoners.model.movement.StateMovement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -237,22 +238,32 @@ public class Trainer {
         setPokemonCub(null);
     }
 
-    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn) throws CloneNotSupportedException {
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
         int counter = 0;
-
         //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
-        if(turn.isCurrentTurn() == true){
-            AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+        if((turn.isCurrentTurn() == true)){
+            State.applyState(pokemon1, turn, lblTextFight);
+            if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
+                    pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
+                AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+                StateMovement.stateCombat(pokemon2, movement);
+            }
         }
         else{
             //SI EL POKEMON QUE EMPIEZA ES DEL ENEMIGO, ES FALSE
             for(Movement m : pokemon2.getLearnedMovement()){
                 if(m != null) counter++;
             }
+            State.applyState(pokemon2, turn, lblTextFight);
             //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
-            AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)]);
+            //TODO REVISAR STATEMOVEMENTS LOS PARAMETROS DE ENTRADA DE POKEMON
+            if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
+                    pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN) {
+                AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)]);
+                StateMovement.stateCombat(pokemon1, pokemon1.getLearnedMovement()[random.nextInt(counter)]);
+            }
         }
 
         //TODO CALCULAR QUIEN ATACA EN EL PRIMER TURNO SEGÚN LA VELOCIDAD DEL PRIMER POKEMON
