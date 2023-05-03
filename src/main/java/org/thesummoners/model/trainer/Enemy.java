@@ -10,7 +10,7 @@ public class Enemy {
     private String name;
     private String image;
     private int pokemonTrainerLevel;
-    private Pokemon[] enemyTeam;
+    private static Pokemon[] enemyTeam;
     Random random = new Random();
 
     public Enemy(String name, String image) throws CloneNotSupportedException {
@@ -48,7 +48,7 @@ public class Enemy {
         this.pokemonTrainerLevel = pokemonTrainerLevel;
     }
 
-    public Pokemon[] getEnemyTeam() {
+    public static Pokemon[] getEnemyTeam() {
         return enemyTeam;
     }
 

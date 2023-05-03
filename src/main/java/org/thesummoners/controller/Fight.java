@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
+import org.thesummoners.model.trainer.Turns;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,6 +75,7 @@ public class Fight {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private Turns turn;
 
     public Pokemon firstPokemonTeam(){
         //EL COMBATE EMPIEZA CON EL PRIMER POKÉMON EQUIPADO
@@ -108,6 +110,8 @@ public class Fight {
         File file = new File(firstPokemonTeam().getImageBack());
         Image image = new Image(file.toURI().toString());
         imgTrainerPokemon.setImage(image);
+
+        turn.calculateFirstTurn();
     }
 
     @FXML
