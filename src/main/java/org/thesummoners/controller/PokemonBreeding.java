@@ -6,13 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
@@ -43,13 +45,29 @@ public class PokemonBreeding {
     @FXML
     private Button btnConfirmMote;
     @FXML
+    private Button btnNoMote;
+    @FXML
     private Label lblPokedollars;
     @FXML
-    private Button btnNoMote;
+    private CheckBox chk1;
+    @FXML
+    private CheckBox chk2;
+    @FXML
+    private CheckBox chk3;
+    @FXML
+    private CheckBox chk4;
+    @FXML
+    private CheckBox chk5;
+    @FXML
+    private CheckBox chk6;
+    /*@FXML
+    private ImageView imgPokemonBreed1;
+    @FXML
+    private ImageView imgPokemonBreed2;*/
     private Scene scene;
     private Parent root;
     private Stage stage;
-
+    //TODO PONER QUE TIENE QUE HABER AL MENOS UN CARÁCTER PARA CONFIRMAR MOTE
 
     public void initialize(){
         if(getTrainer().getPokemonTeam()[0] != null){
@@ -80,7 +98,9 @@ public class PokemonBreeding {
         if(getTrainer().getPokemonTeam()[5] != null){
             btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
         }
-        else btn6.setText("No Pokémon");
+        else {
+            btn6.setText("No Pokémon");
+        }
         lblPokedollars.setText("Pokedollar disponibles " + Trainer.getTrainer().getPokedollar());
 
         btnPay.setDisable(true);
@@ -100,17 +120,40 @@ public class PokemonBreeding {
         stage.show();
     }
     @FXML
+    void toPokemonStats(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     public void pokemonBreeding1(){
         Trainer.getTrainer().pokemonBreeding(0);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn2.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
+        /*File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
+        Image image = new Image(file.toURI().toString());
+        imgPokemonBreed2.setImage(image);
+        */
     }
     @FXML
     public void pokemonBreeding2(){
         Trainer.getTrainer().pokemonBreeding(1);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -118,6 +161,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(2);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn2.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -125,6 +173,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(3);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn2.setDisable(true);
+            btn5.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -132,6 +185,11 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(4);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn2.setDisable(true);
+            btn6.setDisable(true);
         }
     }
     @FXML
@@ -139,31 +197,52 @@ public class PokemonBreeding {
         Trainer.getTrainer().pokemonBreeding(5);
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
+            btn1.setDisable(true);
+            btn3.setDisable(true);
+            btn4.setDisable(true);
+            btn5.setDisable(true);
+            btn2.setDisable(true);
         }
     }
     @FXML
-    public void pokemonBreedPay(){
+    public void pokemonBreedPay() throws CloneNotSupportedException {
         Trainer.getTrainer().setPokedollar(getTrainer().getPokedollar() - 500);
         Trainer.getTrainer().BreedingPay();
+        lblPokedollars.setText("Pokedollars: " + getTrainer().getPokedollar());
         btnPay.setDisable(true);
         txtMote.setDisable(false);
         btnConfirmMote.setDisable(false);
         btnNoMote.setDisable(false);
-
+        Trainer.getTrainer().getPokemonToBreed()[0].setFertility(Trainer.getTrainer().getPokemonToBreed()[0].getFertility() - 1);
+        Trainer.getTrainer().getPokemonToBreed()[1].setFertility(Trainer.getTrainer().getPokemonToBreed()[1].getFertility() - 1);
+        Trainer.getTrainer().getPokemonToBreed()[0] = null;
+        Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
 
     @FXML
-    public void pokemonBreedConfirmNickname(){
-        Trainer.getTrainer().BreedingConfirmNickname(lblMote.getText());
+    public void pokemonBreedConfirmNickname(ActionEvent event) throws IOException{
+        Trainer.getTrainer().BreedingConfirmNickname(txtMote.getText());
         btnConfirmMote.setDisable(true);
-        txtMote.setText("ㅤ"); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
+        txtMote.setText(""); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
         txtMote.setDisable(true);
         btnNoMote.setDisable(true);
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
-    public void pokemonBreedCancelNickname(){
+    public void pokemonBreedCancelNickname(ActionEvent event) throws IOException {
         txtMote.setDisable(true);
         btnConfirmMote.setDisable(true);
         btnNoMote.setDisable(true);
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 }

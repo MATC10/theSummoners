@@ -8,10 +8,11 @@ import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.movement.StateMovement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
-import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+import org.thesummoners.model.pokemon.Sex;
 
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class Trainer {
     private Turns turn;
     public Pokemon[] pokemonToBreed = new Pokemon[2];
     public Pokemon[] pokemonCub = new Pokemon[1];
+
 
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
@@ -171,9 +173,6 @@ public class Trainer {
     }
 
     public String pokemonBreeding(int n){
-        //ESTE MÉTODO SE LLAMA raiseAPokemon EN EL DIAGRAMA DE CLASES
-        //HAY QUE ASEGURARSE QUE SE TENGAN, AL MENOS, 2 POKÉMON PARA
-        //PODER CRIAR
         int counter = 0;
         for(Pokemon p: pokemonTeam){
             if(p != null){
@@ -184,58 +183,42 @@ public class Trainer {
             return "Necesitas tener al menos 2 Pokémon en el equipo";
         }
         else{
-            if(Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 0) { //ESTE 0 TIENE QUE SER 5 PARA NO ABUSAR DE CRIANZAS
-                if (pokemonToBreed[0] == null)
-                    pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
-                else if (pokemonToBreed[1] == null)
-                    pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
-                else
-                    return "Ya has seleccionado los 2 pokemon";
-            }
-            else
-                return "El Pokemon debe ser mínimo nivel 5 para criar";
-
-
-
-
-
-            //NECESITAMOS CREAR UN NUEVO POKEMON QUE SERÁ EL QUE TOQUE
-            //EN EL RANDOM, CON EL SEXO RANDOM Y PUEDE QUE ATAQUES COMBINADOS
-            //DE LOS DOS POKÉMON
-
-            /*breeding[randomSelect];
-            pokemonPcBill.add();
-            breeding[2] =
-             */
-
-            //Se abrirá una nueva ventana con el nuevo pokémon
-            //y todas sus stats
+            if(Trainer.getTrainer().getPokemonTeam()[n].getFertility() > 0) {
+                if (Trainer.getTrainer().getPokemonTeam()[n].getLevel() >= 5) {
+                    if (pokemonToBreed[0] == null)
+                        pokemonToBreed[0] = getTrainer().getPokemonTeam()[n];
+                    else if (pokemonToBreed[1] == null)
+                        pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
+                    else
+                        return "Ya has seleccionado los 2 pokemon";
+                } else
+                    return "El Pokemon debe ser mínimo nivel 5 para criar";
+            }else
+                return "El pokemon no tiene fertilidad";
             return "Enhorabuena ...";
-
-
         }
     }
 
-    public void BreedingPay(){
+    public void BreedingPay() throws CloneNotSupportedException {
         Random rd = new Random();
-        //FIXME CODIGO COMENTADO PARA QUE NO DE ERROR
-        /*
-        Pokemon son = new Pokemon(pokemonToBreed[rd.nextInt(2)].getDisplayName(),1);
-
-        for (int i = 0; i < getPokemonTeam().length; i++) {
-            if(getPokemonTeam()[i] == null) {
-                getPokemonTeam()[i] = son;
-                pokemonCub[0] = son;
-                break;
+        Pokemon son = null;
+        if (Trainer.getTrainer().getPokedollar() >= 500) {
+            for (Pokemon p : Pokedex.getPokedex()) {
+                if(getPokemonToBreed()[rd.nextInt(2)].getName().equals(p.getName())) {
+                    son = p.clone();
+                }
+            }
+            for (int i = 0; i < getPokemonTeam().length; i++) {
+                if (getPokemonTeam()[i] == null) {
+                    getPokemonTeam()[i] = son;
+                    pokemonCub[0] = son;
+                    break;
+                }
             }
         }
-        */
-        Trainer.getTrainer().getPokemonToBreed()[0] = null;
-        Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
     public void BreedingConfirmNickname(String mote){
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
-        setPokemonCub(null);
     }
 
     public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
@@ -354,14 +337,14 @@ public class Trainer {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
                         getPokemonTeam()[i] = pokemon.clone();
-                        lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a tu equipo!");
+                        lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         break;
                     }
                 }
             }
             else pokemonPcBill.add(pokemon.clone());
-            lblText.setText("¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!");
+            lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
         }
         else {
             lblText.setText("No capturado!");
