@@ -1,5 +1,8 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.State;
+
 import java.util.Random;
 
 public class ImproveMovement extends Movement implements IStaminaCalculable {
@@ -64,6 +67,26 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
     public void TurnsDurationcalculation(){
         Random random = new Random();
         this.numberOfTurnsDuration = random.nextInt(4)+1;
+    }
+
+    public static void improveCombat(Pokemon pokemon, Movement movement){
+        ImproveMovement improveMovement =  (ImproveMovement) movement;
+        Random random = new Random();
+        int randomStopImprove = 9999;
+        boolean counterTurnsImprove = true;
+
+
+        int attackOrNot = random.nextInt(2);
+        if(pokemon.getState() == State.PARALYSED && attackOrNot == 0 && counterTurnsImprove == true) {
+            pokemon.setAttackPower(pokemon.getAttackPower() + improveMovement.getUpgradeAttack());
+            pokemon.setSpecialAttack(pokemon.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
+            pokemon.setDefense(pokemon.getDefense() + improveMovement.getUpgradeDefense());
+            pokemon.setSpecialDefense(pokemon.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+            counterTurnsImprove = true;
+        }
+        else {
+            //if(random.nextInt(3) == 0) counterTurnsImprove = false;
+        }
     }
 
     @Override
