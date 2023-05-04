@@ -42,12 +42,6 @@ public class Pokemon implements Cloneable {
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
-    public Pokemon() {
-        this.level = 1;
-        this.experience = 0;
-        this.name = "Pepe";
-    }
-
 
     public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) throws CloneNotSupportedException {
         this.name = name;
@@ -71,10 +65,6 @@ public class Pokemon implements Cloneable {
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         this.learnedMovement[0] = placaje;
-        AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
-        AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
-        AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
-        //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
 
         this.objeto = objeto;
         counterPokemon ++;
@@ -384,31 +374,31 @@ public class Pokemon implements Cloneable {
     public boolean statisticsWithObjeto(Pokemon pokemon, Objeto objeto){
         //SEGÚN EL OBJETO EQUIPADO, EL POKÉMON TENDRÁ DETERMINADAS ESTADÍSTICAS
         //SE DEBE HACER OTRO MÉTODO PARA RECUPERAR SUS STATS BASE AL QUITAR EL OBJETO
-        if(pokemon.getObjeto().getName().equals("pesa")){
+        if(objeto.getName().equals("pesa")){
             pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             return true;
         }
-        else if (pokemon.getObjeto().getName().equals("pluma")){
+        else if (objeto.getName().equals("pluma")){
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("chaleco")){
+        else if(objeto.getName().equals("chaleco")){
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("baston")){
+        else if(objeto.getName().equals("baston")){
             pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("pilas")){
+        else if(objeto.getName().equals("pilas")){
             pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             return true;
