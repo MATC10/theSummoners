@@ -41,13 +41,15 @@ class PokemonTest {
     }
 
     @Test
-    void setObjetoImproveStats() {
-        p.setObjetoImproveStats(new Objeto("chaleco"));
-        Assertions.assertEquals(78 , p.getSpecialDefense());
-
-
+    void setObjetoImproveStats() throws CloneNotSupportedException {
         p.setObjetoImproveStats(new Objeto("pesa"));
         Assertions.assertEquals(58 , p.getAttackPower());
+
+        p.setObjetoImproveStats(null);
+        Assertions.assertEquals(49 , p.getAttackPower());
+
+        p.setObjetoImproveStats(new Objeto("chaleco"));
+        Assertions.assertEquals(78 , p.getSpecialDefense());
     }
 
     @Test
