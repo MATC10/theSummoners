@@ -102,48 +102,32 @@ public class Objeto {
         this.stamina = stamina;
     }
 
-    public void pesa() {
-        this.attack = 1.2f;
-        this.defense = 1.2f;
-        this.speed *= 0.8f;
-    }
-
-    public void pluma() {
-        this.speed = 1.3f;
-        this.defense = 0.8f;
-        this.specialDefense = 0.8f;
-    }
-
-    public void chaleco() {
-        this.defense = 1.2f;
-        this.specialDefense = 1.2f;
-        this.speed = 0.85f;
-        this.attack = 0.85f;
-    }
-
-    public void baston() {
-        this.stamina = 1.2f;
-        this.speed = 0.85f;
-    }
-
-    public void pilas() {
-        this.stamina = 1.5f;
-        this.specialDefense = 0.7f;
-    }
-
     public void selectObjeto(String nombre) {
         switch (nombre) {
             case "pesa":
-                this.pesa();
+                this.attack = 1.2f;
+                this.defense = 1.2f;
+                this.speed *= 0.8f;
+                break;
             case "pluma":
-                this.pluma();
+                this.speed = 1.3f;
+                this.defense = 0.8f;
+                this.specialDefense = 0.8f;
+                break;
             case "chaleco":
-                this.chaleco();
+                this.defense = 1.2f;
+                this.specialDefense = 1.2f;
+                this.speed = 0.85f;
+                this.attack = 0.85f;
+                break;
             case "baston":
-                this.baston();
+                this.stamina = 1.2f;
+                this.speed = 0.85f;
+                break;
             case "pilas":
-                this.pilas();
-            default:
+                this.stamina = 1.5f;
+                this.specialDefense = 0.7f;
+                break;
         }
     }
 

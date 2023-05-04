@@ -274,6 +274,10 @@ public class Pokemon implements Cloneable {
     }
 
     public void setObjeto(Objeto objeto) {
+        this.objeto = objeto;
+    }
+
+    public void setObjetoImproveStats (Objeto objeto){
         //AL ASIGNAR UN OBJETO RECIBES LAS MEJORAS CORRESPONDIENTES AUTOMÁTICAMENTE
         this.objeto = objeto;
         statisticsWithObjeto(this, objeto);
@@ -356,7 +360,7 @@ public class Pokemon implements Cloneable {
 
             //SI TENÍA OBJETO SE LO DEVOLVEMOS Y RECALCULA LAS ESTADÍSTICAS
             if (equippedPokemon) {
-                pokemon.setObjeto(objeto);
+                pokemon.setObjetoImproveStats(objeto);
             }
 
             pokemon.setLevel(level);

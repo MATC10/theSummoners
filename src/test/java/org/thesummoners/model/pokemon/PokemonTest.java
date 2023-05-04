@@ -41,9 +41,13 @@ class PokemonTest {
     }
 
     @Test
-    void setObjeto() {
-        p.statisticsWithObjeto(p, new Objeto("chaleco"));
+    void setObjetoImproveStats() {
+        p.setObjetoImproveStats(new Objeto("chaleco"));
         Assertions.assertEquals(78 , p.getSpecialDefense());
+
+
+        p.setObjetoImproveStats(new Objeto("pesa"));
+        Assertions.assertEquals(58 , p.getAttackPower());
     }
 
     @Test
@@ -52,6 +56,6 @@ class PokemonTest {
 
     @BeforeAll
     static void createPokemon() throws CloneNotSupportedException {
-        p = new Pokemon ("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, new Objeto("chaleco"));
+        p = new Pokemon ("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null);
     }
 }
