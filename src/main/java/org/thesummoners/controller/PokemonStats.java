@@ -48,6 +48,8 @@ public class PokemonStats {
     @FXML
     private Label lblStatsPokemonName;
     @FXML
+    private Label lblPokemonLevel;
+    @FXML
     private ImageView imgPokemonStats;
     @FXML
     private Button btnMainWindow;
@@ -65,6 +67,8 @@ public class PokemonStats {
             lblSpeed.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpeed()));
             Trainer.getTrainer().pokemonCub[0].changeDisplayName();
             lblStatsPokemonName.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName());
+            //NIVEL
+            lblPokemonLevel.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getLevel()));
 
             File file = new File(Trainer.getTrainer().pokemonCub[0].getImage());
             Image image = new Image(file.toURI().toString());
@@ -92,7 +96,6 @@ public class PokemonStats {
                 lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
             else
                 lblMovement4.setText("Movimiento sin apender");
-
         }
     }
     @FXML
