@@ -88,12 +88,12 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="375.0" prefWidth="629.0" VBox.vgrow="ALWAYS">
       <children>
             <Circle fill="#e0f0ff" layoutX="138.0" layoutY="141.0" opacity="0.34" radius="100.0" stroke="WHITE" strokeType="INSIDE" />
-            <Label layoutX="243.0" layoutY="29.0" prefHeight="36.0" prefWidth="155.0" text="Estadísticas de ">
+            <Label layoutX="261.0" layoutY="29.0" prefHeight="36.0" prefWidth="155.0" text="Estadísticas de ">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="lblStatsPokemonName" layoutX="398.0" layoutY="29.0" prefHeight="36.0" prefWidth="216.0" text="Label">
+            <Label fx:id="lblStatsPokemonName" layoutX="416.0" layoutY="29.0" prefHeight="36.0" prefWidth="216.0" text="Label">
                <font>
                   <Font size="23.0" />
                </font>
@@ -219,12 +219,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="497.0" layoutY="11.0" prefHeight="36.0" prefWidth="61.0" text="Nivel:">
+            <Label layoutX="128.0" layoutY="11.0" prefHeight="36.0" prefWidth="61.0" text="Nivel:">
                <font>
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="lblPokemonLevel" layoutX="558.0" layoutY="11.0" prefHeight="36.0" prefWidth="68.0" text="Label">
+            <Label fx:id="lblPokemonLevel" layoutX="190.0" layoutY="11.0" prefHeight="36.0" prefWidth="68.0" text="Label">
                <font>
                   <Font size="23.0" />
                </font>
