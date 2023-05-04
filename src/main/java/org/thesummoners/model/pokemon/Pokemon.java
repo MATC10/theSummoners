@@ -45,12 +45,6 @@ public class Pokemon implements Cloneable {
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
-    public Pokemon() {
-        this.level = 1;
-        this.experience = 0;
-        this.name = "Pepe";
-    }
-
 
     public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) {
         this.name = name;
@@ -75,10 +69,6 @@ public class Pokemon implements Cloneable {
         AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
         //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         this.learnedMovement[0] = placaje;
-        AttackMovement pistolaAgua = new AttackMovement ("Pistola Agua", 9,  Type.NORMAL);
-        AttackMovement hidroBomba = new AttackMovement ("Hidro Bomba", 2, Type.PSYCHIC);
-        AttackMovement salpicadura = new AttackMovement ("Salpicadura", 1, Type.WATER);
-        //ESTO ES UNA PRUEBA PARA METERLE NIVELES Y MOVIMIENTOS QUE APRENDE EL POKEMON
 
         this.objeto = objeto;
         counterPokemon ++;
@@ -296,9 +286,19 @@ public class Pokemon implements Cloneable {
     }
 
     public void setObjeto(Objeto objeto) {
-        //AL ASIGNAR UN OBJETO RECIBES LAS MEJORAS CORRESPONDIENTES AUTOMÁTICAMENTE
         this.objeto = objeto;
-        statisticsWithObjeto(this, objeto);
+    }
+
+    public void setObjetoImproveStats (Objeto objeto) throws CloneNotSupportedException {
+        //AL ASIGNAR UN OBJETO RECIBES LAS MEJORAS CORRESPONDIENTES AUTOMÁTICAMENTE
+        //SI ASIGNAS NULL AL OBJETO (QUITAS EL OBJETO) SE PONEN LAS ESTADÍSTICAS BASE
+
+        if(objeto == null) {
+            this.setObjeto(null);
+        }
+        else this.setObjeto(objeto);
+
+        this.adaptStatsToLevel(this.getLevel(), this);
     }
 
     public void assignMovement(int i){
@@ -365,7 +365,8 @@ public class Pokemon implements Cloneable {
                 pokemon.setSpecialDefense(newPokemon.getSpecialDefense() + (level / 5));
                 pokemon.setSpeed(newPokemon.getSpeed() + (level / 5));
                 pokemon.setStamina(newPokemon.getStamina() + (level / 5));
-            } else if (level < 1) {
+            }
+            else if (level <= 1) {
                 pokemon.setHp(newPokemon.getHp());
                 pokemon.setAttackPower(newPokemon.getAttackPower());
                 pokemon.setSpecialAttack(newPokemon.getSpecialAttack());
@@ -378,7 +379,7 @@ public class Pokemon implements Cloneable {
 
             //SI TENÍA OBJETO SE LO DEVOLVEMOS Y RECALCULA LAS ESTADÍSTICAS
             if (equippedPokemon) {
-                pokemon.setObjeto(objeto);
+                pokemon.statisticsWithObjeto(this, pokemon.getObjeto());
             }
 
             pokemon.setLevel(level);
@@ -396,31 +397,31 @@ public class Pokemon implements Cloneable {
     public boolean statisticsWithObjeto(Pokemon pokemon, Objeto objeto){
         //SEGÚN EL OBJETO EQUIPADO, EL POKÉMON TENDRÁ DETERMINADAS ESTADÍSTICAS
         //SE DEBE HACER OTRO MÉTODO PARA RECUPERAR SUS STATS BASE AL QUITAR EL OBJETO
-        if(pokemon.getObjeto().getName().equals("pesa")){
+        if(objeto.getName().equals("pesa")){
             pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             return true;
         }
-        else if (pokemon.getObjeto().getName().equals("pluma")){
+        else if (objeto.getName().equals("pluma")){
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("chaleco")){
+        else if(objeto.getName().equals("chaleco")){
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("baston")){
+        else if(objeto.getName().equals("baston")){
             pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
             pokemon.setSpeed((int) (pokemon.getSpeed() * objeto.getSpeed()));
             return true;
         }
-        else if(pokemon.getObjeto().getName().equals("pilas")){
+        else if(objeto.getName().equals("pilas")){
             pokemon.setStamina((int) (pokemon.getStamina() * objeto.getStamina()));
             pokemon.setSpecialDefense((int) (pokemon.getSpecialDefense() * objeto.getSpecialDefense()));
             return true;
@@ -428,9 +429,6 @@ public class Pokemon implements Cloneable {
         return false;
     }
 
-    public void statisticsWithoutObjeto(Pokemon pokemon){
-
-    }
 
     public void minimumHp (){
         //MÉTODO PARA NO BAJAR DE 0 DE VIDA, INCLUIDO EN setHp();

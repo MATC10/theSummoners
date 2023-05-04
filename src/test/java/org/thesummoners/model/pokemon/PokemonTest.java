@@ -3,6 +3,7 @@ package org.thesummoners.model.pokemon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.thesummoners.model.objeto.Objeto;
 
 class PokemonTest {
 
@@ -40,7 +41,15 @@ class PokemonTest {
     }
 
     @Test
-    void statisticsWithObjeto() {
+    void setObjetoImproveStats() throws CloneNotSupportedException {
+        p.setObjetoImproveStats(new Objeto("pesa"));
+        Assertions.assertEquals(58 , p.getAttackPower());
+
+        p.setObjetoImproveStats(null);
+        Assertions.assertEquals(49 , p.getAttackPower());
+
+        p.setObjetoImproveStats(new Objeto("chaleco"));
+        Assertions.assertEquals(78 , p.getSpecialDefense());
     }
 
     @Test
