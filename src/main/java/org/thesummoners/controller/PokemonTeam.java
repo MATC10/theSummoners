@@ -81,6 +81,7 @@ public class PokemonTeam {
 
     @FXML
     void pokemonStats1(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[0] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[0];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -89,12 +90,12 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
         }
     }
 
     @FXML
     void pokemonStats2(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[1] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[1];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -103,12 +104,13 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
+
         }
     }
 
     @FXML
     void pokemonStats3(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[2] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[2];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -117,12 +119,12 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
         }
     }
 
     @FXML
     void pokemonStats4(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[3] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[3];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -131,12 +133,12 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
         }
     }
 
     @FXML
     void pokemonStats5(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[4] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[4];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -145,12 +147,12 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
         }
     }
 
     @FXML
     void pokemonStats6(ActionEvent event) throws IOException {
+        getTrainer().pokemonCub[0] = null;
         if(Trainer.getTrainer().getPokemonTeam()[5] != null) {
             getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemonTeam()[5];
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
@@ -159,7 +161,6 @@ public class PokemonTeam {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            getTrainer().pokemonCub[0] = null;
         }
     }
 

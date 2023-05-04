@@ -93,7 +93,6 @@ public class PokemonStats {
             else
                 lblMovement4.setText("Movimiento sin apender");
 
-            Trainer.getTrainer().setPokemonCub(null);
         }
     }
     @FXML
