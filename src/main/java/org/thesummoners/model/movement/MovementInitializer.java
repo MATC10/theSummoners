@@ -7,6 +7,7 @@ import org.thesummoners.model.pokemon.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class MovementInitializer {
     public static HashMap<Integer, Movement> movementsIntoList() {
@@ -77,6 +78,15 @@ public class MovementInitializer {
 
 
         return Pokemon.movementLevel;
+    }
+
+    //CREAMOS UNA LISTA CON TODOS LOS MOVIMIENTOS, SERVIRÁ EN CLASES COMO LA DE ENEMIGO
+    // PARA ASIGNAR MOVIMIENTOS ALEATORIOS A TODOS SUS POKEMON
+    public static List <Movement> movementListFull(){
+        for(int i = 4; i <= 91; i+=3){
+            Pokemon.movementList.add(Pokemon.movementLevel.get(i));
+        }
+        return Pokemon.movementList;
     }
 
 }

@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import javafx.scene.control.Label;
 import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
@@ -43,7 +44,7 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         return 1;
     }
 
-    public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement){
+    public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight){
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();
         int attackOrNot = random.nextInt(2);
@@ -51,7 +52,7 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
 
 
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-        if(movement.getMovementType().equals("attack")) {
+        if(movement.getMovementType().equals("attack") ) {
             float baseDamage = pokemon1.getAttackPower() + pokemon1.getSpecialAttack();
             float summedAmountDamage = 0;
 
@@ -66,8 +67,14 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
             summedAmountDamage += (baseDamage * Pokedex.compareAdvantage(pokemon1, pokemon2) - baseDamage);
 
             baseDamage += summedAmountDamage;
+            if(pokemon1.getState() != State.PARALYSED){
+                pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
+            }
+            else if (attackOrNot == 0 && pokemon1.getState() == State.PARALYSED){
+                pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
+            }
+            else lblTextFight.setText(pokemon1.getDisplayName() + " no puede atacar porque se encuentra paralizado");
 
-            pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
 
             //AHORA CAMBIAR EL POKEMON2 A DEBILITADO SI TIENE 0 DE VIDA
             //¿HACERLO EN OTRO MÉTODO?

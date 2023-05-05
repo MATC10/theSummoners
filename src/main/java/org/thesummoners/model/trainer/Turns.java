@@ -3,7 +3,7 @@ package org.thesummoners.model.trainer;
 public class Turns {
 
     private boolean currentTurn;
-    private int numberTurn;
+    private static int numberTurn;
 
     public Turns(){
         numberTurn = 1;
@@ -35,7 +35,7 @@ public class Turns {
         this.currentTurn = currentTurn;
     }
 
-    public int getNumberTurn() {
+    public static int getNumberTurn() {
         return numberTurn;
     }
 

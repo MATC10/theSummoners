@@ -10,24 +10,14 @@ public enum State {
     PARALYSED, BURNED, POISONED, ASLEEP, FROZEN, DEBILITATED, ALIVE, RESTING;
 
     public static void applyState(Pokemon pokemon1, int staminaPokemon, Label lblTextFight) throws InterruptedException {
-        Random random = new Random();
-        int calculeDuration = random.nextInt(4);
 
-        if(pokemon1.getState() == DEBILITATED){
 
-            //HAY QUE CAMBIAR DE POKEMON
-            //UNA IDEA ES QUE SALGA EL MENSAJE DE QUE NO PUEDES LUCHAR Y DEBES CAMBIAR DE POKEMON
-            //UN SEGUNDO DESPUES DE APARECE LA VENTANA DE LOS POKEMON QUE PUEDEN LUCHAR
-
-            //TODO AQUÍ CUANDO ESTÉ VINCULADO CON LA BD TENEMOS
-            // QUE PONER LA VENTANA PARA QUE CAMBIE DE POKEMON
-        }
-        else if(pokemon1.getState() == ASLEEP){
+        if(pokemon1.getState() == ASLEEP){
             lblTextFight.setText(pokemon1.getDisplayName() + " se encuentra dormido");
         }
         else if(pokemon1.getState() == RESTING){
             pokemon1.setState(State.ALIVE);
-            //RECUPERA 50 DE STAMINA
+            //RECUPERA 100 DE STAMINA O HASTA EL MÁXIMO DEL QUE DISPONGA (SI SU MÁXIMO ES MENOS DE 100)
             pokemon1.rest();
             //CALCULAR LA STAMINA MÁXIMA DEL POKEMON Y NO SUBIR DE AHÍ
             if(pokemon1.getStamina() > staminaPokemon) pokemon1.setStamina(staminaPokemon);
@@ -48,7 +38,6 @@ public enum State {
             pokemon1.setHp(pokemon1.getHp() - ((pokemon1.getHp() * 10) / 100));
         }
 
-        if(calculeDuration == 0) pokemon1.setState(ALIVE);
         Thread.sleep(1000);
 
     }

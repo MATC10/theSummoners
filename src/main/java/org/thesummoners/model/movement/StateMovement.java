@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import javafx.scene.control.Label;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.trainer.Turns;
@@ -42,20 +43,25 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
 //TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
 //TODO SEGÚN EL QUE SEA
-    public static void stateCombat(Pokemon pokemon, Movement movement) {
+    public static void stateCombat(Pokemon pokemon, Movement movement, Label lblTextFight) {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();
         int attackOrNot = random.nextInt(2);
-        if(pokemon.getState() == State.PARALYSED && attackOrNot == 0) {
+
+        //HACEMOS UN CASTING PARA OBTENER LOS MÉTODOS DE StateMovement
+        StateMovement stateMovement = (StateMovement) movement;
 
             //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-            if (movement.getMovementType().equals("state")) {
-                //HACEMOS UN CASTING PARA OBTENER LOS MÉTODOS DE StateMovement
-                StateMovement stateMovement = (StateMovement) movement;
+            if (movement.getMovementType().equals("state") && pokemon.getState() != State.PARALYSED) {
                 //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
                 pokemon.setState(stateMovement.getStateToApply());
             }
-        }
+            else if(movement.getMovementType().equals("state") && attackOrNot == 0 && pokemon.getState() == State.PARALYSED){
+                pokemon.setState(stateMovement.getStateToApply());
+            }
+            else{
+                lblTextFight.setText(pokemon.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+            }
     }
 
 

@@ -1,6 +1,8 @@
 package org.thesummoners.model.trainer;
 
 
+import javafx.scene.control.Label;
+import org.thesummoners.model.movement.*;
 import org.thesummoners.model.pokemon.*;
 
 import java.util.Random;
@@ -60,13 +62,11 @@ public class Enemy {
 
         //el nivel del pokemon enemigo tiene que ser del mismo nivel que tu primer
         //pokemon de Trainer.pokemonTeam
-        for (int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++){
             //sacamos el nivel del primer pokemon del equipo Pokémon del Trainer
-            if(Trainer.getTrainer().getPokemonTeam()[i] != null){
-                this.pokemonTrainerLevel = Trainer.getTrainer().getPokemonTeam()[i].getLevel();
-                break;
-            }
-        }
+        this.pokemonTrainerLevel = Trainer.getTrainer().getPokemonTeam()[0].getLevel();
+
+
+
 
         //FIXME AÑADIR POKEMON A  POKEDEX PARA QUE NO DE FALLO EL MÉTODO pokemonIntoTeam()
         // DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
@@ -78,8 +78,68 @@ public class Enemy {
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER
         for(int i = 0; i < enemyTeam.length; i++){
-            this.enemyTeam[i] =  Pokedex.getPokedex().get(random.nextInt( Pokedex.getPokedex().size()));
+            this.enemyTeam[i] =  Pokedex.getPokedex().get(random.nextInt( Pokedex.getPokedex().size())).clone();
             this.enemyTeam[i].setLevel(pokemonTrainerLevel);
+            this.enemyTeam[i].adaptStatsToLevel(this.enemyTeam[i].getLevel(), this.enemyTeam[i]);
+
+            if(this.enemyTeam[i].getLearnedMovement()[i] == null){
+                this.enemyTeam[i].getLearnedMovement()[i] = MovementInitializer.movementListFull().get(random.nextInt(30));
+            }
+
         }
     }
+
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+        //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
+        //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
+        int staminaPokemon1 = pokemon1.getStamina();
+        int staminaPokemon2 = pokemon2.getStamina();
+
+        //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
+        Random random = new Random();
+        int counter = 0;
+        //CON ESTA VARIABLE CALCULAREMOS CUÁNDO QUITAR LOS ESTADOS
+        int removeState;
+        //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
+
+
+        //SI EL POKEMON QUE EMPIEZA ES DEL ENEMIGO, ES FALSE
+        for(Movement m : pokemon2.getLearnedMovement()){
+            if(m != null) counter++;
+        }
+        State.applyState(pokemon2, staminaPokemon2, lblTextFight);
+        //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
+
+        if(pokemon2.getState() != State.RESTING && pokemon2.getState() != State.ASLEEP &&
+                pokemon2.getState() != State.DEBILITATED && pokemon2.getState() != State.FROZEN) {
+            if(pokemon2.getStamina() >= movement.getStamina()){
+                AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
+                StateMovement.stateCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
+                ImproveMovement.improveCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
+                pokemon2.setStamina(pokemon1.getStamina() - movement.getStamina());
+            }
+            else {
+                pokemon2.setState(State.RESTING);
+                lblTextFight.setText(pokemon2.getDisplayName() + " se encuentra dormido para recargar Stamina");
+                Thread.sleep(1000);
+            }
+
+        }
+        //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS DEL ENEMIGO: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
+        removeState = random.nextInt(4);
+        if((pokemon2.getState() == State.ASLEEP || pokemon2.getState() == State.FROZEN ||
+                pokemon2.getState() == State.PARALYSED ||  pokemon2.getState() == State.BURNED ||
+                pokemon2.getState() == State.POISONED) && pokemon2.getHp() > 0 && removeState == 0){
+            pokemon2.setState(State.ALIVE);
+            lblTextFight.setText(pokemon2.getDisplayName() + " ya no se encuentra afectado por ningún estado");
+            Thread.sleep(1000);
+        }
+
+        //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
+        turn.nextTurn(turn.isCurrentTurn());
+        //TODO PONER UNA LABEL CON EL TURNO
+        Thread.sleep(1000);
+
+    }
+
 }

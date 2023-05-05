@@ -10,7 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.trainer.Enemy;
 import org.thesummoners.model.trainer.Trainer;
 import org.thesummoners.model.trainer.Turns;
 
@@ -75,7 +77,12 @@ public class Fight {
     private Parent root;
     private Scene scene;
     private Stage stage;
+
     private Turns turn;
+    private Pokemon pokemon1;
+    private Pokemon pokemon2;
+    private Movement movement;
+
 
     public Pokemon firstPokemonTeam(){
         //EL COMBATE EMPIEZA CON EL PRIMER POKÉMON EQUIPADO
@@ -115,26 +122,37 @@ public class Fight {
         imgTrainerPokemon.setImage(image);
 
         turn.calculateFirstTurn();
+        pokemon1 = Trainer.getTrainer().getPokemonTeam()[0];
+        pokemon2 = Enemy.getEnemyTeam()[0];
     }
 
     @FXML
-    public void onMove1() {
+    public void onMove1() throws InterruptedException, CloneNotSupportedException {
+        movement = pokemon1.getLearnedMovement()[0];
+//TODO EL ENTRENADOR DEBE TENER UN MÉTODO PARA SELECCIONAR POKEMON O CAMBIAR POKEMON
+        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
+        //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
+        //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
+
 
     }
 
     @FXML
-    public void onMove2() {
-
+    public void onMove2() throws InterruptedException, CloneNotSupportedException {
+        movement = pokemon1.getLearnedMovement()[1];
+        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
     }
 
     @FXML
-    public void onMove3() {
-
+    public void onMove3() throws InterruptedException, CloneNotSupportedException {
+        movement = pokemon1.getLearnedMovement()[2];
+        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
     }
 
     @FXML
-    public void onMove4() {
-
+    public void onMove4() throws InterruptedException, CloneNotSupportedException {
+        movement = pokemon1.getLearnedMovement()[3];
+        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
     }
 
     @FXML
@@ -149,6 +167,10 @@ public class Fight {
 
     @FXML
     void toMainWindow(ActionEvent event) throws IOException {
+
+        //TODO SI UN POKEMON ESTÁ DEBILITADO O CON UN ESTADO DA IGUAL
+        //DEBE IR AL CENTRO POKEMON PARA RECUPERARSE
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
