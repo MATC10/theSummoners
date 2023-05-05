@@ -220,12 +220,6 @@ public class Trainer {
     public void BreedingConfirmNickname(String mote){
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
     }
-    public void CheckBoxIsSelected(){
-
-    }
-    public void CheckBoxIsNotSelected(){
-
-    }
 
     public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA

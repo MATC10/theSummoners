@@ -33,7 +33,6 @@
 -->
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -99,36 +98,12 @@
             <Label fx:id="lblMote" layoutX="303.0" layoutY="323.0" prefHeight="25.0" prefWidth="34.0" text="Mote" />
             <Button fx:id="btnConfirmMote" layoutX="516.0" layoutY="323.0" mnemonicParsing="false" onAction="#pokemonBreedConfirmNickname" text="Confirmar" />
             <Button fx:id="btnNoMote" layoutX="519.0" layoutY="274.0" mnemonicParsing="false" onAction="#pokemonBreedCancelNickname" text="Sin mote" />
-            <CheckBox fx:id="chk1" layoutX="22.0" layoutY="73.0" mnemonicParsing="false" onAction="#pokemonBreeding1" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="chk2" layoutX="22.0" layoutY="127.0" mnemonicParsing="false" onAction="#pokemonBreeding2" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="chk3" layoutX="22.0" layoutY="178.0" mnemonicParsing="false" onAction="#pokemonBreeding3" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="chk4" layoutX="22.0" layoutY="230.0" mnemonicParsing="false" onAction="#pokemonBreeding4" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="chk5" layoutX="22.0" layoutY="284.0" mnemonicParsing="false" onAction="#pokemonBreeding5" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
-            <CheckBox fx:id="chk6" layoutX="22.0" layoutY="336.0" mnemonicParsing="false" onAction="#pokemonBreeding6" prefHeight="20.0" prefWidth="206.0">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
+            <Button fx:id="btn1" layoutX="63.0" layoutY="60.0" mnemonicParsing="false" onAction="#pokemonBreeding1" prefHeight="46.0" prefWidth="104.0" text="Button" />
+            <Button fx:id="btn2" layoutX="63.0" layoutY="112.0" mnemonicParsing="false" onAction="#pokemonBreeding2" prefHeight="46.0" prefWidth="104.0" text="Button" />
+            <Button fx:id="btn3" layoutX="63.0" layoutY="165.0" mnemonicParsing="false" onAction="#pokemonBreeding3" prefHeight="46.0" prefWidth="104.0" text="Button" />
+            <Button fx:id="btn4" layoutX="63.0" layoutY="217.0" mnemonicParsing="false" onAction="#pokemonBreeding4" prefHeight="46.0" prefWidth="104.0" text="Button" />
+            <Button fx:id="btn6" layoutX="63.0" layoutY="317.0" mnemonicParsing="false" onAction="#pokemonBreeding6" prefHeight="46.0" prefWidth="104.0" text="Button" />
+            <Button fx:id="btn5" layoutX="63.0" layoutY="268.0" mnemonicParsing="false" onAction="#pokemonBreeding5" prefHeight="46.0" prefWidth="104.0" text="Button" />
       </children>
     </AnchorPane>
   </children>
