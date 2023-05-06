@@ -115,6 +115,8 @@ public class PokemonBreeding {
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
+        Trainer.getTrainer().getPokemonToBreed()[0] = null;
+        Trainer.getTrainer().getPokemonToBreed()[1] = null;
     }
     @FXML
     void toPokemonStats(ActionEvent event) throws IOException {
