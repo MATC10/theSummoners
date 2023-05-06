@@ -23,6 +23,10 @@ import static org.thesummoners.model.trainer.Trainer.getTrainer;
 
 public class PokemonBreeding {
     @FXML
+    private ImageView imgPokemon1;
+    @FXML
+    private ImageView imgPokemon2;
+    @FXML
     private Button btn1;
     @FXML
     private Button btn2;
@@ -130,6 +134,24 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding1(){
         Trainer.getTrainer().pokemonBreeding(0);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
+
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn2.setDisable(true);
@@ -137,17 +159,29 @@ public class PokemonBreeding {
             btn4.setDisable(true);
             btn5.setDisable(true);
             btn6.setDisable(true);
+
         }
-
-
-        /*File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
-        Image image = new Image(file.toURI().toString());
-        imgPokemonBreed2.setImage(image);
-        */
     }
     @FXML
     public void pokemonBreeding2() {
         Trainer.getTrainer().pokemonBreeding(1);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);
@@ -160,6 +194,23 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding3(){
         Trainer.getTrainer().pokemonBreeding(2);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);
@@ -172,6 +223,23 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding4(){
         Trainer.getTrainer().pokemonBreeding(3);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);
@@ -184,6 +252,23 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding5(){
         Trainer.getTrainer().pokemonBreeding(4);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);
@@ -196,6 +281,23 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding6() {
         Trainer.getTrainer().pokemonBreeding(5);
+        if(imgPokemon1.getImage() == null){
+            if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
+                File file = new File(getTrainer().pokemonToBreed[0].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+            else {
+                File file = new File(getTrainer().pokemonToBreed[1].getImage());
+                Image image = new Image(file.toURI().toString());
+                imgPokemon1.setImage(image);
+            }
+        }
+        else{
+            File file = new File(getTrainer().pokemonToBreed[1].getImage());
+            Image image = new Image(file.toURI().toString());
+            imgPokemon2.setImage(image);
+        }
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);
@@ -225,8 +327,9 @@ public class PokemonBreeding {
         if (txtMote.getText().isEmpty()){
             Trainer.getTrainer().BreedingConfirmNickname(getTrainer().getPokemonCub()[0].getDisplayName());
         }
-        else
+        else {
             Trainer.getTrainer().BreedingConfirmNickname(txtMote.getText());
+        }
         btnConfirmMote.setDisable(true);
         txtMote.setText(""); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
         txtMote.setDisable(true);
