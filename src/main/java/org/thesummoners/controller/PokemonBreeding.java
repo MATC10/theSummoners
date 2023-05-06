@@ -134,7 +134,7 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding1(){
         Trainer.getTrainer().pokemonBreeding(0);
-        if(imgPokemon1.getImage() == null){
+        if(imgPokemon1.getImage() == null){ //MUESTRA A LOS POKEMON CUANDO LOS CLICAS
             if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
                 File file = new File(getTrainer().pokemonToBreed[0].getImage());
                 Image image = new Image(file.toURI().toString());
