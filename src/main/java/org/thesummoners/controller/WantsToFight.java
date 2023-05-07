@@ -29,28 +29,11 @@ public class WantsToFight {
     private Parent root;
     private Scene scene;
     private Stage stage;
-    Random aleatorio = new Random();
 
     @FXML
     public void initialize() throws CloneNotSupportedException {
-        int arrayValor = aleatorio.nextInt(10);
-        Enemy.enemyArray[0] = new Enemy("Pescador", "doc/images/pescador.png");
-        Enemy.enemyArray[1] = new Enemy("Entre.guay", "doc/images/entreGuay.png");
-        Enemy.enemyArray[2] = new Enemy("Marinero", "doc/images/marinero.png");
-        Enemy.enemyArray[3] = new Enemy("Caza bichos", "doc/images/cazaBichos.png");
-        Enemy.enemyArray[4] = new Enemy("Pokemaniaco", "doc/images/pokemaniaco.png");
-        Enemy.enemyArray[5] = new Enemy("Científico loco", "doc/images/cientifico.png");
-        Enemy.enemyArray[6] = new Enemy("Calvo con cresta", "doc/images/calvo.png");
-        Enemy.enemyArray[7] = new Enemy("Súper nerd", "doc/images/superNerd.png");
-        Enemy.enemyArray[8] = new Enemy("Pokecolector", "doc/images/pokecolector.png");
-        Enemy.enemyArray[9] = new Enemy("Malabarista", "doc/images/malabarista.png");
 
-
-        File file = new File(Enemy.enemyArray[arrayValor].getImage());
-        Image image = new Image(file.toURI().toString());
-        imgEnemy.setImage(image);
-
-        lblWantsToFight.setText("¡" + Enemy.enemyArray[arrayValor].getName() + " quiere luchar!");
+        Enemy.WantsToFightEnemy(imgEnemy, lblWantsToFight);
     }
 
 

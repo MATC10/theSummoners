@@ -42,6 +42,8 @@ public class Pokemon implements Cloneable {
 
     private Movement [] learnedMovement;
 
+    public static List <Movement> movementList = new ArrayList<>();
+
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
 
@@ -311,7 +313,7 @@ public class Pokemon implements Cloneable {
 
 
     public void rest(){
-        this.stamina += 50;
+        this.stamina += 100;
         //A LA HORA DE PELEAR TIENE QUE HABER UN TURNO QUE NO PELEE TRAS DORMIR
     }
 

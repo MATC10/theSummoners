@@ -1,5 +1,9 @@
 package org.thesummoners.model.movement;
 
+import javafx.scene.control.Label;
+import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.State;
+
 import java.util.Random;
 
 public class ImproveMovement extends Movement implements IStaminaCalculable {
@@ -64,6 +68,30 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
     public void TurnsDurationcalculation(){
         Random random = new Random();
         this.numberOfTurnsDuration = random.nextInt(4)+1;
+    }
+
+    public static void improveCombat(Pokemon pokemon, Movement movement, Label lblTextFight){
+        if(movement.getMovementType().equals("improve") ) {
+            ImproveMovement improveMovement = (ImproveMovement) movement;
+            Random random = new Random();
+
+            int attackOrNot = random.nextInt(2);
+
+            if (pokemon.getState() != State.PARALYSED) {
+                pokemon.setAttackPower(pokemon.getAttackPower() + improveMovement.getUpgradeAttack());
+                pokemon.setSpecialAttack(pokemon.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
+                pokemon.setDefense(pokemon.getDefense() + improveMovement.getUpgradeDefense());
+                pokemon.setSpecialDefense(pokemon.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+            } else if(attackOrNot == 0 && pokemon.getState() == State.PARALYSED){
+                pokemon.setAttackPower(pokemon.getAttackPower() + improveMovement.getUpgradeAttack());
+                pokemon.setSpecialAttack(pokemon.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
+                pokemon.setDefense(pokemon.getDefense() + improveMovement.getUpgradeDefense());
+                pokemon.setSpecialDefense(pokemon.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+            }
+            else{
+                lblTextFight.setText(pokemon.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+            }
+        }
     }
 
     @Override

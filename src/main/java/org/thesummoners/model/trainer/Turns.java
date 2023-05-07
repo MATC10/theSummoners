@@ -3,17 +3,17 @@ package org.thesummoners.model.trainer;
 public class Turns {
 
     private boolean currentTurn;
-    private int numberTurn;
+    private static int numberTurn;
 
     public Turns(){
         numberTurn = 1;
     }
 
-    public void calculateFirstTurn(){
+    public void calculateFirstTurn() throws CloneNotSupportedException {
 //CALCULAR TURNO
 //CALCULAR EL POKEMON QUE ATACA ANTES
 //TRUE ES EL POKÉMON DEL ENTRENADOR, FALSE ES EL DEL ENEMIGO
-        if(numberTurn == 1 && (Trainer.getTrainer().getPokemonTeam()[0].getSpeed() >= Enemy.getEnemyTeam()[0].getSpeed())){
+        if(numberTurn == 1 && (Trainer.getTrainer().getPokemonTeam()[0].getSpeed() >= Enemy.getEnemy().getEnemyTeam()[0].getSpeed())){
             currentTurn = true;
         }
         else currentTurn = false;
@@ -35,7 +35,7 @@ public class Turns {
         this.currentTurn = currentTurn;
     }
 
-    public int getNumberTurn() {
+    public static int getNumberTurn() {
         return numberTurn;
     }
 
