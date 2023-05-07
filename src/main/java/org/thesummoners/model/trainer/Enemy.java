@@ -2,45 +2,40 @@ package org.thesummoners.model.trainer;
 
 
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.thesummoners.model.movement.*;
 import org.thesummoners.model.pokemon.*;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Enemy {
-    public static Enemy [] enemyArray = new Enemy [10];
-    private String name;
-    private String image;
+    public static String [] nameEnemy;
+    public static String [] imageEnemy;
+    public static HashMap <String, String> nameAndImageEnemy;
     private int pokemonTrainerLevel;
     private static Pokemon[] enemyTeam;
     Random random = new Random();
 
-    public Enemy(String name, String image) throws CloneNotSupportedException {
+    public Enemy() throws CloneNotSupportedException {
         //EL ENTRENADO ENEMIGO TENDRÁ UN EQUIPO POKÉMON DE ENTRE
         //1 Y 3 POKÉMON DE FORMA ALEATORIA.
 
         enemyTeam = new Pokemon[random.nextInt(3)+1];
         pokemonIntoTeam();
-
-        this.name = name;
-        this.image = image;
     }
 
-    public String getName() {
-        return name;
+
+    public static HashMap<String, String> getNameAndImageEnemy() {
+        return nameAndImageEnemy;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static void setNameAndImageEnemy(HashMap<String, String> nameAndImageEnemy) {
+        Enemy.nameAndImageEnemy = nameAndImageEnemy;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     public int getPokemonTrainerLevel() {
         return pokemonTrainerLevel;
@@ -66,15 +61,6 @@ public class Enemy {
         this.pokemonTrainerLevel = Trainer.getTrainer().getPokemonTeam()[0].getLevel();
 
 
-
-
-        //FIXME AÑADIR POKEMON A  POKEDEX PARA QUE NO DE FALLO EL MÉTODO pokemonIntoTeam()
-        // DE LA CLASE ENEMY Y NO DE ERROR AL LUCHAR
-        Pokedex.getPokedex().addAll(new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null),
-                new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null),
-                new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null),
-                new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null));
-
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER
         for(int i = 0; i < enemyTeam.length; i++){
@@ -89,10 +75,9 @@ public class Enemy {
         }
     }
 
-    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+    public void fight(Pokemon pokemon2, Pokemon pokemon1, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
-        //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
-        int staminaPokemon1 = pokemon1.getStamina();
+        //GUARDAMOS LA STAMINA DEL POKEMON AL INICIO DE LA BATALLA
         int staminaPokemon2 = pokemon2.getStamina();
 
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
@@ -100,10 +85,7 @@ public class Enemy {
         int counter = 0;
         //CON ESTA VARIABLE CALCULAREMOS CUÁNDO QUITAR LOS ESTADOS
         int removeState;
-        //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
 
-
-        //SI EL POKEMON QUE EMPIEZA ES DEL ENEMIGO, ES FALSE
         for(Movement m : pokemon2.getLearnedMovement()){
             if(m != null) counter++;
         }
@@ -142,4 +124,28 @@ public class Enemy {
 
     }
 
+
+    public static void WantsToFightEnemy(ImageView imgEnemy, Label lblWantsToFight){
+        //LLENAMOS EL HASHMAL Y DEVOLVEMOS EL NOMBRE Y LA IMAGEN DEL ENEMIGO A MOSTRAR
+
+        Random random = new Random();
+
+        int arrayValor = random.nextInt(10);
+        nameEnemy = new String[] {"Pescador", "Entre.guay", "Marinero", "Caza bichos", "Pokemaniaco",
+                "Científico loco", "Calvo con cresta", "Súper nerd", "Pokecolector", "Malabarista"};
+
+        imageEnemy = new String[] {"doc/images/pescador.png", "doc/images/entreGuay.png", "doc/images/marinero.png",
+                 "doc/images/cazaBichos.png", "doc/images/pokemaniaco.png",
+                "doc/images/cientifico.png", "doc/images/calvo.png", "doc/images/superNerd.png", "doc/images/pokecolector.png",
+                "doc/images/malabarista.png"};
+
+
+
+        File file = new File(Enemy.imageEnemy[arrayValor]);
+        Image image = new Image(file.toURI().toString());
+        imgEnemy.setImage(image);
+
+        lblWantsToFight.setText("¡" + Enemy.nameEnemy[arrayValor] +  " quiere luchar!");
+
+    }
 }

@@ -240,7 +240,6 @@ public class Trainer {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
         int staminaPokemon1 = pokemon1.getStamina();
-        int staminaPokemon2 = pokemon2.getStamina();
 
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
@@ -276,42 +275,6 @@ public class Trainer {
                     pokemon1.getState() == State.POISONED) && pokemon1.getHp() > 0 && removeState == 0){
                 pokemon1.setState(State.ALIVE);
                 lblTextFight.setText(pokemon1.getDisplayName() + " ya no se encuentra afectado por ningún estado");
-                Thread.sleep(1000);
-            }
-            turn.nextTurn(turn.isCurrentTurn());
-            //TODO PONER UNA LABEL CON EL TURNO
-            Thread.sleep(1000);
-
-//LA PARTE DEL ENEMIGO EMPIEZA AQUÍ
-            //SI EL POKEMON QUE EMPIEZA ES DEL ENEMIGO, ES FALSE
-            for(Movement m : pokemon2.getLearnedMovement()){
-                if(m != null) counter++;
-            }
-            State.applyState(pokemon2, staminaPokemon2, lblTextFight);
-            //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
-
-            if(pokemon2.getState() != State.RESTING && pokemon2.getState() != State.ASLEEP &&
-                    pokemon2.getState() != State.DEBILITATED && pokemon2.getState() != State.FROZEN) {
-                if(pokemon2.getStamina() >= movement.getStamina()){
-                    AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
-                    StateMovement.stateCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
-                    ImproveMovement.improveCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
-                    pokemon2.setStamina(pokemon1.getStamina() - movement.getStamina());
-                }
-                else {
-                    pokemon2.setState(State.RESTING);
-                    lblTextFight.setText(pokemon2.getDisplayName() + " se encuentra dormido para recargar Stamina");
-                    Thread.sleep(1000);
-                }
-
-            }
-            //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS DEL ENEMIGO: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
-            removeState = random.nextInt(4);
-            if((pokemon2.getState() == State.ASLEEP || pokemon2.getState() == State.FROZEN ||
-                    pokemon2.getState() == State.PARALYSED ||  pokemon2.getState() == State.BURNED ||
-                    pokemon2.getState() == State.POISONED) && pokemon2.getHp() > 0 && removeState == 0){
-                pokemon2.setState(State.ALIVE);
-                lblTextFight.setText(pokemon2.getDisplayName() + " ya no se encuentra afectado por ningún estado");
                 Thread.sleep(1000);
             }
 

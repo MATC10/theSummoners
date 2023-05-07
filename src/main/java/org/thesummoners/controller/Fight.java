@@ -74,6 +74,13 @@ public class Fight {
 
     @FXML
     private Label lblTextFight;
+
+    @FXML
+    private Label lblLevelTrainer;
+
+    @FXML
+    private Label lblLevelEnemy;
+
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -84,46 +91,32 @@ public class Fight {
     private Movement movement;
 
 
-    public Pokemon firstPokemonTeam(){
-        //EL COMBATE EMPIEZA CON EL PRIMER POKÉMON EQUIPADO
-        //EL JUEGO TIENE QUE SABER CUÁL ES EL PRIMER POKÉMON EQUIPADO
-        //ESTE MÉTODO DEVUELVE EL PRIMER POKEMON DEL EQUIPO
-        if(Trainer.getTrainer().getPokemonTeam()[0] != null){
-            return Trainer.getTrainer().getPokemonTeam()[0];
-        }
-        else if(Trainer.getTrainer().getPokemonTeam()[1] != null){
-            return Trainer.getTrainer().getPokemonTeam()[1];
-        }
-        else if(Trainer.getTrainer().getPokemonTeam()[2] != null){
-            return Trainer.getTrainer().getPokemonTeam()[2];
-        }
-        else if(Trainer.getTrainer().getPokemonTeam()[3] != null){
-            return Trainer.getTrainer().getPokemonTeam()[3];
-        }
-        else if(Trainer.getTrainer().getPokemonTeam()[4] != null){
-            return Trainer.getTrainer().getPokemonTeam()[4];
-        }
-        else return Trainer.getTrainer().getPokemonTeam()[5];
-
-    }
 
     @FXML
     public void initialize(){
+        //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
+        pokemon1 = Trainer.getTrainer().getPokemonTeam()[0];
+        pokemon2 = Enemy.getEnemyTeam()[0];
 
         Turns turn = new Turns();
 
-        //PONEMOS EL NOMBRE DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
-        lblDisplayPkTrainer.setText(firstPokemonTeam().getDisplayName());
-        //EN CONSTRUCCIÓN
-        lblHpTrainer.setText(Integer.toString(firstPokemonTeam().getHp()));
+        //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
+        lblDisplayPkTrainer.setText(pokemon1.getDisplayName());
+        lblHpTrainer.setText(Integer.toString(pokemon1.getHp()));
+        lblLevelTrainer.setText(Integer.toString(pokemon1.getLevel()));
+
+        //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
+        lblDisplayPkTrainer.setText(pokemon2.getDisplayName());
+        lblHpTrainer.setText(Integer.toString(pokemon2.getHp()));
+        lblLevelTrainer.setText(Integer.toString(pokemon2.getLevel()));
+
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
-        File file = new File(firstPokemonTeam().getImageBack());
+        File file = new File(pokemon1.getImageBack());
         Image image = new Image(file.toURI().toString());
         imgTrainerPokemon.setImage(image);
 
         turn.calculateFirstTurn();
-        pokemon1 = Trainer.getTrainer().getPokemonTeam()[0];
-        pokemon2 = Enemy.getEnemyTeam()[0];
+
     }
 
     @FXML
