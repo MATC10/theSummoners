@@ -95,23 +95,23 @@
             <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove4" layoutX="405.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="47.0" prefWidth="207.0" text="Button" />
-            <Label fx:id="lblTextFight" layoutX="39.0" layoutY="73.0" prefHeight="82.0" prefWidth="406.0" text="Label" />
+            <Label fx:id="lblTextFight" layoutX="34.0" layoutY="53.0" prefHeight="82.0" prefWidth="406.0" text="Label" />
             <Button fx:id="btnMove5" layoutX="184.0" layoutY="309.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="207.0" text="Descanso" />
             <Button fx:id="btnChange" layoutX="405.0" layoutY="309.0" mnemonicParsing="false" onAction="#onChangePokemonFight" prefHeight="47.0" prefWidth="207.0" text="Cambiar Pokémon" />
-            <Label fx:id="lblDisplayPkTrainer" layoutX="25.0" layoutY="155.0" prefHeight="26.0" prefWidth="150.0" text="Label">
+            <Label fx:id="lblDisplayPkTrainer" layoutX="24.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" text="Label">
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label fx:id="lblHpTrainer" layoutX="25.0" layoutY="192.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
+            <Label fx:id="lblHpTrainer" layoutX="24.0" layoutY="183.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
             <Label fx:id="lblLevelEnemy" layoutX="475.0" layoutY="26.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
             <Button fx:id="prueba" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
-            <Label fx:id="lblLevelTrainer" layoutX="25.0" layoutY="178.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
-            <Label fx:id="lblNamePkEnemy" layoutX="475.0" layoutY="1.0" prefHeight="18.0" prefWidth="150.0" text="Label">
+            <Label fx:id="lblLevelTrainer" layoutX="24.0" layoutY="161.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
+            <Label fx:id="lblDisplayPkEnemy" layoutX="475.0" layoutY="1.0" prefHeight="18.0" prefWidth="150.0" text="Label">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblHpEnemy1" layoutX="475.0" layoutY="44.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
+            <Label fx:id="lblHpEnemy" layoutX="475.0" layoutY="44.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
          </children>
     </AnchorPane>
   </children>

@@ -19,6 +19,9 @@ import java.util.*;
 
 public class Trainer {
     static Trainer trainer = null;
+
+    //EL pokemon1 ES EL POKEMON EN COMBATE DE TRAINER
+    private Pokemon pokemon1;
     private String name;
     private String password;
     private Pokemon[] pokemonTeam;
@@ -50,6 +53,14 @@ public class Trainer {
             }
         }
         return trainer;
+    }
+
+    public Pokemon getPokemon1() {
+        return pokemon1;
+    }
+
+    public void setPokemon1(Pokemon pokemon1) {
+        this.pokemon1 = pokemon1;
     }
 
     public Pokemon[] getPokemonToBreed() {
@@ -435,4 +446,5 @@ public class Trainer {
         result = 31 * result + Arrays.hashCode(pokemonCub);
         return result;
     }
+
 }

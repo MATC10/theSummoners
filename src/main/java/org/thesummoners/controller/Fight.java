@@ -67,7 +67,7 @@ public class Fight {
     private Label lblHpTrainer;
 
     @FXML
-    private Label lblNamePkEnemy;
+    private Label lblDisplayPkEnemy;
 
     @FXML
     private Label lblDisplayPkTrainer;
@@ -86,44 +86,61 @@ public class Fight {
     private Stage stage;
 
     private Turns turn;
-    private Pokemon pokemon1;
-    private Pokemon pokemon2;
+
     private Movement movement;
 
 
 
     @FXML
-    public void initialize(){
+    public void initialize() throws CloneNotSupportedException {
         //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
-        pokemon1 = Trainer.getTrainer().getPokemonTeam()[0];
-        pokemon2 = Enemy.getEnemyTeam()[0];
+        Trainer.getTrainer().setPokemon1(Trainer.getTrainer().getPokemonTeam()[0]);
+        Enemy.getEnemy().setPokemon2(Enemy.getEnemy().pokemonIntoTeam()[0]);
 
         Turns turn = new Turns();
 
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
-        lblDisplayPkTrainer.setText(pokemon1.getDisplayName());
-        lblHpTrainer.setText(Integer.toString(pokemon1.getHp()));
-        lblLevelTrainer.setText(Integer.toString(pokemon1.getLevel()));
-
-        //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
-        lblDisplayPkTrainer.setText(pokemon2.getDisplayName());
-        lblHpTrainer.setText(Integer.toString(pokemon2.getHp()));
-        lblLevelTrainer.setText(Integer.toString(pokemon2.getLevel()));
-
+        lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
+        lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
+        lblLevelTrainer.setText("Nivale: " + Trainer.getTrainer().getPokemon1().getLevel());
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
-        File file = new File(pokemon1.getImageBack());
+        File file = new File(Trainer.getTrainer().getPokemon1().getImageBack());
         Image image = new Image(file.toURI().toString());
         imgTrainerPokemon.setImage(image);
 
+        //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
+        lblDisplayPkEnemy.setText(Enemy.getEnemy().getPokemon2().getDisplayName());
+        lblHpEnemy.setText("Vida: " + Enemy.getEnemy().getPokemon2().getHp());
+        lblLevelEnemy.setText("Nivel: " + Enemy.getEnemy().getPokemon2().getLevel());
+        //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM ENEMIGO
+
+        File file2 = new File(Enemy.getEnemy().getPokemon2().getImage());
+        Image image2 = new Image(file2.toURI().toString());
+        imgEnemy.setImage(image2);
+
+
+
         turn.calculateFirstTurn();
+
+//TODO TODO ESTO PASARLO AL MÉTODO QUE HAGA LA MECÁNICA DEL NUEVO POKEMON QUE ENTRA A COMBATIR
+        btnMove1.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[0].getName());
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1] != null) btnMove2.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1].getName());
+        else btnMove2.setText("Sin movimiento");
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2] != null) btnMove3.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2].getName());
+        else btnMove3.setText("Sin movimiento");
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3] != null) btnMove4.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3].getName());
+        else btnMove4.setText("Sin movimiento");
+
 
     }
 
     @FXML
     public void onMove1() throws InterruptedException, CloneNotSupportedException {
-        movement = pokemon1.getLearnedMovement()[0];
+        btnMove1.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[0].getName());
+
+        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[0];
 //TODO EL ENTRENADOR DEBE TENER UN MÉTODO PARA SELECCIONAR POKEMON O CAMBIAR POKEMON
-        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
         //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
 
@@ -132,20 +149,30 @@ public class Fight {
 
     @FXML
     public void onMove2() throws InterruptedException, CloneNotSupportedException {
-        movement = pokemon1.getLearnedMovement()[1];
-        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1] != null) btnMove2.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1].getName());
+        else btnMove2.setText("Sin movimiento");
+
+
+        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[1];
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
     }
 
     @FXML
     public void onMove3() throws InterruptedException, CloneNotSupportedException {
-        movement = pokemon1.getLearnedMovement()[2];
-        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2] != null) btnMove3.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2].getName());
+        else btnMove3.setText("Sin movimiento");
+
+        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[2];
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
     }
 
     @FXML
     public void onMove4() throws InterruptedException, CloneNotSupportedException {
-        movement = pokemon1.getLearnedMovement()[3];
-        Trainer.getTrainer().fight(pokemon1, pokemon2, movement, turn,lblTextFight);
+        if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3] != null) btnMove4.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3].getName());
+        else btnMove4.setText("Sin movimiento");
+
+        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[3];
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
     }
 
     @FXML

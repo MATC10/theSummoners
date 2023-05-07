@@ -12,9 +12,10 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Enemy {
+    static Enemy enemy = null;
+    public Pokemon pokemon2;
     public static String [] nameEnemy;
     public static String [] imageEnemy;
-    public static HashMap <String, String> nameAndImageEnemy;
     private int pokemonTrainerLevel;
     private static Pokemon[] enemyTeam;
     Random random = new Random();
@@ -22,20 +23,43 @@ public class Enemy {
     public Enemy() throws CloneNotSupportedException {
         //EL ENTRENADO ENEMIGO TENDRÁ UN EQUIPO POKÉMON DE ENTRE
         //1 Y 3 POKÉMON DE FORMA ALEATORIA.
-
+//TODO HACER TRAINER ESTATICO Y HACER UN METODO PARA QUE AL ACABAR CADA COMBATE O AL EMPEZAR SE LE PONGAN NUEVOS POKEMON
         enemyTeam = new Pokemon[random.nextInt(3)+1];
         pokemonIntoTeam();
     }
 
-
-    public static HashMap<String, String> getNameAndImageEnemy() {
-        return nameAndImageEnemy;
+    public static Enemy getEnemy() throws CloneNotSupportedException {
+        synchronized (Enemy.class){
+            if(enemy == null){
+                enemy = new Enemy();
+            }
+        }
+        return enemy;
     }
 
-    public static void setNameAndImageEnemy(HashMap<String, String> nameAndImageEnemy) {
-        Enemy.nameAndImageEnemy = nameAndImageEnemy;
+    public Pokemon getPokemon2() {
+        return pokemon2;
     }
 
+    public void setPokemon2(Pokemon pokemon2) {
+        this.pokemon2 = pokemon2;
+    }
+
+    public static String[] getNameEnemy() {
+        return nameEnemy;
+    }
+
+    public static void setNameEnemy(String[] nameEnemy) {
+        Enemy.nameEnemy = nameEnemy;
+    }
+
+    public static String[] getImageEnemy() {
+        return imageEnemy;
+    }
+
+    public static void setImageEnemy(String[] imageEnemy) {
+        Enemy.imageEnemy = imageEnemy;
+    }
 
     public int getPokemonTrainerLevel() {
         return pokemonTrainerLevel;
@@ -45,7 +69,7 @@ public class Enemy {
         this.pokemonTrainerLevel = pokemonTrainerLevel;
     }
 
-    public static Pokemon[] getEnemyTeam() {
+    public  Pokemon[] getEnemyTeam() {
         return enemyTeam;
     }
 
@@ -53,8 +77,9 @@ public class Enemy {
         this.enemyTeam = enemyTeam;
     }
 
-    public void pokemonIntoTeam() throws CloneNotSupportedException {
-
+    public Pokemon[] pokemonIntoTeam() throws CloneNotSupportedException {
+        Random random = new Random();
+        enemyTeam = new Pokemon[random.nextInt(3)+1];
         //el nivel del pokemon enemigo tiene que ser del mismo nivel que tu primer
         //pokemon de Trainer.pokemonTeam
             //sacamos el nivel del primer pokemon del equipo Pokémon del Trainer
@@ -67,12 +92,12 @@ public class Enemy {
             this.enemyTeam[i] =  Pokedex.getPokedex().get(random.nextInt( Pokedex.getPokedex().size())).clone();
             this.enemyTeam[i].setLevel(pokemonTrainerLevel);
             this.enemyTeam[i].adaptStatsToLevel(this.enemyTeam[i].getLevel(), this.enemyTeam[i]);
-
-            if(this.enemyTeam[i].getLearnedMovement()[i] == null){
-                this.enemyTeam[i].getLearnedMovement()[i] = MovementInitializer.movementListFull().get(random.nextInt(30));
+            //QUE APRENDA EL 2º, 3º Y 4º ATAQUE
+            for(int j = 1; j <= 3; j++){
+                this.enemyTeam[i].getLearnedMovement()[j] = MovementInitializer.movementListFull().get(random.nextInt(30));
             }
-
-        }
+            }
+        return enemyTeam;
     }
 
     public void fight(Pokemon pokemon2, Pokemon pokemon1, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {

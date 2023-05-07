@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Random;
 
 public class MovementInitializer {
-    public static HashMap<Integer, Movement> movementsIntoList() {
+    public static HashMap<Integer, Movement> movementLevelIntoHash() {
+        Pokemon.movementLevel = new HashMap<>();
+
         AttackMovement trueno = new AttackMovement("Trueno", 110, Type.ELECTRIC);
         AttackMovement rayoSolar = new AttackMovement("Rayo Solar", 120, Type.GRASS);
         AttackMovement hidrobomba = new AttackMovement("Hidrobomba", 110, Type.WATER);
@@ -61,10 +63,11 @@ public class MovementInitializer {
         StateMovement ascuas = new StateMovement("Ascuas", State.BURNED);
         StateMovement hiloVenenoso = new StateMovement("Hilo venenoso", State.POISONED);
         StateMovement rayoHielo = new StateMovement("Rayo Hielo", State.FROZEN);
-        StateMovement cantoMortal = new StateMovement("Canto mortal", State.DEBILITATED);
+        StateMovement cantoMortal = new StateMovement("Canto mortal", State.FROZEN);
         StateMovement polucion = new StateMovement("Polución", State.BURNED);
         StateMovement infierno = new StateMovement("Infierno", State.BURNED);
         StateMovement ventisca = new StateMovement("Ventisca", State.FROZEN);
+
         Pokemon.movementLevel.put(34,hipnosis);
         Pokemon.movementLevel.put(52,rayoConfuso);
         Pokemon.movementLevel.put(70,toxico);
@@ -84,7 +87,7 @@ public class MovementInitializer {
     // PARA ASIGNAR MOVIMIENTOS ALEATORIOS A TODOS SUS POKEMON
     public static List <Movement> movementListFull(){
         for(int i = 4; i <= 91; i+=3){
-            Pokemon.movementList.add(Pokemon.movementLevel.get(i));
+            Pokemon.movementList.add(movementLevelIntoHash().get(i));
         }
         return Pokemon.movementList;
     }

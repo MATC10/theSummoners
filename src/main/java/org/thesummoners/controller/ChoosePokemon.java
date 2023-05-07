@@ -34,7 +34,7 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowPikachu(ActionEvent event) throws IOException, CloneNotSupportedException {
         //EL MÉTODO changeDisplayName() ES PARA AÑADIR EL VALOR AL ATRIBUTO displayName
-        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null);
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null).clone();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -47,7 +47,7 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowBulbasaur(ActionEvent event) throws IOException, CloneNotSupportedException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null);
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null).clone();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -59,7 +59,7 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowSquirtle(ActionEvent event) throws IOException, CloneNotSupportedException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null);
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null).clone();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -71,7 +71,7 @@ public class ChoosePokemon {
 
     @FXML
     public void toMainWindowCharmander(ActionEvent event) throws IOException, CloneNotSupportedException {
-        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null);
+        Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null).clone();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
