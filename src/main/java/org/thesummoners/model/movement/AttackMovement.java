@@ -48,11 +48,42 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();
         int attackOrNot = random.nextInt(2);
+        //TODO CAMBIAR ESTO
+        if(movement.getMovementType().equals("attack") ) {
+        if(pokemon1.getState() != State.PARALYSED){
+            //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
+
+            float baseDamage = pokemon1.getAttackPower() + pokemon1.getSpecialAttack();
+            float summedAmountDamage = 0;
+
+
+            //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN EL TIPO DE MOVIMIENTO DE ATAQUE
+            if (movement.getMovementType().equals(pokemon1.getType1()) ||
+                    movement.getMovementType().equals(pokemon1.getType2())) {
+                summedAmountDamage += (baseDamage * 1.5f) - baseDamage;
+            }
+
+            //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN LOS TIPOS DE POKÉMON
+            summedAmountDamage += (baseDamage * Pokedex.compareAdvantage(pokemon1, pokemon2) - baseDamage);
+
+            baseDamage += summedAmountDamage;
+            if(pokemon1.getState() != State.PARALYSED){
+                pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
+            }
+            else if (attackOrNot == 0 && pokemon1.getState() == State.PARALYSED){
+                pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
+            }
+            else lblTextFight.setText(pokemon1.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+
+
+            //TODO AHORA CAMBIAR EL POKEMON2 A DEBILITADO SI TIENE 0 DE VIDA
+            //¿HACERLO EN OTRO MÉTODO?
+        }
         if(pokemon1.getState() == State.PARALYSED && attackOrNot == 0){
 
 
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-        if(movement.getMovementType().equals("attack") ) {
+
             float baseDamage = pokemon1.getAttackPower() + pokemon1.getSpecialAttack();
             float summedAmountDamage = 0;
 

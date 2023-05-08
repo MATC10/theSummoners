@@ -10,6 +10,10 @@ import org.thesummoners.model.objeto.Objeto;
 
 import java.util.*;
 
+/**
+ *
+ * Hola
+ */
 public class Pokemon implements Cloneable {
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
 
@@ -46,6 +50,30 @@ public class Pokemon implements Cloneable {
 
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
+
+    /**
+     * Constructor de Pokémon pasando distintos parámetros
+     * Se crea Pokemon con el DisplayName puesto...
+     * @param name nombre
+     * @param idPokedex
+     * @param image
+     * @param imageBack
+     * @param hp
+     * @param level un entero con el nivel del Pokémon, no puede ser menor o igual a cero
+     * @param attackPower
+     * @param specialAttack
+     * @param defense
+     * @param specialDefense
+     * @param speed
+     * @param stamina
+     * @param type1
+     * @param type2
+     * @param state
+     * @param sex
+     * @param experience
+     * @param objeto
+     */
+
 
 
     public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) {

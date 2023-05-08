@@ -120,9 +120,9 @@ public class Enemy {
         if(pokemon2.getState() != State.RESTING && pokemon2.getState() != State.ASLEEP &&
                 pokemon2.getState() != State.DEBILITATED && pokemon2.getState() != State.FROZEN) {
             if(pokemon2.getStamina() >= movement.getStamina()){
-                AttackMovement.attackCombat(pokemon2, pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
-                StateMovement.stateCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
-                ImproveMovement.improveCombat(pokemon1, pokemon2.getLearnedMovement()[random.nextInt(counter)], lblTextFight);
+                AttackMovement.attackCombat(pokemon2, pokemon1, movement, lblTextFight);
+                StateMovement.stateCombat(pokemon1, movement, lblTextFight);
+                ImproveMovement.improveCombat(pokemon1, movement, lblTextFight);
                 pokemon2.setStamina(pokemon1.getStamina() - movement.getStamina());
             }
             else {

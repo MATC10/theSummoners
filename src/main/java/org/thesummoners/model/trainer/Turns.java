@@ -9,14 +9,14 @@ public class Turns {
         numberTurn = 1;
     }
 
-    public void calculateFirstTurn() throws CloneNotSupportedException {
+    public void calculateFirstTurn(Turns turn) throws CloneNotSupportedException {
 //CALCULAR TURNO
 //CALCULAR EL POKEMON QUE ATACA ANTES
 //TRUE ES EL POKÉMON DEL ENTRENADOR, FALSE ES EL DEL ENEMIGO
         if(numberTurn == 1 && (Trainer.getTrainer().getPokemonTeam()[0].getSpeed() >= Enemy.getEnemy().getEnemyTeam()[0].getSpeed())){
-            currentTurn = true;
+            turn.currentTurn = true;
         }
-        else currentTurn = false;
+        else turn.currentTurn = false;
     }
 
     public boolean nextTurn(boolean currentTurn){

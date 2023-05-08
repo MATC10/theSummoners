@@ -19,6 +19,7 @@ import org.thesummoners.model.trainer.Turns;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 
 public class Fight {
@@ -79,7 +80,13 @@ public class Fight {
     private Label lblLevelTrainer;
 
     @FXML
+    private Label lblHpMaxTrainer;
+
+    @FXML
     private Label lblLevelEnemy;
+
+    @FXML
+    private Label lblHpMaxEnemy;
 
     private Parent root;
     private Scene scene;
@@ -92,7 +99,8 @@ public class Fight {
 
 
     @FXML
-    public void initialize() throws CloneNotSupportedException {
+    public void initialize() throws CloneNotSupportedException, InterruptedException {
+        Random random = new Random();
         //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
         Trainer.getTrainer().setPokemon1(Trainer.getTrainer().getPokemonTeam()[0]);
         Enemy.getEnemy().setPokemon2(Enemy.getEnemy().pokemonIntoTeam()[0]);
@@ -102,7 +110,12 @@ public class Fight {
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
         lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
         lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
-        lblLevelTrainer.setText("Nivale: " + Trainer.getTrainer().getPokemon1().getLevel());
+        Pokemon p = Trainer.getTrainer().getPokemon1().clone();
+        lblHpMaxTrainer.setText("Vida máxima: " + p.getHp());
+        lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
+
+
+
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
         File file = new File(Trainer.getTrainer().getPokemon1().getImageBack());
         Image image = new Image(file.toURI().toString());
@@ -111,6 +124,8 @@ public class Fight {
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
         lblDisplayPkEnemy.setText(Enemy.getEnemy().getPokemon2().getDisplayName());
         lblHpEnemy.setText("Vida: " + Enemy.getEnemy().getPokemon2().getHp());
+        Pokemon p2 = Enemy.getEnemy().getPokemon2().clone();
+        lblHpMaxEnemy.setText("Vida máxima: " + p2.getHp());
         lblLevelEnemy.setText("Nivel: " + Enemy.getEnemy().getPokemon2().getLevel());
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM ENEMIGO
 
@@ -119,8 +134,11 @@ public class Fight {
         imgEnemy.setImage(image2);
 
 
+        turn.calculateFirstTurn(turn);
 
-        turn.calculateFirstTurn();
+        //SI isCurrentTurn ES FALSE, EL ENEMIGO EMPIEZA ATACANDO
+        if(turn.isCurrentTurn() == false) Enemy.getEnemy().fight(Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2().getLearnedMovement()[random.nextInt(4)], turn, lblTextFight );
+
 
 //TODO TODO ESTO PASARLO AL MÉTODO QUE HAGA LA MECÁNICA DEL NUEVO POKEMON QUE ENTRA A COMBATIR
         btnMove1.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[0].getName());
@@ -130,8 +148,6 @@ public class Fight {
         else btnMove3.setText("Sin movimiento");
         if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3] != null) btnMove4.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3].getName());
         else btnMove4.setText("Sin movimiento");
-
-
     }
 
     @FXML
@@ -140,7 +156,7 @@ public class Fight {
 
         movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[0];
 //TODO EL ENTRENADOR DEBE TENER UN MÉTODO PARA SELECCIONAR POKEMON O CAMBIAR POKEMON
-        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1().getLearnedMovement()[0], turn,lblTextFight);
         //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
 
@@ -153,8 +169,7 @@ public class Fight {
         else btnMove2.setText("Sin movimiento");
 
 
-        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[1];
-        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1().getLearnedMovement()[1], turn,lblTextFight);
     }
 
     @FXML
@@ -162,8 +177,8 @@ public class Fight {
         if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2] != null) btnMove3.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[2].getName());
         else btnMove3.setText("Sin movimiento");
 
-        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[2];
-        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1().getLearnedMovement()[2], turn,lblTextFight);
+
     }
 
     @FXML
@@ -171,8 +186,7 @@ public class Fight {
         if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3] != null) btnMove4.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[3].getName());
         else btnMove4.setText("Sin movimiento");
 
-        movement = Trainer.getTrainer().getPokemon1().getLearnedMovement()[3];
-        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), movement, turn,lblTextFight);
+        Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1().getLearnedMovement()[3], turn, lblTextFight);
     }
 
     @FXML
