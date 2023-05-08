@@ -70,26 +70,31 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
         this.numberOfTurnsDuration = random.nextInt(4)+1;
     }
 
-    public static void improveCombat(Pokemon pokemon, Movement movement, Label lblTextFight){
+    public static void improveCombat(Pokemon pokemon1, Movement movement, Label lblTextFight) throws InterruptedException {
         if(movement.getMovementType().equals("improve") ) {
             ImproveMovement improveMovement = (ImproveMovement) movement;
             Random random = new Random();
 
             int attackOrNot = random.nextInt(2);
 
-            if (pokemon.getState() != State.PARALYSED) {
-                pokemon.setAttackPower(pokemon.getAttackPower() + improveMovement.getUpgradeAttack());
-                pokemon.setSpecialAttack(pokemon.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
-                pokemon.setDefense(pokemon.getDefense() + improveMovement.getUpgradeDefense());
-                pokemon.setSpecialDefense(pokemon.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
-            } else if(attackOrNot == 0 && pokemon.getState() == State.PARALYSED){
-                pokemon.setAttackPower(pokemon.getAttackPower() + improveMovement.getUpgradeAttack());
-                pokemon.setSpecialAttack(pokemon.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
-                pokemon.setDefense(pokemon.getDefense() + improveMovement.getUpgradeDefense());
-                pokemon.setSpecialDefense(pokemon.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+            if (pokemon1.getState() != State.PARALYSED) {
+                pokemon1.setAttackPower(pokemon1.getAttackPower() + improveMovement.getUpgradeAttack());
+                pokemon1.setSpecialAttack(pokemon1.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
+                pokemon1.setDefense(pokemon1.getDefense() + improveMovement.getUpgradeDefense());
+                pokemon1.setSpecialDefense(pokemon1.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                Thread.sleep(1000);
+            } else if(attackOrNot == 0 && pokemon1.getState() == State.PARALYSED){
+                pokemon1.setAttackPower(pokemon1.getAttackPower() + improveMovement.getUpgradeAttack());
+                pokemon1.setSpecialAttack(pokemon1.getSpecialAttack() + improveMovement.getUpgradeSpecialAttack());
+                pokemon1.setDefense(pokemon1.getDefense() + improveMovement.getUpgradeDefense());
+                pokemon1.setSpecialDefense(pokemon1.getSpecialDefense() + improveMovement.getUpgradeSpecialDefense());
+                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                Thread.sleep(1000);
             }
-            else{
-                lblTextFight.setText(pokemon.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+            else if(attackOrNot != 0 && pokemon1.getState() == State.PARALYSED){
+                lblTextFight.setText(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
+                Thread.sleep(1000);
             }
         }
     }

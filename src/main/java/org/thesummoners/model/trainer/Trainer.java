@@ -3,6 +3,8 @@ package org.thesummoners.model.trainer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.ImproveMovement;
 import org.thesummoners.model.movement.Movement;
@@ -15,6 +17,7 @@ import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
 import org.thesummoners.model.pokemon.Sex;
 
+import java.io.File;
 import java.util.*;
 
 public class Trainer {
@@ -242,7 +245,7 @@ public class Trainer {
     }
 
 
-    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Turns turn, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
         int staminaPokemon1 = pokemon1.getStamina();
@@ -263,7 +266,7 @@ public class Trainer {
                 //COMPROBAR QUE TIENE STAMINA DISPONIBLE
                 if(pokemon1.getStamina() >= movement.getStamina()){
                     AttackMovement.attackCombat(pokemon1, pokemon2, movement, lblTextFight);
-                    StateMovement.stateCombat(pokemon2, movement, lblTextFight);
+                    StateMovement.stateCombat(pokemon1, pokemon2, movement, lblTextFight);
                     ImproveMovement.improveCombat(pokemon1, movement, lblTextFight);
                     pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
                 }
@@ -285,9 +288,7 @@ public class Trainer {
             }
 
         //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
-        turn.nextTurn(turn.isCurrentTurn());
         //TODO PONER UNA LABEL CON EL TURNO
-        Thread.sleep(1000);
 
     }
 
@@ -400,6 +401,24 @@ public class Trainer {
         else lblbuyOrNot.setText("No has comprado ningún objeto");
     }
 
+public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer, ImageView imgTrainerPokemon) throws CloneNotSupportedException {
+    //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
+    lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
+    lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
+    lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
+    //CALCULAMOS LA VIDA MÁXIMA
+    Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
+    p1.adaptStatsToLevel(p1.getLevel(), p1);
+    lblHpMaxTrainer.setText("Vida máxima: " + p1.getHp());
+
+
+
+
+    //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
+    File file = new File(Trainer.getTrainer().getPokemon1().getImageBack());
+    Image image = new Image(file.toURI().toString());
+    imgTrainerPokemon.setImage(image);
+}
 
     public void unequipObject(Pokemon pokemon){
         //TODO METODO PARA DESEQUIPAR EL OBJETO

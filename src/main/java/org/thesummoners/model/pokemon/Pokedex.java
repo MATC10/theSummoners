@@ -28,7 +28,9 @@ public class Pokedex {
     }
 
     public static HashMap<Type, List<Type>> getStrong() {
-        if(strong == null){
+        strong = new HashMap<>();
+
+        if(strong.get(2) == null){
             strong.put(Type.NORMAL, Arrays.asList(Type.NULL));
             strong.put(Type.FIRE, Arrays.asList(Type.GRASS, Type.ICE, Type.BUG));
             strong.put(Type.WATER, Arrays.asList(Type.FIRE, Type.GROUND, Type.ROCK));
@@ -54,7 +56,8 @@ public class Pokedex {
     }
 
     public static HashMap<Type, List<Type>> getWeak() {
-        if(weak == null){
+        weak = new HashMap<>();
+        if(weak.get(2) == null){
             weak.put(Type.NORMAL, Arrays.asList(Type.ROCK));
             weak.put(Type.FIRE, Arrays.asList(Type.WATER, Type.DRAGON, Type.FIRE));
             weak.put(Type.WATER, Arrays.asList(Type.WATER, Type.DRAGON, Type.GRASS));
@@ -83,17 +86,19 @@ public class Pokedex {
 
     public static float compareAdvantage (Pokemon pokemonTrainer, Pokemon pokemonEnemy){
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES FUERTE CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X2
-        if(strong.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
-                strong.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()) ||
-                strong.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
-                strong.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())
-        )
+        if(Pokedex.getStrong().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
+                Pokedex.getStrong().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()))
             return 2f;
+
+        if( pokemonTrainer.getType2() != null && (Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
+                Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())))
+            return 2f;
+
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES DEBIL CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X0.5
-        if(weak.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
-                weak.get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()) ||
-                weak.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
-                weak.get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())
+        if(Pokedex.getWeak().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
+                Pokedex.getWeak().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()) ||
+                Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
+                Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())
         )
             return 0.5f;
         //SI NO SUCEDE NADA DE LO ANTERIOR ATACA X1

@@ -43,25 +43,34 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
 //TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
 //TODO SEGÚN EL QUE SEA
-    public static void stateCombat(Pokemon pokemon, Movement movement, Label lblTextFight) {
+    public static void stateCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight) throws InterruptedException {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();
         int attackOrNot = random.nextInt(2);
 
-        //HACEMOS UN CASTING PARA OBTENER LOS MÉTODOS DE StateMovement
-        StateMovement stateMovement = (StateMovement) movement;
+
+        if (movement.getMovementType().equals("state")){
+            //HACEMOS UN CASTING PARA OBTENER LOS MÉTODOS DE StateMovement
+            StateMovement stateMovement = (StateMovement) movement;
 
             //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-            if (movement.getMovementType().equals("state") && pokemon.getState() != State.PARALYSED) {
+            if (pokemon1.getState() != State.PARALYSED) {
+
                 //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
-                pokemon.setState(stateMovement.getStateToApply());
+                pokemon2.setState(stateMovement.getStateToApply());
+                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                Thread.sleep(1000);
             }
-            else if(movement.getMovementType().equals("state") && attackOrNot == 0 && pokemon.getState() == State.PARALYSED){
-                pokemon.setState(stateMovement.getStateToApply());
+            else if(attackOrNot == 0 && pokemon2.getState() == State.PARALYSED){
+
+                pokemon2.setState(stateMovement.getStateToApply());
+                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                Thread.sleep(1000);
             }
-            else{
-                lblTextFight.setText(pokemon.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+            else if (attackOrNot != 0 && pokemon2.getState() == State.PARALYSED){
+                lblTextFight.setText(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
             }
+        }
     }
 
 
