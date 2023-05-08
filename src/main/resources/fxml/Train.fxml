@@ -86,7 +86,7 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <Label fx:id="lblLevel" layoutX="357.0" layoutY="258.0" prefHeight="18.0" prefWidth="258.0" />
-            <Button fx:id="btnLevel" layoutX="404.0" layoutY="148.0" mnemonicParsing="false" onAction="#setLevelPok" text="¡Entrenar!">
+            <Button fx:id="btnLevel" layoutX="357.0" layoutY="93.0" mnemonicParsing="false" onAction="#setLevelPok" prefHeight="42.0" prefWidth="252.0" text="¡Entrenar Pokémon!">
                <font>
                   <Font size="19.0" />
                </font>
@@ -102,7 +102,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="lblWhoTrain" layoutX="348.0" layoutY="75.0" prefHeight="26.0" prefWidth="277.0">
+            <Label fx:id="lblWhoTrain" layoutX="347.0" layoutY="24.0" prefHeight="26.0" prefWidth="277.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -113,12 +113,18 @@
                   <Font size="17.0" />
                </font>
             </Button>
-            <Label fx:id="lblActualLevel" layoutX="348.0" layoutY="114.0" prefHeight="26.0" prefWidth="277.0">
+            <Label fx:id="lblActualLevel" layoutX="347.0" layoutY="63.0" prefHeight="26.0" prefWidth="277.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
             <Label fx:id="lblPokedollars" layoutX="358.0" layoutY="235.0" prefHeight="18.0" prefWidth="198.0" />
+            <Label fx:id="lblText" layoutX="357.0" layoutY="276.0" prefHeight="18.0" prefWidth="278.0" />
+            <Button fx:id="btnLearnMove" layoutX="370.0" layoutY="146.0" mnemonicParsing="false" onAction="#toLearningMovement" prefHeight="26.0" prefWidth="232.0" text="Aprender movimiento">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
       </children>
     </AnchorPane>
   </children>

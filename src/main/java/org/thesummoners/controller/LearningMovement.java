@@ -7,6 +7,7 @@ import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+import org.thesummoners.model.trainer.Trainer;
 
 public class LearningMovement {
     @FXML
@@ -21,6 +22,9 @@ public class LearningMovement {
     private Button btnMove4;
     @FXML
     private Label lblNewMove;
+
+    @FXML
+    private Label lblText;
     @FXML
     private Pokemon pokemon;
 
@@ -37,22 +41,7 @@ public class LearningMovement {
 
     @FXML
     public void initialize() throws CloneNotSupportedException {
-        if(pikachu.LearnedMovement(0) != null){
-            btnMove1.setText(pikachu.LearnedMovement(0).getName());
-            pikachu.setLevel(5);
-        }
-        if(pikachu.LearnedMovement(1) != null){
-            btnMove2.setText(pikachu.LearnedMovement(1).getName());
-        }
-        if(pikachu.LearnedMovement(2) != null){
-            btnMove3.setText(pikachu.LearnedMovement(2).getName());
-        }
-        if(pikachu.LearnedMovement(3) != null){
-            btnMove4.setText(pikachu.LearnedMovement(3).getName());
-        }
-        //INDICAMOS QUÉ ATAQUE QUIERE APRENDER, HAY QUE QUITAR PIKACHU Y QUE APAREZCA EL POKEMON CON EL QUE ESTEMOS
-        //COMBATIENDO
-        lblNewMove.setText(pikachu.getMovementLevel().get(pikachu.getLevel()).getName());
+
     }
     @FXML
     public void setMove1() {
@@ -81,8 +70,9 @@ public class LearningMovement {
     }
 
     @FXML
-    public void setNoMove() {
+    public void toMainWindow() {
         //AQUÍ TE SALES DE ESTA VENTANA Y VUELVES A LA ANTERIOR
     }
+
 
 }

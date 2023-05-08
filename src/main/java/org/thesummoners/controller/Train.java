@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
 
@@ -44,6 +45,9 @@ public class Train {
     private Button btnBack;
 
     @FXML
+    private Button btnLearnMove;
+
+    @FXML
     private Label lblLevel;
 
     @FXML
@@ -58,6 +62,9 @@ public class Train {
     @FXML
     private Label lblPokedollars;
 
+    @FXML
+    private Label lblText;
+
     private Parent root;
     private Scene scene;
     private Stage stage;
@@ -65,6 +72,7 @@ public class Train {
     Pokemon p = null;
 
     public void initialize(){
+        btnLearnMove.setDisable(true);
         if(getTrainer().getPokemonTeam()[0] != null){
             btnP1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
         }
@@ -98,9 +106,20 @@ public class Train {
         lblPokedollars.setText("Pokedollar disponibles: " + getTrainer().getPokedollar());
 
     }
+
+
     @FXML
     void setLevelPok(ActionEvent event) throws CloneNotSupportedException {
-        getTrainer().train(p, lblActualLevel, lblPrice, lblPokedollars, lblLevel);
+        if(p != null){
+            getTrainer().train(p, lblActualLevel, lblPrice, lblPokedollars, lblLevel);
+            //APRENDE LOS ATAQUES HASTA NIVEL 13 QUE TE MANDA A LA VENTANA DE APRENDER MOVIMIENTOS
+            p.learnMoveInTrainWindow( lblText,  btnLearnMove,  btnP1,  btnP2,
+                    btnP3,  btnP4,  btnP5,  btnP6,
+                    btnLevel,  btnBack);
+        }
+        else lblText.setText("¡Selecciona un Pokémon!");
+
+
     }
 
     @FXML
@@ -183,6 +202,15 @@ public class Train {
         }
     }
 
+    @FXML
+    void toLearningMovement(ActionEvent event) throws IOException {
+        this.root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/fxml/LearningMovement.fxml")));
+        this.scene = new Scene(this.root, 600.0, 400.0);
+        this.stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        this.stage.setTitle("TheSummoners");
+        this.stage.setScene(scene);
+        this.stage.show();
+    }
     @FXML
     void onBackToMenu (ActionEvent event) throws IOException {
         this.root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/fxml/MainWindow.fxml")));

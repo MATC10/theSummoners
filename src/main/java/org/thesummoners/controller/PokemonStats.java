@@ -85,15 +85,15 @@ public class PokemonStats {
             else
                 lblMovement1.setText("Movimiento sin apender");
             if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1] != null)
-                lblMovement2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+                lblMovement2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1].getName());
             else
                 lblMovement2.setText("Movimiento sin apender");
             if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2] != null)
-                lblMovement3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+                lblMovement3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2].getName());
             else
                 lblMovement3.setText("Movimiento sin apender");
             if (Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3] != null)
-                lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+                lblMovement4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3].getName());
             else
                 lblMovement4.setText("Movimiento sin apender");
         }

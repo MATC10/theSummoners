@@ -90,12 +90,12 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label layoutX="205.0" layoutY="97.0" prefHeight="27.0" prefWidth="201.0" text="¿Qué ataque quieres olvidar?">
+            <Label fx:id="lblText" layoutX="110.0" layoutY="97.0" prefHeight="27.0" prefWidth="386.0" text="                        ¿Qué ataque quieres olvidar?" textAlignment="JUSTIFY">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#setNoMove" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo" />
+            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo" />
             <Button fx:id="btnMove2" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
             <Button fx:id="btnMove4" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
             <Button fx:id="btnMove3" layoutX="28.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="66.0" prefWidth="174.0" text="Vacío" />

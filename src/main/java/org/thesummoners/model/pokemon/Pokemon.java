@@ -2,10 +2,13 @@ package org.thesummoners.model.pokemon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.objeto.Objeto;
-
+import org.thesummoners.model.trainer.Trainer;
 
 
 import java.util.*;
@@ -464,6 +467,59 @@ public class Pokemon implements Cloneable {
         //MÉTODO PARA NO BAJAR DE 0 DE VIDA, INCLUIDO EN setHp();
         if(this.hp <= 0){
             this.hp = 0;
+        }
+    }
+
+    public void learnNewMovement(Label lblText, Button btnMove2, Button btnMove3, Button btnMove4){
+        int i = this.getLevel();
+
+        if(this.getLearnedMovement()[1] == null) {
+            this.getLearnedMovement()[1] = MovementInitializer.movementLevelIntoHash().get(i);
+            lblText.setText(this.getDisplayName() + " ha aprendido el movimiento " + this.getLearnedMovement()[1].getName());
+            btnMove2.setText(this.getLearnedMovement()[1].getName());
+        }
+        else if(this.getLearnedMovement()[2] == null){
+            this.getLearnedMovement()[2] = MovementInitializer.movementLevelIntoHash().get(i);
+            lblText.setText(this.getDisplayName() + " ha aprendido el movimiento " + this.getLearnedMovement()[2].getName());
+            btnMove3.setText(this.getLearnedMovement()[2].getName());
+        }
+        else if(this.getLearnedMovement()[3] == null){
+            this.getLearnedMovement()[3] = MovementInitializer.movementLevelIntoHash().get(i);
+            lblText.setText(this.getDisplayName() + " ha aprendido el movimiento " + this.getLearnedMovement()[3].getName());
+            btnMove4.setText(this.getLearnedMovement()[3].getName());
+        }
+        }
+
+public void overwritesMovement(){
+
+}
+
+    public void learnMoveInTrainWindow(Label lblText, Button btnLearnMove, Button btnP1, Button btnP2,
+                                       Button btnP3, Button btnP4, Button btnP5, Button btnP6,
+                                       Button btnLevel, Button btnBack) {
+
+        //MÉTODO PARA LA VENTANA TRAIN, APRENDE AUTOMÁTICAMENTE LOS 4 PRIMEROS ATAQUES, EL RESTO
+        // TE MANDA A LA VENTANA DE APRENDER MOVIMIENTOS
+        if (this.getLearnedMovement()[1] == null && this.getLevel() == 4) {
+            this.getLearnedMovement()[1] = MovementInitializer.movementLevelIntoHash().get(4);
+            lblText.setText(this.getDisplayName() + " ha aprendido " + this.getLearnedMovement()[1].getName());
+        } else if (this.getLearnedMovement()[2] == null && this.getLevel() == 7) {
+            this.getLearnedMovement()[2] = MovementInitializer.movementLevelIntoHash().get(7);
+            lblText.setText(this.getDisplayName() + " ha aprendido " + this.getLearnedMovement()[2].getName());
+        } else if (this.getLearnedMovement()[3] == null && this.getLevel() == 10) {
+            this.getLearnedMovement()[3] = MovementInitializer.movementLevelIntoHash().get(10);
+            lblText.setText(this.getDisplayName() + " ha aprendido " + this.getLearnedMovement()[3].getName());
+        } else if (MovementInitializer.movementLevelIntoHash().get(this.getLevel()) != null ) {
+            btnLearnMove.setDisable(false);
+            btnP1.setDisable(true);
+            btnP2.setDisable(true);
+            btnP3.setDisable(true);
+            btnP4.setDisable(true);
+            btnP5.setDisable(true);
+            btnP6.setDisable(true);
+            btnLevel.setDisable(true);
+            btnBack.setDisable(true);
+            Trainer.getTrainer().setPokemon1(this);
         }
     }
 
