@@ -519,7 +519,7 @@ public void overwritesMovement(){
             btnP6.setDisable(true);
             btnLevel.setDisable(true);
             btnBack.setDisable(true);
-            Trainer.getTrainer().setPokemon1(this);
+            Trainer.getTrainer().pokemonCub[0] = this;
         }
     }
 

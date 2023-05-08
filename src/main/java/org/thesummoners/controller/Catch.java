@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.*;
 import org.thesummoners.model.trainer.Trainer;
 
@@ -50,6 +51,7 @@ public class Catch {
 
     @FXML
     void initialize() throws CloneNotSupportedException {
+        Random random = new Random();
         //AQUÍ HABRÁ UN POKEMON ALEATORIO
 
         File file = new File("doc/images/Pokeball.png");
@@ -58,12 +60,26 @@ public class Catch {
 
         //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
 
-        Random random = new Random();
+
         //CLONAMOS EN p EL NUEVO POKEMON
         p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
 
         //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
         p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
+
+        //SE ADAPTAN LOS MOVIMIENTOS DEL POKÉMON SEGÚN EL NIVEL
+        if(p.getLevel() >= 10){
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+            p.getLearnedMovement()[3] = MovementInitializer.movementListFull().get(random.nextInt(10)+21);
+        }
+        else if(p.getLevel() >= 7){
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+        }
+        else if(p.getLevel() >= 4)
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+
 
         File file2 = new File(p.getImage());
         Image image2 = new Image(file2.toURI().toString());
