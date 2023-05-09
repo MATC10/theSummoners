@@ -29,7 +29,7 @@ class TrainerTest {
 
     @Test
     public void DragPokemonIntoTeam() {
-        // Crea un objeto Trainer con una lista de Pokemon y un equipo vacío
+
         ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
         pokemonList.add(new Pokemon("Bulbasaur", 1, 10));
         pokemonList.add(new Pokemon("Charmander", 2, 20));
@@ -39,11 +39,25 @@ class TrainerTest {
         pokemonList.add(new Pokemon("Snorlax", 6, 60));
 
         Pokemon[] pokemonTeam = new Pokemon[3];
-
         Trainer ash = new Trainer("", pokemonList, pokemonTeam);
         ash.dragPokemonIntoTeam(0, 2);
         assertEquals(ash.getPokemonTeam()[0], new Pokemon("Charmander", 2,20));
         assertEquals(ash.getPokemonPcBill().size(), 5);
+    }
+    @Test
+    public void CheckPokemonTeamFullWithEmptySlot() {
+        Trainer ash = new Trainer();
+        ash.addToTeam(new Pokemon("Pikachu", 4));
+        ash.addToTeam(null);
+        assertTrue(ash.checkPokemonTeamFull());
+    }
+    @Test
+    public void CheckPokemonTeamFullWithoutEmptySlot() {
+        Trainer misty = new Trainer();
+        misty.addToTeam(new Pokemon("Charmander", 2));
+        misty.addToTeam(new Pokemon("Squirtle", 3));
+        misty.addToTeam(new Pokemon("Pikachu", 4));
+        assertFalse(misty.checkPokemonTeamFull());
     }
 
 

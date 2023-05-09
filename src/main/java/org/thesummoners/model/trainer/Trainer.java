@@ -305,4 +305,6 @@ public class Trainer {
         else {pokemon.desequiparObjeto();}
     }
 
+    public void addToTeam(Pokemon staryu) {
+    }
 }
