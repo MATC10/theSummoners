@@ -73,6 +73,9 @@ public class Pokemon {
         changeDisplayName();
     }
 
+    public Pokemon() {
+    }
+
     public static int getCounterPokemon() {
         return counterPokemon;
     }

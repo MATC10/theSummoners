@@ -25,6 +25,31 @@ class PokemonTest {
 
         assertThrows(IllegalArgumentException.class, () -> pokemon.levelUp(-10));
     }
+    @Test
+    public void AdaptStatsToLevel() {
+        // Crea un nuevo Pokemon con los valores iniciales de estadísticas
+        Pokemon pokemon = new Pokemon();
+        pokemon.setHp(50);
+        pokemon.setAttackPower(11);
+        pokemon.setSpecialAttack(11);
+        pokemon.setDefense(11);
+        pokemon.setSpecialDefense(11);
+        pokemon.setSpeed(11);
+        pokemon.setStamina(11);
+        pokemon.setLevel(2);
+
+        // Ejecuta el método adaptStatsToLevel()
+        pokemon.adaptStatsToLevel(3);
+
+        // Verifica que las estadísticas del Pokemon se han actualizado correctamente
+        assertEquals(55, pokemon.getHp());
+        assertEquals(11, pokemon.getAttackPower());
+        assertEquals(11, pokemon.getSpecialAttack());
+        assertEquals(11, pokemon.getDefense());
+        assertEquals(11, pokemon.getSpecialDefense());
+        assertEquals(11, pokemon.getSpeed());
+        assertEquals(11, pokemon.getStamina());
+    }
 
 
 
