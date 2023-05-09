@@ -64,6 +64,17 @@ class PokemonTest {
         assertEquals("Charmander", charmander.getDisplayName());
     }
 
+    @Test
+    public void testPokemon() {
+        // Crea un objeto Pokemon usando el constructor
+        Pokemon charmander = new Pokemon("Charmander", 5, 50);
+        assertEquals("Charmander", charmander.getName());
+        assertEquals(5, charmander.getLevel());
+        assertEquals(50, charmander.getHealth());
+    }
+
+
+
 
 
     @org.junit.jupiter.api.Test
