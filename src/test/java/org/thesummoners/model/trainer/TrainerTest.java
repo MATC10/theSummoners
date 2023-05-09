@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TrainerTest {
 
     @Test
-    public void testTrainerConstructor() {
+    public void TrainerConstructor() {
 
         Trainer ash = new Trainer();
         assertEquals(10000, ash.getPokedollar());
@@ -27,6 +27,11 @@ class TrainerTest {
 
     @Test
     void getTrainer() {
+        Trainer trainer1 = Trainer.getTrainer();
+        Trainer trainer2 = Trainer.getTrainer();
+
+        // Comprueba si ambas instancias son la misma
+        assertSame(trainer1, trainer2);
     }
 
     @Test
