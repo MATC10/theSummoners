@@ -7,6 +7,25 @@ import static org.junit.jupiter.api.Assertions.*;
 class TrainerTest {
 
     @Test
+    public void testTrainerConstructor() {
+
+        Trainer ash = new Trainer();
+        assertEquals(10000, ash.getPokedollar());
+        assertNotNull(ash.getPokemonTeam());
+        assertEquals(6, ash.getPokemonTeam().length);
+        // Comprueba si el número de pokeballs es 20
+        assertEquals(20, ash.getPokeball());
+    }
+
+
+
+
+
+
+
+
+
+    @Test
     void getTrainer() {
     }
 
