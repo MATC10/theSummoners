@@ -50,6 +50,19 @@ class PokemonTest {
         assertEquals(11, pokemon.getSpeed());
         assertEquals(11, pokemon.getStamina());
     }
+    @Test
+    public void ChangeDisplayNameWithNickname() {
+        Pokemon pikachu = new Pokemon("Pika", 50);
+        pikachu.changeDisplayName();
+        assertEquals("Pika", pikachu.getDisplayName());
+    }
+
+    @Test
+    public void testChangeDisplayNameWithoutNickname() {
+        Pokemon charmander = new Pokemon("Charmander", 10);
+        charmander.changeDisplayName();
+        assertEquals("Charmander", charmander.getDisplayName());
+    }
 
 
 
