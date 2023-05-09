@@ -8,7 +8,7 @@ import org.thesummoners.model.trainer.Trainer;
 
 import java.util.Random;
 
-public class ImproveMovement extends Movement implements IStaminaCalculable {
+public class ImproveMovement extends Movement{
     private int upgradeAttack;
     private int upgradeSpecialAttack;
     private int upgradeDefense;
@@ -23,7 +23,6 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
         this.upgradeSpecialDefense = upgradeSpecialDefense;
         this.setMovementType("improve");
         TurnsDurationcalculation();
-        staminaCalculation();
     }
 
 
@@ -101,10 +100,5 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
 
             }
         }
-    }
-
-    @Override
-    public void staminaCalculation() {
-        this.setStamina(getStamina() - (this.getNumberOfTurnsDuration() * 10));
     }
 }

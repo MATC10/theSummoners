@@ -112,7 +112,9 @@ public class Enemy {
                       ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws CloneNotSupportedException, InterruptedException {
 
         //GUARDAMOS LA STAMINA DEL POKEMON AL INICIO DE LA BATALLA
-        int staminaPokemon2 = pokemon2.getStamina();
+        Pokemon pk = pokemon1.clone();
+        pk.adaptStatsToLevel(pk.getLevel(),pk);
+        int staminaPokemon2 = pk.getStamina();
 
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
@@ -139,14 +141,16 @@ public class Enemy {
                 AttackMovement.attackCombat(pokemon2, pokemon1, movement);
                 StateMovement.stateCombat(pokemon2, pokemon1, movement);
                 ImproveMovement.improveCombat(pokemon2, movement);
-                pokemon2.setStamina(pokemon1.getStamina() - movement.getStamina());
+
+                pokemon2.setStamina(pokemon2.getStamina() - movement.getStamina());
 
                 changePokemonInFightEnemy( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                          btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
                 Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer,
                         imgTrainerPokemon, lblStateTrainer,  imgPokeball1Trainer,  imgPokeball2Trainer,
-                         imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
-
+                         imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
+                         btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
+//TODO CONTROLAR LO DE REST Y LA ESTAMINA
             }
             else {
                 pokemon2.setState(State.RESTING);
@@ -164,12 +168,6 @@ public class Enemy {
             Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " enemigo, ya no se encuentra afectado por ningún estado");
 
         }
-
-        //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
-
-        //TODO PONER UNA LABEL CON EL TURNO
-
-
     }
 
 

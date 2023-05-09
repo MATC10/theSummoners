@@ -24,17 +24,15 @@ public enum State {
                                   ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws InterruptedException, CloneNotSupportedException {
 
 
-        if(pokemon1.getState() == ASLEEP){
-            Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido");
-        }
-        else if(pokemon1.getState() == RESTING){
+
+        if(pokemon1.getState() == RESTING){
             pokemon1.setState(State.ALIVE);
             //RECUPERA 100 DE STAMINA O HASTA EL MÁXIMO DEL QUE DISPONGA (SI SU MÁXIMO ES MENOS DE 100)
-            pokemon1.rest();
-            //CALCULAR LA STAMINA MÁXIMA DEL POKEMON Y NO SUBIR DE AHÍ
-            if(pokemon1.getStamina() > staminaPokemon) pokemon1.setStamina(staminaPokemon);
+            pokemon1.setStamina(staminaPokemon);
             Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se ha despertado");
-
+        }
+        else if(pokemon1.getState() == ASLEEP){
+            Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido");
         }
         else if(pokemon1.getState() == FROZEN){
             Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra congelado");
@@ -52,7 +50,8 @@ public enum State {
 
         Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer,
                 lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer,
+                 btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,
                 imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow, imgPokeball1,  imgPokeball2,  imgPokeball3);
     }

@@ -9,7 +9,7 @@ import org.thesummoners.model.trainer.Turns;
 
 import java.util.Random;
 
-public class StateMovement extends Movement implements IStaminaCalculable {
+public class StateMovement extends Movement{
     private State stateToApply;
     private int numberOfTurnsDuration;
 
@@ -19,7 +19,6 @@ public class StateMovement extends Movement implements IStaminaCalculable {
         this.stateToApply = stateToApply;
         this.setMovementType("state");
         TurnsDurationcalculation();
-        staminaCalculation();
     }
 
     public State getStateToApply() {
@@ -73,12 +72,5 @@ public class StateMovement extends Movement implements IStaminaCalculable {
                 Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
             }
         }
-    }
-
-
-
-    @Override
-    public void staminaCalculation() {
-        this.setStamina( this.getStamina() - (this.getNumberOfTurnsDuration() * 10));
     }
 }

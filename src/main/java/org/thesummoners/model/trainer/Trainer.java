@@ -269,7 +269,9 @@ public class Trainer {
                       ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer,  ImageView imgPokeball5Trainer,  ImageView imgPokeball6Trainer) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
-        int staminaPokemon1 = pokemon1.getStamina();
+        Pokemon pk = pokemon1.clone();
+        pk.adaptStatsToLevel(pk.getLevel(),pk);
+        int staminaPokemon1 = pk.getStamina();
 
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
@@ -295,23 +297,28 @@ public class Trainer {
                     AttackMovement.attackCombat(pokemon1, pokemon2, movement);
                     StateMovement.stateCombat(pokemon1, pokemon2, movement);
                     ImproveMovement.improveCombat(pokemon1, movement);
+
                     pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
+
                     changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer,
                             lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer,  imgPokeball2Trainer,
-                            imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                            imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
+                             btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
+
                     Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,
                             lblLevelEnemy, imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,
                             toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
                 }
                 //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
-                else {
+              else {
+                  //SE
                     pokemon1.setState(State.RESTING);
                     Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
 
                 }
             }
             //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
-            removeState = random.nextInt(4);
+            removeState = random.nextInt(3);
             if((pokemon1.getState() == State.ASLEEP || pokemon1.getState() == State.FROZEN ||
                     pokemon1.getState() == State.PARALYSED ||  pokemon1.getState() == State.BURNED ||
                     pokemon1.getState() == State.POISONED) && pokemon1.getHp() > 0 && removeState == 0){
@@ -533,7 +540,8 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
 
     public void changePokemonInFightTrainer(Label lblDisplayPkTrainer,Label lblHpTrainer,Label lblHpMaxTrainer,Label lblLevelTrainer,ImageView imgTrainerPokemon,Label lblStateTrainer,
                                             ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-                                            ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws CloneNotSupportedException {
+                                            ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer,
+                                            Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow) throws CloneNotSupportedException {
 
         int index;
         if(this.pokemon1.getHp() <= 0){
@@ -547,9 +555,24 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
                     break;
                 }
             }
+            if(!pokemonAliveInTeam()){
+                Trainer.getTrainer().getSentencesTextFight().clear();
+                Trainer.getTrainer().getSentencesTextFight().add("¡HAS PERDIDO EL COMBATE!");
+                Trainer.getTrainer().getSentencesTextFight().add("Tus Pokémon no recibirán experiencia");
+
+                //EL ENTRENADOR PIERDE UN TERCIO DE TODO SU DINERO
+                int dollars = Trainer.getTrainer().getPokedollar() - (Trainer.getTrainer().getPokedollar()/3);
+                Trainer.getTrainer().setPokedollar(dollars);
+                Trainer.getTrainer().getSentencesTextFight().add("Has perdido un tercio de tus Pokedollars");
+                Trainer.getTrainer().getSentencesTextFight().add("Te quedan " + dollars + " Pokedollars");
+                btnMove1.setDisable(true);
+                btnMove2.setDisable(true);
+                btnMove3.setDisable(true);
+                btnMove4.setDisable(true);
+                toMainWindow.setDisable(false);
+            }
 
         }
-
         this.changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                  imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
                  imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);

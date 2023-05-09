@@ -10,7 +10,7 @@ import org.thesummoners.model.trainer.Trainer;
 
 import java.util.Random;
 
-public class AttackMovement extends Movement implements IStaminaCalculable {
+public class AttackMovement extends Movement {
 
     private int power;
     private Type type;
@@ -20,7 +20,6 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         this.power = power;
         this.type= type;
         this.setMovementType("attack");
-        staminaCalculation();
     }
 
     public int getPower() {
@@ -104,10 +103,6 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
 
     }
 
-    @Override
-    public void staminaCalculation() {
-        this.setStamina(getStamina() - (this.getPower() / 2));
-    }
 
 
 }

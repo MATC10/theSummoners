@@ -8,7 +8,9 @@ public abstract class Movement {
 
 
     public Movement(String name){
+
         this.name = name;
+        this.stamina = 35;
     }
 
     public String getMovementType() {
