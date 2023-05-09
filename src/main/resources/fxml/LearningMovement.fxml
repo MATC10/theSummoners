@@ -95,7 +95,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="100.0" prefWidth="189.0" text="Continuar sin aprenderlo">
+            <Button fx:id="btnNoMove" layoutX="419.0" layoutY="230.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="66.0" prefWidth="190.0" text="Volver al menú">
                <font>
                   <Font size="15.0" />
                </font></Button>

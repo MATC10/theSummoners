@@ -1,8 +1,10 @@
 package org.thesummoners.model.movement;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
+import org.thesummoners.model.trainer.Trainer;
 import org.thesummoners.model.trainer.Turns;
 
 import java.util.Random;
@@ -43,7 +45,7 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
 //TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
 //TODO SEGÚN EL QUE SEA
-    public static void stateCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight) throws InterruptedException {
+    public static void stateCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws InterruptedException {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();
         int attackOrNot = random.nextInt(2);
@@ -58,17 +60,17 @@ public class StateMovement extends Movement implements IStaminaCalculable {
 
                 //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
                 pokemon2.setState(stateMovement.getStateToApply());
-                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-                Thread.sleep(1000);
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+
             }
             else if(attackOrNot == 0 && pokemon2.getState() == State.PARALYSED){
 
                 pokemon2.setState(stateMovement.getStateToApply());
-                lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-                Thread.sleep(1000);
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+
             }
             else if (attackOrNot != 0 && pokemon2.getState() == State.PARALYSED){
-                lblTextFight.setText(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
             }
         }
     }

@@ -1,10 +1,12 @@
 package org.thesummoners.model.movement;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.util.Random;
 
@@ -44,7 +46,7 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         return 1;
     }
 
-    public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight) throws InterruptedException {
+    public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws InterruptedException {
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
         if(movement.getMovementType().equals("attack") ) {
 
@@ -70,17 +72,17 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
                 baseDamage += summedAmountDamage;
                 if(pokemon1.getState() != State.PARALYSED){
                     pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
-                    lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-                    Thread.sleep(1000);
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+
                 }
                 else if (attackOrNot == 0 && pokemon1.getState() == State.PARALYSED){
                     pokemon2.setHp((int) (pokemon2.getHp() - baseDamage));
-                    lblTextFight.setText(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-                    Thread.sleep(1000);
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+
                 }
                 else if (attackOrNot != 0 && pokemon1.getState() == State.PARALYSED){
-                    lblTextFight.setText(pokemon1.getDisplayName() + " no puede atacar porque se encuentra paralizado");
-                    Thread.sleep(1000);
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede atacar porque se encuentra paralizado");
+
                 }
 
 

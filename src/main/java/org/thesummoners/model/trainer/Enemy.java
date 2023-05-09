@@ -2,6 +2,7 @@ package org.thesummoners.model.trainer;
 
 
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.thesummoners.model.movement.*;
@@ -100,7 +101,7 @@ public class Enemy {
         return enemyTeam;
     }
 
-    public void fight(Pokemon pokemon2, Pokemon pokemon1, Movement movement, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+    public void fight(Pokemon pokemon2, Pokemon pokemon1, Movement movement) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DEL POKEMON AL INICIO DE LA BATALLA
         int staminaPokemon2 = pokemon2.getStamina();
@@ -114,21 +115,21 @@ public class Enemy {
         for(Movement m : pokemon2.getLearnedMovement()){
             if(m != null) counter++;
         }
-        State.applyState(pokemon2, staminaPokemon2, lblTextFight);
+        State.applyState(pokemon2, staminaPokemon2);
         //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
 
         if(pokemon2.getState() != State.RESTING && pokemon2.getState() != State.ASLEEP &&
                 pokemon2.getState() != State.DEBILITATED && pokemon2.getState() != State.FROZEN) {
             if(pokemon2.getStamina() >= movement.getStamina()){
-                AttackMovement.attackCombat(pokemon2, pokemon1, movement, lblTextFight);
-                StateMovement.stateCombat(pokemon2, pokemon1, movement, lblTextFight);
-                ImproveMovement.improveCombat(pokemon2, movement, lblTextFight);
+                AttackMovement.attackCombat(pokemon2, pokemon1, movement);
+                StateMovement.stateCombat(pokemon2, pokemon1, movement);
+                ImproveMovement.improveCombat(pokemon2, movement);
                 pokemon2.setStamina(pokemon1.getStamina() - movement.getStamina());
             }
             else {
                 pokemon2.setState(State.RESTING);
-                lblTextFight.setText(pokemon2.getDisplayName() + " enemigo, se encuentra dormido para recargar Stamina");
-                Thread.sleep(1000);
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " enemigo, se encuentra dormido para recargar Stamina");
+
             }
 
         }
@@ -138,14 +139,14 @@ public class Enemy {
                 pokemon2.getState() == State.PARALYSED ||  pokemon2.getState() == State.BURNED ||
                 pokemon2.getState() == State.POISONED) && pokemon2.getHp() > 0 && removeState == 0){
             pokemon2.setState(State.ALIVE);
-            lblTextFight.setText(pokemon2.getDisplayName() + " enemigo, ya no se encuentra afectado por ningún estado");
-            Thread.sleep(1000);
+            Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " enemigo, ya no se encuentra afectado por ningún estado");
+
         }
 
         //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
 
         //TODO PONER UNA LABEL CON EL TURNO
-        Thread.sleep(1000);
+
 
     }
 
@@ -174,15 +175,16 @@ public class Enemy {
 
     }
 
-    public void changeLabelsInFight(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy, Label lblLevelEnemy, ImageView imgEnemy) throws CloneNotSupportedException {
+    public void changeLabelsInFight(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy, Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy) throws CloneNotSupportedException {
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
         lblDisplayPkEnemy.setText(Enemy.getEnemy().getPokemon2().getDisplayName());
         lblHpEnemy.setText("Vida: " + Enemy.getEnemy().getPokemon2().getHp());
         lblLevelEnemy.setText("Nivel: " + Enemy.getEnemy().getPokemon2().getLevel());
+        lblStateEnemy.setText("Estado: " + Enemy.getEnemy().getPokemon2().getState());
         //CALCULAMOS LA VIDA MÁXIMA
         Pokemon p2 = Enemy.getEnemy().getPokemon2().clone();
         p2.adaptStatsToLevel(p2.getLevel(), p2);
-        lblHpMaxEnemy.setText("Vida máxima: " + p2.getHp());
+        lblHpMaxEnemy.setText("Vida inicial: " + p2.getHp());
 
         //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM ENEMIGO
 

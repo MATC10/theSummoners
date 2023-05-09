@@ -31,6 +31,7 @@ public class Trainer {
     public static ObservableList<Pokemon> pokemonPcBill = FXCollections.observableArrayList();
 
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
+    private ObservableList<String> sentencesTextFight = FXCollections.observableArrayList();
     private int pokedollar;
     private int pokeball;
     public Pokemon[] pokemonToBreed = new Pokemon[2];
@@ -100,6 +101,14 @@ public class Trainer {
 
     public void setPokedollar(int pokedollar) {
         this.pokedollar = pokedollar;
+    }
+
+    public ObservableList<String> getSentencesTextFight() {
+        return sentencesTextFight;
+    }
+
+    public void setSentencesTextFight(ObservableList<String> sentencesTextFight) {
+        this.sentencesTextFight = sentencesTextFight;
     }
 
     public Pokemon[] getPokemonCub() {
@@ -245,7 +254,7 @@ public class Trainer {
     }
 
 
-    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblTextFight) throws CloneNotSupportedException, InterruptedException {
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
         int staminaPokemon1 = pokemon1.getStamina();
@@ -257,7 +266,7 @@ public class Trainer {
         int removeState;
         //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
 
-            State.applyState(pokemon1, staminaPokemon1, lblTextFight);
+            State.applyState(pokemon1, staminaPokemon1);
 
             //TODO EN ESTE PUNTO PODRÍA PREGUNTAR SI QUIERES CAMBIAR DE POKEMON
 
@@ -265,16 +274,16 @@ public class Trainer {
                     pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
                 //COMPROBAR QUE TIENE STAMINA DISPONIBLE
                 if(pokemon1.getStamina() >= movement.getStamina()){
-                    AttackMovement.attackCombat(pokemon1, pokemon2, movement, lblTextFight);
-                    StateMovement.stateCombat(pokemon1, pokemon2, movement, lblTextFight);
-                    ImproveMovement.improveCombat(pokemon1, movement, lblTextFight);
+                    AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+                    StateMovement.stateCombat(pokemon1, pokemon2, movement);
+                    ImproveMovement.improveCombat(pokemon1, movement);
                     pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
                 }
                 //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
                 else {
                     pokemon1.setState(State.RESTING);
-                    lblTextFight.setText(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
-                    Thread.sleep(1000);
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
+
                 }
             }
             //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
@@ -283,8 +292,8 @@ public class Trainer {
                     pokemon1.getState() == State.PARALYSED ||  pokemon1.getState() == State.BURNED ||
                     pokemon1.getState() == State.POISONED) && pokemon1.getHp() > 0 && removeState == 0){
                 pokemon1.setState(State.ALIVE);
-                lblTextFight.setText(pokemon1.getDisplayName() + " ya no se encuentra afectado por ningún estado");
-                Thread.sleep(1000);
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ya no se encuentra afectado por ningún estado");
+
             }
 
         //QUE SE PAUSE DURANTE UN SEGUNDO LA APLICACIÓN
@@ -401,15 +410,16 @@ public class Trainer {
         else lblbuyOrNot.setText("No has comprado ningún objeto");
     }
 
-public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer, ImageView imgTrainerPokemon) throws CloneNotSupportedException {
+public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer, ImageView imgTrainerPokemon, Label lblStateTrainer) throws CloneNotSupportedException {
     //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
     lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
     lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
     lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
+    lblStateTrainer.setText("Estado: " + Trainer.getTrainer().getPokemon1().getState());
     //CALCULAMOS LA VIDA MÁXIMA
     Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
     p1.adaptStatsToLevel(p1.getLevel(), p1);
-    lblHpMaxTrainer.setText("Vida máxima: " + p1.getHp());
+    lblHpMaxTrainer.setText("Vida inicial: " + p1.getHp());
 
 
 

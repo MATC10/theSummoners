@@ -421,7 +421,7 @@ public class Pokemon implements Cloneable {
 
     public void changeDisplayName(){
         //EL displayName ES EL NOMBRE DEL POKEMON QUE SE MOSTRARÁ EN TODOS LOS SITIOS
-        if(this.nickName != null){
+        if(this.nickName != null && this.nickName.length() > 0){
             this.displayName = this.nickName;
         }
         else this.displayName = this.name;
