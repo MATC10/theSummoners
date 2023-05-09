@@ -31,6 +31,9 @@ public class Trainer {
         this.pokeball = 20;
     }
 
+    public Trainer(String s, ArrayList<Pokemon> pokemonList, Pokemon[] pokemonTeam) {
+    }
+
     public static Trainer getTrainer() {
         synchronized (Trainer.class){
             if(trainer == null){
