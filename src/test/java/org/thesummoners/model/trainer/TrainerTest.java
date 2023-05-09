@@ -59,6 +59,21 @@ class TrainerTest {
         misty.addToTeam(new Pokemon("Pikachu", 4));
         assertFalse(misty.checkPokemonTeamFull());
     }
+    @Test
+    public void PokeballCountWithNoPokeballs() {
+        Trainer ash = new Trainer();
+        assertEquals(20, ash.pokeballCount());
+    }
+    @Test
+    public void PokeballCountWithPokeballs() {
+        Trainer brock = new Trainer();
+        assertEquals( 20, brock.pokeballCount());
+    }
+    @Test
+    public void pokeballCountWithnegativepokeballs() {
+        Trainer misty = new Trainer();
+        assertEquals(20, misty.pokeballCount());
+    }
 
 
 
