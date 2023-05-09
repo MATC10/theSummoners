@@ -87,9 +87,9 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="320.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="363.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="406.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="322.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="365.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="407.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgTrainerPokemon" fitHeight="121.0" fitWidth="138.0" layoutX="34.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btnMove1" layoutX="184.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
@@ -103,7 +103,7 @@
                </font></Label>
             <Label fx:id="lblHpMaxTrainer" layoutX="14.0" layoutY="183.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
             <Label fx:id="lblLevelEnemy" layoutX="475.0" layoutY="26.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
-            <Button fx:id="prueba" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
+            <Button fx:id="toMainWindow" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
             <Label fx:id="lblLevelTrainer" layoutX="14.0" layoutY="161.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
             <Label fx:id="lblDisplayPkEnemy" layoutX="475.0" layoutY="1.0" prefHeight="18.0" prefWidth="150.0" text="Label">
                <font>
@@ -117,6 +117,12 @@
             <Label fx:id="lblStateEnemy" layoutX="475.0" layoutY="59.0" prefHeight="18.0" prefWidth="160.0" text="Label" />
             <ImageView fx:id="imgEnemy" fitHeight="121.0" fitWidth="138.0" layoutX="470.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
             <ListView fx:id="lvFight" layoutX="14.0" layoutY="60.0" prefHeight="78.0" prefWidth="446.0" />
+            <ImageView fx:id="imgPokeball1Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="184.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball2Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="227.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball3Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="270.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball4Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="313.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball5Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="356.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball6Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="399.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
          </children>
     </AnchorPane>
   </children>

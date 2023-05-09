@@ -2,6 +2,8 @@ package org.thesummoners.model.pokemon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.thesummoners.model.movement.AttackMovement;
+import org.thesummoners.model.movement.Movement;
 
 import java.util.*;
 
@@ -84,24 +86,31 @@ public class Pokedex {
 
 
 
-    public static float compareAdvantage (Pokemon pokemonTrainer, Pokemon pokemonEnemy){
+    public static float compareAdvantage (Pokemon pokemonTrainer, Pokemon pokemonEnemy, Movement movement){
+
+        AttackMovement attackMovement = (AttackMovement) movement;
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES FUERTE CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X2
-        if(Pokedex.getStrong().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
-                Pokedex.getStrong().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()))
+        if(Pokedex.getStrong().get(attackMovement.getType()).contains(pokemonEnemy.getType1()))
+            return 2f;
+        if(Pokedex.getStrong().get(attackMovement.getType()).contains(pokemonEnemy.getType2()))
             return 2f;
 
+       /* ESTÁ COMENTADO PORQUE ESTO ES PARA QUE QUE EL DAÑO DEPENDA DEL TIPO DE LOS POKEMON Y NO DE LOS MOVIMIENTOS
         if( pokemonTrainer.getType2() != null && (Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
                 Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())))
             return 2f;
-
+*/
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES DEBIL CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X0.5
-        if(Pokedex.getWeak().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType1()) ||
-                Pokedex.getWeak().get(pokemonTrainer.getType1()).contains(pokemonEnemy.getType2()))
+        if(Pokedex.getWeak().get(attackMovement.getType()).contains(pokemonEnemy.getType1()))
             return 0.5f;
-        if( pokemonTrainer.getType2() != null && (Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
-                Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())))
+        if(Pokedex.getWeak().get(attackMovement.getType()).contains(pokemonEnemy.getType2()))
             return 0.5f;
 
+        /* ESTÁ COMENTADO PORQUE ESTO ES PARA QUE QUE EL DAÑO DEPENDA DEL TIPO DE LOS POKEMON Y NO DE LOS MOVIMIENTOS
+        if( pokemonTrainer.getType2() != null && (Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
+                Pokedex.getWeak().get(movement.getMovementType()).contains(pokemonEnemy.getType2())))
+            return 0.5f;
+        */
         //SI NO SUCEDE NADA DE LO ANTERIOR ATACA X1
         return 1;
     }

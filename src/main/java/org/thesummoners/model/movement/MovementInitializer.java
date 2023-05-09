@@ -69,12 +69,12 @@ public class MovementInitializer {
         StateMovement ventisca = new StateMovement("Ventisca", State.FROZEN);
 
         Pokemon.movementLevel.put(34,hipnosis);
-        Pokemon.movementLevel.put(52,rayoConfuso);
+        Pokemon.movementLevel.put(10,rayoConfuso);
         Pokemon.movementLevel.put(70,toxico);
         Pokemon.movementLevel.put(73,ascuas);
         Pokemon.movementLevel.put(25,hiloVenenoso);
         Pokemon.movementLevel.put(79,rayoHielo);
-        Pokemon.movementLevel.put(10,cantoMortal);
+        Pokemon.movementLevel.put(52,cantoMortal);
         Pokemon.movementLevel.put(85,polucion);
         Pokemon.movementLevel.put(43,infierno);
         Pokemon.movementLevel.put(31,ventisca);

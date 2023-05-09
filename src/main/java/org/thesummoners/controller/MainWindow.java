@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -32,6 +33,9 @@ public class MainWindow {
     private Button btnTeam;
 
     @FXML
+    private Label lblText;
+
+    @FXML
     private Button btnTrain;
     private Parent root;
     private Scene scene;
@@ -46,15 +50,20 @@ public class MainWindow {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     void toWantsToFight(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/WantsToFight.fxml")));
-        scene = new Scene(root, 600, 400);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("TheSummoners");
-        stage.setScene(scene);
-        stage.show();
+        //COMPROBAMOS QUE HAYA POKEMONS EN EL EQUIPO
+        if(Trainer.getTrainer().pokemonAliveInTeam()){
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/WantsToFight.fxml")));
+            scene = new Scene(root, 600, 400);
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle("TheSummoners");
+            stage.setScene(scene);
+            stage.show();
+        }
+        else lblText.setText("No tienes ningún Pokémon disponible. ¡Ve al centro Pokémon!");
+
+
     }
 
     @FXML
