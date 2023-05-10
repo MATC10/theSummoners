@@ -4,13 +4,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
+import org.thesummoners.bd.MySQLConnection;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.sql.*;
 
 public class Main extends Application {
+    private static Connection connection;
+
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
@@ -20,26 +24,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/TheSummoners";
-        String usuario = "root";
-        String password = "";
-        String consulta = "SELECT * FROM pokedex";
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url, usuario, password);
-            //Statement statement = connection.createStatement();
-            //ResultSet resultado = statement.executeQuery(consulta);
-
-
-            System.out.println("Conectado");
-        } catch (SQLException e) {
-            System.out.println("Error");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-
+    public static void main(String[] args) throws SQLException {
         launch();
     }
 }
