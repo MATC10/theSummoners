@@ -27,6 +27,9 @@ public class MainWindow {
     private Button btnPCBill;
 
     @FXML
+    private Button btnPokemonCenter;
+
+    @FXML
     private Button btnShop;
 
     @FXML
@@ -109,6 +112,16 @@ public class MainWindow {
     @FXML
     public void onTrain(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Train.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void toPokemonCenter(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonCenter.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");

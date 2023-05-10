@@ -36,100 +36,48 @@ public class DragPokemonIntoTeam {
     private Label lblPokemonTeam;
 
     @FXML
-    private TableView<Pokemon> tvPcBill;
+    private ListView<Pokemon> lvPcBill;
 
     @FXML
-    private TableColumn<Pokemon, String> tcName;
+    private ListView<Pokemon> lvPokemonTeam;
 
-    @FXML
-    private TableColumn<Pokemon, String> tcLevel;
-
-    @FXML
-    private TableView<Pokemon> tvPokemonTeam;
-
-    @FXML
-    private TableColumn<Pokemon, String> tcNameTeamPokemon;
-
-    @FXML
-    private TableColumn<Pokemon, String> tcLevelTeamPokemon;
-
-    ObservableList <Pokemon> listTeamIntermediary = FXCollections.observableArrayList();
-
-
+    ObservableList<Pokemon> listTeamIntermediary = FXCollections.observableArrayList();
 
     private Parent root;
     private Scene scene;
     private Stage stage;
 
-    //ESTO ES PARA QUE FUNCIONE EL ROW
-    private static final DataFormat SERIALIZED_MIME_TYPE = new DataFormat("application/x-java-serialized-object");
-
-    public void initialize(){
+    public void initialize() {
         //LLAMAMOS AL MÉTODO QUE INSERTA EN LA LISTA listTeamIntermediary LOS POKÉMON DE pokemonTeam
         Trainer.getTrainer().pokemonTeamArrayToList(listTeamIntermediary);
 
-        //PONEMOS NOMBRE A LAS COLUMNAS DE tvPcBill Y ASOCIAMOS LA TABLA A LA LISTA
-        tcName.setCellValueFactory(tf -> new SimpleStringProperty(tf.getValue().getDisplayName()));
-        tcLevel.setCellValueFactory(tf -> new SimpleStringProperty("" + tf.getValue().getLevel()));
-        tvPcBill.getColumns().clear();
-        tvPcBill.getColumns().addAll(tcName,tcLevel);
-        tvPcBill.getItems().addAll( Trainer.getTrainer().getPokemonPcBill());
+        // ASOCIAMOS LA LISTA DE POKÉMON DE pcBill al ListView
+        lvPcBill.setItems(Trainer.getTrainer().getPokemonPcBill());
 
-
-
-
-
-
-        //PONEMOS NOMBRE A LAS COLUMNAS DE tvPokemonTeam Y ASOCIAMOS LA TABLA A LA LISTA
-        tcNameTeamPokemon.setCellValueFactory(tf -> new SimpleStringProperty(tf.getValue().getDisplayName()));
-        tcLevelTeamPokemon.setCellValueFactory(tf -> new SimpleStringProperty("" + tf.getValue().getLevel()));
-        tvPokemonTeam.getColumns().clear();
-        tvPokemonTeam.getColumns().addAll(tcNameTeamPokemon,tcLevelTeamPokemon);
-        tvPokemonTeam.getItems().addAll(listTeamIntermediary);
-
+        // ASOCIAMOS LA LISTA INTERMEDIA DE POKÉMON AL ListView
+        lvPokemonTeam.setItems(listTeamIntermediary);
     }
 
     @FXML
     void toPcBill() {
-        //TODO REVISAR POSIBLES BUGS
-
-            //SOLAMENTE PODEMOS PASAR POKEMON HASTA UN MÁXIMO DE 6 AL EQUIPO POKÉMON
-             Pokemon selectedPokemon = tvPokemonTeam.getSelectionModel().getSelectedItem();
-            if (listTeamIntermediary.size() > 1 && selectedPokemon != null) {
-                    // AGREGA EL POKÉMON SELECCIONADO A LA LISTA NUEVA
-                    Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
-                    // ACTUALIZA LA VISTA DE LA TABLEVIEW
-                    tvPcBill.setItems( Trainer.getTrainer().getPokemonPcBill());
-                    // ELIMINA EL POKÉMON SELECCIONADO DEL PC DE BILL
-                    tvPokemonTeam.getItems().remove(selectedPokemon);
-                    // ACTUALIZA LA VISTA DE LA TABLE
-                    tvPokemonTeam.setItems(listTeamIntermediary);
-                    System.out.println("LIST INTERMEDIARY" + listTeamIntermediary.size());
-
-            }
-
+        Pokemon selectedPokemon = lvPokemonTeam.getSelectionModel().getSelectedItem();
+        if (listTeamIntermediary.size() > 1 && selectedPokemon != null) {
+            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA DE pcBill
+            Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
+            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA INTERMEDIA
+            listTeamIntermediary.remove(selectedPokemon);
+        }
     }
 
     @FXML
     void toPokemonTeam() {
-        //TODO REVISAR POSIBLES BUGS
-
-            //SOLAMENTE PODEMOS PASAR POKEMON HASTA UN MÁXIMO DE 6 AL EQUIPO POKÉMON
-        Pokemon selectedPokemon = tvPcBill.getSelectionModel().getSelectedItem();
-            if (listTeamIntermediary.size() < 6 && selectedPokemon != null) {
-                    // AGREGA EL POKÉMON SELECCIONADO A LA LISTA NUEVA
-                listTeamIntermediary.add(selectedPokemon);
-                    // ACTUALIZA LA VISTA DE LA TABLEVIEW
-                    tvPokemonTeam.setItems(listTeamIntermediary);
-                    // ELIMINA EL POKÉMON SELECCIONADO DEL PC DE BILL
-                    tvPcBill.getItems().remove(selectedPokemon);
-                    //ACTUALIZA VISTA
-                    tvPcBill.setItems( Trainer.getTrainer().getPokemonPcBill());
-                    System.out.println("PC BILL" +Trainer.getTrainer().getPokemonPcBill());
-                    //Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
-
-            }
-
+        Pokemon selectedPokemon = lvPcBill.getSelectionModel().getSelectedItem();
+        if (listTeamIntermediary.size() < 6 && selectedPokemon != null) {
+            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA INTERMEDIA
+            listTeamIntermediary.add(selectedPokemon);
+            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA DE pcBill
+            Trainer.getTrainer().getPokemonPcBill().remove(selectedPokemon);
+        }
     }
 
     @FXML
@@ -138,10 +86,9 @@ public class DragPokemonIntoTeam {
         listTeamIntermediary.clear();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 400, 440);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
     }
-
 }

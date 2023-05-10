@@ -407,6 +407,13 @@ public class Trainer {
         }
     }
 
+    public void centrePokemonHeal() throws CloneNotSupportedException {
+
+        for(Pokemon p : Trainer.getTrainer().pokemonTeam){
+            if(p !=null) p.adaptStatsToLevel(p.getLevel(), p);
+        }
+
+    }
 
     public void pokeballShop(Label lblPokeballs, Label lblPokedollars, Label lblbuyOrNot){
         if(getTrainer().getPokedollar() >= 100){
