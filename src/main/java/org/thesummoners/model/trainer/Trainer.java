@@ -410,7 +410,10 @@ public class Trainer {
     public void centrePokemonHeal() throws CloneNotSupportedException {
 
         for(Pokemon p : Trainer.getTrainer().pokemonTeam){
-            if(p !=null) p.adaptStatsToLevel(p.getLevel(), p);
+            if(p !=null) {
+                p.adaptStatsToLevel(p.getLevel(), p);
+                p.setState(State.ALIVE);
+            }
         }
 
     }
@@ -525,11 +528,6 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
     }
 }
 
-    public void unequipObject(Pokemon pokemon){
-        //TODO METODO PARA DESEQUIPAR EL OBJETO
-        //TODO HACER MÉTODO PARA EQUIPAR OBJETO AL POKÉMON TENIENDO EN CUENTA SI YA TIENE OTRO PUESTO
-        //TODO TENER EN CUENTA QUE PODEMOS HACER QUE LA MOCHILA ESTÉ EN TABLEVIEW
-    }
 
     public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
         //MÉTODO PARA ENTRENAR POKÉMONS

@@ -82,12 +82,12 @@ public class EquipUnequip {
     }
 
     @FXML
-    void toEquip(ActionEvent event) {
+    void toEquip(ActionEvent event) throws CloneNotSupportedException {
         Pokemon selectedPokemon = lvPokemonTeam.getSelectionModel().getSelectedItem();
         Objeto selectedObjeto = lvObjeto.getSelectionModel().getSelectedItem();
         if(selectedPokemon != null || selectedPokemon != null){
             if (selectedPokemon != null && selectedObjeto != null && selectedPokemon.getObjeto() == null) {
-                selectedPokemon.setObjeto(selectedObjeto);
+                selectedPokemon.setObjetoImproveStats(selectedObjeto);
                 Trainer.getTrainer().getBackPack().remove(selectedObjeto);
                 Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
                 lblNameObjeto.setText("");
@@ -103,19 +103,17 @@ public class EquipUnequip {
 
 
     @FXML
-    void toUnequip(ActionEvent event) {
+    void toUnequip(ActionEvent event) throws CloneNotSupportedException {
 
         Pokemon selectedPokemon = lvPokemonTeam.getSelectionModel().getSelectedItem();
-        Objeto selectedObjeto = lvObjeto.getSelectionModel().getSelectedItem();
         if(selectedPokemon != null || selectedPokemon != null){
-            String nameObjeto = selectedObjeto.getName();
             if (selectedPokemon != null && selectedPokemon.getObjeto() != null) {
                 Trainer.getTrainer().getBackPack().add(selectedPokemon.getObjeto());
-                selectedPokemon.setObjeto(null);
+                selectedPokemon.setObjetoImproveStats(null);
                 Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
                 lblNameObjeto.setText("");
                 lblDisplayName.setText("");
-                lblText.setText("Has quitado el objeto " + nameObjeto + " a " + selectedPokemon.getDisplayName());
+                lblText.setText("Has quitado el objeto a " + selectedPokemon.getDisplayName());
             }
             else if(selectedPokemon != null && selectedPokemon.getObjeto() == null){
                 lblText.setText(selectedPokemon.getDisplayName() + " no tiene ningún objeto equipado");

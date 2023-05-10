@@ -322,6 +322,7 @@ public class Pokemon implements Cloneable {
         this.objeto = objeto;
     }
 
+    //MÉTODO PARA EQUIPAR AL POKEMON CON UN OBJETO, ADAPTA SUS ESTADÍSTICAS SEGÚN SI TIENE OBJETO O NO
     public void setObjetoImproveStats (Objeto objeto) throws CloneNotSupportedException {
         //AL ASIGNAR UN OBJETO RECIBES LAS MEJORAS CORRESPONDIENTES AUTOMÁTICAMENTE
         //SI ASIGNAS NULL AL OBJETO (QUITAS EL OBJETO) SE PONEN LAS ESTADÍSTICAS BASE

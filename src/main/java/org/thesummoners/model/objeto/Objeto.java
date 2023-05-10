@@ -107,7 +107,7 @@ public class Objeto {
             case "pesa":
                 this.attack = 1.2f;
                 this.defense = 1.2f;
-                this.speed *= 0.8f;
+                this.speed = 0.8f;
                 break;
             case "pluma":
                 this.speed = 1.3f;
