@@ -95,7 +95,7 @@
             </TableView>
             <Button fx:id="btnHp" layoutX="340.0" layoutY="138.0" mnemonicParsing="false" onAction="#toHp" prefHeight="59.0" prefWidth="96.0" text="Curar" />
             <Button fx:id="toMainMenu" layoutX="340.0" layoutY="210.0" mnemonicParsing="false" onAction="#toMainMenu" text="Volver al menú" />
-            <Label fx:id="btnText" layoutX="24.0" layoutY="317.0" text="Tus Pokémon se han curado y están listos para luchar">
+            <Label fx:id="lblText" layoutX="24.0" layoutY="317.0">
                <font>
                   <Font size="18.0" />
                </font>

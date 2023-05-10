@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -26,7 +27,7 @@ public class PokemonCenter {
     private Button toMainMenu;
 
     @FXML
-    private Button btnText;
+    private Label lblText;
 
     @FXML
     private Button btnHp;
@@ -72,17 +73,17 @@ public class PokemonCenter {
         // ACTUALIZAMOS LA TABLEVIEW
         tvPokemonTeam.setItems(listTeamIntermediary);
 
-        btnText.setText("Tus Pokémon se han curado y están listos para luchar");
+        lblText.setText("Tus Pokémon se han curado y están listos para luchar");
     }
 
     @FXML
     public void toMainMenu(ActionEvent event) throws IOException {
+        listTeamIntermediary.clear();
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
-        listTeamIntermediary.clear();
     }
 }
