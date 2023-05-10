@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.Movement;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Enemy;
 import org.thesummoners.model.trainer.Trainer;
@@ -26,8 +27,6 @@ import java.util.Random;
 
 
 public class Fight {
-    @FXML
-    private Button btnChangePokemonFight;
     @FXML
     private Button btnMove1;
 
@@ -125,7 +124,7 @@ public class Fight {
 
     @FXML
     public void initialize() throws CloneNotSupportedException, InterruptedException {
-
+        btnMove5.setDisable(true);
         //TODO PONERLO EN TRUE AL ACABAR LAS MECÁNICAS DE COMBATE
         toMainWindow.setDisable(false);
         //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
@@ -139,7 +138,7 @@ public class Fight {
                 imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
         //Enemy.getEnemy().changeLabelsInFight( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy);
         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
-                btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
+                btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
         Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer,
                 imgTrainerPokemon, lblStateTrainer,  imgPokeball1Trainer,  imgPokeball2Trainer,
                 imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
@@ -154,7 +153,7 @@ public class Fight {
                    lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                    btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3,
                    imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
-                   imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                   imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
             //CAMBIAMOS LOS LABELS Y LAS IMAGENES
             Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                      imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
@@ -188,16 +187,16 @@ public class Fight {
 
             Trainer.getTrainer().fight(Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1().getLearnedMovement()[0],
                     lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
-                    lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
-                    btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3,
-                    imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
-                    imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                    lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
+                    btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
+                    imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
+                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
             Enemy.getEnemy().fight(Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2().getLearnedMovement()[random.nextInt(4)],
                     lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                     lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                     btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3,
                     imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
-                    imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                    imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
             //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
             //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
 
@@ -221,13 +220,13 @@ public class Fight {
                     lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                     btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
             Enemy.getEnemy().fight(Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2().getLearnedMovement()[random.nextInt(4)],
                     lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                     lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                     btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
 
             //CAMBIAMOS LOS LABELS Y LAS IMAGENES
             Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
@@ -250,13 +249,13 @@ public class Fight {
                         lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                         btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                         imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                        imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                        imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
                 Enemy.getEnemy().fight(Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2().getLearnedMovement()[random.nextInt(4)],
                         lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                         lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                         btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                         imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                        imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                        imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
 
                 //CAMBIAMOS LOS LABELS Y LAS IMAGENES
                 Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
@@ -277,13 +276,13 @@ public class Fight {
                     lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                     btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
             Enemy.getEnemy().fight(Enemy.getEnemy().getPokemon2(), Trainer.getTrainer().getPokemon1(), Enemy.getEnemy().getPokemon2().getLearnedMovement()[random.nextInt(4)],
                     lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                     lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy,
                     btnMove1, btnMove2, btnMove3, btnMove4, toMainWindow, imgPokeball1, imgPokeball2, imgPokeball3,
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer, btnMove5);
 
             //CAMBIAMOS LOS LABELS Y LAS IMAGENES
             Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
@@ -294,18 +293,20 @@ public class Fight {
     }
 
     @FXML
-    public void onMove5() {
-
+    public void onMove5(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/LearningMovement.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
-    @FXML
-    public void onChangePokemonFight(){
-
-    }
 
     @FXML
     void toMainWindow(ActionEvent event) throws IOException, CloneNotSupportedException {
-
+        //QUITAMOS EL POKEMON SELECCIONADO PARA UNA POSIBLE SUBIDA DE NIVEL
+        Trainer.getTrainer().pokemonCub[0] = null;
         //AL SALIR DE LA VENTANA SE CAMBIAN LOS POKEMON DEL ENEMIGO Y SE REINICIA LA OBSERVABLELIST
         Enemy.getEnemy().pokemonIntoTeam();
         Trainer.getTrainer().getSentencesTextFight().clear();

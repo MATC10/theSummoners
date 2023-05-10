@@ -95,8 +95,7 @@
             <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove4" layoutX="405.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="47.0" prefWidth="207.0" text="Button" />
-            <Button fx:id="btnMove5" layoutX="184.0" layoutY="309.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="207.0" text="Descanso" />
-            <Button fx:id="btnChange" layoutX="405.0" layoutY="309.0" mnemonicParsing="false" onAction="#onChangePokemonFight" prefHeight="47.0" prefWidth="207.0" text="Cambiar Pokémon" />
+            <Button fx:id="btnMove5" layoutX="238.0" layoutY="308.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="322.0" text="Aprender movimiento" />
             <Label fx:id="lblDisplayPkTrainer" layoutX="14.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" text="Label">
                <font>
                   <Font size="16.0" />

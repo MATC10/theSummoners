@@ -21,7 +21,8 @@ public enum State {
                                   Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
                                   ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
                                   ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-                                  ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws InterruptedException, CloneNotSupportedException {
+                                  ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer,
+                                  Button btnMove5) throws InterruptedException, CloneNotSupportedException {
 
 
 
@@ -53,7 +54,8 @@ public enum State {
                 imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer,
                  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,
-                imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow, imgPokeball1,  imgPokeball2,  imgPokeball3);
+                imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow, imgPokeball1,  imgPokeball2,  imgPokeball3,
+                btnMove5);
     }
 }
 

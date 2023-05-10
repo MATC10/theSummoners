@@ -267,7 +267,8 @@ public class Trainer {
                        Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
                       ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
                       ImageView imgPokeball1Trainer,  ImageView imgPokeball2Trainer,
-                      ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer,  ImageView imgPokeball5Trainer,  ImageView imgPokeball6Trainer) throws CloneNotSupportedException, InterruptedException {
+                      ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer,  ImageView imgPokeball5Trainer,
+                      ImageView imgPokeball6Trainer, Button btnMove5) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
         Pokemon pk = pokemon1.clone();
@@ -285,7 +286,7 @@ public class Trainer {
                     lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, lblDisplayPkEnemy,  lblHpEnemy,
                     lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,
                      imgPokeball1,  imgPokeball2,  imgPokeball3, imgPokeball1Trainer,  imgPokeball2Trainer,
-                    imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                    imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
 
 
 
@@ -309,7 +310,7 @@ public class Trainer {
 
                     Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,
                             lblLevelEnemy, imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,
-                            toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
+                            toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
                 }
                 //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
               if(pokemon1.getStamina() < 35) {

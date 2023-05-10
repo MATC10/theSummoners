@@ -110,7 +110,8 @@ public class Enemy {
                       Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
                       ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
                       ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-                      ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws CloneNotSupportedException, InterruptedException {
+                      ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer,
+                      Button btnMove5) throws CloneNotSupportedException, InterruptedException {
 
         //GUARDAMOS LA STAMINA DEL POKEMON AL INICIO DE LA BATALLA
         Pokemon pk = pokemon1.clone();
@@ -131,8 +132,7 @@ public class Enemy {
                 lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                 btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3,
                 imgPokeball1Trainer,  imgPokeball2Trainer,
-                imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer
-                );
+                imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
         //SE ASIGNA EL MOVIMIENTO RANDOM AL ENEMIGO
 
         if(pokemon2.getState() != State.RESTING && pokemon2.getState() != State.ASLEEP &&
@@ -146,7 +146,7 @@ public class Enemy {
                 pokemon2.setStamina(pokemon2.getStamina() - movement.getStamina());
 
                 changePokemonInFightEnemy( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
-                         btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
+                         btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
                 Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer,
                         imgTrainerPokemon, lblStateTrainer,  imgPokeball1Trainer,  imgPokeball2Trainer,
                          imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
@@ -217,7 +217,8 @@ public class Enemy {
     public void changePokemonInFightEnemy(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
                                           Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy,
                                           Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
-                                           ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3) throws CloneNotSupportedException {
+                                           ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
+                                          Button btnMove5) throws CloneNotSupportedException {
 
         Random random = new Random();
         int index;
@@ -278,7 +279,15 @@ public class Enemy {
                     btnMove2.setDisable(true);
                     btnMove3.setDisable(true);
                     btnMove4.setDisable(true);
+                    btnMove5.setDisable(true);
                     toMainWindow.setDisable(false);
+                    //SI EL POKÉMON ESTÁ EN UN NIVEL PARA APRENDER APRENDER MOVIMIENTO,
+                    // SE DESBLOQUEA LA PANTALLA PARA APRENDER EL MOVIMIENTO
+                    if(MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().getPokemon1().getLevel()) != null){
+                        Trainer.getTrainer().pokemonCub[0] = Trainer.getTrainer().getPokemon1();
+                        btnMove5.setDisable(false);
+                        btnMove5.setText("Aprender movimiento con " + Trainer.getTrainer().getPokemon1().getLevel());
+                    }
 
                     break;
                 }
