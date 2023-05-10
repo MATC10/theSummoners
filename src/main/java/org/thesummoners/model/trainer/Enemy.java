@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.*;
 import org.thesummoners.model.pokemon.*;
 
@@ -263,6 +264,7 @@ public class Enemy {
                else if(index >= enemyTeam.length){
                     //EXPERIENCIA ALEATORIA ENTRE 90 Y 110
                     index = random.nextInt(21)+90;
+
                     Trainer.getTrainer().getSentencesTextFight().clear();
                     Trainer.getTrainer().getSentencesTextFight().add("¡HAS GANADO EL COMBATE!");
                     Trainer.getTrainer().getPokemon1().levelUp(index);
@@ -277,6 +279,7 @@ public class Enemy {
                     btnMove3.setDisable(true);
                     btnMove4.setDisable(true);
                     toMainWindow.setDisable(false);
+
                     break;
                 }
             }

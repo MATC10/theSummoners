@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.ImproveMovement;
 import org.thesummoners.model.movement.Movement;
@@ -293,12 +294,13 @@ public class Trainer {
             if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
                     pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
                 //COMPROBAR QUE TIENE STAMINA DISPONIBLE
+
                 if(pokemon1.getStamina() >= movement.getStamina()){
                     AttackMovement.attackCombat(pokemon1, pokemon2, movement);
                     StateMovement.stateCombat(pokemon1, pokemon2, movement);
                     ImproveMovement.improveCombat(pokemon1, movement);
-
                     pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
+
 
                     changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer,
                             lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer,  imgPokeball2Trainer,
@@ -310,7 +312,7 @@ public class Trainer {
                             toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3);
                 }
                 //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
-              else {
+              if(pokemon1.getStamina() < 35) {
                   //SE
                     pokemon1.setState(State.RESTING);
                     Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
@@ -556,6 +558,7 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
                 }
             }
             if(!pokemonAliveInTeam()){
+
                 Trainer.getTrainer().getSentencesTextFight().clear();
                 Trainer.getTrainer().getSentencesTextFight().add("¡HAS PERDIDO EL COMBATE!");
                 Trainer.getTrainer().getSentencesTextFight().add("Tus Pokémon no recibirán experiencia");

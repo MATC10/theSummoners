@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Enemy;
@@ -124,6 +125,7 @@ public class Fight {
 
     @FXML
     public void initialize() throws CloneNotSupportedException, InterruptedException {
+
         //TODO PONERLO EN TRUE AL ACABAR LAS MECÁNICAS DE COMBATE
         toMainWindow.setDisable(false);
         //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
@@ -303,12 +305,13 @@ public class Fight {
 
     @FXML
     void toMainWindow(ActionEvent event) throws IOException, CloneNotSupportedException {
+
         //AL SALIR DE LA VENTANA SE CAMBIAN LOS POKEMON DEL ENEMIGO Y SE REINICIA LA OBSERVABLELIST
         Enemy.getEnemy().pokemonIntoTeam();
         Trainer.getTrainer().getSentencesTextFight().clear();
-
         //TODO SI UN POKEMON ESTÁ DEBILITADO O CON UN ESTADO DA IGUAL
         //DEBE IR AL CENTRO POKEMON PARA RECUPERARSE
+
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 600, 400);

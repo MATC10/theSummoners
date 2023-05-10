@@ -53,24 +53,33 @@ public class StateMovement extends Movement{
         if (movement.getMovementType().equals("state")){
             //HACEMOS UN CASTING PARA OBTENER LOS MÉTODOS DE StateMovement
             StateMovement stateMovement = (StateMovement) movement;
-
-            //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
-            if (pokemon1.getState() != State.PARALYSED) {
-
-                //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
-                pokemon2.setState(stateMovement.getStateToApply());
-                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-
+            if (pokemon2.getState() != State.RESTING && pokemon2.getState() != State.PARALYSED){
+                if(pokemon2.getState() == State.POISONED ||
+                        pokemon2.getState() == State.FROZEN || pokemon2.getState() == State.ASLEEP ||
+                        pokemon2.getState() == State.BURNED) {
+                        Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " ya se encuentra afectado por otro estado");
+                }
+                else{
+                    //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
+                    pokemon2.setState(stateMovement.getStateToApply());
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                }
             }
-            else if(attackOrNot == 0 && pokemon2.getState() == State.PARALYSED){
-
-                pokemon2.setState(stateMovement.getStateToApply());
-                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
-
+            else if(pokemon2.getState() != State.RESTING && pokemon2.getState() == State.PARALYSED && attackOrNot == 0){
+                if(pokemon2.getState() == State.POISONED ||
+                        pokemon2.getState() == State.FROZEN || pokemon2.getState() == State.ASLEEP ||
+                        pokemon2.getState() == State.BURNED){
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " ya se encuentra afectado por otro estado");
+                }
+                else{
+                    pokemon2.setState(stateMovement.getStateToApply());
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
+                }
+                }
+                else{
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
             }
-            else if (attackOrNot != 0 && pokemon2.getState() == State.PARALYSED){
-                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
-            }
+
         }
     }
 }
