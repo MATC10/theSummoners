@@ -86,17 +86,19 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="imgPokemon" fitHeight="307.0" fitWidth="237.0" layoutX="14.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball" fitHeight="211.0" fitWidth="237.0" layoutX="251.0" layoutY="147.0" onMouseClicked="#onTryCatchPokemon" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblNamePokemon" layoutX="14.0" layoutY="14.0" text="Name Pokemon" />
-            <Label fx:id="lblText" layoutX="252.0" layoutY="67.0" prefHeight="46.0" prefWidth="338.0" />
-            <Button fx:id="btnBack" layoutX="519.0" layoutY="222.0" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="61.0" prefWidth="92.0" text="Volver" />
-            <Label fx:id="lblPokeballs" layoutX="444.0" layoutY="23.0" prefHeight="17.0" prefWidth="167.0" text="Pokeballs disponibles">
+            <ImageView fx:id="imgPokemon" fitHeight="275.0" fitWidth="176.0" layoutX="14.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball" fitHeight="161.0" fitWidth="167.0" layoutX="190.0" layoutY="127.0" onMouseClicked="#onTryCatchPokemon" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblNamePokemon" layoutX="14.0" layoutY="15.0" prefHeight="17.0" prefWidth="159.0" text="Name Pokemon" />
+            <Label fx:id="lblText" layoutX="183.0" layoutY="9.0" prefHeight="46.0" prefWidth="338.0" />
+            <Button fx:id="btnBack" layoutX="375.0" layoutY="208.0" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="61.0" prefWidth="92.0" text="Volver" />
+            <Label fx:id="lblPokeballs" layoutX="338.0" layoutY="68.0" prefHeight="17.0" prefWidth="167.0" text="Pokeballs disponibles">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <Label fx:id="lblLevel" layoutX="132.0" layoutY="14.0" prefHeight="18.0" prefWidth="57.0" />
+            <Button fx:id="btnChange" layoutX="352.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#onChangePokemon" prefHeight="67.0" prefWidth="138.0" text="Cambiar de Pokémon" />
+            <Label fx:id="lblLevel" layoutX="14.0" layoutY="32.0" prefHeight="17.0" prefWidth="176.0" text="Level Pokemon" />
       </children>
     </AnchorPane>
   </children>

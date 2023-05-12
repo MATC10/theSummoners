@@ -27,6 +27,12 @@ public class Catch {
     private Button btnBack;
 
     @FXML
+    private Button btnChange;
+
+    @FXML
+    private Label lblLevel;
+
+    @FXML
     private ImageView imgPokeball;
 
     @FXML
@@ -40,9 +46,6 @@ public class Catch {
 
     @FXML
     private Label lblText;
-
-    @FXML
-    private Label lblLevel;
 
     private Parent root;
     private Scene scene;
@@ -86,7 +89,7 @@ public class Catch {
         imgPokemon.setImage(image2);
 
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
-        lblLevel.setText("Level: " +p.getLevel());
+        lblLevel.setText("Nivel: " +p.getLevel());
 
     }
 
@@ -109,5 +112,44 @@ public class Catch {
         Trainer.getTrainer().capture(p, lblText, lblPokeballs);
 
 
+    }
+
+    @FXML
+    void onChangePokemon(MouseEvent event) throws CloneNotSupportedException {
+
+        Random random = new Random();
+        //AQUÍ HABRÁ UN POKEMON ALEATORIO
+
+
+
+        //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
+
+
+        //CLONAMOS EN p EL NUEVO POKEMON
+        p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
+
+        //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
+        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
+
+        //SE ADAPTAN LOS MOVIMIENTOS DEL POKÉMON SEGÚN EL NIVEL
+        if(p.getLevel() >= 10){
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+            p.getLearnedMovement()[3] = MovementInitializer.movementListFull().get(random.nextInt(10)+21);
+        }
+        else if(p.getLevel() >= 7){
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+        }
+        else if(p.getLevel() >= 4)
+            p.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+
+
+        File file = new File(p.getImage());
+        Image image = new Image(file.toURI().toString());
+        imgPokemon.setImage(image);
+
+        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
+        lblLevel.setText("Level: " +p.getLevel());
     }
 }
