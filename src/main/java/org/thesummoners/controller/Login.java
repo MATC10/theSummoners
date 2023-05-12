@@ -7,10 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.thesummoners.model.trainer.Trainer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -21,6 +24,12 @@ public class Login {
     private TextField txtPass;
     @FXML
     private Button btnLogin;
+
+    @FXML
+    private ImageView imgLogo;
+
+    @FXML
+    private ImageView imgLogo2;
     @FXML
     private Label lblStatus;
     @FXML
@@ -32,9 +41,18 @@ public class Login {
     private Scene scene;
     private Stage stage;
 
+    public void initialize(){
+        File file = new File("doc/images/otherimages/TheSummoners_logo.png");
+        Image image = new Image(file.toURI().toString());
+        imgLogo.setImage(image);
 
+        File file2 = new File("doc/images/otherimages/TheSummonersfondo.png");
+        Image image2 = new Image(file2.toURI().toString());
+        imgLogo2.setImage(image2);
+    }
     @FXML
     public void Login(ActionEvent event) throws IOException {
+
         //Si el el usuario es el mismo que el nombre del Trainer registrado anteriormente y que la contraseña del
         //Trainer, entonces puede acceder al MainWindow
 

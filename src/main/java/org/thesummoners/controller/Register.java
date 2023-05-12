@@ -7,9 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.thesummoners.model.trainer.Trainer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -18,6 +21,8 @@ public class Register {
     private TextField txtUser;
     @FXML
     private TextField txtPass;
+    @FXML
+    private ImageView imgPurple;
     @FXML
     private TextField txtPass2;
     @FXML
@@ -32,6 +37,11 @@ public class Register {
     private Stage stage;
 
 
+    public void initialize() {
+        File file = new File("doc/images/otherimages/TheSummonersfondo.png");
+        Image image = new Image(file.toURI().toString());
+        imgPurple.setImage(image);
+    }
 
     //Si la contraseña 1 y 2 coinciden y el usuario no es null, se procede al registro y se vuelve al login
     //Y se guardan estas credenciales en los atributos del Trainer.

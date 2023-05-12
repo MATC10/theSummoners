@@ -41,6 +41,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -86,20 +88,30 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane prefHeight="390.0" prefWidth="453.0" VBox.vgrow="ALWAYS">
       <children>
-            <TextField fx:id="txtUser" layoutX="147.0" layoutY="100.0" promptText="Usuario" />
-            <Label layoutX="147.0" layoutY="75.0" text="Nombre de usuario" />
-            <Label layoutX="147.0" layoutY="141.0" text="Contraseña" />
-            <PasswordField fx:id="txtPass" layoutX="147.0" layoutY="166.0" promptText="Contraseña" />
-            <Button fx:id="btnLogin" layoutX="198.0" layoutY="209.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-            <Hyperlink fx:id="hlRegister" layoutX="118.0" layoutY="301.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
-            <Label fx:id="lblStatus" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="103.0" text="Desconectado" textFill="RED">
+            <ImageView fx:id="imgLogo2" fitHeight="397.0" fitWidth="540.0" layoutX="-23.0" layoutY="-8.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../doc/images/otherimages/TheSummonersfondo.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtUser" layoutX="140.0" layoutY="198.0" promptText="Usuario" />
+            <Label layoutX="140.0" layoutY="173.0" text="Nombre de usuario" textFill="WHITE" />
+            <Label layoutX="140.0" layoutY="239.0" text="Contraseña" textFill="WHITE" />
+            <PasswordField fx:id="txtPass" layoutX="140.0" layoutY="264.0" promptText="Contraseña" />
+            <Button fx:id="btnLogin" layoutX="192.0" layoutY="297.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+            <Hyperlink fx:id="hlRegister" layoutX="111.0" layoutY="341.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
+            <Label fx:id="lblStatus" layoutX="26.0" layoutY="17.0" prefHeight="18.0" prefWidth="103.0" text="Desconectado" textFill="RED">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblConnectedOrNot" layoutX="130.0" layoutY="255.0" prefHeight="18.0" prefWidth="179.0" textFill="RED" />
+            <Label fx:id="lblConnectedOrNot" layoutX="125.0" layoutY="323.0" prefHeight="18.0" prefWidth="179.0" textFill="WHITE" />
+            <ImageView fx:id="imgLogo" fitHeight="143.0" fitWidth="143.0" layoutX="139.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../doc/images/otherimages/TheSummoners_logo.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>
