@@ -375,15 +375,27 @@ public class Trainer {
                         getPokemonTeam()[i] = pokemon.clone();
                         lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+                        //LOGGER
+                        try (Logger logger = new Logger()) {
+                            logger.log("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
+                        }
                         break;
                     }
                 }
             }
             else pokemonPcBill.add(pokemon.clone());
             lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
+            //LOGGER
+            try (Logger logger = new Logger()) {
+                logger.log("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
+            }
         }
         else {
             lblText.setText("No capturado!");
+            //LOGGER
+            try (Logger logger = new Logger()) {
+                logger.log("Pokémon no capturado");
+            }
         }
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
 
@@ -573,6 +585,12 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
                 int dollars = Trainer.getTrainer().getPokedollar() - (Trainer.getTrainer().getPokedollar()/3);
                 Trainer.getTrainer().setPokedollar(dollars);
                 Trainer.getTrainer().getSentencesTextFight().add("Has perdido un tercio de tus Pokedollars");
+
+                //LOGGER
+                try (Logger logger = new Logger()) {
+                    logger.log("¡HAS PERDIDO EL COMBATE!" + "Tus Pokémon no recibirán experiencia" + "Has perdido un tercio de tus Pokedollars");
+                }
+
                 Trainer.getTrainer().getSentencesTextFight().add("Te quedan " + dollars + " Pokedollars");
                 btnMove1.setDisable(true);
                 btnMove2.setDisable(true);

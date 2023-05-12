@@ -124,6 +124,10 @@ public class Fight {
 
     @FXML
     public void initialize() throws CloneNotSupportedException, InterruptedException {
+        //LOGGER
+        try (Logger logger = new Logger()) {
+            logger.log("¡Has iniciado un combate Pokémon!");
+        }
         btnMove5.setDisable(true);
         //TODO PONERLO EN TRUE AL ACABAR LAS MECÁNICAS DE COMBATE
         toMainWindow.setDisable(false);

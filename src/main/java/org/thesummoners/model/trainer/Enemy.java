@@ -271,6 +271,12 @@ public class Enemy {
                     Trainer.getTrainer().getPokemon1().levelUp(index);
                     Trainer.getTrainer().getSentencesTextFight().add("¡" + Trainer.getTrainer().getPokemon1().getDisplayName() +
                             " ha ganado " + index + " de experiencia!");
+                    //LOGGER
+                    try (Logger logger = new Logger()) {
+                        logger.log("¡HAS GANADO EL COMBATE!" + "¡" + Trainer.getTrainer().getPokemon1().getDisplayName() +
+                                " ha ganado " + index + " de experiencia!");
+                    }
+
                     //EL ENTRENADOR GANA UN NÚMERO ALEATORIO DE POKEDOLLARS ENTRE 250 Y 350
                     index = random.nextInt(101)+250;
                     Trainer.getTrainer().setPokedollar(index);
