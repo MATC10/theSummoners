@@ -41,9 +41,19 @@ public class Login implements Initializable {
     private Scene scene;
     private Stage stage;
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
+        //Pokedex.setPokedex((ObservableList<Pokemon>) miLista);
+        PokemonCRUD.updatePokemon();
+        System.out.println(miLista.toString());
+        for( Pokemon p : miLista){
+            Pokedex.getPokedex().add(p);
+        }
+    }
     @FXML
     public void login(ActionEvent event) throws IOException {
+
         //Si el el usuario es el mismo que el nombre del Trainer registrado anteriormente y que la contraseña del
         //Trainer, entonces puede acceder al MainWindow
 
@@ -70,8 +80,5 @@ public class Login implements Initializable {
         stage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Pokedex.setPokedex((ObservableList<Pokemon>) PokemonCRUD.readPokemon());
-    }
+
 }

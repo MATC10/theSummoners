@@ -13,23 +13,24 @@ public class Pokedex {
     //TIPOS FUERTES CONTRA OTROS
 
 
-    public static ObservableList<Pokemon> getPokedex() throws CloneNotSupportedException {
-        pokedex.clear();
-        pokedex.add(new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null));
-        pokedex.add(new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.FIRE, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Venusaur", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,1, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0, null));
-        return pokedex;
+    public static ObservableList<Pokemon> getPokedex() {
+        //pokedex.clear();
+        /*pokedex.add(new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0));
+        pokedex.add(new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0));
+        pokedex.add(new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.FIRE, null, State.ALIVE, Sex.F, 0));
+        pokedex.add(new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0));
+        pokedex.add(new Pokemon("Venusaur", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,1, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0));
+        */return pokedex;
     }
 
     public static void setPokedex(ObservableList<Pokemon> pokedex) {
         Pokedex.pokedex = pokedex;
     }
 
+
     public static HashMap<Type, List<Type>> getStrong() {
         if(strong == null){
-            strong.put(Type.NORMAL, Arrays.asList(Type.NULL));
+            strong.put(Type.NORMAL, Arrays.asList(Type.NOTHING));
             strong.put(Type.FIRE, Arrays.asList(Type.GRASS, Type.ICE, Type.BUG));
             strong.put(Type.WATER, Arrays.asList(Type.FIRE, Type.GROUND, Type.ROCK));
             strong.put(Type.ELECTRIC, Arrays.asList(Type.WATER, Type.FLYING));
@@ -68,8 +69,8 @@ public class Pokedex {
             weak.put(Type.PSYCHIC, Arrays.asList(Type.PSYCHIC));
             weak.put(Type.BUG, Arrays.asList(Type.GHOST, Type.FIRE, Type.FIGHTING, Type.FLYING));
             weak.put(Type.ROCK, Arrays.asList(Type.FIGHTING, Type.GROUND));
-            weak.put(Type.GHOST, Arrays.asList(Type.NULL));
-            weak.put(Type.DRAGON, Arrays.asList(Type.NULL));
+            weak.put(Type.GHOST, Arrays.asList(Type.NOTHING));
+            weak.put(Type.DRAGON, Arrays.asList(Type.NOTHING));
         }
         return weak;
 

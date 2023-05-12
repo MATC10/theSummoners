@@ -29,7 +29,7 @@ public class PokemonCRUD {
                 String name = resultSet.getString("name");
                 int idPokedex = resultSet.getInt("ID_Pokedex");
                 String image = resultSet.getString("Image");
-                String imageBack = resultSet.getString("ID_Pokedex");
+                String imageBack = resultSet.getString("Image_Back");
                 int hp = resultSet.getInt("HP");
                 int level = resultSet.getInt("Level");
                 int attackPower = resultSet.getInt("AttackPower");
@@ -45,8 +45,8 @@ public class PokemonCRUD {
                 int experience = resultSet.getInt("experience");
 
                 listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
-                                                specialAttack,defense,specialDefense,speed,stamina,Type.valueOf(type1),Type.valueOf(type2),
-                                                State.valueOf(state), Sex.valueOf(sex), experience));
+                        specialAttack,defense,specialDefense,speed,stamina,Type.valueOf(type1),Type.valueOf(type2),
+                        State.valueOf(state), Sex.valueOf(sex), experience));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

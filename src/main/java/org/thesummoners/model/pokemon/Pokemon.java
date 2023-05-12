@@ -48,7 +48,7 @@ public class Pokemon implements Cloneable {
     private Objeto objeto;
 
 
-    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience, Objeto objeto) {
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience) {
         this.name = name;
         this.idPokedex = idPokedex;
         this.image = image;
