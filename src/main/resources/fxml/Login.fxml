@@ -92,7 +92,7 @@
             <Label layoutX="147.0" layoutY="75.0" text="Nombre de usuario" />
             <Label layoutX="147.0" layoutY="141.0" text="Contraseña" />
             <PasswordField fx:id="txtPass" layoutX="147.0" layoutY="166.0" promptText="Contraseña" />
-            <Button fx:id="btnLogin" layoutX="198.0" layoutY="209.0" mnemonicParsing="false" onAction="#Login" text="Login" />
+            <Button fx:id="btnLogin" layoutX="198.0" layoutY="209.0" mnemonicParsing="false" onAction="#login" text="Login" />
             <Hyperlink fx:id="hlRegister" layoutX="118.0" layoutY="301.0" onAction="#hlRegister" text="¿No estás registrado? Regístrate aquí" />
             <Label fx:id="lblStatus" layoutX="14.0" layoutY="14.0" prefHeight="18.0" prefWidth="103.0" text="Desconectado" textFill="RED">
                <font>
