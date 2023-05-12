@@ -529,12 +529,12 @@ public void overwritesMovement(){
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pokemon pokemon = (Pokemon) o;
-        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && attackPower == pokemon.attackPower && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && experience == pokemon.experience && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && Objects.equals(displayName, pokemon.displayName) && Objects.equals(image, pokemon.image) && Objects.equals(imageBack, pokemon.imageBack) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
+        return idPokemon == pokemon.idPokemon && idPokedex == pokemon.idPokedex && hp == pokemon.hp && level == pokemon.level && attackPower == pokemon.attackPower && fertility == pokemon.fertility && specialAttack == pokemon.specialAttack && defense == pokemon.defense && specialDefense == pokemon.specialDefense && speed == pokemon.speed && stamina == pokemon.stamina && experience == pokemon.experience && Objects.equals(name, pokemon.name) && Objects.equals(nickName, pokemon.nickName) && Objects.equals(displayName, pokemon.displayName) && Objects.equals(image, pokemon.image) && Objects.equals(imageBack, pokemon.imageBack) && type1 == pokemon.type1 && type2 == pokemon.type2 && state == pokemon.state && sex == pokemon.sex && Arrays.equals(learnedMovement, pokemon.learnedMovement) && Objects.equals(objeto, pokemon.objeto);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(idPokemon, idPokedex, name, nickName, displayName, image, imageBack, hp, level, attackPower, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, experience, objeto);
+        int result = Objects.hash(idPokemon, idPokedex, name, nickName, displayName, image, imageBack, hp, level, attackPower, fertility, specialAttack, defense, specialDefense, speed, stamina, type1, type2, state, sex, experience, objeto);
         result = 31 * result + Arrays.hashCode(learnedMovement);
         return result;
     }

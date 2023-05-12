@@ -1,21 +1,25 @@
 package org.thesummoners.model.pokemon;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.thesummoners.model.objeto.Objeto;
+import org.thesummoners.model.objeto.ObjetoInitializer;
 
 class PokemonTest {
 
     private static Pokemon p;
 
     @Test
-    void assignMovement() {
+    void minimumHp (){
+            p.setHp(-200);
+            p.minimumHp();
+            Assertions.assertEquals(0, p.getHp());
     }
 
-    @Test
-    void rest() {
-    }
 
     @Test
     void levelUp() {
@@ -27,17 +31,21 @@ class PokemonTest {
         }
     }
 
-    @Test
-    void train() {
-
-    }
 
     @Test
-    void adaptStatsToLevel() {
+    void adaptStatsToLevel() throws CloneNotSupportedException {
+        Assertions.assertEquals(145 , p.getHp());
+        p.setLevel(10);
+        p.adaptStatsToLevel(p.getLevel(),p);
+        Assertions.assertEquals(345 , p.getHp());
     }
 
     @Test
     void changeDisplayName() {
+        Assertions.assertEquals(p.getName() , p.getDisplayName());
+        p.setNickName("siuuu");
+        p.changeDisplayName();
+        Assertions.assertEquals(p.getDisplayName() , p.getNickName());
     }
 
     @Test
@@ -53,8 +61,14 @@ class PokemonTest {
     }
 
     @Test
-    void statisticsWithoutObjeto() {
+    void statisticsWithObjeto() {
+        Objeto pesa = new Objeto("pesa");
+        Assertions.assertEquals(45, p.getSpeed());
+        p.statisticsWithObjeto(p, pesa);
+        Assertions.assertEquals(36 , p.getSpeed());
     }
+
+
 
     @BeforeAll
     static void createPokemon() throws CloneNotSupportedException {
