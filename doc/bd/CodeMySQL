@@ -1,0 +1,40 @@
+
+Create table Objeto (
+    id_objeto integer(25) PRIMARY KEY,
+    name varchar (25),
+    attack decimal(25),
+    specialAttack decimal(25),
+    defense decimal(25),
+    speciaDefense decimal(25),
+    speed decimal(25),
+    stamina decimal(25)
+    );
+
+create table pokemon (
+    Id_Pokemon integer(25) primary KEY,
+    Id_Pokedex integer(25),
+    name varchar (25),
+    nickname varchar(25),
+    displayName varchar(25),
+    image varchar(25),
+    imageBack varchar(25),
+    hp integer(25),
+    level integer (25),
+    fertility integer (25),
+    attackpower integer(25),
+    specialAttack integer(25),
+    defense integer (25),
+    specialDefense integer(25),
+    speed integer(25),
+    stamina integer(25),
+    experiencia integer(25),
+    health integer (25)
+    );
+
+create table trainer (
+    name varchar(25),
+    password varchar(25),
+    pokedollar integer(25),
+    pokebal integer(25)
+    );
+
