@@ -10,8 +10,11 @@ public class Logger implements AutoCloseable {
     private BufferedWriter writer;
 
     public Logger() {
+
+
         try {
-            writer = new BufferedWriter(new FileWriter("log.txt", true));
+            String filePath = "doc/logs/log.txt";
+            writer = new BufferedWriter(new FileWriter(filePath, true));
         } catch (IOException e) {
             e.printStackTrace();
         }
