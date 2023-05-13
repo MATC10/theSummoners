@@ -71,7 +71,7 @@ public class AttackMovement extends Movement {
 
 
                 //CALCULAMOS LA CANTIDAD DE DAÑO DE ATAQUE SUMADO SEGÚN LOS TIPOS DE POKÉMON
-                summedAmountDamage += (baseDamage * Pokedex.compareAdvantage(pokemon1, pokemon2, movement) - baseDamage);
+                summedAmountDamage += (baseDamage * Pokedex.compareAdvantage(pokemon1, pokemon2) - baseDamage);
 
                 baseDamage += summedAmountDamage;
                 finalDamage = baseDamage - defense;

@@ -50,8 +50,8 @@ public class Login {
     private Scene scene;
     private Stage stage;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    public void initialize() {
         File file = new File("doc/images/otherimages/TheSummoners_logo.png");
         Image image = new Image(file.toURI().toString());
         imgLogo.setImage(image);
