@@ -22,3 +22,13 @@
 2023-05-13 15:36:11 - Pokémon no capturado
 2023-05-13 15:36:12 - ¡Has capturado a Charmander,el Pokémon se ha enviado a tu equipo!
 2023-05-13 15:36:12 - ¡Has capturado a Charmander, el Pokémon se ha enviado a PC de Bill!
+2023-05-13 18:39:44 - ¡Has iniciado un combate Pokémon!
+2023-05-13 18:40:06 - Pokémon no capturado
+2023-05-13 18:40:06 - ¡Has capturado a Charmander,el Pokémon se ha enviado a tu equipo!
+2023-05-13 18:40:06 - ¡Has capturado a Charmander, el Pokémon se ha enviado a PC de Bill!
+2023-05-13 18:40:07 - Pokémon no capturado
+2023-05-13 18:40:08 - ¡Has capturado a Bulbasaur,el Pokémon se ha enviado a tu equipo!
+2023-05-13 18:40:08 - ¡Has capturado a Bulbasaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-13 18:40:14 - ¡Has capturado a Squirtle,el Pokémon se ha enviado a tu equipo!
+2023-05-13 18:40:14 - ¡Has capturado a Squirtle, el Pokémon se ha enviado a PC de Bill!
+2023-05-13 18:40:14 - Pokémon no capturado
