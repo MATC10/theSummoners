@@ -1,8 +1,10 @@
 package org.thesummoners.controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,11 +13,18 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.thesummoners.bd.MySQLConnection;
+import org.thesummoners.bd.PokemonCRUD;
+import org.thesummoners.model.pokemon.Pokedex;
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class Login {
     @FXML
@@ -41,7 +50,8 @@ public class Login {
     private Scene scene;
     private Stage stage;
 
-    public void initialize(){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         File file = new File("doc/images/otherimages/TheSummoners_logo.png");
         Image image = new Image(file.toURI().toString());
         imgLogo.setImage(image);
@@ -49,6 +59,16 @@ public class Login {
         File file2 = new File("doc/images/otherimages/TheSummonersfondo.png");
         Image image2 = new Image(file2.toURI().toString());
         imgLogo2.setImage(image2);
+
+        LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
+        //Pokedex.setPokedex((ObservableList<Pokemon>) miLista);
+        PokemonCRUD.updatePokemon();
+        System.out.println(miLista.toString());
+        for( Pokemon p : miLista){
+            Pokedex.getPokedex().add(p);
+        }
+
+
     }
     @FXML
     public void Login(ActionEvent event) throws IOException {
