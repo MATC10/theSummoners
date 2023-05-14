@@ -210,7 +210,7 @@ public class Trainer {
         }
     }
 
-    public String pokemonBreeding(int n){
+    public boolean pokemonBreeding(int n){
         int counter = 0;
         for(Pokemon p: pokemonTeam){
             if(p != null){
@@ -218,7 +218,7 @@ public class Trainer {
             }
         }
         if(counter < 2){
-            return "Necesitas tener al menos 2 Pokémon en el equipo";
+            return false;
         }
         else{
             if(Trainer.getTrainer().getPokemonTeam()[n].getFertility() > 0) {
@@ -228,13 +228,13 @@ public class Trainer {
                     else if (pokemonToBreed[1] == null)
                         pokemonToBreed[1] = getTrainer().getPokemonTeam()[n];
                     else
-                        return "Ya has seleccionado los 2 pokemon";
+                        return false;
                 } else
-                    return "El Pokemon debe ser mínimo nivel 5 para criar";
+                    return false;
             }else
-                return "El pokemon no tiene fertilidad";
-            return "Enhorabuena ...";
+                return false;
         }
+        return true;
     }
 
     public void BreedingPay() throws CloneNotSupportedException {

@@ -1,10 +1,14 @@
 package org.thesummoners.model.trainer;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.thesummoners.model.pokemon.Pokemon;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class TrainerTest {
+    private Trainer t;
+    private static Pokemon p;
 
     @Test
     void dragPokemonIntoBox() {
@@ -16,6 +20,10 @@ class TrainerTest {
 
     @Test
     void pokemonBreeding() {
+        p.setFertility(0);
+        Assertions.assertEquals(false, );
+
+
     }
 
     @Test

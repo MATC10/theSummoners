@@ -103,7 +103,7 @@ public class Pokemon implements Cloneable {
         //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
         this.learnedMovement[0] = placaje;
 
-        this.objeto = objeto;
+
         counterPokemon ++;
         this.idPokemon = counterPokemon;
         changeDisplayName();
@@ -139,7 +139,10 @@ public class Pokemon implements Cloneable {
     }
 
     public void setFertility(int fertility) {
-        this.fertility = fertility;
+        if(fertility > 5)
+            this.fertility = 5;
+        else
+            this.fertility = fertility;
     }
 
     public String getName() {
