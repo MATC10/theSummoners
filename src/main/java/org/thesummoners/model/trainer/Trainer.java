@@ -307,4 +307,8 @@ public class Trainer {
 
     public void addToTeam(Pokemon staryu) {
     }
+
+    public boolean getPokemon1() {
+        return false;
+    }
 }
