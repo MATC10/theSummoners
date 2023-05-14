@@ -20,10 +20,6 @@ class TrainerTest {
 
     @Test
     void pokemonBreeding() {
-        p.setFertility(0);
-        Assertions.assertEquals(false, );
-
-
     }
 
     @Test
