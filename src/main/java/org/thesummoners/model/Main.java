@@ -1,5 +1,5 @@
 package org.thesummoners.model;
-import DataBase.PokeConnection;
+import org.thesummoners.DataBase.PokeConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.sql.*;
+import static javafx.application.Application.launch;
 
 public class Main extends Application {
     @Override
@@ -20,4 +20,8 @@ public class Main extends Application {
         stage.show();
     }
     PokeConnection pokeConnection = new PokeConnection();
+
+    void launch() {
+    }
+
 }

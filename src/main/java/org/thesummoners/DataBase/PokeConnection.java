@@ -1,9 +1,11 @@
-package DataBase;
+package org.thesummoners.DataBase;
+
+import org.thesummoners.model.Main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import javafx.application.Application;
 import static javafx.application.Application.launch;
 
 public class PokeConnection {
@@ -25,6 +27,5 @@ public class PokeConnection {
         catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        launch();
     }
 }
