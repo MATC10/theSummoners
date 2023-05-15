@@ -10,19 +10,15 @@ class PokemonTest {
     public void LevelUp() {
 
         Pokemon pokemon = new Pokemon("", 50);
-
         pokemon.levelUp(30);
         assertEquals(1, pokemon.getLevel());
         assertEquals(80, pokemon.getExperience());
-
         pokemon.levelUp(70);
         assertEquals(2, pokemon.getLevel());
         assertEquals(50, pokemon.getExperience());
-
         pokemon.levelUp(150);
         assertEquals(3, pokemon.getLevel());
         assertEquals(50, pokemon.getExperience());
-
         assertThrows(IllegalArgumentException.class, () -> pokemon.levelUp(-10));
     }
     @Test
