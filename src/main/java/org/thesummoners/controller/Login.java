@@ -1,10 +1,8 @@
 package org.thesummoners.controller;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.thesummoners.bd.MySQLConnection;
 import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -50,16 +47,7 @@ public class Login {
     private Scene scene;
     private Stage stage;
 
-
-    public void initialize() {
-        File file = new File("doc/images/otherimages/TheSummoners_logo.png");
-        Image image = new Image(file.toURI().toString());
-        imgLogo.setImage(image);
-
-        File file2 = new File("doc/images/otherimages/TheSummonersfondo.png");
-        Image image2 = new Image(file2.toURI().toString());
-        imgLogo2.setImage(image2);
-
+    public void initialize() throws CloneNotSupportedException {
         LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
         //Pokedex.setPokedex((ObservableList<Pokemon>) miLista);
         PokemonCRUD.updatePokemon();
@@ -68,7 +56,13 @@ public class Login {
             Pokedex.getPokedex().add(p);
         }
 
+        File file = new File("doc/images/otherimages/TheSummoners_logo.png");
+        Image image = new Image(file.toURI().toString());
+        imgLogo.setImage(image);
 
+        File file2 = new File("doc/images/otherimages/TheSummonersfondo.png");
+        Image image2 = new Image(file2.toURI().toString());
+        imgLogo2.setImage(image2);
     }
     @FXML
     public void Login(ActionEvent event) throws IOException {
@@ -86,7 +80,7 @@ public class Login {
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
             stage.show();
-            }
+        }
         else lblConnectedOrNot.setText("Usuario o contraseña incorrectos");
     }
 

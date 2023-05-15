@@ -42,7 +42,7 @@ public class StateMovement extends Movement{
         this.numberOfTurnsDuration = random.nextInt(4)+1;
     }
 
-//TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
+    //TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
 //TODO SEGÚN EL QUE SEA
     public static void stateCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws InterruptedException {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
@@ -57,7 +57,7 @@ public class StateMovement extends Movement{
                 if(pokemon2.getState() == State.POISONED ||
                         pokemon2.getState() == State.FROZEN || pokemon2.getState() == State.ASLEEP ||
                         pokemon2.getState() == State.BURNED) {
-                        Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " ya se encuentra afectado por otro estado");
+                    Trainer.getTrainer().getSentencesTextFight().add(pokemon2.getDisplayName() + " ya se encuentra afectado por otro estado");
                 }
                 else{
                     //CAMBIAMOS EL ESTADO DEL POKÉMON ENEMIGO AL ESTADO QUE APLICA EL MOVIMIENTO
@@ -75,9 +75,9 @@ public class StateMovement extends Movement{
                     pokemon2.setState(stateMovement.getStateToApply());
                     Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ha usado el movimiento " + movement.getName());
                 }
-                }
-                else{
-                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
+            }
+            else{
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " no puede moverse porque se encuentra paralizado");
             }
 
         }
