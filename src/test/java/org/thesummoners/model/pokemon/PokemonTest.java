@@ -6,8 +6,11 @@ import javafx.scene.control.Label;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
+
+import java.util.LinkedList;
 
 class PokemonTest {
 
@@ -73,5 +76,14 @@ class PokemonTest {
     @BeforeAll
     static void createPokemon() throws CloneNotSupportedException {
         p = new Pokemon ("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0);
+
+
+
+        LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
+        PokemonCRUD.updatePokemon();
+        System.out.println(miLista.toString());
+        for( Pokemon p : miLista){
+            Pokedex.getPokedex().add(p);
+        }
     }
 }

@@ -381,6 +381,7 @@ public class Pokemon implements Cloneable {
 
             for (Pokemon p : Pokedex.getPokedex()) {
                 if (pokemon.getName().equals(p.getName())) {
+                    System.out.println(p.getName());
                     newPokemon = p.clone();
                 }
             }
@@ -398,7 +399,7 @@ public class Pokemon implements Cloneable {
                 pokemon.setHp(newPokemon.getHp() + (level * 20));
                 pokemon.setAttackPower(newPokemon.getAttackPower() + (level / 5));
                 pokemon.setSpecialAttack(newPokemon.getSpecialAttack() + (level / 5));
-                pokemon.setSpecialAttack(newPokemon.getDefense() + (level / 5));
+                pokemon.setDefense(newPokemon.getDefense() + (level / 5));
                 pokemon.setSpecialDefense(newPokemon.getSpecialDefense() + (level / 5));
                 pokemon.setSpeed(newPokemon.getSpeed() + (level / 5));
                 pokemon.setStamina(newPokemon.getStamina() + (level / 5));
@@ -407,7 +408,7 @@ public class Pokemon implements Cloneable {
                 pokemon.setHp(newPokemon.getHp());
                 pokemon.setAttackPower(newPokemon.getAttackPower());
                 pokemon.setSpecialAttack(newPokemon.getSpecialAttack());
-                pokemon.setSpecialAttack(newPokemon.getDefense());
+                pokemon.setDefense(newPokemon.getDefense());
                 pokemon.setSpecialDefense(newPokemon.getSpecialDefense());
                 pokemon.setSpeed(newPokemon.getSpeed());
                 pokemon.setStamina(newPokemon.getStamina());
