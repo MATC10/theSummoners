@@ -85,7 +85,7 @@ public class Enemy {
         enemyTeam = new Pokemon[random.nextInt(3)+1];
         //el nivel del pokemon enemigo tiene que ser del mismo nivel que tu primer
         //pokemon de Trainer.pokemonTeam
-            //sacamos el nivel del primer pokemon del equipo Pokémon del Trainer
+        //sacamos el nivel del primer pokemon del equipo Pokémon del Trainer
         this.pokemonTrainerLevel = Trainer.getTrainer().getPokemonTeam()[0].getLevel();
 
 
@@ -99,7 +99,7 @@ public class Enemy {
             for(int j = 1; j <= 3; j++){
                 this.enemyTeam[i].getLearnedMovement()[j] = MovementInitializer.movementListFull().get(random.nextInt(30));
             }
-            }
+        }
         return enemyTeam;
     }
 
@@ -146,11 +146,11 @@ public class Enemy {
                 pokemon2.setStamina(pokemon2.getStamina() - movement.getStamina());
 
                 changePokemonInFightEnemy( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
-                         btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
+                        btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
                 Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer,
                         imgTrainerPokemon, lblStateTrainer,  imgPokeball1Trainer,  imgPokeball2Trainer,
-                         imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
-                         btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
+                        imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
+                        btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
 //TODO CONTROLAR LO DE REST Y LA ESTAMINA
             }
             else {
@@ -182,7 +182,7 @@ public class Enemy {
                 "Científico loco", "Calvo con cresta", "Súper nerd", "Pokecolector", "Malabarista"};
 
         imageEnemy = new String[] {"doc/images/pescador.png", "doc/images/entreGuay.png", "doc/images/marinero.png",
-                 "doc/images/cazaBichos.png", "doc/images/pokemaniaco.png",
+                "doc/images/cazaBichos.png", "doc/images/pokemaniaco.png",
                 "doc/images/cientifico.png", "doc/images/calvo.png", "doc/images/superNerd.png", "doc/images/pokecolector.png",
                 "doc/images/malabarista.png"};
 
@@ -217,7 +217,7 @@ public class Enemy {
     public void changePokemonInFightEnemy(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
                                           Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy,
                                           Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
-                                           ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
+                                          ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
                                           Button btnMove5) throws CloneNotSupportedException {
 
         Random random = new Random();
@@ -262,7 +262,7 @@ public class Enemy {
                     Trainer.getTrainer().getSentencesTextFight().add("¡" + this.pokemon2.getDisplayName() + " ha entrado en combate!");
                     break;
                 }
-               else if(index >= enemyTeam.length){
+                else if(index >= enemyTeam.length){
                     //EXPERIENCIA ALEATORIA ENTRE 90 Y 110
                     index = random.nextInt(21)+90;
 

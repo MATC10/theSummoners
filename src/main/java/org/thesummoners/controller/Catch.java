@@ -91,6 +91,7 @@ public class Catch {
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
         lblLevel.setText("Nivel: " +p.getLevel());
 
+        lblNamePokemon.setText("Nombre: " + p.getName());
     }
 
     @FXML
@@ -151,5 +152,7 @@ public class Catch {
 
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
         lblLevel.setText("Level: " +p.getLevel());
+
+        lblNamePokemon.setText("Nombre: " + p.getName());
     }
 }

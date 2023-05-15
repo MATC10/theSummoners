@@ -74,7 +74,7 @@ public class Pokemon implements Cloneable {
      * @param state
      * @param sex
      * @param experience
-     * @param objeto
+     *
      */
 
 
@@ -489,11 +489,11 @@ public class Pokemon implements Cloneable {
             lblText.setText(this.getDisplayName() + " ha aprendido el movimiento " + this.getLearnedMovement()[3].getName());
             btnMove4.setText(this.getLearnedMovement()[3].getName());
         }
-        }
+    }
 
-public void overwritesMovement(){
+    public void overwritesMovement(){
 
-}
+    }
 
     public void learnMoveInTrainWindow(Label lblText, Button btnLearnMove, Button btnP1, Button btnP2,
                                        Button btnP3, Button btnP4, Button btnP5, Button btnP6,

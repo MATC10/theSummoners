@@ -264,7 +264,7 @@ public class Trainer {
                       Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon,
                       Label lblStateTrainer, Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
                       Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy,
-                       Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
+                      Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,
                       ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3,
                       ImageView imgPokeball1Trainer,  ImageView imgPokeball2Trainer,
                       ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer,  ImageView imgPokeball5Trainer,
@@ -282,53 +282,53 @@ public class Trainer {
         int removeState;
         //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
 
-            State.applyState(pokemon1, staminaPokemon1, lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer,
-                    lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, lblDisplayPkEnemy,  lblHpEnemy,
-                    lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,
-                     imgPokeball1,  imgPokeball2,  imgPokeball3, imgPokeball1Trainer,  imgPokeball2Trainer,
-                    imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
+        State.applyState(pokemon1, staminaPokemon1, lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer,
+                lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, lblDisplayPkEnemy,  lblHpEnemy,
+                lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,
+                imgPokeball1,  imgPokeball2,  imgPokeball3, imgPokeball1Trainer,  imgPokeball2Trainer,
+                imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
 
 
 
-            //TODO EN ESTE PUNTO PODRÍA PREGUNTAR SI QUIERES CAMBIAR DE POKEMON
+        //TODO EN ESTE PUNTO PODRÍA PREGUNTAR SI QUIERES CAMBIAR DE POKEMON
 
-            if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
-                    pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
-                //COMPROBAR QUE TIENE STAMINA DISPONIBLE
+        if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
+                pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
+            //COMPROBAR QUE TIENE STAMINA DISPONIBLE
 
-                if(pokemon1.getStamina() >= movement.getStamina()){
-                    AttackMovement.attackCombat(pokemon1, pokemon2, movement);
-                    StateMovement.stateCombat(pokemon1, pokemon2, movement);
-                    ImproveMovement.improveCombat(pokemon1, movement);
-                    pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
+            if(pokemon1.getStamina() >= movement.getStamina()){
+                AttackMovement.attackCombat(pokemon1, pokemon2, movement);
+                StateMovement.stateCombat(pokemon1, pokemon2, movement);
+                ImproveMovement.improveCombat(pokemon1, movement);
+                pokemon1.setStamina(pokemon1.getStamina() - movement.getStamina());
 
 
-                    changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer,
-                            lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer,  imgPokeball2Trainer,
-                            imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
-                             btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
+                changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer,
+                        lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer,  imgPokeball2Trainer,
+                        imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer,
+                        btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
 
-                    Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,
-                            lblLevelEnemy, imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,
-                            toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
-                }
-                //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
-              if(pokemon1.getStamina() < 35) {
-                  //SE
-                    pokemon1.setState(State.RESTING);
-                    Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
-
-                }
+                Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,
+                        lblLevelEnemy, imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,
+                        toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
             }
-            //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
-            removeState = random.nextInt(3);
-            if((pokemon1.getState() == State.ASLEEP || pokemon1.getState() == State.FROZEN ||
-                    pokemon1.getState() == State.PARALYSED ||  pokemon1.getState() == State.BURNED ||
-                    pokemon1.getState() == State.POISONED) && pokemon1.getHp() > 0 && removeState == 0){
-                pokemon1.setState(State.ALIVE);
-                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ya no se encuentra afectado por ningún estado");
+            //AL NO TENER STAMINA PARA HACER EL ATAQUE SE PONE A DORMIR DURANTE ESTE TURNO AUTOMÁTICAMENTE
+            if(pokemon1.getStamina() < 35) {
+                //SE
+                pokemon1.setState(State.RESTING);
+                Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " se encuentra dormido para recargar Stamina");
 
             }
+        }
+        //AQUÍ SE QUITAN LOS DISTINTOS EFECTOS: PARALYSED, BURNED, POISONED, ASLEEP, FROZEN Y PASA A ALIVE SI ESTÁ VIVO
+        removeState = random.nextInt(3);
+        if((pokemon1.getState() == State.ASLEEP || pokemon1.getState() == State.FROZEN ||
+                pokemon1.getState() == State.PARALYSED ||  pokemon1.getState() == State.BURNED ||
+                pokemon1.getState() == State.POISONED) && pokemon1.getHp() > 0 && removeState == 0){
+            pokemon1.setState(State.ALIVE);
+            Trainer.getTrainer().getSentencesTextFight().add(pokemon1.getDisplayName() + " ya no se encuentra afectado por ningún estado");
+
+        }
 
         //TODO PONER UNA LABEL CON EL TURNO
 
@@ -483,62 +483,62 @@ public class Trainer {
         imgTrainerPokemon.setImage(image);
     }
 
-public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer,
-                                ImageView imgTrainerPokemon, Label lblStateTrainer,
-                                ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-                                ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws CloneNotSupportedException {
-    //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
-    lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
-    lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
-    lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
-    lblStateTrainer.setText("Estado: " + Trainer.getTrainer().getPokemon1().getState());
-    //CALCULAMOS LA VIDA MÁXIMA
-    Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
-    p1.adaptStatsToLevel(p1.getLevel(), p1);
-    lblHpMaxTrainer.setText("Vida inicial: " + p1.getHp());
+    public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer,
+                                    ImageView imgTrainerPokemon, Label lblStateTrainer,
+                                    ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
+                                    ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) throws CloneNotSupportedException {
+        //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
+        lblDisplayPkTrainer.setText(Trainer.getTrainer().getPokemon1().getDisplayName());
+        lblHpTrainer.setText("Vida: " + Trainer.getTrainer().getPokemon1().getHp());
+        lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
+        lblStateTrainer.setText("Estado: " + Trainer.getTrainer().getPokemon1().getState());
+        //CALCULAMOS LA VIDA MÁXIMA
+        Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
+        p1.adaptStatsToLevel(p1.getLevel(), p1);
+        lblHpMaxTrainer.setText("Vida inicial: " + p1.getHp());
 
-    //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
-    File file = new File(Trainer.getTrainer().getPokemon1().getImageBack());
-    Image image = new Image(file.toURI().toString());
-    imgTrainerPokemon.setImage(image);
+        //PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
+        File file = new File(Trainer.getTrainer().getPokemon1().getImageBack());
+        Image image = new Image(file.toURI().toString());
+        imgTrainerPokemon.setImage(image);
 
-    for(int i = 0; i < this.pokemonTeam.length; i++) {
-        //POKEBALL TRAINER
-        //TODO TERMINAR LOS PARAMETROS DE LA IMAGEN ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-        //                                ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer
-        if (i < this.pokemonTeam.length && this.pokemonTeam[i] == null) {
-            File file2 = new File("doc/images/PokeballDefeat.png");
-            Image image2 = new Image(file2.toURI().toString());
-            if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
-            if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
-            if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
-            if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
-            if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
-            if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
+        for(int i = 0; i < this.pokemonTeam.length; i++) {
+            //POKEBALL TRAINER
+            //TODO TERMINAR LOS PARAMETROS DE LA IMAGEN ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
+            //                                ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer
+            if (i < this.pokemonTeam.length && this.pokemonTeam[i] == null) {
+                File file2 = new File("doc/images/PokeballDefeat.png");
+                Image image2 = new Image(file2.toURI().toString());
+                if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
+                if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
+                if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
+                if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
+                if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
+                if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
 
-        }
-        if (i < this.pokemonTeam.length && this.pokemonTeam[i] != null && this.pokemonTeam[i].getHp() <= 0) {
-            File file2 = new File("doc/images/PokeballDefeat.png");
-            Image image2 = new Image(file2.toURI().toString());
-            if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
-            if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
-            if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
-            if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
-            if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
-            if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
-        }
-        if (i < this.pokemonTeam.length && this.pokemonTeam[i] != null && this.pokemonTeam[i].getHp() > 0) {
-            File file2 = new File("doc/images/Pokeball.png");
-            Image image2 = new Image(file2.toURI().toString());
-            if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
-            if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
-            if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
-            if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
-            if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
-            if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
+            }
+            if (i < this.pokemonTeam.length && this.pokemonTeam[i] != null && this.pokemonTeam[i].getHp() <= 0) {
+                File file2 = new File("doc/images/PokeballDefeat.png");
+                Image image2 = new Image(file2.toURI().toString());
+                if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
+                if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
+                if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
+                if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
+                if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
+                if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
+            }
+            if (i < this.pokemonTeam.length && this.pokemonTeam[i] != null && this.pokemonTeam[i].getHp() > 0) {
+                File file2 = new File("doc/images/Pokeball.png");
+                Image image2 = new Image(file2.toURI().toString());
+                if(i == 0 && pokemonTeam[i] != null) imgPokeball1Trainer.setImage(image2);
+                if(i == 1 && pokemonTeam[i] != null) imgPokeball2Trainer.setImage(image2);
+                if(i == 2 && pokemonTeam[i] != null) imgPokeball3Trainer.setImage(image2);
+                if(i == 4 && pokemonTeam[i] != null) imgPokeball4Trainer.setImage(image2);
+                if(i == 5 && pokemonTeam[i] != null) imgPokeball5Trainer.setImage(image2);
+                if(i == 6 && pokemonTeam[i] != null) imgPokeball6Trainer.setImage(image2);
+            }
         }
     }
-}
 
 
     public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
@@ -601,12 +601,12 @@ public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, L
 
         }
         this.changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
-                 imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
-                 imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+                imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
+                imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
 
-            this.changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
-                    imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
-                    imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
+        this.changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
+                imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
+                imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
 
     }
 

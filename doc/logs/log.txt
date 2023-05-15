@@ -22,3 +22,19 @@
 2023-05-13 15:36:11 - Pokémon no capturado
 2023-05-13 15:36:12 - ¡Has capturado a Charmander,el Pokémon se ha enviado a tu equipo!
 2023-05-13 15:36:12 - ¡Has capturado a Charmander, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 22:44:15 - ¡Has iniciado un combate Pokémon!
+2023-05-15 22:51:25 - ¡Has iniciado un combate Pokémon!
+2023-05-15 22:51:29 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars
+2023-05-15 22:53:26 - ¡Has iniciado un combate Pokémon!
+2023-05-15 22:53:36 - Pokémon no capturado
+2023-05-15 22:53:37 - ¡Has capturado a Spearow,el Pokémon se ha enviado a tu equipo!
+2023-05-15 22:53:37 - ¡Has capturado a Spearow, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 22:53:37 - Pokémon no capturado
+2023-05-15 22:53:37 - Pokémon no capturado
+2023-05-15 22:53:37 - ¡Has capturado a Machamp,el Pokémon se ha enviado a tu equipo!
+2023-05-15 22:53:37 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 22:53:37 - ¡Has capturado a Machamp,el Pokémon se ha enviado a tu equipo!
+2023-05-15 22:53:37 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 22:53:38 - ¡Has capturado a Machamp,el Pokémon se ha enviado a tu equipo!
+2023-05-15 22:53:38 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 22:53:38 - Pokémon no capturado

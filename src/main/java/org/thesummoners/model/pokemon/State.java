@@ -52,7 +52,7 @@ public enum State {
         Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer,
                 lblLevelTrainer, imgTrainerPokemon, lblStateTrainer, imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
                 imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer,
-                 btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
+                btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow);
         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,
                 imgEnemy,  lblStateEnemy,  btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow, imgPokeball1,  imgPokeball2,  imgPokeball3,
                 btnMove5);
