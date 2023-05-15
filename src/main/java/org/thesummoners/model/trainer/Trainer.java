@@ -237,7 +237,7 @@ public class Trainer {
         return true;
     }
 
-    public void BreedingPay() throws CloneNotSupportedException {
+    public boolean BreedingPay() throws CloneNotSupportedException {
         Random rd = new Random();
         Pokemon son = null;
         if (Trainer.getTrainer().getPokedollar() >= 500) {
@@ -253,9 +253,12 @@ public class Trainer {
                     break;
                 }
             }
+            return true;
         }
+        return false;
     }
     public void BreedingConfirmNickname(String mote){
+
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
     }
 
@@ -345,14 +348,18 @@ public class Trainer {
 
     public int pokeballCount(){
 
-        if(this.getPokeball() <= 0) return this.pokeball = 0;
-        else return this.pokeball;
+        if(this.getPokeball() <= 0)
+            return this.pokeball = 0;
+        else
+            return this.pokeball;
     }
 
     public int pokedollarCount(){
 
-        if(this.getPokedollar() <= 0) return this.pokedollar = 0;
-        else return this.pokedollar;
+        if(this.getPokedollar() <= 0)
+            return this.pokedollar = 0;
+        else
+            return this.pokedollar;
     }
 
     public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs) throws CloneNotSupportedException {
@@ -411,7 +418,7 @@ public class Trainer {
     }
 
     public void pokemonListToPokemonTeam (ObservableList <Pokemon> listTeamIntermediary){
-        //EPASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
+        //PASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
         // A LA ARRAY pokemonTeam
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
         for(int i = 0; i < listTeamIntermediary.size(); i++){

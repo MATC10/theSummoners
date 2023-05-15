@@ -32,6 +32,12 @@
 2023-05-13 18:40:14 - ¡Has capturado a Squirtle,el Pokémon se ha enviado a tu equipo!
 2023-05-13 18:40:14 - ¡Has capturado a Squirtle, el Pokémon se ha enviado a PC de Bill!
 2023-05-13 18:40:14 - Pokémon no capturado
+2023-05-15 00:42:04 - Pokémon no capturado
+2023-05-15 00:42:04 - ¡Has capturado a Pidgeotto,el Pokémon se ha enviado a tu equipo!
+2023-05-15 00:42:04 - ¡Has capturado a Pidgeotto, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 00:42:24 - ¡Has iniciado un combate Pokémon!
+2023-05-15 00:42:26 - ¡Has iniciado un combate Pokémon!
+2023-05-15 00:42:43 - ¡Has iniciado un combate Pokémon!
 2023-05-15 23:05:59 - ¡Has capturado a Lapras,el Pokémon se ha enviado a tu equipo!
 2023-05-15 23:05:59 - ¡Has capturado a Lapras, el Pokémon se ha enviado a PC de Bill!
 2023-05-15 23:05:59 - Pokémon no capturado
