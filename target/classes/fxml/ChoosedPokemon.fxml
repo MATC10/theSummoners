@@ -87,18 +87,24 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fx:id="imgPokemon" fitHeight="218.0" fitWidth="258.0" layoutX="191.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblTittle" layoutX="122.0" layoutY="25.0" prefHeight="28.0" prefWidth="418.0">
+            <Label fx:id="lblTittle" layoutX="122.0" layoutY="25.0" prefHeight="28.0" prefWidth="418.0" textFill="#bf6df1">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="132.0" layoutY="271.0" prefHeight="28.0" prefWidth="376.0" text="¿Quieres ponerle un mote a tu Pokémon?">
+            <Label alignment="CENTER" layoutX="132.0" layoutY="271.0" prefHeight="28.0" prefWidth="376.0" text="¿Quieres ponerle un mote a tu Pokémon?" textFill="#bf6df1">
                <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btnYes" layoutX="49.0" layoutY="307.0" mnemonicParsing="false" onAction="#toChangeNickName" prefHeight="42.0" prefWidth="270.0" text="Sí" />
-            <Button fx:id="BtnNo" layoutX="331.0" layoutY="307.0" mnemonicParsing="false" onAction="#toContinue" prefHeight="42.0" prefWidth="258.0" text="No" />
+            <Button fx:id="btnYes" layoutX="49.0" layoutY="307.0" mnemonicParsing="false" onAction="#toChangeNickName" prefHeight="42.0" prefWidth="270.0" style="-fx-background-color: BF6DF1;" text="Sí">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
+            <Button fx:id="BtnNo" layoutX="331.0" layoutY="307.0" mnemonicParsing="false" onAction="#toContinue" prefHeight="42.0" prefWidth="258.0" style="-fx-background-color: BF6DF1;" text="No">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
          </children>
     </AnchorPane>
   </children>

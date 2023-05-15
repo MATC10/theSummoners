@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Objects;
 import static javafx.application.Application.launch;
 
@@ -19,9 +20,13 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    PokeConnection pokeConnection = new PokeConnection();
-
-    void launch() {
+    //PokeConnection pokeConnection = new PokeConnection();
+    public static void main(String[] args) throws SQLException {
+        PokeConnection pokeConnection = new PokeConnection();
+        launch();
     }
+
+    /*void launch() {
+    }*/
 
 }
