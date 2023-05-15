@@ -6,19 +6,20 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Logger implements AutoCloseable{
-
+public class Logger implements AutoCloseable {
     private BufferedWriter writer;
 
-    public Logger(){
+    public Logger() {
+
 
         try {
-            String filePath = "";
-            writer = new BufferedWriter(new FileWriter(filePath,true));
-        }catch (IOException e){
+            String filePath = "doc/logs/log.txt";
+            writer = new BufferedWriter(new FileWriter(filePath, true));
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void log(String message) {
         LocalDateTime now = LocalDateTime.now();
         String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -41,6 +42,4 @@ public class Logger implements AutoCloseable{
             e.printStackTrace();
         }
     }
-
-
 }

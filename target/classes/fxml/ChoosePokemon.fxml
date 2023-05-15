@@ -85,25 +85,13 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnBulbasaur" layoutX="329.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowBulbasaur" prefHeight="138.0" prefWidth="233.0" style="-fx-background-color: BF6DF1;" text="Bulbasaur">
+            <Button fx:id="btnBulbasaur" layoutX="329.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowBulbasaur" prefHeight="138.0" prefWidth="233.0" text="Bulbasaur" />
+            <Button fx:id="btnCharmander" layoutX="328.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowCharmander" prefHeight="138.0" prefWidth="234.0" text="Charmander" />
+            <Button fx:id="btnPikachu" layoutX="77.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowPikachu" prefHeight="138.0" prefWidth="233.0" text="Pikachu" />
+            <Button fx:id="btnSquirtle" layoutX="76.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowSquirtle" prefHeight="138.0" prefWidth="234.0" text="Squirtle" />
+            <Label layoutX="100.0" layoutY="21.0" prefHeight="27.0" prefWidth="439.0" text="Elige qué Pokémon quieres para iniciar tu aventura">
                <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="btnCharmander" layoutX="328.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowCharmander" prefHeight="138.0" prefWidth="234.0" style="-fx-background-color: BF6DF1;" text="Charmander">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="btnPikachu" layoutX="77.0" layoutY="69.0" mnemonicParsing="false" onAction="#toMainWindowPikachu" prefHeight="138.0" prefWidth="233.0" style="-fx-background-color: BF6DF1;" text="Pikachu">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Button fx:id="btnSquirtle" layoutX="76.0" layoutY="221.0" mnemonicParsing="false" onAction="#toMainWindowSquirtle" prefHeight="138.0" prefWidth="234.0" style="-fx-background-color: BF6DF1;" text="Squirtle">
-               <font>
-                  <Font size="20.0" />
-               </font></Button>
-            <Label alignment="CENTER" layoutX="90.0" layoutY="21.0" prefHeight="27.0" prefWidth="461.0" text="Elige qué Pokémon quieres para iniciar tu aventura" textFill="#bf6df1">
-               <font>
-                  <Font name="Arial" size="20.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
       </children>

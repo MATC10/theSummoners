@@ -85,21 +85,24 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Button fx:id="btnMove1" layoutX="28.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove1" prefHeight="66.0" prefWidth="174.0" style="-fx-background-color: BF6DF1;" text="Vacío" />
-            <Label layoutX="115.0" layoutY="14.0" prefHeight="46.0" prefWidth="208.0" text="Tu Pokémon quiere aprender" textFill="#bf6df1">
+            <Button fx:id="btnMove1" layoutX="28.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove1" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
+            <Label layoutX="115.0" layoutY="14.0" prefHeight="46.0" prefWidth="208.0" text="Tu Pokémon quiere aprender">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <Label layoutX="205.0" layoutY="97.0" prefHeight="27.0" prefWidth="201.0" text="¿Qué ataque quieres olvidar?" textFill="#bf6df1">
+            <Label fx:id="lblText" layoutX="148.0" layoutY="97.0" prefHeight="27.0" prefWidth="334.0" text="                  ¿Qué ataque quieres olvidar?" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNoMove" layoutX="423.0" layoutY="207.0" mnemonicParsing="false" onAction="#setNoMove" prefHeight="100.0" prefWidth="189.0" style="-fx-background-color: BF6DF1;" text="Continuar sin aprenderlo" />
-            <Button fx:id="btnMove2" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="66.0" prefWidth="174.0" style="-fx-background-color: BF6DF1;" text="Vacío" />
-            <Button fx:id="btnMove4" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="66.0" prefWidth="174.0" style="-fx-background-color: BF6DF1;" text="Vacío" />
-            <Button fx:id="btnMove3" layoutX="28.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="66.0" prefWidth="174.0" style="-fx-background-color: BF6DF1;" text="Vacío" />
-            <Label fx:id="lblNewMove" layoutX="333.0" layoutY="21.0" prefHeight="34.0" prefWidth="223.0" text="Label" textFill="#bf6df1">
+            <Button fx:id="btnNoMove" layoutX="419.0" layoutY="230.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="66.0" prefWidth="190.0" text="Volver al menú">
+               <font>
+                  <Font size="15.0" />
+               </font></Button>
+            <Button fx:id="btnMove2" layoutX="219.0" layoutY="187.0" mnemonicParsing="false" onAction="#setMove2" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
+            <Button fx:id="btnMove4" layoutX="219.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove4" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
+            <Button fx:id="btnMove3" layoutX="28.0" layoutY="274.0" mnemonicParsing="false" onAction="#setMove3" prefHeight="66.0" prefWidth="174.0" text="Vacío" />
+            <Label fx:id="lblNewMove" layoutX="333.0" layoutY="21.0" prefHeight="34.0" prefWidth="223.0" text="Label">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

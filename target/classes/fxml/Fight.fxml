@@ -34,6 +34,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -41,6 +42,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Fight">
   <children>
@@ -85,23 +87,41 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="320.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="363.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="406.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgEnemy" fitHeight="130.0" fitWidth="149.0" layoutX="477.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgTrainerPokemon" fitHeight="140.0" fitWidth="149.0" layoutX="14.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btnMove1" layoutX="184.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Button" />
-            <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Button" />
-            <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Button" />
-            <Button fx:id="btnMove4" layoutX="405.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Button" />
-            <Label fx:id="lblTextFight" layoutX="39.0" layoutY="73.0" prefHeight="82.0" prefWidth="406.0" text="Label" textFill="#bf6df1" />
-            <Button fx:id="btnMove5" layoutX="184.0" layoutY="309.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Descanso" />
-            <Button fx:id="btnChange" layoutX="405.0" layoutY="309.0" mnemonicParsing="false" onAction="#onChangePokemonFight" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: BF6DF1;" text="Cambiar Pokémon" />
-            <Label fx:id="lblDisplayPkTrainer" layoutX="25.0" layoutY="169.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
-            <Label fx:id="lblHpTrainer" layoutX="25.0" layoutY="192.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
-            <Label fx:id="lblNamePkEnemy" layoutX="477.0" layoutY="13.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
-            <Label fx:id="lblHpEnemy" layoutX="477.0" layoutY="36.0" prefHeight="18.0" prefWidth="149.0" text="Label" textFill="#bf6df1" />
-            <Button fx:id="prueba" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" style="-fx-background-color: BF6DF1;" text="Volver a menú principal (provisional para prueba)" />
+            <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="322.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="365.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="407.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgTrainerPokemon" fitHeight="121.0" fitWidth="138.0" layoutX="34.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnMove1" layoutX="184.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove4" layoutX="405.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove4" prefHeight="47.0" prefWidth="207.0" text="Button" />
+            <Button fx:id="btnMove5" layoutX="238.0" layoutY="308.0" mnemonicParsing="false" onAction="#onMove5" prefHeight="47.0" prefWidth="322.0" text="Aprender movimiento" />
+            <Label fx:id="lblDisplayPkTrainer" layoutX="14.0" layoutY="135.0" prefHeight="26.0" prefWidth="150.0" text="Label">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="lblHpMaxTrainer" layoutX="14.0" layoutY="183.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
+            <Label fx:id="lblLevelEnemy" layoutX="475.0" layoutY="26.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
+            <Button fx:id="toMainWindow" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
+            <Label fx:id="lblLevelTrainer" layoutX="14.0" layoutY="161.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
+            <Label fx:id="lblDisplayPkEnemy" layoutX="475.0" layoutY="1.0" prefHeight="18.0" prefWidth="150.0" text="Label">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHpEnemy" layoutX="475.0" layoutY="44.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
+            <Label fx:id="lblHpTrainer" layoutX="164.0" layoutY="183.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
+            <Label fx:id="lblHpMaxEnemy" layoutX="343.0" layoutY="44.0" prefHeight="18.0" prefWidth="127.0" text="Label" />
+            <Label fx:id="lblStateTrainer" layoutX="14.0" layoutY="201.0" prefHeight="18.0" prefWidth="166.0" text="Label" />
+            <Label fx:id="lblStateEnemy" layoutX="475.0" layoutY="59.0" prefHeight="18.0" prefWidth="160.0" text="Label" />
+            <ImageView fx:id="imgEnemy" fitHeight="121.0" fitWidth="138.0" layoutX="470.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+            <ListView fx:id="lvFight" layoutX="14.0" layoutY="60.0" prefHeight="78.0" prefWidth="446.0" />
+            <ImageView fx:id="imgPokeball1Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="184.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball2Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="227.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball3Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="270.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball4Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="313.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball5Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="356.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball6Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="399.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
          </children>
     </AnchorPane>
   </children>
