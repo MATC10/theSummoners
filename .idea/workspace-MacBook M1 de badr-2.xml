@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="28e21f99-c69a-4417-8f8b-77533057de23" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-CSMU2PC13726-CA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-CSMU2PC13726-CA.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace-MacBook M1 de badr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace-MacBook M1 de badr.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/bd/Script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/doc/bd/Script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/bd/pokedex.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/DataBase/PokeConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/DataBase/PokeConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/DataBase/PokeCrud.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/DataBase/PokeCrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/controller/Fight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/controller/Fight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/controller/equipedPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/controller/equipedPokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/movement/IStaminaCalculable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/movement/IStaminaCalculable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/pokemon/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/pokemon/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/pokemon/PokemonInitialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/pokemon/PokemonInitialize.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Trainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Turn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Turn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/equipedPokemon.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/equipedPokemon.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Catch.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ChangePokemonNickName.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ChoosePokemon.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ChoosedPokemon.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/DragPokemonIntoBox.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/DragPokemonIntoTeam.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Fight.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/LearningMovement.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/MainWindow.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Pokeball.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PokemonBreeding.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PokemonStats.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ProfessorOak.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Register.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/Shop.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/WantsToFight.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/equipedPokemon.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ventana.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/DataBase/PokeConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/DataBase/PokeCrud.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Catch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/ChangePokemonNickName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/ChoosePokemon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/ChoosedPokemon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/DragPokemonIntoBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/DragPokemonIntoTeam.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Fight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/LearningMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/MainWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Pokeball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/PokemonBreeding.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/PokemonStats.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/ProfessorOak.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Register.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/Shop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/VentanaController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/WantsToFight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/controller/equipedPokemon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/Logger.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/AttackMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/IStaminaCalculable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/ImproveMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/Movement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/MovementInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/movement/StateMovement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/objeto/Objeto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/objeto/ObjetoInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/Pokemon$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/Pokemon.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/PokemonInitialize.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/Sex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/State.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/pokemon/Type.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/trainer/Enemy.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/trainer/Trainer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/thesummoners/model/trainer/Turn.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Badr" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Pp9tiiDpeAXJu3YI8Ojrbi7tWb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lahrartibadr/Library/CloudStorage/OneDrive-Cesur-GCoremsa/Documentos/GitHub/theSummoners&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.model.Main" />
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PokeConnection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.DataBase.PokeConnection" />
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.DataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.model.trainer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.thesummoners.model.trainer" />
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.model.trainer.TrainerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainerTest.CheckPokemonTeamFullWithoutEmptySlot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.model.trainer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.thesummoners.model.trainer" />
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.model.trainer.TrainerTest" />
+      <option name="METHOD_NAME" value="CheckPokemonTeamFullWithoutEmptySlot" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TrainerTest.DragPokemonIntoTeam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="theSummoners" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.thesummoners.model.trainer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.thesummoners.model.trainer" />
+      <option name="MAIN_CLASS_NAME" value="org.thesummoners.model.trainer.TrainerTest" />
+      <option name="METHOD_NAME" value="DragPokemonIntoTeam" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TrainerTest.DragPokemonIntoTeam" />
+        <item itemvalue="JUnit.TrainerTest.CheckPokemonTeamFullWithoutEmptySlot" />
+        <item itemvalue="JUnit.TrainerTest" />
+        <item itemvalue="Application.PokeConnection" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="28e21f99-c69a-4417-8f8b-77533057de23" name="Changes" comment="" />
+      <created>1684143372906</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684143372906</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java</url>
+          <line>302</line>
+          <properties class="org.thesummoners.model.trainer.Enemy">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/thesummoners/model/trainer/Enemy.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/thesummoners/controller/Fight.java</url>
+          <line>312</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

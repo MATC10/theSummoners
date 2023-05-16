@@ -14,9 +14,7 @@ import java.util.*;
 public class Pokemon implements Cloneable{
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
     public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
-
     static int counterPokemon = 0;
-
     private int idPokemon;
     private int idPokedex;
     private String name;
@@ -409,5 +407,11 @@ public class Pokemon implements Cloneable{
     @Override
     public String toString() {
         return displayName + "Pokemon[name="  +name + ", level=" + level +", health="+ health + ", item=" + item + "]";
+    }
+
+    public void setObjetoImproveStats(Object o) {
+    }
+
+    public void learnMoveInTrainWindow(Label lblText, Button btnLearnMove, Button btnP1, Button btnP2, Button btnP3, Button btnP4, Button btnP5, Button btnP6, Button btnLevel, Button btnBack) {
     }
 }

@@ -15,6 +15,7 @@ import java.io.File;
 import java.util.Random;
 
 public class Enemy implements Cloneable{
+    public static Enemy[] enemyArray;
     static Enemy enemy = null;
     public Pokemon pokemon2;
     public static String [] nameEnemy;
@@ -29,6 +30,9 @@ public class Enemy implements Cloneable{
 //TODO HACER UN METODO PARA QUE AL ACABAR CADA COMBATE O AL EMPEZAR SE LE PONGAN NUEVOS POKEMON
         enemyTeam = new Pokemon[random.nextInt(2)+1];
         pokemonIntoTeam();
+    }
+
+    public Enemy(String pescador, String s) {
     }
 
     public static Enemy getEnemy() throws CloneNotSupportedException {

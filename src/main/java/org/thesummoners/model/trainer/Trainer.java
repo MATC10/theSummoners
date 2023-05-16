@@ -365,7 +365,7 @@ public class Trainer {
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
-                        getPokemonTeam()[i] = pokemon.clone();
+                        getPokemonTeam()[i] = (Pokemon) pokemon.clone();
                         lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
                         //LOGGER
@@ -628,5 +628,8 @@ public class Trainer {
         result = 31 * result + Arrays.hashCode(pokemonToBreed);
         result = 31 * result + Arrays.hashCode(pokemonCub);
         return result;
+    }
+
+    public void ObjetoShop(Button btnBuyObjeto, TableView<Objeto> tvObjeto, TableView<Objeto> tvBackPack) {
     }
 }
