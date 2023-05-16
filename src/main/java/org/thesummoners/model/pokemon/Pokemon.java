@@ -50,6 +50,7 @@ public class Pokemon implements Cloneable{
 
     //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
     private Objeto objeto;
+    private Pokemon[] enemyTeam;
 
 
     public Pokemon (String name, int level){
@@ -71,7 +72,7 @@ public class Pokemon implements Cloneable{
             put(10,hidroBomba); put(15, salpicadura);}};
 
         this.movementLevel = movementLevel;
-        adaptStatsToLevel(level, this.enemyTeam[i]);
+        //adaptStatsToLevel(level, this.enemyTeam[i]);
         changeDisplayName();
     }
 
@@ -321,7 +322,7 @@ public class Pokemon implements Cloneable{
             if(this.experience >= 100){
                 this.level += 1;
                 this.experience -= 100;
-                adaptStatsToLevel(this.level, this.enemyTeam[i]);
+                //adaptStatsToLevel(this.level, this.enemyTeam[i]);
             }
         }
     }
@@ -407,6 +408,11 @@ public class Pokemon implements Cloneable{
     @Override
     public String toString() {
         return displayName + "Pokemon[name="  +name + ", level=" + level +", health="+ health + ", item=" + item + "]";
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public void setObjetoImproveStats(Object o) {

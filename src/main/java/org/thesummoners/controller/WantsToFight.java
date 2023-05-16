@@ -46,7 +46,7 @@ public class WantsToFight {
         Enemy.enemyArray[9] = new Enemy("Malabarista", "doc/images/malabarista.png");
 
 
-        File file = new File(Enemy.enemyArray[arrayValor].getImage());
+        File file = new File(Enemy.enemyArray[arrayValor].getPokemon2().getImage());
         Image image = new Image(file.toURI().toString());
         imgEnemy.setImage(image);
 

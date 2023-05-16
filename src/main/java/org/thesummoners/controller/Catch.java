@@ -74,7 +74,7 @@ public class Catch {
     }
 
     @FXML
-    void onTryCatchPokemon(MouseEvent event) {
+    void onTryCatchPokemon(MouseEvent event) throws CloneNotSupportedException {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
         //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE

@@ -236,7 +236,7 @@ public class Trainer {
         if (Trainer.getTrainer().getPokedollar() >= 500) {
             for (Pokemon p : Pokedex.getPokedex()) {
                 if(getPokemonToBreed()[rd.nextInt(2)].getName().equals(p.getName())) {
-                    son = p.clone();
+                    son = (Pokemon) p.clone();
                 }
             }
             for (int i = 0; i < getPokemonTeam().length; i++) {
@@ -264,7 +264,7 @@ public class Trainer {
                       ImageView imgPokeball6Trainer, Button btnMove5) throws CloneNotSupportedException, InterruptedException {
         //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
-        Pokemon pk = pokemon1.clone();
+        Pokemon pk = (Pokemon) pokemon1.clone();
         pk.adaptStatsToLevel(pk.getLevel(),pk);
         int staminaPokemon1 = pk.getStamina();
 
@@ -376,7 +376,7 @@ public class Trainer {
                     }
                 }
             }
-            else pokemonPcBill.add(pokemon.clone());
+            else pokemonPcBill.add((Pokemon) pokemon.clone());
             lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
             //LOGGER
             try (Logger logger = new Logger()) {
@@ -466,7 +466,7 @@ public class Trainer {
         lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
         lblStateTrainer.setText("Estado: " + Trainer.getTrainer().getPokemon1().getState());
         //CALCULAMOS LA VIDA MÁXIMA
-        Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
+        Pokemon p1 = (Pokemon) Trainer.getTrainer().getPokemon1().clone();
         p1.adaptStatsToLevel(p1.getLevel(), p1);
         lblHpMaxTrainer.setText("Vida inicial: " + p1.getHp());
 
@@ -486,7 +486,7 @@ public class Trainer {
         lblLevelTrainer.setText("Nivel: " + Trainer.getTrainer().getPokemon1().getLevel());
         lblStateTrainer.setText("Estado: " + Trainer.getTrainer().getPokemon1().getState());
         //CALCULAMOS LA VIDA MÁXIMA
-        Pokemon p1 = Trainer.getTrainer().getPokemon1().clone();
+        Pokemon p1 = (Pokemon) Trainer.getTrainer().getPokemon1().clone();
         p1.adaptStatsToLevel(p1.getLevel(), p1);
         lblHpMaxTrainer.setText("Vida inicial: " + p1.getHp());
 
