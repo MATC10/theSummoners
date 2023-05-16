@@ -38,3 +38,5 @@
 2023-05-15 23:06:01 - ¡Has iniciado un combate Pokémon!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 97 de experiencia!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 99 de experiencia!
+2023-05-16 08:47:26 - Pokémon no capturado
+2023-05-16 08:47:27 - Pokémon no capturado
