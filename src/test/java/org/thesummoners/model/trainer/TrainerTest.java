@@ -1,13 +1,19 @@
 package org.thesummoners.model.trainer;
 
+import org.junit.Before;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.Sex;
+import org.thesummoners.model.pokemon.State;
+import org.thesummoners.model.pokemon.Type;
 import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
@@ -24,26 +30,28 @@ class TrainerTest {
     private static Pokemon p;
     private List<Pokemon> miLista;
 
+
+
     @BeforeAll
     static void initialize() {
-        t = new Trainer();
-        p = new Pokemon("Bulbasaur",
-                1,
-                "doc/images/Bulbasaur.png",
-                "doc/images/spritesback/3a-b__001__xy.gif",
-                145,
-                1,
-                49,
-                65,
-                49,
-                65,
-                45,
-                150,
-                Type.GRASS,
-                Type.POISON,
-                State.ALIVE,
-                Sex.M,
-                0);
+       t = new Trainer();
+       p = new Pokemon("Bulbasaur",
+               1,
+               "doc/images/Bulbasaur.png",
+               "doc/images/spritesback/3a-b__001__xy.gif",
+               145,
+               1,
+               49,
+               65,
+               49,
+               65,
+               45,
+               150,
+               Type.GRASS,
+               Type.POISON,
+               State.ALIVE,
+               Sex.M,
+               0);
         List<Pokemon> miLista = new LinkedList<>();
         for (int i = 0; i < t.getPokemonTeam().length; i++) {
             t.getPokemonTeam()[i] = null;
@@ -51,6 +59,9 @@ class TrainerTest {
     }
 
     //@BeforeEach
+
+
+
     @Test
     void dragPokemonIntoBox() {
         t.getPokemonTeam()[0] = p;
@@ -69,6 +80,7 @@ class TrainerTest {
         t.dragPokemonIntoTeam(0,1);
         Assertions.assertEquals(1, (t.getPokemonTeam().length));
     }
+
     @Test
     void numberPokemonInTeam(){
         t.getPokemonTeam()[0] = p;
@@ -128,7 +140,6 @@ class TrainerTest {
 
     @Test
     void pokeballShop() {
-
     }
 
     @Test

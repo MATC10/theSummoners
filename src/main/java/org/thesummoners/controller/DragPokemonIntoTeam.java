@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.DataFormat;
 import javafx.stage.Stage;
+import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.trainer.Trainer;
 import org.thesummoners.model.pokemon.Pokemon;
 
@@ -66,6 +67,8 @@ public class DragPokemonIntoTeam {
             Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
             // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA INTERMEDIA
             listTeamIntermediary.remove(selectedPokemon);
+            PokemonCRUD.deletePokemon(selectedPokemon.getIdPokemon());
+
         }
     }
 

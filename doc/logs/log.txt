@@ -32,6 +32,44 @@
 2023-05-13 18:40:14 - ¡Has capturado a Squirtle,el Pokémon se ha enviado a tu equipo!
 2023-05-13 18:40:14 - ¡Has capturado a Squirtle, el Pokémon se ha enviado a PC de Bill!
 2023-05-13 18:40:14 - Pokémon no capturado
+2023-05-15 10:23:38 - Pokémon no capturado
+2023-05-15 10:26:00 - ¡Has capturado a Mew,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:26:00 - ¡Has capturado a Mew, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:26:04 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:26:26 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:26:44 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:27:07 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:27:08 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:27:17 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:28:01 - Pokémon no capturado
+2023-05-15 10:28:02 - ¡Has capturado a Pikachu,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:28:02 - ¡Has capturado a Pikachu, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:28:08 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:28:51 - Pokémon no capturado
+2023-05-15 10:28:52 - Pokémon no capturado
+2023-05-15 10:28:52 - Pokémon no capturado
+2023-05-15 10:28:52 - Pokémon no capturado
+2023-05-15 10:28:53 - Pokémon no capturado
+2023-05-15 10:28:53 - Pokémon no capturado
+2023-05-15 10:28:53 - ¡Has capturado a Zapdos,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:28:53 - ¡Has capturado a Zapdos, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:28:53 - ¡Has capturado a Zapdos,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:28:53 - ¡Has capturado a Zapdos, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:28:55 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:34:47 - Pokémon no capturado
+2023-05-15 10:34:48 - Pokémon no capturado
+2023-05-15 10:34:48 - Pokémon no capturado
+2023-05-15 10:34:48 - ¡Has capturado a Butterfree,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:34:48 - ¡Has capturado a Butterfree, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:34:52 - ¡Has iniciado un combate Pokémon!
+2023-05-15 10:46:19 - ¡Has capturado a Mankey,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:46:19 - ¡Has capturado a Mankey, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:46:22 - Pokémon no capturado
+2023-05-15 10:46:22 - Pokémon no capturado
+2023-05-15 10:46:23 - Pokémon no capturado
+2023-05-15 10:46:23 - ¡Has capturado a Articuno,el Pokémon se ha enviado a tu equipo!
+2023-05-15 10:46:23 - ¡Has capturado a Articuno, el Pokémon se ha enviado a PC de Bill!
+2023-05-15 10:46:25 - ¡Has iniciado un combate Pokémon!
 2023-05-15 00:42:04 - Pokémon no capturado
 2023-05-15 00:42:04 - ¡Has capturado a Pidgeotto,el Pokémon se ha enviado a tu equipo!
 2023-05-15 00:42:04 - ¡Has capturado a Pidgeotto, el Pokémon se ha enviado a PC de Bill!
@@ -44,3 +82,27 @@
 2023-05-15 23:06:01 - ¡Has iniciado un combate Pokémon!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 97 de experiencia!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 99 de experiencia!
+2023-05-16 09:11:13 - ¡Has capturado a Pidgey,el Pokémon se ha enviado a tu equipo!
+2023-05-16 09:11:13 - ¡Has capturado a Pidgey, el Pokémon se ha enviado a PC de Bill!
+2023-05-16 09:11:45 - Pokémon no capturado
+2023-05-16 09:11:46 - Pokémon no capturado
+2023-05-16 09:11:46 - Pokémon no capturado
+2023-05-16 09:11:47 - Pokémon no capturado
+2023-05-16 09:11:47 - Pokémon no capturado
+2023-05-16 09:11:47 - Pokémon no capturado
+2023-05-16 09:11:48 - Pokémon no capturado
+2023-05-16 09:11:48 - Pokémon no capturado
+2023-05-16 09:11:48 - ¡Has capturado a Machoke,el Pokémon se ha enviado a tu equipo!
+2023-05-16 09:11:48 - ¡Has capturado a Machoke, el Pokémon se ha enviado a PC de Bill!
+2023-05-16 09:11:48 - ¡Has capturado a Machoke,el Pokémon se ha enviado a tu equipo!
+2023-05-16 09:11:48 - ¡Has capturado a Machoke, el Pokémon se ha enviado a PC de Bill!
+2023-05-16 09:11:55 - ¡Has iniciado un combate Pokémon!
+2023-05-16 09:12:14 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 96 de experiencia!
+2023-05-16 09:12:14 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 90 de experiencia!
+2023-05-16 09:17:24 - ¡Has capturado a Mewtwo,el Pokémon se ha enviado a tu equipo!
+2023-05-16 09:17:24 - ¡Has capturado a Mewtwo, el Pokémon se ha enviado a PC de Bill!
+2023-05-16 09:17:27 - ¡Has iniciado un combate Pokémon!
+2023-05-16 09:17:52 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars
+2023-05-16 13:30:02 - ¡Has iniciado un combate Pokémon!
+2023-05-16 13:31:35 - ¡Has capturado a Lapras,el Pokémon se ha enviado a tu equipo!
+2023-05-16 13:31:35 - ¡Has capturado a Lapras, el Pokémon se ha enviado a PC de Bill!

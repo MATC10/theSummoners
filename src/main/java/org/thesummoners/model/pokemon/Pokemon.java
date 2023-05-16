@@ -11,6 +11,7 @@ import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.trainer.Trainer;
 
 
+
 import java.util.*;
 
 /**
@@ -557,7 +558,7 @@ public class Pokemon implements Cloneable {
         Pokemon clonedPokemon = (Pokemon) super.clone();
         clonedPokemon.learnedMovement = learnedMovement.clone();
         clonedPokemon.objeto = objeto;
-
+        clonedPokemon.setIdPokemon(clonedPokemon.idPokemon + 1);
         return clonedPokemon;
     }
 }
