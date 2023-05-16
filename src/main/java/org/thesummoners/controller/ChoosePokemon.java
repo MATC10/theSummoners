@@ -83,7 +83,12 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowCharmander(ActionEvent event) throws IOException, CloneNotSupportedException {
         Trainer.getTrainer().getPokemonTeam()[0] = new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.WATER, Type.NOTHING, State.ALIVE, Sex.F, 0).clone();
+        //TODO SOLUCIONAR PARA QUE LOS POKEMON SE METAN EN EL ESPACIO DEL TEAM QUE TOCA
+        //TODO CREO QUE ES MEJOR HACER UN DELETE Y UN INSERT, O DIRECTAMENTE PONER EL NUEVO POKENON EN EL BOUND QUE TOQUE O EN EL PCBILL SI NO CABE
+        if(Trainer.getTrainer().getPokemonTeam()[0] == null)
         insertTrainerPokemon(Trainer.getTrainer().getPokemonTeam()[0], 1);
+        else if(Trainer.getTrainer().numberBoundTeamFree() < 6) ;
+
         PokemonCRUD.updatePokemon();
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));

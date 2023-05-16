@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.ImproveMovement;
@@ -55,6 +56,8 @@ public class Trainer {
         //20 POKEBALL DE PRUEBA
         this.pokeball = 20;
     }
+
+
     public static Trainer getTrainer() {
         synchronized (Trainer.class){
             if(trainer == null){
@@ -93,6 +96,7 @@ public class Trainer {
     }
 
     public Pokemon[] getPokemonTeam() {
+        PokemonCRUD.readPokemon();
         return pokemonTeam;
     }
 
@@ -331,6 +335,16 @@ public class Trainer {
 
         //TODO PONER UNA LABEL CON EL TURNO
 
+    }
+
+
+    public int numberBoundTeamFree(){
+        int bound = -1;
+        //MÉTODO PARA VER EL PRIMER BOUND LIBRE DEL POKEMON
+        for(int i = 0; i < pokemonTeam.length; i++){
+            bound++;
+        }
+        return bound;
     }
 
     public boolean checkPokemonTeamFull(){
