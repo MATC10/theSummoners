@@ -99,13 +99,16 @@ public class PokemonCRUD {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+
+}
 
         public static List<Pokemon> readPokemonTeam() {
             String query = "select * from pokemon";
 
             PreparedStatement preparedStatement = null;
             LinkedList<Pokemon> listaPokemon = new LinkedList<>();
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam())
+
             try {
                 preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
                 //preparedStatement.setInt(1, id);

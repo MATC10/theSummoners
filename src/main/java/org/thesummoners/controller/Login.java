@@ -48,15 +48,19 @@ public class Login {
     private Stage stage;
 
     public void initialize() throws CloneNotSupportedException {
+//TRAIGO LOS POKEMON DE LA POKEDEX
         LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
-        //Pokedex.setPokedex((ObservableList<Pokemon>) miLista);
-        PokemonCRUD.updatePokemon();
-        System.out.println(miLista.toString());
         for( Pokemon p : miLista){
             Pokedex.getPokedex().add(p);
         }
+//TRAIGO LOS POKEMON DEL EQUIPO
+        LinkedList<Pokemon> miListaTeam =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = miListaTeam.get(i);
 
-        File file = new File("doc/images/otherimages/TheSummoners_logo.png");
+
+
+    File file = new File("doc/images/otherimages/TheSummoners_logo.png");
         Image image = new Image(file.toURI().toString());
         imgLogo.setImage(image);
 
@@ -64,6 +68,11 @@ public class Login {
         Image image2 = new Image(file2.toURI().toString());
         imgLogo2.setImage(image2);
     }
+
+
+
+
+
     @FXML
     public void Login(ActionEvent event) throws IOException {
 

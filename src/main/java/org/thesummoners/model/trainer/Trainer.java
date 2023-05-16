@@ -35,6 +35,7 @@ public class Trainer {
     private String name;
     private String password;
     private Pokemon[] pokemonTeam;
+    private List<Pokemon> pokemonTeamList;
     public static ObservableList<Pokemon> pokemonPcBill = FXCollections.observableArrayList();
 
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
@@ -49,6 +50,7 @@ public class Trainer {
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
+        pokemonTeamList = new LinkedList<>();
 
         Pokemon [] pokemonTeam = new Pokemon[6];
         this.pokemonTeam = pokemonTeam;
@@ -65,6 +67,14 @@ public class Trainer {
             }
         }
         return trainer;
+    }
+
+    public List<Pokemon> getPokemonTeamList() {
+        return pokemonTeamList;
+    }
+
+    public void setPokemonTeamList(List<Pokemon> pokemonTeamList) {
+        this.pokemonTeamList = pokemonTeamList;
     }
 
     public Pokemon getPokemon1() {
