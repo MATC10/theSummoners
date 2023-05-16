@@ -352,7 +352,7 @@ public class Trainer {
         int bound = -1;
         //MÉTODO PARA VER EL PRIMER BOUND LIBRE DEL POKEMON
         for(int i = 0; i < pokemonTeam.length; i++){
-            bound++;
+            if (pokemonTeam[i] != null) bound++;
         }
         return bound;
     }

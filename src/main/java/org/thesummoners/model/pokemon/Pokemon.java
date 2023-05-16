@@ -557,7 +557,7 @@ public class Pokemon implements Cloneable {
         Pokemon clonedPokemon = (Pokemon) super.clone();
         clonedPokemon.learnedMovement = learnedMovement.clone();
         clonedPokemon.objeto = objeto;
-
+        clonedPokemon.idPokemon = idPokemon++;
         return clonedPokemon;
     }
 }

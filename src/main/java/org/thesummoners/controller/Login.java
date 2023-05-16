@@ -53,11 +53,13 @@ public class Login {
         for( Pokemon p : miLista){
             Pokedex.getPokedex().add(p);
         }
-//TRAIGO LOS POKEMON DEL EQUIPO
-        LinkedList<Pokemon> miListaTeam =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
-            Trainer.getTrainer().getPokemonTeam()[i] = miListaTeam.get(i);
 
+        if(Trainer.getTrainer().getPokemonTeam()[0] != null){
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            LinkedList<Pokemon> miListaTeam =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = miListaTeam.get(i);
+        }
 
 
     File file = new File("doc/images/otherimages/TheSummoners_logo.png");
