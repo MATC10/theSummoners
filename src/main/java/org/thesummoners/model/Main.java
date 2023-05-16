@@ -15,19 +15,15 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
-        Scene scene = new Scene(root, 400, 440);
+        Scene scene = new Scene(root, 540, 410);
         stage.setTitle("Helloooo!");
         stage.setScene(scene);
         stage.show();
     }
-    //PokeConnection pokeConnection = new PokeConnection();
     public static void main(String[] args) throws SQLException {
         MySQLConnection mySQLConnection = new MySQLConnection();
         System.out.println("Connectado");
         launch();
     }
-
-    /*void launch() {
-    }*/
 
 }
