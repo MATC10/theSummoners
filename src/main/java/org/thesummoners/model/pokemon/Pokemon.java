@@ -2,17 +2,21 @@ package org.thesummoners.model.pokemon;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
+import org.thesummoners.model.trainer.Trainer;
 
 import java.util.*;
 
-public class Pokemon {
+public class Pokemon implements Cloneable{
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
     public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
 
     static int counterPokemon = 0;
+
     private int idPokemon;
     private int idPokedex;
     private String name;
@@ -163,6 +167,7 @@ public class Pokemon {
 
     public void setLevel(int level) {
         this.level = level;
+        int i = 0;
         adaptStatsToLevel(level, this.enemyTeam[i]);
     }
 

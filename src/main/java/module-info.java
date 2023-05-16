@@ -3,6 +3,7 @@ module theSummoners {
     requires javafx.controls;
     requires java.sql;
     requires mysql.connector.j;
+    requires jdk.internal.vm.ci;
 
     opens org.thesummoners.model;
     opens org.thesummoners.controller;

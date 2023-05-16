@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
+import static jdk.vm.ci.meta.JavaKind.Int;
+
 
 public class Fight {
     @FXML
@@ -308,7 +310,7 @@ public class Fight {
     @FXML
     void toMainWindow(ActionEvent event) throws IOException, CloneNotSupportedException {
         //QUITAMOS EL POKEMON SELECCIONADO PARA UNA POSIBLE SUBIDA DE NIVEL
-        Trainer.getTrainer().pokemonCub[0] = Integer.parseInt(null);
+       // Trainer.getTrainer().pokemonCub[0] = Integer.parseInt(null);
         //AL SALIR DE LA VENTANA SE CAMBIAN LOS POKEMON DEL ENEMIGO Y SE REINICIA LA OBSERVABLELIST
         Enemy.getEnemy().pokemonIntoTeam();
         Trainer.getTrainer().getSentencesTextFight().clear();

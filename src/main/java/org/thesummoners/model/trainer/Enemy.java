@@ -7,13 +7,14 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.*;
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
 
 import java.io.File;
 import java.util.Random;
 
-public class Enemy {
+public class Enemy implements Cloneable{
     static Enemy enemy = null;
     public Pokemon pokemon2;
     public static String [] nameEnemy;
@@ -91,7 +92,6 @@ public class Enemy {
         //AQUÍ TENEMOS QUE METER POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex
         //CON EL NIVEL QUE DEBEN TENER
         for(int i = 0; i < enemyTeam.length; i++){
-            Pokemon Pokedex = new Pokemon();
             this.enemyTeam[i] =  Pokedex.getPokedex().get(random.nextInt( Pokedex.getPokedex().size())).clone();
             this.enemyTeam[i].setLevel(pokemonTrainerLevel);
             this.enemyTeam[i].adaptStatsToLevel(this.enemyTeam[i].getLevel(), this.enemyTeam[i]);
@@ -114,7 +114,7 @@ public class Enemy {
                       Button btnMove5) throws CloneNotSupportedException, InterruptedException {
 
         //GUARDAMOS LA STAMINA DEL POKEMON AL INICIO DE LA BATALLA
-        Pokemon pk = (Pokemon) pokemon1.clone();
+        Pokemon pk = pokemon1.clone();
         pk.adaptStatsToLevel(pk.getLevel(),pk);
         int staminaPokemon2 = pk.getStamina();
 
@@ -203,7 +203,7 @@ public class Enemy {
         lblLevelEnemy.setText("Nivel: " + Enemy.getEnemy().getPokemon2().getLevel());
         lblStateEnemy.setText("Estado: " + Enemy.getEnemy().getPokemon2().getState());
         //CALCULAMOS LA VIDA MÁXIMA
-        Pokemon p2 = (Pokemon) Enemy.getEnemy().getPokemon2().clone();
+        Pokemon p2 = Enemy.getEnemy().getPokemon2().clone();
         p2.adaptStatsToLevel(p2.getLevel(), p2);
         lblHpMaxEnemy.setText("Vida inicial: " + p2.getHp());
 
@@ -301,4 +301,5 @@ public class Enemy {
         }
         this.changeLabelsInFight( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy);
     }
+
 }
