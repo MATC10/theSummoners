@@ -55,7 +55,6 @@ public class Trainer {
         //20 POKEBALL DE PRUEBA
         this.pokeball = 20;
     }
-
     public static Trainer getTrainer() {
         synchronized (Trainer.class){
             if(trainer == null){

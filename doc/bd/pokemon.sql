@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2023 a las 10:09:31
+-- Tiempo de generación: 16-05-2023 a las 11:17:10
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -52,13 +52,6 @@ CREATE TABLE `pokemon` (
 ) ;
 
 --
--- Volcado de datos para la tabla `pokemon`
---
-
-INSERT INTO `pokemon` (`ID_Pokemon`, `ID_Pokedex`, `ID_Trainer`, `Name`, `NickName`, `HP`, `Level`, `Attack_Power`, `Fertility`, `Special_Attack`, `Special_Defense`, `Defense`, `Speed`, `Stamina`, `Type_1`, `Type_2`, `State`, `Sex`, `Experience`, `objeto`, `equipoOpc`) VALUES
-(1, 4, 1, 'Charmander', NULL, 139, 1, 52, 5, 60, 50, 43, 65, 150, 'WATER', 'NOTHING', 'ALIVE', 'F', 0, NULL, 1);
-
---
 -- Índices para tablas volcadas
 --
 
@@ -69,16 +62,6 @@ ALTER TABLE `pokemon`
   ADD PRIMARY KEY (`ID_Pokemon`),
   ADD KEY `ID_POKEDEX_Pokedex_FK` (`ID_Pokedex`),
   ADD KEY `ID_TRAINER_Trainer_FK` (`ID_Trainer`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `pokemon`
---
-ALTER TABLE `pokemon`
-  MODIFY `ID_Pokemon` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
