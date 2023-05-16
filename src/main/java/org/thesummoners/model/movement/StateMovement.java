@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.State;
 
 import java.util.Random;
@@ -14,6 +15,9 @@ public class StateMovement extends Movement implements IStaminaCalculable {
         this.stateToApply = stateToApply;
         TurnsDurationcalculation();
         staminaCalculation();
+    }
+
+    public static void stateCombat(Pokemon pokemon2, Pokemon pokemon1, Movement movement) {
     }
 
     public State getStateToApply() {

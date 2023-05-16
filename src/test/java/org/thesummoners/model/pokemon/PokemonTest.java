@@ -35,7 +35,7 @@ class PokemonTest {
         pokemon.setLevel(2);
 
         // Ejecuta el método adaptStatsToLevel()
-        pokemon.adaptStatsToLevel(3);
+        pokemon.adaptStatsToLevel(3, this.enemyTeam[i]);
 
         // Verifica que las estadísticas del Pokemon se han actualizado correctamente
         assertEquals(55, pokemon.getHp());

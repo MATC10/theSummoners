@@ -1,5 +1,6 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.Type;
 
 public class AttackMovement extends Movement implements IStaminaCalculable {
@@ -12,6 +13,9 @@ public class AttackMovement extends Movement implements IStaminaCalculable {
         this.power = power;
         this.type= type;
         staminaCalculation();
+    }
+
+    public static void attackCombat(Pokemon pokemon2, Pokemon pokemon1, Movement movement) {
     }
 
     public int getPower() {

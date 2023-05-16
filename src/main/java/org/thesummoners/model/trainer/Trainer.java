@@ -3,6 +3,8 @@ package org.thesummoners.model.trainer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -11,6 +13,7 @@ import java.util.*;
 
 public class Trainer {
     static Trainer trainer = null;
+    public int[] pokemonCub;
     private String name;
     private String password;
     private Pokemon[] pokemonTeam;
@@ -310,5 +313,21 @@ public class Trainer {
 
     public boolean getPokemon1() {
         return false;
+    }
+
+    public void changePokemonInFightTrainer(Label lblDisplayPkTrainer, Label lblHpTrainer, Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon, Label lblStateTrainer, ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer, Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow) {
+    }
+
+    public Collection<String> getSentencesTextFight() {
+        return null;
+    }
+
+    public void setPokemon1(Pokemon pokemon) {
+    }
+
+    public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon, Label lblStateTrainer, ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer) {
+    }
+
+    public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblDisplayPkTrainer, Label lblHpTrainer, Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon, Label lblStateTrainer, Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy, Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy, Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow, ImageView imgPokeball1, ImageView imgPokeball2, ImageView imgPokeball3, ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer, Button btnMove5) {
     }
 }

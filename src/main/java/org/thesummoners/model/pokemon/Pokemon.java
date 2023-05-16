@@ -69,7 +69,7 @@ public class Pokemon {
             put(10,hidroBomba); put(15, salpicadura);}};
 
         this.movementLevel = movementLevel;
-        adaptStatsToLevel(level);
+        adaptStatsToLevel(level, this.enemyTeam[i]);
         changeDisplayName();
     }
 
@@ -163,7 +163,7 @@ public class Pokemon {
 
     public void setLevel(int level) {
         this.level = level;
-        adaptStatsToLevel(level);
+        adaptStatsToLevel(level, this.enemyTeam[i]);
     }
 
     public int getFertility() {
@@ -318,7 +318,7 @@ public class Pokemon {
             if(this.experience >= 100){
                 this.level += 1;
                 this.experience -= 100;
-                adaptStatsToLevel(this.level);
+                adaptStatsToLevel(this.level, this.enemyTeam[i]);
             }
         }
     }
@@ -337,7 +337,7 @@ public class Pokemon {
         return objetoEquipado;
     }
 
-    public void adaptStatsToLevel(int level){
+    public void adaptStatsToLevel(int level, Pokemon pokemon){
         //ESTE MÉTODO ADAPTA LA ESTADÍSTICA DEL POKÉMON A SU NIVEL,
         //A TODOS LOS POKÉMON CON MÁS DE LEVEL 1
         if(this.level > 1){

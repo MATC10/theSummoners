@@ -79,4 +79,11 @@ public class MovementInitializer {
         return Pokemon.movementLevel;
     }
 
+    public static List<Object> movementListFull() {
+        return null;
+    }
+
+    public static List<Object> movementLevelIntoHash() {
+        return null;
+    }
 }

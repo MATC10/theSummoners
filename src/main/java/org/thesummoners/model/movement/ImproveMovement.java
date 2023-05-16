@@ -1,5 +1,7 @@
 package org.thesummoners.model.movement;
 
+import org.thesummoners.model.pokemon.Pokemon;
+
 import java.util.Random;
 
 public class ImproveMovement extends Movement implements IStaminaCalculable {
@@ -17,6 +19,9 @@ public class ImproveMovement extends Movement implements IStaminaCalculable {
         this.upgradeSpecialDefense = upgradeSpecialDefense;
         TurnsDurationcalculation();
         staminaCalculation();
+    }
+
+    public static void improveCombat(Pokemon pokemon2, Movement movement) {
     }
 
 
