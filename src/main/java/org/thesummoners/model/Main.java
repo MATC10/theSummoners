@@ -1,5 +1,5 @@
 package org.thesummoners.model;
-import org.thesummoners.DataBase.PokeConnection;
+import org.thesummoners.DataBase.MySQLConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,7 +22,8 @@ public class Main extends Application {
     }
     //PokeConnection pokeConnection = new PokeConnection();
     public static void main(String[] args) throws SQLException {
-        PokeConnection pokeConnection = new PokeConnection();
+        MySQLConnection mySQLConnection = new MySQLConnection();
+        System.out.println("Connectado");
         launch();
     }
 
