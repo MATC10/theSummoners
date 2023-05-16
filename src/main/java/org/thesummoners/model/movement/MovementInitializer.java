@@ -10,6 +10,7 @@ import java.util.List;
 
 public class MovementInitializer {
     public static HashMap<Integer, Movement> movementsIntoList() {
+        Pokemon.movementLevel = new HashMap<>();
         AttackMovement trueno = new AttackMovement("Trueno", 110, Type.ELECTRIC);
         AttackMovement rayoSolar = new AttackMovement("Rayo Solar", 120, Type.PLANT);
         AttackMovement hidrobomba = new AttackMovement("Hidrobomba", 110, Type.WATER);
