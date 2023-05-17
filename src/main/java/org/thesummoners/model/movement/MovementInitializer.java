@@ -86,6 +86,8 @@ public class MovementInitializer {
     //CREAMOS UNA LISTA CON TODOS LOS MOVIMIENTOS, SERVIRÁ EN CLASES COMO LA DE ENEMIGO
     // PARA ASIGNAR MOVIMIENTOS ALEATORIOS A TODOS SUS POKEMON
     public static List <Movement> movementListFull(){
+        AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
+        Pokemon.movementList.add(placaje);
         for(int i = 4; i <= 91; i+=3){
             Pokemon.movementList.add(movementLevelIntoHash().get(i));
         }

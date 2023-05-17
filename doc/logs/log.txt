@@ -136,3 +136,42 @@
 2023-05-17 16:40:49 - ¡Has capturado a Ekans,el Pokémon se ha enviado a tu equipo!
 2023-05-17 16:40:49 - Pokémon no capturado
 2023-05-17 16:40:49 - Pokémon no capturado
+2023-05-17 18:04:14 - ¡Has iniciado un combate Pokémon!
+2023-05-17 18:06:57 - Pokémon no capturado
+2023-05-17 18:06:58 - Pokémon no capturado
+2023-05-17 18:06:58 - Pokémon no capturado
+2023-05-17 18:06:58 - ¡Has capturado a Pidgeot,el Pokémon se ha enviado a tu equipo!
+2023-05-17 18:06:58 - ¡Has capturado a Pidgeot,el Pokémon se ha enviado a tu equipo!
+2023-05-17 18:06:58 - Pokémon no capturado
+2023-05-17 18:37:06 - ¡Has iniciado un combate Pokémon!
+2023-05-17 18:37:18 - ¡Has capturado a Raticate,el Pokémon se ha enviado a tu equipo!
+2023-05-17 18:37:18 - Pokémon no capturado
+2023-05-17 18:37:18 - Pokémon no capturado
+2023-05-17 18:37:18 - Pokémon no capturado
+2023-05-17 18:37:18 - Pokémon no capturado
+2023-05-17 18:37:18 - Pokémon no capturado
+2023-05-17 18:37:19 - ¡Has capturado a Raticate,el Pokémon se ha enviado a tu equipo!
+2023-05-17 18:37:19 - Pokémon no capturado
+2023-05-17 18:37:19 - ¡Has capturado a Raticate, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 18:37:19 - Pokémon no capturado
+2023-05-17 18:37:19 - Pokémon no capturado
+2023-05-17 18:37:19 - Pokémon no capturado
+2023-05-17 18:37:19 - Pokémon no capturado
+2023-05-17 18:37:20 - ¡Has capturado a Raticate, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 18:37:20 - Pokémon no capturado
+2023-05-17 18:37:20 - Pokémon no capturado
+2023-05-17 18:37:20 - Pokémon no capturado
+2023-05-17 18:37:20 - ¡Has capturado a Raticate, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 18:37:20 - Pokémon no capturado
+2023-05-17 18:37:20 - Pokémon no capturado
+2023-05-17 18:37:21 - Pokémon no capturado
+2023-05-17 18:38:43 - Pokémon no capturado
+2023-05-17 18:38:43 - Pokémon no capturado
+2023-05-17 18:38:43 - ¡Has capturado a Moltres, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 18:38:43 - Pokémon no capturado
+2023-05-17 18:38:43 - ¡Has capturado a Moltres, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 18:38:50 - ¡Has iniciado un combate Pokémon!
+2023-05-17 18:39:51 - ¡HAS GANADO EL COMBATE!¡Raticate ha ganado 98 de experiencia!
+2023-05-17 18:39:51 - ¡HAS GANADO EL COMBATE!¡Raticate ha ganado 95 de experiencia!
+2023-05-17 18:42:39 - ¡Has iniciado un combate Pokémon!
+2023-05-17 18:42:39 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars

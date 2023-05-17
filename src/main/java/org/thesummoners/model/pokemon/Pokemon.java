@@ -138,6 +138,7 @@ public class Pokemon implements Cloneable {
         this.learnedMovement[0] = placaje;
 
 
+
         counterPokemon ++;
         this.idPokemon = counterPokemon;
         changeDisplayName();
@@ -561,6 +562,17 @@ public class Pokemon implements Cloneable {
             Trainer.getTrainer().pokemonCub[0] = this;
         }
     }
+
+    public static Movement getMovementByName(String movementName) {
+        List<Movement> movementList = MovementInitializer.movementListFull();
+        for (Movement movement : movementList) {
+            if (movement.getName().equalsIgnoreCase(movementName)) {
+                return movement;
+            }
+        }
+        return null; // Si no se encuentra el movimiento
+    }
+
 
     @Override
     public boolean equals(Object o) {

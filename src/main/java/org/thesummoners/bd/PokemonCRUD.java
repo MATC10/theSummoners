@@ -1,15 +1,16 @@
 package org.thesummoners.bd;
 
+import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.pokemon.*;
 import org.thesummoners.model.trainer.Trainer;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import static org.thesummoners.model.pokemon.Pokemon.getMovementByName;
 
 public class PokemonCRUD {
 
@@ -173,6 +174,15 @@ public class PokemonCRUD {
                 String sex = resultSet.getString("Sex");
                 int experience = resultSet.getInt("Experience");
                 String objeto = resultSet.getString("objeto");
+                String move1 = resultSet.getString("move1");
+                String move2 = resultSet.getString("move2");
+                String move3 = resultSet.getString("move3");
+                String move4 = resultSet.getString("move4");
+
+                // Si move1 está vacío, asignar "Placaje" por defecto
+                if (move1 == null) {
+                    move1 = "Placaje";
+                }
 
                 // Crear objeto Objeto a partir del nombre del objeto
                 Objeto objetoPokemon = null;
@@ -180,10 +190,20 @@ public class PokemonCRUD {
                     objetoPokemon = new Objeto(objeto);
                 }
 
-                listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
+                Pokemon pokemon = new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
                         fertility, specialAttack, specialDefense, defense, speed, stamina,
                         Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
-                        Sex.valueOf(sex), experience, objetoPokemon));
+                        Sex.valueOf(sex), experience, objetoPokemon);
+
+                // Obtener los movimientos utilizando el método getMovementByName
+                pokemon.setLearnedMovement(new Movement[]{
+                        getMovementByName(move1),
+                        getMovementByName(move2),
+                        getMovementByName(move3),
+                        getMovementByName(move4)
+                });
+
+                listaPokemon.add(pokemon);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -191,6 +211,7 @@ public class PokemonCRUD {
 
         return listaPokemon;
     }
+
 
 
     public static List<Pokemon> readPokemonPcBill() {
@@ -204,7 +225,7 @@ public class PokemonCRUD {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                String name = resultSet.getString("name");
+                String name = resultSet.getString("Name");
                 int idPokedex = resultSet.getInt("ID_Pokedex");
                 String image = resultSet.getString("Image");
                 String imageBack = resultSet.getString("Image_Back");
@@ -223,6 +244,15 @@ public class PokemonCRUD {
                 String sex = resultSet.getString("Sex");
                 int experience = resultSet.getInt("Experience");
                 String objeto = resultSet.getString("objeto");
+                String move1 = resultSet.getString("move1");
+                String move2 = resultSet.getString("move2");
+                String move3 = resultSet.getString("move3");
+                String move4 = resultSet.getString("move4");
+
+                // Si move1 está vacío, asignar "Placaje" por defecto
+                if (move1 == null) {
+                    move1 = "Placaje";
+                }
 
                 // Crear objeto Objeto a partir del nombre del objeto
                 Objeto objetoPokemon = null;
@@ -230,10 +260,20 @@ public class PokemonCRUD {
                     objetoPokemon = new Objeto(objeto);
                 }
 
-                listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
+                Pokemon pokemon = new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
                         fertility, specialAttack, specialDefense, defense, speed, stamina,
                         Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
-                        Sex.valueOf(sex), experience, objetoPokemon));
+                        Sex.valueOf(sex), experience, objetoPokemon);
+
+                // Obtener los movimientos utilizando el método getMovementByName
+                pokemon.setLearnedMovement(new Movement[]{
+                        getMovementByName(move1),
+                        getMovementByName(move2),
+                        getMovementByName(move3),
+                        getMovementByName(move4)
+                });
+
+                listaPokemon.add(pokemon);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -241,7 +281,6 @@ public class PokemonCRUD {
 
         return listaPokemon;
     }
-
 
 
     public static void deleteAllPokemon() {
@@ -255,12 +294,11 @@ public class PokemonCRUD {
         }
     }
 
-
     public static void insertPokemonPcBill(List<Pokemon> pokemonList) {
         String query = "INSERT INTO pokemon (ID_Pokedex, ID_Trainer, Name, NickName, HP, Level, AttackPower, " +
                 "Fertility, SpecialAttack, SpecialDefense, Defense, Speed, Stamina, Type1, Type2, State, Sex, " +
-                "Experience, objeto, equipoOpc, Image, Image_Back) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "Experience, objeto, equipoOpc, Image, Image_Back, move1, move2, move3, move4) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
@@ -295,6 +333,30 @@ public class PokemonCRUD {
                 preparedStatement.setInt(20, 2);
                 preparedStatement.setString(21, pokemon.getImage());
                 preparedStatement.setString(22, pokemon.getImageBack());
+                if (pokemon.getLearnedMovement().length > 0 && pokemon.getLearnedMovement()[0] != null) {
+                    preparedStatement.setString(23, pokemon.getLearnedMovement()[0].getName());
+                } else {
+                    preparedStatement.setNull(23, Types.VARCHAR);
+                }
+                if (pokemon.getLearnedMovement().length > 1 && pokemon.getLearnedMovement()[1] != null) {
+                    preparedStatement.setString(24, pokemon.getLearnedMovement()[1].getName());
+                } else {
+                    preparedStatement.setNull(24, Types.VARCHAR);
+                }
+
+                if (pokemon.getLearnedMovement().length > 2 && pokemon.getLearnedMovement()[2] != null) {
+                    preparedStatement.setString(25, pokemon.getLearnedMovement()[2].getName());
+                } else {
+                    preparedStatement.setNull(25, Types.VARCHAR);
+                }
+
+                if (pokemon.getLearnedMovement().length > 3 && pokemon.getLearnedMovement()[3] != null) {
+                    preparedStatement.setString(26, pokemon.getLearnedMovement()[3].getName());
+                } else {
+                    preparedStatement.setNull(26, Types.VARCHAR);
+                }
+
+
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
@@ -306,8 +368,8 @@ public class PokemonCRUD {
     public static void insertTrainerPokemonTeam(Pokemon[] pokemonArray) {
         String query = "INSERT INTO pokemon (ID_Pokedex, ID_Trainer, Name, NickName, HP, Level, AttackPower, " +
                 "Fertility, SpecialAttack, SpecialDefense, Defense, Speed, Stamina, Type1, Type2, State, Sex, " +
-                "Experience, objeto, equipoOpc, Image, Image_Back) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "Experience, objeto, equipoOpc, Image, Image_Back, move1, move2, move3, move4) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
@@ -343,6 +405,30 @@ public class PokemonCRUD {
                     preparedStatement.setInt(20, 1);
                     preparedStatement.setString(21, pokemon.getImage());
                     preparedStatement.setString(22, pokemon.getImageBack());
+                    if (pokemon.getLearnedMovement().length > 0 && pokemon.getLearnedMovement()[0] != null) {
+                        preparedStatement.setString(23, pokemon.getLearnedMovement()[0].getName());
+                    } else {
+                        preparedStatement.setNull(23, Types.VARCHAR);
+                    }
+                    if (pokemon.getLearnedMovement().length > 1 && pokemon.getLearnedMovement()[1] != null) {
+                        preparedStatement.setString(24, pokemon.getLearnedMovement()[1].getName());
+                    } else {
+                        preparedStatement.setNull(24, Types.VARCHAR);
+                    }
+
+                    if (pokemon.getLearnedMovement().length > 2 && pokemon.getLearnedMovement()[2] != null) {
+                        preparedStatement.setString(25, pokemon.getLearnedMovement()[2].getName());
+                    } else {
+                        preparedStatement.setNull(25, Types.VARCHAR);
+                    }
+
+                    if (pokemon.getLearnedMovement().length > 3 && pokemon.getLearnedMovement()[3] != null) {
+                        preparedStatement.setString(26, pokemon.getLearnedMovement()[3].getName());
+                    } else {
+                        preparedStatement.setNull(26, Types.VARCHAR);
+                    }
+
+
                     preparedStatement.executeUpdate();
                 }
             }
@@ -350,6 +436,8 @@ public class PokemonCRUD {
             throw new RuntimeException(e);
         }
     }
+
+
 
 
 

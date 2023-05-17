@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
@@ -17,6 +18,7 @@ import org.thesummoners.model.pokemon.Type;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Objects;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -114,6 +116,30 @@ public class LearningMovement {
 
     @FXML
     public void toMainWindow(ActionEvent event) throws IOException {
+
+
+        //BORRAMOS TODOS LOS REGISTROS
+        PokemonCRUD.deleteAllPokemon();
+        //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+        PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+        //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+        PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
+
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
