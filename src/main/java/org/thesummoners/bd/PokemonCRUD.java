@@ -154,27 +154,36 @@ public class PokemonCRUD {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                String name = resultSet.getString("name");
+                String name = resultSet.getString("Name");
                 int idPokedex = resultSet.getInt("ID_Pokedex");
                 String image = resultSet.getString("Image");
                 String imageBack = resultSet.getString("Image_Back");
                 int hp = resultSet.getInt("HP");
                 int level = resultSet.getInt("Level");
                 int attackPower = resultSet.getInt("AttackPower");
+                int fertility = resultSet.getInt("Fertility");
                 int specialAttack = resultSet.getInt("SpecialAttack");
-                int defense = resultSet.getInt("Defense");
                 int specialDefense = resultSet.getInt("SpecialDefense");
+                int defense = resultSet.getInt("Defense");
                 int speed = resultSet.getInt("Speed");
                 int stamina = resultSet.getInt("Stamina");
                 String type1 = resultSet.getString("Type1");
                 String type2 = resultSet.getString("Type2");
                 String state = resultSet.getString("State");
                 String sex = resultSet.getString("Sex");
-                int experience = resultSet.getInt("experience");
+                int experience = resultSet.getInt("Experience");
+                String objeto = resultSet.getString("objeto");
+
+                // Crear objeto Objeto a partir del nombre del objeto
+                Objeto objetoPokemon = null;
+                if (objeto != null) {
+                    objetoPokemon = new Objeto(objeto);
+                }
 
                 listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
-                        specialAttack, defense, specialDefense, speed, stamina, Type.valueOf(type1),
-                        Type.valueOf(type2), State.valueOf(state), Sex.valueOf(sex), experience));
+                        fertility, specialAttack, specialDefense, defense, speed, stamina,
+                        Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
+                        Sex.valueOf(sex), experience, objetoPokemon));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -182,6 +191,7 @@ public class PokemonCRUD {
 
         return listaPokemon;
     }
+
 
     public static List<Pokemon> readPokemonPcBill() {
         String query = "SELECT * FROM pokemon WHERE equipoOpc = 2";
@@ -201,20 +211,29 @@ public class PokemonCRUD {
                 int hp = resultSet.getInt("HP");
                 int level = resultSet.getInt("Level");
                 int attackPower = resultSet.getInt("AttackPower");
+                int fertility = resultSet.getInt("Fertility");
                 int specialAttack = resultSet.getInt("SpecialAttack");
-                int defense = resultSet.getInt("Defense");
                 int specialDefense = resultSet.getInt("SpecialDefense");
+                int defense = resultSet.getInt("Defense");
                 int speed = resultSet.getInt("Speed");
                 int stamina = resultSet.getInt("Stamina");
                 String type1 = resultSet.getString("Type1");
                 String type2 = resultSet.getString("Type2");
                 String state = resultSet.getString("State");
                 String sex = resultSet.getString("Sex");
-                int experience = resultSet.getInt("experience");
+                int experience = resultSet.getInt("Experience");
+                String objeto = resultSet.getString("objeto");
+
+                // Crear objeto Objeto a partir del nombre del objeto
+                Objeto objetoPokemon = null;
+                if (objeto != null) {
+                    objetoPokemon = new Objeto(objeto);
+                }
 
                 listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
-                        specialAttack, defense, specialDefense, speed, stamina, Type.valueOf(type1),
-                        Type.valueOf(type2), State.valueOf(state), Sex.valueOf(sex), experience));
+                        fertility, specialAttack, specialDefense, defense, speed, stamina,
+                        Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
+                        Sex.valueOf(sex), experience, objetoPokemon));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -222,6 +241,7 @@ public class PokemonCRUD {
 
         return listaPokemon;
     }
+
 
 
     public static void deleteAllPokemon() {

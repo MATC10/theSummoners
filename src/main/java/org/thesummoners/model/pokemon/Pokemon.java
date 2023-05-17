@@ -109,6 +109,40 @@ public class Pokemon implements Cloneable {
         changeDisplayName();
     }
 
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower,
+                   int fertility, int specialAttack, int specialDefense, int defense, int speed, int stamina, Type type1,
+                   Type type2, State state, Sex sex, int experience, Objeto objeto) {
+        this.name = name;
+        this.idPokedex = idPokedex;
+        this.image = image;
+        this.imageBack = imageBack;
+        this.hp = hp;
+        this.level = level;
+        this.attackPower = attackPower;
+        this.fertility = fertility;
+        this.specialAttack = specialAttack;
+        this.specialDefense = specialDefense;
+        this.defense = defense;
+        this.speed = speed;
+        this.stamina = stamina;
+        this.type1 = type1;
+        this.type2 = type2;
+        this.state = state;
+        this.sex = sex;
+        this.experience = experience;
+        this.objeto = objeto;
+
+        this.learnedMovement = new Movement [4];
+        AttackMovement placaje = new AttackMovement("Placaje", 10, Type.NORMAL);
+        //TODOS LOS POKEMON EMPIEZAN CON ATAQUE PLACAJE.
+        this.learnedMovement[0] = placaje;
+
+
+        counterPokemon ++;
+        this.idPokemon = counterPokemon;
+        changeDisplayName();
+    }
+
 
     public static int getCounterPokemon() {
         return counterPokemon;
