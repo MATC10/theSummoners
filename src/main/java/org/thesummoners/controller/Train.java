@@ -106,8 +106,6 @@ public class Train {
         lblPokedollars.setText("Pokedollar disponibles: " + getTrainer().getPokedollar());
 
     }
-
-
     @FXML
     void setLevelPok(ActionEvent event) throws CloneNotSupportedException {
         if(p != null){
@@ -121,7 +119,6 @@ public class Train {
 
 
     }
-
     @FXML
     void toTrain1() {
         p = getTrainer().getPokemonTeam()[0];
@@ -129,7 +126,6 @@ public class Train {
         lblActualLevel.setText("Nivel actual: " + getTrainer().getPokemonTeam()[0].getLevel());
         lblPrice.setText("Precio: " + getTrainer().getPokemonTeam()[0].getLevel() * 20);
     }
-
     @FXML
     void toTrain2(ActionEvent event) {
         if(getTrainer().getPokemonTeam()[1] != null){
@@ -145,7 +141,6 @@ public class Train {
             lblWhoTrain.setText("Ningún Pokémon seleccionado");
         }
     }
-
     @FXML
     void toTrain3(ActionEvent event) {
         if(getTrainer().getPokemonTeam()[2] != null){
@@ -159,7 +154,6 @@ public class Train {
             lblWhoTrain.setText("Ningún Pokémon seleccionado");
         }
     }
-
     @FXML
     void toTrain4(ActionEvent event) {
         if(getTrainer().getPokemonTeam()[3] != null){
@@ -173,7 +167,6 @@ public class Train {
             lblWhoTrain.setText("Ningún Pokémon seleccionado");
         }
     }
-
     @FXML
     void toTrain5(ActionEvent event) {
         if(getTrainer().getPokemonTeam()[4] != null){
@@ -187,7 +180,6 @@ public class Train {
             lblWhoTrain.setText("Ningún Pokémon seleccionado");
         }
     }
-
     @FXML
     void toTrain6(ActionEvent event) {
         if(getTrainer().getPokemonTeam()[5] != null){
@@ -201,7 +193,6 @@ public class Train {
             lblWhoTrain.setText("Ningún Pokémon seleccionado");
         }
     }
-
     @FXML
     void toLearningMovement(ActionEvent event) throws IOException {
         this.root = FXMLLoader.load(Objects.requireNonNull(this.getClass().getResource("/fxml/LearningMovement.fxml")));

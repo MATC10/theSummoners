@@ -15,6 +15,8 @@ public class Pokemon implements Cloneable{
     //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
     public static ObservableList <Pokemon> pokedex = FXCollections.observableArrayList();
     static int counterPokemon = 0;
+
+    protected int pokemon;
     private int idPokemon;
     private int idPokedex;
     private String name;

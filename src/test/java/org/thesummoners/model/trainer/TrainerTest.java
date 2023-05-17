@@ -1,10 +1,13 @@
 package org.thesummoners.model.trainer;
 
+import javafx.scene.control.Label;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.thesummoners.model.pokemon.Pokemon;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.thesummoners.model.trainer.Enemy.enemyTeam;
+import static org.thesummoners.model.trainer.Trainer.trainer;
 
 class TrainerTest {
 
@@ -35,10 +38,8 @@ class TrainerTest {
         team[3] = null; // Espacio vacío en el equipo
         team[4] = new Pokemon("Squirtle", -10);
         team[5] = new Pokemon("Jigglypuff", 30);
-
         // Creamos una instancia de Trainer y asignamos el equipo de Pokémon
         Trainer.getTrainer().setPokemonTeam(team);
-
         // Llamamos al método pokemonAliveInTeam() y comprobamos el resultado
         boolean result = Trainer.getTrainer().pokemonAliveInTeam();
         assertFalse(result);
@@ -58,9 +59,6 @@ class TrainerTest {
         Trainer misty = new Trainer();
         assertEquals(20, misty.pokeballCount());
     }
-
-
-
 
 
     @Test
