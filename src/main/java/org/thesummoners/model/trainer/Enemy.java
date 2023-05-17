@@ -21,7 +21,7 @@ public class Enemy implements Cloneable{
     public static String [] nameEnemy;
     public static String [] imageEnemy;
     private int pokemonTrainerLevel;
-    private static Pokemon[] enemyTeam;
+    static Pokemon[] enemyTeam;
     Random random = new Random();
 
     public Enemy() throws CloneNotSupportedException {

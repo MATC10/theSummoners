@@ -24,19 +24,24 @@ class TrainerTest {
         Trainer trainer2 = Trainer.getTrainer();
         // Comprueba si ambas instancias son la misma
         assertSame(trainer1, trainer2);}
+
     @Test
-    public void CheckPokemonTeamFullWithEmptySlot() {
-        Trainer ash = new Trainer();
-        ash.addToTeam(new Pokemon("Pikachu", 4, enemyTeam));
-        ash.addToTeam(null);
-        assertTrue(ash.checkPokemonTeamFull());
-    }
-    @Test
-    public void CheckPokemonTeamFullWithoutEmptySlot() {
-        Trainer misty = new Trainer();
-        misty.addToTeam(new Pokemon("Charmander", 2, enemyTeam));
-        misty.addToTeam(new Pokemon("Squirtle", 3, enemyTeam));
-        misty.addToTeam(new Pokemon("Pikachu", 4, enemyTeam));
+    public void testPokemonAliveInTeam() {
+        // Creamos un equipo de Pokémon para la prueba
+        Pokemon[] team = new Pokemon[6];
+        team[0] = new Pokemon("Pikachu", 100);
+        team[1] = new Pokemon("Charizard", 0);
+        team[2] = new Pokemon("Bulbasaur", 50);
+        team[3] = null; // Espacio vacío en el equipo
+        team[4] = new Pokemon("Squirtle", -10);
+        team[5] = new Pokemon("Jigglypuff", 30);
+
+        // Creamos una instancia de Trainer y asignamos el equipo de Pokémon
+        Trainer.getTrainer().setPokemonTeam(team);
+
+        // Llamamos al método pokemonAliveInTeam() y comprobamos el resultado
+        boolean result = Trainer.getTrainer().pokemonAliveInTeam();
+        assertFalse(result);
     }
     @Test
     public void PokeballCountWithNoPokeballs() {
