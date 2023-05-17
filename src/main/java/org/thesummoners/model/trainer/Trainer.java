@@ -11,10 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.Logger;
-import org.thesummoners.model.movement.AttackMovement;
-import org.thesummoners.model.movement.ImproveMovement;
-import org.thesummoners.model.movement.Movement;
-import org.thesummoners.model.movement.StateMovement;
+import org.thesummoners.model.movement.*;
 import org.thesummoners.model.objeto.Objeto;
 import org.thesummoners.model.objeto.ObjetoInitializer;
 import org.thesummoners.model.pokemon.Pokedex;
@@ -346,7 +343,6 @@ public class Trainer {
 
         }
 
-        //TODO PONER UNA LABEL CON EL TURNO
 
     }
 
@@ -399,37 +395,27 @@ public class Trainer {
         Random random = new Random();
         int capture = random.nextInt(3);
         if (capture == 0 && getTrainer().getPokeball() > 0) {
-
-            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
-            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
-            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
-                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
-
-
-            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
-            Trainer.getTrainer().getPokemonPcBill().clear();
-            LinkedList<Pokemon> miListaPc3 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
-            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc3);
-
-
-
-
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
-                        Trainer.getTrainer().setPokemon1(pokemon.clone());
-                        lblText.setText("¡Has capturado a " +  Trainer.getTrainer().getPokemon1().getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
+                        getPokemonTeam()[i] = pokemon.clone();
+                        lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
 
-                        //SE INSERTA EN LA BBDD AL EQUIPO
-                        PokemonCRUD.insertTrainerPokemon(Trainer.getTrainer().getPokemon1(), 1);
+                            //EL POKEMON DEBEN TENER X ATAQUES A CIERTO NIVEL
+                        if (getPokemonTeam()[i].getLearnedMovement()[3] == null && getPokemonTeam()[i].getLevel() >= 10){
+                            getPokemonTeam()[i].getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                            getPokemonTeam()[i].getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                            getPokemonTeam()[i].getLearnedMovement()[3] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                        }
+                        else if (getPokemonTeam()[i].getLearnedMovement()[2] == null && getPokemonTeam()[i].getLevel() >= 7){
+                            getPokemonTeam()[i].getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                            getPokemonTeam()[i].getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                        }
+                        else if(getPokemonTeam()[i].getLearnedMovement()[1] == null && getPokemonTeam()[i].getLevel() >= 4){
+                            getPokemonTeam()[i].getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                        }
 
-                        //TRAIGO LOS POKEMON DEL EQUIPO
-                        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
-                        LinkedList<Pokemon> listaPokemon1 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-                        for(int z = 0; z < Trainer.getTrainer().getPokemonTeam().length && z < listaPokemon1.size(); z++)
-                            Trainer.getTrainer().getPokemonTeam()[z] = listaPokemon1.get(z);
                         //LOGGER
                         try (Logger logger = new Logger()) {
                             logger.log("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
@@ -439,24 +425,29 @@ public class Trainer {
                 }
             }
             else {
-                //SE INSERTA EN LA BBDD A LA LISTA PCBILL
-                PokemonCRUD.insertTrainerPokemon(pokemon.clone(), 2);
+                Pokemon pkm = pokemon.clone();
+                pokemonPcBill.add(pkm);
 
-                //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
-                Trainer.getTrainer().getPokemonPcBill().clear();
-                LinkedList<Pokemon> miListaPc2 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
-                Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc2);
+                lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
 
-            lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
+                //EL POKEMON DEBEN TENER X ATAQUES A CIERTO NIVEL
+                if (pkm.getLearnedMovement()[3] == null && pkm.getLevel() >= 10) {
+                    pkm.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                    pkm.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                    pkm.getLearnedMovement()[3] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                } else if (pkm.getLearnedMovement()[2] == null && pkm.getLevel() >= 7) {
+                    pkm.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                    pkm.getLearnedMovement()[2] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                } else if (pkm.getLearnedMovement()[1] == null && pkm.getLevel() >= 4) {
+                    pkm.getLearnedMovement()[1] = MovementInitializer.movementListFull().get(random.nextInt(30));
+                }
 
 
                 //LOGGER
                 try (Logger logger = new Logger()) {
                     logger.log("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
                 }
-        }
-
-
+            }
         }
         else {
             lblText.setText("No capturado!");

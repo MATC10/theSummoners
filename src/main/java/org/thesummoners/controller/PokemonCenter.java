@@ -81,12 +81,8 @@ public class PokemonCenter {
     @FXML
     public void toMainMenu(ActionEvent event) throws IOException {
         listTeamIntermediary.clear();
-
         //BORRAMOS TODOS LOS REGISTROS
         PokemonCRUD.deleteAllPokemon();
-
-        //AÑADIMOS LOS POKEMONS A NUESTRO ARRAY POKEMON
-        Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
         //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
         PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
         //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
@@ -103,6 +99,7 @@ public class PokemonCenter {
         Trainer.getTrainer().getPokemonPcBill().clear();
         LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
         Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
 
 
 

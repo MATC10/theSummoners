@@ -12,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.thesummoners.bd.PokemonCRUD;
+import org.thesummoners.model.movement.Movement;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
@@ -66,7 +68,7 @@ public class Login {
         LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
         Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
-
+for(Movement a : MovementInitializer.movementListFull()) System.out.println(a);
 
 
     File file = new File("doc/images/otherimages/TheSummoners_logo.png");

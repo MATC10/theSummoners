@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2023 a las 16:49:50
+-- Tiempo de generación: 17-05-2023 a las 20:29:21
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -50,16 +50,12 @@ CREATE TABLE `pokemon` (
   `objeto` varchar(255) DEFAULT NULL,
   `equipoOpc` int(11) DEFAULT 2,
   `Image` varchar(255) DEFAULT NULL,
-  `Image_Back` varchar(255) DEFAULT NULL
+  `Image_Back` varchar(255) DEFAULT NULL,
+  `move1` varchar(255) DEFAULT NULL,
+  `move2` varchar(255) DEFAULT NULL,
+  `move3` varchar(255) DEFAULT NULL,
+  `move4` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pokemon`
---
-
-INSERT INTO `pokemon` (`ID_Pokemon`, `ID_Pokedex`, `ID_Trainer`, `Name`, `NickName`, `HP`, `Level`, `AttackPower`, `Fertility`, `SpecialAttack`, `SpecialDefense`, `Defense`, `Speed`, `Stamina`, `Type1`, `Type2`, `State`, `Sex`, `Experience`, `objeto`, `equipoOpc`, `Image`, `Image_Back`) VALUES
-(10, 1, 1, 'Bulbasaur', NULL, 145, 1, 49, 5, 65, 65, 49, 45, 150, 'GRASS', 'POISON', 'ALIVE', 'M', 0, NULL, 1, 'doc/images/Bulbasaur.png', 'doc/images/spritesback/3a-b__001__xy.gif'),
-(11, 1, 1, 'Bulbasaur', NULL, 145, 1, 49, 5, 65, 65, 49, 45, 150, 'GRASS', 'POISON', 'ALIVE', 'M', 0, NULL, 1, 'doc/images/Bulbasaur.png', 'doc/images/spritesback/3a-b__001__xy.gif');
 
 --
 -- Índices para tablas volcadas
@@ -79,7 +75,7 @@ ALTER TABLE `pokemon`
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `ID_Pokemon` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Pokemon` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1847;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

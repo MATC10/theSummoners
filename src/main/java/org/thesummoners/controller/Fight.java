@@ -185,6 +185,28 @@ public class Fight {
 
         lvFight.setItems(Trainer.getTrainer().getSentencesTextFight());
 
+
+
+        //BORRAMOS TODOS LOS REGISTROS
+        PokemonCRUD.deleteAllPokemon();
+        //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+        PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+        //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+        PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
     }
 
     @FXML
@@ -217,6 +239,29 @@ public class Fight {
                     imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
                     imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
             Enemy.getEnemy().changeLabelsInFight(lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy);
+
+
+
+            //BORRAMOS TODOS LOS REGISTROS
+            PokemonCRUD.deleteAllPokemon();
+            //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+            PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+            //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+            PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+            Trainer.getTrainer().getPokemonPcBill().clear();
+            LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
         }
 
     }
@@ -246,6 +291,28 @@ public class Fight {
                     imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
             Enemy.getEnemy().changeLabelsInFight(lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy);
 
+
+
+            //BORRAMOS TODOS LOS REGISTROS
+            PokemonCRUD.deleteAllPokemon();
+            //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+            PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+            //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+            PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+            Trainer.getTrainer().getPokemonPcBill().clear();
+            LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
         }
     }
 
@@ -274,6 +341,29 @@ public class Fight {
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
                     imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
             Enemy.getEnemy().changeLabelsInFight(lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy);
+
+
+
+            //BORRAMOS TODOS LOS REGISTROS
+            PokemonCRUD.deleteAllPokemon();
+            //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+            PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+            //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+            PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+            Trainer.getTrainer().getPokemonPcBill().clear();
+            LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
         }
     }
 
@@ -301,11 +391,53 @@ public class Fight {
                     imgPokeball1Trainer, imgPokeball2Trainer, imgPokeball3Trainer,
                     imgPokeball4Trainer, imgPokeball5Trainer, imgPokeball6Trainer);
             Enemy.getEnemy().changeLabelsInFight(lblDisplayPkEnemy, lblHpEnemy, lblHpMaxEnemy, lblLevelEnemy, imgEnemy, lblStateEnemy);
+
+
+            //BORRAMOS TODOS LOS REGISTROS
+            PokemonCRUD.deleteAllPokemon();
+            //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+            PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+            //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+            PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+            Trainer.getTrainer().getPokemonPcBill().clear();
+            LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
         }
     }
 
     @FXML
     public void onMove5(ActionEvent event) throws IOException {
+
+        //BORRAMOS TODOS LOS REGISTROS
+        PokemonCRUD.deleteAllPokemon();
+        //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+        PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+        //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+        PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/LearningMovement.fxml")));
         scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
