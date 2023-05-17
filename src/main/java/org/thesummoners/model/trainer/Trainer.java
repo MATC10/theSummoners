@@ -392,12 +392,37 @@ public class Trainer {
         Random random = new Random();
         int capture = random.nextInt(3);
         if (capture == 0 && getTrainer().getPokeball() > 0) {
+
+            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+            for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+            //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+            Trainer.getTrainer().getPokemonPcBill().clear();
+            LinkedList<Pokemon> miListaPc3 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc3);
+
+
+
+
             if(checkPokemonTeamFull()) {
                 for(int i = 0; i < getPokemonTeam().length; i++){
                     if(getPokemonTeam()[i] == null) {
-                        getPokemonTeam()[i] = pokemon.clone();
-                        lblText.setText("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
+                        Trainer.getTrainer().setPokemon1(pokemon.clone());
+                        lblText.setText("¡Has capturado a " +  Trainer.getTrainer().getPokemon1().getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().getPokeball());
+
+                        //SE INSERTA EN LA BBDD AL EQUIPO
+                        PokemonCRUD.insertTrainerPokemon(Trainer.getTrainer().getPokemon1(), 1);
+
+                        //TRAIGO LOS POKEMON DEL EQUIPO
+                        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+                        LinkedList<Pokemon> listaPokemon1 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+                        for(int z = 0; z < Trainer.getTrainer().getPokemonTeam().length && z < listaPokemon1.size(); z++)
+                            Trainer.getTrainer().getPokemonTeam()[z] = listaPokemon1.get(z);
                         //LOGGER
                         try (Logger logger = new Logger()) {
                             logger.log("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
@@ -406,12 +431,25 @@ public class Trainer {
                     }
                 }
             }
-            else pokemonPcBill.add(pokemon.clone());
+            else {
+                //SE INSERTA EN LA BBDD A LA LISTA PCBILL
+                PokemonCRUD.insertTrainerPokemon(pokemon.clone(), 2);
+
+                //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+                Trainer.getTrainer().getPokemonPcBill().clear();
+                LinkedList<Pokemon> miListaPc2 =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+                Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc2);
+
             lblText.setText("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
-            //LOGGER
-            try (Logger logger = new Logger()) {
-                logger.log("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
-            }
+
+
+                //LOGGER
+                try (Logger logger = new Logger()) {
+                    logger.log("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
+                }
+        }
+
+
         }
         else {
             lblText.setText("No capturado!");

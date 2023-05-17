@@ -31,7 +31,7 @@ public class ChangePokemonNickName {
 
     @FXML
     public void initialize(){
-        File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
+        File file = new File(Trainer.getTrainer().getPokemon1().getImage());
         Image image = new Image(file.toURI().toString());
         imgPokemon.setImage(image);
     }
@@ -48,8 +48,9 @@ public class ChangePokemonNickName {
         else{
             //AÑADIMOS MOTE AL PRIMER POKEMON DEL EQUIPO (EL ESCOGIDO POR EL USUARIO)
             //Y AÑADIMOS EL displayName
-            Trainer.getTrainer().getPokemonTeam()[0].setNickName(txtNickName.getText());
-            Trainer.getTrainer().getPokemonTeam()[0].changeDisplayName();
+            Trainer.getTrainer().getPokemon1().setNickName(txtNickName.getText());
+            Trainer.getTrainer().getPokemon1().changeDisplayName();
+            Trainer.getTrainer().setPokemon1(null);
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
             scene = new Scene(root, 600, 400);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
