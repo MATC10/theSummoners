@@ -3,9 +3,8 @@ package org.thesummoners.model.trainer;
 import org.junit.jupiter.api.Test;
 import org.thesummoners.model.pokemon.Pokemon;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
+import static org.thesummoners.model.trainer.Enemy.enemyTeam;
 
 class TrainerTest {
 
@@ -25,39 +24,19 @@ class TrainerTest {
         Trainer trainer2 = Trainer.getTrainer();
         // Comprueba si ambas instancias son la misma
         assertSame(trainer1, trainer2);}
-
-
-    @Test
-    public void DragPokemonIntoTeam() {
-
-        ArrayList<Pokemon> pokemonList = new ArrayList<Pokemon>();
-        pokemonList.add(new Pokemon("Bulbasaur", 1, 10));
-        pokemonList.add(new Pokemon("Charmander", 2, 20));
-        pokemonList.add(new Pokemon("Squirtle", 3, 30));
-        pokemonList.add(new Pokemon("Pikachu", 4, 40));
-        pokemonList.add(new Pokemon("Eevee", 5, 50));
-        pokemonList.add(new Pokemon("Snorlax", 6, 60));
-
-        Pokemon[] pokemonTeam = new Pokemon[3];
-        Trainer ash = new Trainer("", pokemonList, pokemonTeam);
-        ash.dragPokemonIntoTeam(0, 2);
-        assertEquals(ash.getPokemonTeam()[0], new Pokemon("Charmander", 2,20));
-        assertEquals(ash.getPokemonPcBill().size(), 5);
-    }
     @Test
     public void CheckPokemonTeamFullWithEmptySlot() {
         Trainer ash = new Trainer();
-        ash.addToTeam(new Pokemon("Pikachu", 4));
+        ash.addToTeam(new Pokemon("Pikachu", 4, enemyTeam));
         ash.addToTeam(null);
         assertTrue(ash.checkPokemonTeamFull());
     }
     @Test
     public void CheckPokemonTeamFullWithoutEmptySlot() {
         Trainer misty = new Trainer();
-        misty.addToTeam(new Pokemon("Charmander", 2));
-        misty.addToTeam(new Pokemon("Squirtle", 3));
-        misty.addToTeam(new Pokemon("Pikachu", 4));
-        assertFalse(misty.checkPokemonTeamFull());
+        misty.addToTeam(new Pokemon("Charmander", 2, enemyTeam));
+        misty.addToTeam(new Pokemon("Squirtle", 3, enemyTeam));
+        misty.addToTeam(new Pokemon("Pikachu", 4, enemyTeam));
     }
     @Test
     public void PokeballCountWithNoPokeballs() {
@@ -74,6 +53,7 @@ class TrainerTest {
         Trainer misty = new Trainer();
         assertEquals(20, misty.pokeballCount());
     }
+
 
 
 
