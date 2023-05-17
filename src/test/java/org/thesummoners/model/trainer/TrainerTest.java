@@ -1,9 +1,16 @@
 package org.thesummoners.model.trainer;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.thesummoners.model.pokemon.Pokemon;
+import org.thesummoners.model.pokemon.State;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.thesummoners.model.trainer.Enemy.enemyTeam;
@@ -45,6 +52,36 @@ class TrainerTest {
         assertFalse(result);
     }
     @Test
+    public void testPokemonListToPokemonTeam() {
+        FXCollections FXCollections = null;
+        ObservableList<Pokemon> listTeamIntermediary = FXCollections.observableArrayList();
+
+        // Agregamos algunos Pokemon a la lista de prueba
+        Pokemon pokemon1 = new Pokemon();
+        Pokemon pokemon2 = new Pokemon();
+        Pokemon pokemon3 = new Pokemon();
+        listTeamIntermediary.add(pokemon1);
+        listTeamIntermediary.add(pokemon2);
+        listTeamIntermediary.add(pokemon3);
+
+        // Llamamos al método que queremos probar
+        pokemonListToPokemonTeam(listTeamIntermediary);
+
+        // Verificamos que los Pokemon se hayan copiado correctamente en el equipo del entrenador
+        Pokemon[] pokemonTeam = Trainer.getTrainer().getPokemonTeam();
+        Assert.assertEquals(pokemon1, pokemonTeam[0]);
+        Assert.assertEquals(pokemon2, pokemonTeam[1]);
+        Assert.assertEquals(pokemon3, pokemonTeam[2]);
+    }
+
+    public void pokemonListToPokemonTeam(ObservableList<Pokemon> listTeamIntermediary) {
+        Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
+        for (int i = 0; i < listTeamIntermediary.size(); i++) {
+            Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
+        }
+    }
+
+    @Test
     public void PokeballCountWithNoPokeballs() {
         Trainer ash = new Trainer();
         assertEquals(20, ash.pokeballCount());
@@ -59,6 +96,24 @@ class TrainerTest {
         Trainer misty = new Trainer();
         assertEquals(20, misty.pokeballCount());
     }
+    @Test
+    public void testCentrePokemonHeal() throws CloneNotSupportedException {
+        // Crear una instancia de Trainer y agregar algunos Pokémon al equipo
+        Trainer trainer = Trainer.getTrainer();
+        Pokemon pokemon1 = new Pokemon();
+        Pokemon pokemon2 = new Pokemon();
+        trainer.addPokemonToTeam(pokemon1);
+        trainer.addPokemonToTeam(pokemon2);
+        // Llamar al método centrePokemonHeal()
+        trainer.centrePokemonHeal();
+        // Verificar que los Pokémon del equipo estén correctamente curados
+        for (Pokemon p : trainer.getPokemonTeam()) {
+            if (p != null) {
+                assertEquals(State.ALIVE, p.getState());  // Verificar el estado del Pokémon
+            }
+        }
+    }
+
 
 
     @Test

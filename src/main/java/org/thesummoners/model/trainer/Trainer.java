@@ -632,4 +632,7 @@ public class Trainer {
 
     public void ObjetoShop(Button btnBuyObjeto, TableView<Objeto> tvObjeto, TableView<Objeto> tvBackPack) {
     }
+
+    public void addPokemonToTeam(Pokemon pokemon1) {
+    }
 }
