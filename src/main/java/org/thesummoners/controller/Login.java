@@ -50,7 +50,7 @@ public class Login {
         }
         public void hlRegister(ActionEvent event)throws IOException{
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Register.fxml")));
-        scene = new Scene(root,400,440);
+        scene = new Scene(root,540,400);
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);

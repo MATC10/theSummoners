@@ -43,7 +43,7 @@ public class Register {
             Trainer.getTrainer().setPassword(txtPass.getText());
 
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
-            scene = new Scene(root, 400, 440);
+            scene = new Scene(root, 600, 390);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
@@ -57,7 +57,7 @@ public class Register {
     public void toLogin(ActionEvent event) throws IOException {
 
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
-            scene = new Scene(root, 400, 440);
+            scene = new Scene(root, 600, 390);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
             stage.setScene(scene);

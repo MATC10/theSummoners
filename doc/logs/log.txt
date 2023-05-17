@@ -38,3 +38,38 @@
 2023-05-15 23:06:01 - ¡Has iniciado un combate Pokémon!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 97 de experiencia!
 2023-05-15 23:06:06 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 99 de experiencia!
+2023-05-17 10:10:07 - Pokémon no capturado
+2023-05-17 10:10:08 - Pokémon no capturado
+2023-05-17 10:10:08 - Pokémon no capturado
+2023-05-17 10:10:08 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:10:08 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:10:08 - Pokémon no capturado
+2023-05-17 10:10:09 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:10:09 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:10:09 - Pokémon no capturado
+2023-05-17 10:15:04 - Pokémon no capturado
+2023-05-17 10:15:04 - Pokémon no capturado
+2023-05-17 10:15:05 - Pokémon no capturado
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:05 - Pokémon no capturado
+2023-05-17 10:15:05 - Pokémon no capturado
+2023-05-17 10:15:05 - Pokémon no capturado
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:15:05 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:21 - Pokémon no capturado
+2023-05-17 10:15:21 - Pokémon no capturado
+2023-05-17 10:15:21 - Pokémon no capturado
+2023-05-17 10:15:21 - Pokémon no capturado
+2023-05-17 10:15:21 - Pokémon no capturado
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:22 - Pokémon no capturado
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:22 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:15:22 - Pokémon no capturado
+2023-05-17 10:15:23 - Pokémon no capturado

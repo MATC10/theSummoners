@@ -48,7 +48,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="403.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Register">
+<VBox prefHeight="401.0" prefWidth="516.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.thesummoners.controller.Register">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -99,7 +99,7 @@
             <Label layoutX="285.0" layoutY="202.0" text="Repita contraseña" />
             <PasswordField fx:id="txtPass2" layoutX="283.0" layoutY="227.0" promptText="Contraseña" />
             <Hyperlink fx:id="hlLogin" layoutX="259.0" layoutY="326.0" onAction="#toLogin" text="¿Ya estás registrado? Inicia tu sesión" />
-            <Label fx:id="lblErrorRegister" layoutX="222.0" layoutY="260.0" prefHeight="18.0" prefWidth="299.0" textFill="RED" />
+            <Label fx:id="lblErrorRegister" layoutX="58.0" layoutY="253.0" prefHeight="18.0" prefWidth="322.0" />
             <AnchorPane prefHeight="363.0" prefWidth="222.0" style="-fx-background-color: BF6DF1;">
                <children>
                   <Label layoutX="26.0" layoutY="116.0" text="The Summoners">
