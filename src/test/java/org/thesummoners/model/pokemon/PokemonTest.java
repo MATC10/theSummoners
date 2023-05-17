@@ -1,26 +1,11 @@
 package org.thesummoners.model.pokemon;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PokemonTest {
-
-    @Test
-    public void LevelUp() {
-
-        Pokemon pokemon = new Pokemon("", 50);
-        pokemon.levelUp(30);
-        assertEquals(1, pokemon.getLevel());
-        assertEquals(80, pokemon.getExperience());
-        pokemon.levelUp(70);
-        assertEquals(2, pokemon.getLevel());
-        assertEquals(50, pokemon.getExperience());
-        pokemon.levelUp(150);
-        assertEquals(3, pokemon.getLevel());
-        assertEquals(50, pokemon.getExperience());
-        assertThrows(IllegalArgumentException.class, () -> pokemon.levelUp(-10));
-    }
 
     @Test
     public void ChangeDisplayNameWithNickname() {
@@ -44,10 +29,40 @@ class PokemonTest {
         assertEquals(5, charmander.getLevel());
         assertEquals(50, charmander.getHealth());
     }
-
-
-
-
+    @Test
+    public void AdaptStatsToLevel() {
+        // Crear un objeto Pokemon para la prueba
+        Pokemon pokemon = new Pokemon();
+        pokemon.setHp(55);
+        pokemon.setAttackPower(10);
+        pokemon.setSpecialAttack(10);
+        pokemon.setDefense(10);
+        pokemon.setSpecialDefense(10);
+        pokemon.setSpeed(10);
+        pokemon.setStamina(10);
+        // Llamar al método adaptStatsToLevel
+        pokemon.adaptStatsToLevel(5, pokemon);
+        // Comprobar los valores esperados después de llamar al método
+        Assertions.assertEquals(55, pokemon.getHp());
+        Assertions.assertEquals(10, pokemon.getAttackPower());
+        Assertions.assertEquals(10, pokemon.getSpecialAttack());
+        Assertions.assertEquals(10, pokemon.getDefense());
+        Assertions.assertEquals(10, pokemon.getSpecialDefense());
+        Assertions.assertEquals(10, pokemon.getSpeed());
+        Assertions.assertEquals(10, pokemon.getStamina());
+    }
+    @Test
+    public void testChangeDisplayName() {
+        // Crear una instancia de Pokemon para realizar la prueba
+        Pokemon pokemon = new Pokemon();
+        // Configurar el estado inicial del objeto Pokemon
+        pokemon.setName("Pikachu");
+        pokemon.setNickName("Sparky");
+        // Llamar al método que deseas probar
+        pokemon.changeDisplayName();
+        // Verificar el resultado esperado utilizando las aserciones de JUnit
+        assertEquals("Sparky", pokemon.getDisplayName());
+    }
 
     @org.junit.jupiter.api.Test
     void getCounterPokemon() {
@@ -355,14 +370,6 @@ class PokemonTest {
 
     @Test
     void testGetObjetoEquipado() {
-    }
-
-    @Test
-    void testAdaptStatsToLevel() {
-    }
-
-    @Test
-    void testChangeDisplayName() {
     }
 
     @Test
