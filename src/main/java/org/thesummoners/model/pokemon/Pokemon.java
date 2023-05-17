@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.Movement;
 import org.thesummoners.model.objeto.Objeto;
+import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.util.*;
@@ -36,7 +37,7 @@ public class Pokemon implements Cloneable{
     private Type type1;
     private Type type2;
     private State state;
-    private Sex sex;
+    protected Sex sex;
     private int experience;
     private Objeto objetoEquipado;
     private Objeto equiparObjeto;
@@ -81,7 +82,9 @@ public class Pokemon implements Cloneable{
     public Pokemon() {
     }
 
-    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type, Type type1, State state, Sex sex, int experience) {
+    public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower,
+                   int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type, Type type1,
+                   State state, Sex sex, int experience) {
     }
 
     public static int getCounterPokemon() {
