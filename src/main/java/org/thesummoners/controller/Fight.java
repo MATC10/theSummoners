@@ -104,6 +104,8 @@ public class Fight {
 
     @FXML
     private Label lblLevelEnemy;
+    @FXML
+    private ImageView imgBackground;
 
     @FXML
     private Label lblHpMaxEnemy;
@@ -124,6 +126,9 @@ public class Fight {
 
     @FXML
     public void initialize() throws CloneNotSupportedException, InterruptedException {
+        File file2 = new File("doc/images/otherimages/battlegrass.png");
+        Image image2 = new Image(file2.toURI().toString());
+        imgBackground.setImage(image2);
         //LOGGER
         try (Logger logger = new Logger()) {
             logger.log("¡Has iniciado un combate Pokémon!");
@@ -140,6 +145,7 @@ public class Fight {
         Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                 imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
                 imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
+
         //Enemy.getEnemy().changeLabelsInFight( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy);
         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                 btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);

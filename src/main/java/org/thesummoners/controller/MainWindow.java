@@ -6,9 +6,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.thesummoners.model.trainer.Trainer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -25,6 +28,10 @@ public class MainWindow {
 
     @FXML
     private Button btnPCBill;
+    @FXML
+    private ImageView imgSummonersLogo;
+    @FXML
+    private ImageView imgBackground;
 
     @FXML
     private Button btnPokemonCenter;
@@ -46,6 +53,16 @@ public class MainWindow {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    @FXML
+    public void initialize(){
+        File file = new File("doc/images/otherimages/TheSummoners_logo.png");
+        Image image = new Image(file.toURI().toString());
+        imgSummonersLogo.setImage(image);
+
+        File file1 = new File("doc/images/otherimages/TheSummonersfondo.png");
+        Image image1 = new Image(file1.toURI().toString());
+        imgBackground.setImage(image1);
+    }
 
     @FXML
     void toDragPokemonIntoBox(ActionEvent event) throws IOException {

@@ -88,3 +88,9 @@
 2023-05-17 11:03:21 - Pokémon no capturado
 2023-05-17 11:03:22 - Pokémon no capturado
 2023-05-17 11:03:22 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:53:59 - ¡Has capturado a Arbok, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:56:16 - ¡Has iniciado un combate Pokémon!
+2023-05-17 14:07:14 - ¡Has iniciado un combate Pokémon!
+2023-05-17 14:10:28 - ¡Has iniciado un combate Pokémon!
+2023-05-17 14:23:06 - ¡Has iniciado un combate Pokémon!
+2023-05-17 14:23:15 - ¡Has iniciado un combate Pokémon!
