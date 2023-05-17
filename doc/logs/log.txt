@@ -50,6 +50,14 @@
 2023-05-16 11:34:58 - ¡Has capturado a Primeape,el Pokémon se ha enviado a tu equipo!
 2023-05-16 11:34:58 - ¡Has capturado a Primeape, el Pokémon se ha enviado a PC de Bill!
 2023-05-16 11:34:59 - Pokémon no capturado
+2023-05-17 09:18:30 - Pokémon no capturado
+2023-05-17 09:23:55 - ¡Has capturado a Bulbasaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 09:33:17 - Pokémon no capturado
+2023-05-17 09:33:22 - Pokémon no capturado
+2023-05-17 09:33:23 - ¡Has capturado a Mewtwo, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 09:41:22 - Pokémon no capturado
+2023-05-17 09:41:23 - Pokémon no capturado
+2023-05-17 09:41:23 - ¡Has capturado a Zapdos, el Pokémon se ha enviado a PC de Bill!
 2023-05-17 10:20:11 - Pokémon no capturado
 2023-05-17 10:20:11 - ¡Has capturado a Dragonair,el Pokémon se ha enviado a tu equipo!
 2023-05-17 10:20:11 - ¡Has capturado a Dragonair, el Pokémon se ha enviado a PC de Bill!

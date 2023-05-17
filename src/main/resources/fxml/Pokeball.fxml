@@ -37,6 +37,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -85,13 +86,23 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
+            <ImageView fx:id="imgBackground" fitHeight="375.0" fitWidth="640.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../doc/images/otherimages/TheSummonersfondo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgBrillo" fitHeight="350.0" fitWidth="465.0" layoutX="75.0" layoutY="23.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../doc/images/otherimages/brillo-removebg-preview.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="imgPokeball" fitHeight="249.0" fitWidth="281.0" layoutX="180.0" layoutY="86.0" onMouseClicked="#toChoosePokemon" pickOnBounds="true" preserveRatio="true" />
-            <Label layoutX="237.0" layoutY="14.0" prefHeight="20.0" prefWidth="166.0" text="Esto es una Pokéball">
+            <Label layoutX="237.0" layoutY="14.0" prefHeight="20.0" prefWidth="166.0" text="Esto es una Pokéball" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="220.0" layoutY="41.0" prefHeight="20.0" prefWidth="201.0" text="¿A qué esperas? ¡Cógela!">
+            <Label layoutX="220.0" layoutY="41.0" prefHeight="20.0" prefWidth="201.0" text="¿A qué esperas? ¡Cógela!" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="16.0" />
                </font>

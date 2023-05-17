@@ -38,6 +38,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -86,19 +88,33 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="imgPokemon" fitHeight="275.0" fitWidth="176.0" layoutX="14.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgPokeball" fitHeight="161.0" fitWidth="167.0" layoutX="190.0" layoutY="127.0" onMouseClicked="#onTryCatchPokemon" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lblNamePokemon" layoutX="14.0" layoutY="15.0" prefHeight="17.0" prefWidth="159.0" text="Name Pokemon" />
-            <Label fx:id="lblText" layoutX="183.0" layoutY="9.0" prefHeight="46.0" prefWidth="338.0" />
-            <Button fx:id="btnBack" layoutX="375.0" layoutY="208.0" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="61.0" prefWidth="92.0" text="Volver" />
-            <Label fx:id="lblPokeballs" layoutX="338.0" layoutY="68.0" prefHeight="17.0" prefWidth="167.0" text="Pokeballs disponibles">
+            <ImageView fx:id="imgBackground" fitHeight="403.0" fitWidth="646.0" layoutX="-1.0">
+               <image>
+                  <Image url="@../../../../../../../Downloads/2b3b04771ccca26c3dd96d781b0117ca.jpg" />
+               </image>
+               <effect>
+                  <BoxBlur height="18.0" iterations="3" width="15.0" />
+               </effect>
+            </ImageView>
+            <ImageView fx:id="imgPokemon" fitHeight="275.0" fitWidth="176.0" layoutX="77.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgPokeball" fitHeight="161.0" fitWidth="167.0" layoutX="253.0" layoutY="190.0" onMouseClicked="#onTryCatchPokemon" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lblNamePokemon" layoutX="249.0" layoutY="15.0" prefHeight="17.0" prefWidth="159.0" text="Name Pokemon">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Label fx:id="lblText" layoutX="153.0" layoutY="68.0" prefHeight="46.0" prefWidth="476.0" />
+            <Button fx:id="btnBack" layoutX="438.0" layoutY="271.0" mnemonicParsing="false" onAction="#onBackToMenu" prefHeight="61.0" prefWidth="92.0" text="Volver" />
+            <Label fx:id="lblPokeballs" layoutX="401.0" layoutY="131.0" prefHeight="17.0" prefWidth="167.0" text="Pokeballs disponibles" wrapText="true">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <Label fx:id="lblLevel" layoutX="132.0" layoutY="14.0" prefHeight="18.0" prefWidth="57.0" />
-            <Button fx:id="btnChange" layoutX="352.0" layoutY="127.0" mnemonicParsing="false" onMouseClicked="#onChangePokemon" prefHeight="67.0" prefWidth="138.0" text="Cambiar de Pokémon" />
-            <Label fx:id="lblLevel" layoutX="14.0" layoutY="32.0" prefHeight="17.0" prefWidth="176.0" text="Level Pokemon" />
+            <Button fx:id="btnChange" layoutX="415.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#onChangePokemon" prefHeight="67.0" prefWidth="138.0" text="Cambiar de Pokémon" />
+            <Label fx:id="lblLevel" layoutX="249.0" layoutY="32.0" prefHeight="17.0" prefWidth="176.0" text="Level Pokemon">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
       </children>
     </AnchorPane>
   </children>

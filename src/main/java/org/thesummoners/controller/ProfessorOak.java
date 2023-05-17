@@ -20,6 +20,10 @@ public class ProfessorOak {
     @FXML
     private ImageView imgProfesorOak;
     @FXML
+    private ImageView imgBackground;
+    @FXML
+    private ImageView imgPanel;
+    @FXML
     private Label lblProfesorOak;
     @FXML
     private Button btnNext;
@@ -31,7 +35,14 @@ public class ProfessorOak {
 
     @FXML
     public void initialize(){
-    //LA PRIMERA VEZ QUE SE INICIE EL JUEGO SALDRÁ UNA IMAGEN Y UN TEXTO DEL PROFESOR OAK
+        File file0 = new File("doc/images/otherimages/Prof_Juniper_Lab_anime.png");
+        Image image0 = new Image(file0.toURI().toString());
+        imgBackground.setImage(image0);
+
+        File file1 = new File("doc/images/otherimages/Sin_título-removebg-preview.png");
+        Image image1 = new Image(file1.toURI().toString());
+        imgPanel.setImage(image1);
+        //LA PRIMERA VEZ QUE SE INICIE EL JUEGO SALDRÁ UNA IMAGEN Y UN TEXTO DEL PROFESOR OAK
     if(counter == 0){
         counter++;
         File file = new File("doc/images/Profesor_Oak.png");
@@ -57,7 +68,7 @@ public class ProfessorOak {
     @FXML
     public void toPokeball(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Pokeball.fxml")));
-        scene = new Scene(root, 600, 400);
+        scene = new Scene(root, 640, 400);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
