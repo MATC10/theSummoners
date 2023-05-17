@@ -98,7 +98,6 @@ public class EquipUnequip {
                 lblText.setText(selectedPokemon.getDisplayName() + " ya tiene equipado " + selectedPokemon.getObjeto().getName());
             }
         }
-
     }
 
 
@@ -119,7 +118,6 @@ public class EquipUnequip {
                 lblText.setText(selectedPokemon.getDisplayName() + " no tiene ningún objeto equipado");
             }
         }
-
     }
 
     @FXML

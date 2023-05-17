@@ -1,88 +1,125 @@
 package org.thesummoners.controller;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.thesummoners.model.movement.AttackMovement;
+import org.thesummoners.model.movement.MovementInitializer;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.pokemon.Sex;
 import org.thesummoners.model.pokemon.State;
 import org.thesummoners.model.pokemon.Type;
+import org.thesummoners.model.trainer.Trainer;
+
+import java.io.IOException;
+import java.util.Objects;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class LearningMovement {
-    @FXML
-    private Button btnNoMove;
-    @FXML
-    private Button btnMove1;
-    @FXML
-    private Button btnMove2;
-    @FXML
-    private Button btnMove3;
-    @FXML
-    private Button btnMove4;
-    @FXML
-    private Label lblNewMove;
-    @FXML
-    private Pokemon pokemon;
 
 
-    //ESTA VENTANA SALDRÁ CUANDO UN POKÉMON LLEGUE A NIVEL DE APRENDER UN ATAQUE.
 
-    private Pokemon pikachu = new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0);
-    private AttackMovement bombaLodo = new AttackMovement ("Bomba Lodo", 5, Type.NORMAL);
-    private AttackMovement ataqueIgneo = new AttackMovement ("Ataque Igneo", 5, Type.FIRE);
+        @FXML
+        private Button btnMove1;
 
-    public LearningMovement() throws CloneNotSupportedException {
-    }
+        @FXML
+        private Button btnMove2;
+
+        @FXML
+        private Button btnMove3;
+
+        @FXML
+        private Button btnMove4;
+
+        @FXML
+        private Button btnNoMove;
+
+        @FXML
+        private Label lblNewMove;
+
+        @FXML
+        private Label lblText;
+
+    private Parent root;
+    private Scene scene;
+    private Stage stage;
+
+
 
 
     @FXML
     public void initialize() throws CloneNotSupportedException {
-        if(pikachu.LearnedMovement(0) != null){
-            btnMove1.setText(pikachu.LearnedMovement(0).getName());
-            pikachu.setLevel(5);
-        }
-        if(pikachu.LearnedMovement(1) != null){
-            btnMove2.setText(pikachu.LearnedMovement(1).getName());
-        }
-        if(pikachu.LearnedMovement(2) != null){
-            btnMove3.setText(pikachu.LearnedMovement(2).getName());
-        }
-        if(pikachu.LearnedMovement(3) != null){
-            btnMove4.setText(pikachu.LearnedMovement(3).getName());
-        }
-        //INDICAMOS QUÉ ATAQUE QUIERE APRENDER, HAY QUE QUITAR PIKACHU Y QUE APAREZCA EL POKEMON CON EL QUE ESTEMOS
-        //COMBATIENDO
-        lblNewMove.setText(pikachu.getMovementLevel().get(pikachu.getLevel()).getName());
+
+        btnMove1.setText( Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
+        btnMove2.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1].getName());
+        btnMove3.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2].getName());
+        btnMove4.setText(Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3].getName());
+        lblNewMove.setText(MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().pokemonCub[0].getLevel()).getName());
     }
     @FXML
-    public void setMove1() {
-        pikachu.assignMovement(0);
-        btnMove1.setText(pikachu.LearnedMovement(0).getName());
-        //AQUÍ TIENE QUE SALIR UNA VENTANA CON !ENHORABUENA! TU POKEMON HA APRENDENDIDO *EL ATAQUE*
-       // Y LUEGO QUE SE CIERRE ESTA VENTANA Y LA OTRA
+    void setMove1(ActionEvent event) {
+        Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0] =
+                MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().pokemonCub[0].getLevel());
+        btnMove1.setDisable(true);
+        btnMove2.setDisable(true);
+        btnMove3.setDisable(true);
+        btnMove4.setDisable(true);
+        lblText.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName() + " ha aprendido " +
+                Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[0].getName());
     }
 
 
     @FXML
-    public void setMove2() {
-        pikachu.assignMovement(1);
-        btnMove1.setText(pikachu.LearnedMovement(1).getName());
+    void setMove2(ActionEvent event) {
+        Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1] =
+                MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().pokemonCub[0].getLevel());
+        btnMove1.setDisable(true);
+        btnMove2.setDisable(true);
+        btnMove3.setDisable(true);
+        btnMove4.setDisable(true);
+        lblText.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName() + " ha aprendido " +
+                Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[1].getName());
     }
     @FXML
-    public void setMove3() {
-        pikachu.assignMovement(2);
-        btnMove1.setText(pikachu.LearnedMovement(2).getName());
+    void setMove3(ActionEvent event) {
+        Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2] =
+                MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().pokemonCub[0].getLevel());
+        btnMove1.setDisable(true);
+        btnMove2.setDisable(true);
+        btnMove3.setDisable(true);
+        btnMove4.setDisable(true);
+        lblText.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName() + " ha aprendido " +
+                Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[2].getName());
     }
-    @FXML
-    public void setMove4() {
-        pikachu.assignMovement(3);
-        btnMove1.setText(pikachu.LearnedMovement(3).getName());
 
+    @FXML
+    void setMove4(ActionEvent event) {
+        Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3] =
+                MovementInitializer.movementLevelIntoHash().get(Trainer.getTrainer().pokemonCub[0].getLevel());
+        btnMove1.setDisable(true);
+        btnMove2.setDisable(true);
+        btnMove3.setDisable(true);
+        btnMove4.setDisable(true);
+        lblText.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName() + " ha aprendido " +
+                Trainer.getTrainer().pokemonCub[0].getLearnedMovement()[3].getName());
     }
 
     @FXML
-    public void setNoMove() {
-        //AQUÍ TE SALES DE ESTA VENTANA Y VUELVES A LA ANTERIOR
+    public void toMainWindow(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
+        scene = new Scene(root, 600, 400);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setTitle("TheSummoners");
+        stage.setScene(scene);
+        stage.show();
     }
 
 }

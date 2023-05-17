@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.thesummoners.bd.PokemonCRUD;
 import org.thesummoners.model.Logger;
 import org.thesummoners.model.movement.AttackMovement;
 import org.thesummoners.model.movement.ImproveMovement;
@@ -34,6 +35,7 @@ public class Trainer {
     private String name;
     private String password;
     private Pokemon[] pokemonTeam;
+    private List<Pokemon> pokemonTeamList;
     public static ObservableList<Pokemon> pokemonPcBill = FXCollections.observableArrayList();
 
     public static ObservableList <Objeto> backPack = FXCollections.observableArrayList();;
@@ -48,6 +50,7 @@ public class Trainer {
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
         this.pokedollar = 10000;
+        pokemonTeamList = new LinkedList<>();
 
         Pokemon [] pokemonTeam = new Pokemon[6];
         this.pokemonTeam = pokemonTeam;
@@ -56,6 +59,7 @@ public class Trainer {
         this.pokeball = 20;
     }
 
+
     public static Trainer getTrainer() {
         synchronized (Trainer.class){
             if(trainer == null){
@@ -63,6 +67,14 @@ public class Trainer {
             }
         }
         return trainer;
+    }
+
+    public List<Pokemon> getPokemonTeamList() {
+        return pokemonTeamList;
+    }
+
+    public void setPokemonTeamList(List<Pokemon> pokemonTeamList) {
+        this.pokemonTeamList = pokemonTeamList;
     }
 
     public Pokemon getPokemon1() {
@@ -94,6 +106,7 @@ public class Trainer {
     }
 
     public Pokemon[] getPokemonTeam() {
+        PokemonCRUD.readPokemon();
         return pokemonTeam;
     }
 
@@ -335,6 +348,16 @@ public class Trainer {
 
         //TODO PONER UNA LABEL CON EL TURNO
 
+    }
+
+
+    public int numberBoundTeamFree(){
+        int bound = -1;
+        //MÉTODO PARA VER EL PRIMER BOUND LIBRE DEL POKEMON
+        for(int i = 0; i < pokemonTeam.length; i++){
+            if (pokemonTeam[i] != null) bound++;
+        }
+        return bound;
     }
 
     public boolean checkPokemonTeamFull(){
