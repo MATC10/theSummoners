@@ -39,6 +39,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -87,10 +88,18 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
+            <ImageView fx:id="imgBackground" fitHeight="375.0" fitWidth="640.0" layoutX="2.0" layoutY="2.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../doc/images/otherimages/battlegrass.png" />
+               </image>
+            </ImageView>
             <ImageView fx:id="imgPokeball1" fitHeight="39.0" fitWidth="43.0" layoutX="322.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball2" fitHeight="39.0" fitWidth="43.0" layoutX="365.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball3" fitHeight="39.0" fitWidth="43.0" layoutX="407.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="imgTrainerPokemon" fitHeight="121.0" fitWidth="138.0" layoutX="34.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgTrainerPokemon" fitHeight="121.0" fitWidth="138.0" layoutX="8.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../doc/images/spritesback/3a-b__131__xy.gif" />
+               </image></ImageView>
             <Button fx:id="btnMove1" layoutX="184.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove1" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove2" layoutX="405.0" layoutY="201.0" mnemonicParsing="false" onAction="#onMove2" prefHeight="47.0" prefWidth="207.0" text="Button" />
             <Button fx:id="btnMove3" layoutX="184.0" layoutY="255.0" mnemonicParsing="false" onAction="#onMove3" prefHeight="47.0" prefWidth="207.0" text="Button" />
@@ -114,7 +123,10 @@
             <Label fx:id="lblHpMaxEnemy" layoutX="343.0" layoutY="44.0" prefHeight="18.0" prefWidth="127.0" text="Label" />
             <Label fx:id="lblStateTrainer" layoutX="14.0" layoutY="201.0" prefHeight="18.0" prefWidth="166.0" text="Label" />
             <Label fx:id="lblStateEnemy" layoutX="475.0" layoutY="59.0" prefHeight="18.0" prefWidth="160.0" text="Label" />
-            <ImageView fx:id="imgEnemy" fitHeight="121.0" fitWidth="138.0" layoutX="470.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgEnemy" fitHeight="121.0" fitWidth="138.0" layoutX="482.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../doc/images/Abra.png" />
+               </image></ImageView>
             <ListView fx:id="lvFight" layoutX="14.0" layoutY="60.0" prefHeight="78.0" prefWidth="446.0" />
             <ImageView fx:id="imgPokeball1Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="184.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgPokeball2Trainer" fitHeight="39.0" fitWidth="43.0" layoutX="227.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true" />

@@ -77,12 +77,10 @@ public class DragPokemonIntoTeam {
     void toPcBill() {
         Pokemon selectedPokemon = lvPokemonTeam.getSelectionModel().getSelectedItem();
         if (listTeamIntermediary.size() > 1 && selectedPokemon != null) {
-            // Agrega el Pokémon seleccionado a la lista de pcBill
+            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA DE pcBill
             Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
-            // Elimina el Pokémon seleccionado de la lista intermedia
+            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA INTERMEDIA
             listTeamIntermediary.remove(selectedPokemon);
-
-
         }
     }
 
@@ -90,14 +88,12 @@ public class DragPokemonIntoTeam {
     void toPokemonTeam() {
         Pokemon selectedPokemon = lvPcBill.getSelectionModel().getSelectedItem();
         if (listTeamIntermediary.size() < 6 && selectedPokemon != null) {
-            // Agrega el Pokémon seleccionado a la lista intermedia
+            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA INTERMEDIA
             listTeamIntermediary.add(selectedPokemon);
-            // Elimina el Pokémon seleccionado de la lista de pcBill
+            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA DE pcBill
             Trainer.getTrainer().getPokemonPcBill().remove(selectedPokemon);
-
         }
     }
-
 
     @FXML
     void toMainWindow(ActionEvent event) throws IOException {
@@ -128,7 +124,7 @@ public class DragPokemonIntoTeam {
 
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
-        scene = new Scene(root, 400, 440);
+        scene = new Scene(root, 600, 400);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);

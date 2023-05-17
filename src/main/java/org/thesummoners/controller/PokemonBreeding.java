@@ -194,6 +194,7 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreeding3(){
         Trainer.getTrainer().pokemonBreeding(2);
+        //COMPRUEBA SI SE HA SELECCIONADO A TRAVÉS DE LAS IMÁGENES
         if(imgPokemon1.getImage() == null){
             if(Trainer.getTrainer().getPokemonToBreed()[0] != null) {
                 File file = new File(getTrainer().pokemonToBreed[0].getImage());
@@ -211,6 +212,7 @@ public class PokemonBreeding {
             Image image = new Image(file.toURI().toString());
             imgPokemon2.setImage(image);
         }
+        //HABILITA EL BOTÓN DE PAGAR Y DESABILITA LOS DEMÁS
         if (Trainer.getTrainer().getPokemonToBreed()[0] != null && Trainer.getTrainer().getPokemonToBreed()[1] != null) {
             btnPay.setDisable(false);
             btn1.setDisable(true);

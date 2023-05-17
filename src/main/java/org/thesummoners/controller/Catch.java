@@ -46,6 +46,8 @@ public class Catch {
 
     @FXML
     private Label lblText;
+    @FXML
+    private ImageView imgBackground;
 
     private Parent root;
     private Scene scene;
@@ -55,11 +57,15 @@ public class Catch {
     @FXML
     void initialize() throws CloneNotSupportedException {
         Random random = new Random();
-        //AQUÍ HABRÁ UN POKEMON ALEATORIO
-
-        File file = new File("doc/images/Pokeball.png");
+        //FONDO DE LA VENTANA
+        File file = new File("doc/images/otherimages/2b3b04771ccca26c3dd96d781b0117ca.jpg");
         Image image = new Image(file.toURI().toString());
-        imgPokeball.setImage(image);
+        imgBackground.setImage(image);
+
+        //AQUÍ HABRÁ UN POKEMON ALEATORIO
+        File file1 = new File("doc/images/Pokeball.png");
+        Image image1 = new Image(file1.toURI().toString());
+        imgPokeball.setImage(image1);
 
         //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
 

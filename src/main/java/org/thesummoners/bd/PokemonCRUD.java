@@ -443,10 +443,23 @@ public class PokemonCRUD {
 
 
     public static void updatePokemon() {
+
+
         System.out.println(Trainer.getTrainer().getPokemon1());
+
     }
 
-    public static boolean deletePokemon() {
+    public static boolean deletePokemon(int id_pokemon) {
+        String query = "delete from pokemon where ID_Pokemon = ?";
+
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, id_pokemon);
+            ResultSet resultSet = preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return true;
     }
 

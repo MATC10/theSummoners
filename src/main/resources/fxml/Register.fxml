@@ -89,20 +89,21 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <ImageView fx:id="imgPurple" fitHeight="481.0" fitWidth="589.0" layoutX="-10.0" layoutY="5.0" pickOnBounds="true">
+            <ImageView fx:id="imgPurple" fitHeight="486.0" fitWidth="589.0" layoutX="-10.0" pickOnBounds="true">
                <image>
                   <Image url="@../../../../doc/images/otherimages/TheSummonersfondo.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txtUser" layoutX="145.0" layoutY="82.0" promptText="Usuario" />
-            <Label layoutX="145.0" layoutY="57.0" text="Nombre de usuario" textFill="WHITE" />
-            <Label layoutX="145.0" layoutY="123.0" text="Contraseña" textFill="WHITE" />
-            <PasswordField fx:id="txtPass" layoutX="145.0" layoutY="148.0" promptText="Contraseña" />
-            <Button fx:id="btnRegister" layoutX="182.0" layoutY="286.0" mnemonicParsing="false" onAction="#onRegister" text="Registrarse" />
-            <Label layoutX="145.0" layoutY="189.0" text="Repita contraseña" textFill="WHITE" />
-            <PasswordField fx:id="txtPass2" layoutX="145.0" layoutY="214.0" promptText="Contraseña" />
-            <Hyperlink fx:id="hlLogin" layoutX="120.0" layoutY="326.0" onAction="#toLogin" text="¿Ya estás registrado? Inicia tu sesión" />
-            <Label fx:id="lblErrorRegister" layoutX="58.0" layoutY="253.0" prefHeight="18.0" prefWidth="322.0" textFill="WHITE" />
+            <TextField fx:id="txtUser" layoutX="204.0" layoutY="180.0" promptText="Usuario" />
+            <Label layoutX="204.0" layoutY="155.0" text="Nombre de usuario" textFill="WHITE" />
+            <Label layoutX="204.0" layoutY="221.0" text="Contraseña" textFill="WHITE" />
+            <PasswordField fx:id="txtPass" layoutX="204.0" layoutY="246.0" promptText="Contraseña" />
+            <Button fx:id="btnRegister" layoutX="241.0" layoutY="384.0" mnemonicParsing="false" onAction="#onRegister" text="Registrarse" />
+            <Label layoutX="204.0" layoutY="287.0" text="Repita contraseña" textFill="WHITE" />
+            <PasswordField fx:id="txtPass2" layoutX="204.0" layoutY="312.0" promptText="Contraseña" />
+            <Hyperlink fx:id="hlLogin" layoutX="179.0" layoutY="424.0" onAction="#toLogin" text="¿Ya estás registrado? Inicia tu sesión" />
+            <Label fx:id="lblErrorRegister" layoutX="118.0" layoutY="353.0" prefHeight="18.0" prefWidth="322.0" textFill="WHITE" />
+            <ImageView fx:id="imgSummonersLogo" fitHeight="132.0" fitWidth="224.0" layoutX="204.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       </children>
     </AnchorPane>
   </children>

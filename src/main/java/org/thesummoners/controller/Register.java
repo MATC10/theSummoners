@@ -31,6 +31,8 @@ public class Register {
     private Button btnRegister;
     @FXML
     private Hyperlink hlLogin;
+    @FXML
+    private ImageView imgSummonersLogo;
 
     private Parent root;
     private Scene scene;
@@ -41,6 +43,10 @@ public class Register {
         File file = new File("doc/images/otherimages/TheSummonersfondo.png");
         Image image = new Image(file.toURI().toString());
         imgPurple.setImage(image);
+
+        File file1 = new File("doc/images/otherimages/TheSummoners_logo.png");
+        Image image1 = new Image(file1.toURI().toString());
+        imgSummonersLogo.setImage(image1);
     }
 
     //Si la contraseña 1 y 2 coinciden y el usuario no es null, se procede al registro y se vuelve al login
@@ -53,7 +59,7 @@ public class Register {
             Trainer.getTrainer().setPassword(txtPass.getText());
 
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
-            scene = new Scene(root, 400, 440);
+            scene = new Scene(root, 515, 412);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
@@ -67,7 +73,7 @@ public class Register {
     public void toLogin(ActionEvent event) throws IOException {
 
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Login.fxml")));
-            scene = new Scene(root, 400, 440);
+            scene = new Scene(root, 515, 412);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("TheSummoners");
             stage.setScene(scene);
