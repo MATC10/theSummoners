@@ -77,10 +77,12 @@ public class DragPokemonIntoTeam {
     void toPcBill() {
         Pokemon selectedPokemon = lvPokemonTeam.getSelectionModel().getSelectedItem();
         if (listTeamIntermediary.size() > 1 && selectedPokemon != null) {
-            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA DE pcBill
+            // Agrega el Pokémon seleccionado a la lista de pcBill
             Trainer.getTrainer().getPokemonPcBill().add(selectedPokemon);
-            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA INTERMEDIA
+            // Elimina el Pokémon seleccionado de la lista intermedia
             listTeamIntermediary.remove(selectedPokemon);
+
+
         }
     }
 
@@ -88,17 +90,43 @@ public class DragPokemonIntoTeam {
     void toPokemonTeam() {
         Pokemon selectedPokemon = lvPcBill.getSelectionModel().getSelectedItem();
         if (listTeamIntermediary.size() < 6 && selectedPokemon != null) {
-            // AGREGA EL POKÉMON SELECCIONADO A LA LISTA INTERMEDIA
+            // Agrega el Pokémon seleccionado a la lista intermedia
             listTeamIntermediary.add(selectedPokemon);
-            // ELIMINA EL POKÉMON SELECCIONADO DE LA LISTA DE pcBill
+            // Elimina el Pokémon seleccionado de la lista de pcBill
             Trainer.getTrainer().getPokemonPcBill().remove(selectedPokemon);
+
         }
     }
 
+
     @FXML
     void toMainWindow(ActionEvent event) throws IOException {
+        //BORRAMOS TODOS LOS REGISTROS
+        PokemonCRUD.deleteAllPokemon();
+        //AÑADIMOS LOS POKEMONS A NUESTRO ARRAY POKEMON
         Trainer.getTrainer().pokemonListToPokemonTeam(listTeamIntermediary);
+        //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+        PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+        //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+        PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
         listTeamIntermediary.clear();
+
+        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
+
+
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
         scene = new Scene(root, 400, 440);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -224,9 +224,112 @@ public class PokemonCRUD {
     }
 
 
+    public static void deleteAllPokemon() {
+        String query = "DELETE FROM pokemon";
+
+        try {
+            PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
+    public static void insertPokemonPcBill(List<Pokemon> pokemonList) {
+        String query = "INSERT INTO pokemon (ID_Pokedex, ID_Trainer, Name, NickName, HP, Level, AttackPower, " +
+                "Fertility, SpecialAttack, SpecialDefense, Defense, Speed, Stamina, Type1, Type2, State, Sex, " +
+                "Experience, objeto, equipoOpc, Image, Image_Back) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
+        try {
+            PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+
+            for (Pokemon pokemon : pokemonList) {
+                preparedStatement.setInt(1, pokemon.getIdPokedex());
+                preparedStatement.setInt(2, 1);
+                preparedStatement.setString(3, pokemon.getName());
+                preparedStatement.setString(4, pokemon.getNickName());
+                preparedStatement.setInt(5, pokemon.getHp());
+                preparedStatement.setInt(6, pokemon.getLevel());
+                preparedStatement.setInt(7, pokemon.getAttackPower());
+                preparedStatement.setInt(8, pokemon.getFertility());
+                preparedStatement.setInt(9, pokemon.getSpecialAttack());
+                preparedStatement.setInt(10, pokemon.getSpecialDefense());
+                preparedStatement.setInt(11, pokemon.getDefense());
+                preparedStatement.setInt(12, pokemon.getSpeed());
+                preparedStatement.setInt(13, pokemon.getStamina());
+                preparedStatement.setString(14, pokemon.getType1().name());
+                preparedStatement.setString(15, pokemon.getType2().name());
+                preparedStatement.setString(16, pokemon.getState().name());
+                preparedStatement.setString(17, pokemon.getSex().name());
+                preparedStatement.setInt(18, pokemon.getExperience());
+
+                Objeto objeto = pokemon.getObjeto();
+                if (objeto != null) {
+                    preparedStatement.setString(19, objeto.getName());
+                } else {
+                    preparedStatement.setNull(19, Types.VARCHAR);
+                }
+
+                preparedStatement.setInt(20, 2);
+                preparedStatement.setString(21, pokemon.getImage());
+                preparedStatement.setString(22, pokemon.getImageBack());
+                preparedStatement.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public static void insertTrainerPokemonTeam(Pokemon[] pokemonArray) {
+        String query = "INSERT INTO pokemon (ID_Pokedex, ID_Trainer, Name, NickName, HP, Level, AttackPower, " +
+                "Fertility, SpecialAttack, SpecialDefense, Defense, Speed, Stamina, Type1, Type2, State, Sex, " +
+                "Experience, objeto, equipoOpc, Image, Image_Back) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+
+            for (Pokemon pokemon : pokemonArray) {
+                if(pokemon != null) {
+                    preparedStatement.setInt(1, pokemon.getIdPokedex());
+                    preparedStatement.setInt(2, 1);
+                    preparedStatement.setString(3, pokemon.getName());
+                    preparedStatement.setString(4, pokemon.getNickName());
+                    preparedStatement.setInt(5, pokemon.getHp());
+                    preparedStatement.setInt(6, pokemon.getLevel());
+                    preparedStatement.setInt(7, pokemon.getAttackPower());
+                    preparedStatement.setInt(8, pokemon.getFertility());
+                    preparedStatement.setInt(9, pokemon.getSpecialAttack());
+                    preparedStatement.setInt(10, pokemon.getSpecialDefense());
+                    preparedStatement.setInt(11, pokemon.getDefense());
+                    preparedStatement.setInt(12, pokemon.getSpeed());
+                    preparedStatement.setInt(13, pokemon.getStamina());
+                    preparedStatement.setString(14, pokemon.getType1().name());
+                    preparedStatement.setString(15, pokemon.getType2().name());
+                    preparedStatement.setString(16, pokemon.getState().name());
+                    preparedStatement.setString(17, pokemon.getSex().name());
+                    preparedStatement.setInt(18, pokemon.getExperience());
+
+                    Objeto objeto = pokemon.getObjeto();
+                    if (objeto != null) {
+                        preparedStatement.setString(19, objeto.getName());
+                    } else {
+                        preparedStatement.setNull(19, Types.VARCHAR);
+                    }
+
+                    preparedStatement.setInt(20, 1);
+                    preparedStatement.setString(21, pokemon.getImage());
+                    preparedStatement.setString(22, pokemon.getImageBack());
+                    preparedStatement.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 

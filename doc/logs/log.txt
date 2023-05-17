@@ -80,3 +80,54 @@
 2023-05-17 11:03:21 - Pokémon no capturado
 2023-05-17 11:03:22 - Pokémon no capturado
 2023-05-17 11:03:22 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 11:20:43 - Pokémon no capturado
+2023-05-17 11:20:44 - ¡Has capturado a Ekans, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:11:30 - Pokémon no capturado
+2023-05-17 13:11:30 - Pokémon no capturado
+2023-05-17 13:11:30 - ¡Has capturado a Blastoise,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:11:31 - Pokémon no capturado
+2023-05-17 13:11:31 - ¡Has capturado a Gyarados,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:11:31 - ¡Has capturado a Gyarados,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:11:31 - Pokémon no capturado
+2023-05-17 13:11:32 - Pokémon no capturado
+2023-05-17 13:11:32 - ¡Has capturado a Rattata,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:11:32 - ¡Has capturado a Rattata, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:16:01 - Pokémon no capturado
+2023-05-17 13:16:22 - Pokémon no capturado
+2023-05-17 13:16:22 - ¡Has capturado a Chansey,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:16:34 - ¡Has capturado a Machop,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:16:34 - Pokémon no capturado
+2023-05-17 13:16:35 - Pokémon no capturado
+2023-05-17 13:16:35 - ¡Has capturado a Machop,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:16:35 - Pokémon no capturado
+2023-05-17 13:16:36 - Pokémon no capturado
+2023-05-17 13:16:36 - ¡Has capturado a Machop,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:16:36 - ¡Has capturado a Machop,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:16:37 - ¡Has capturado a Machop, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:16:37 - Pokémon no capturado
+2023-05-17 13:16:37 - ¡Has capturado a Machop, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:17:22 - ¡Has capturado a Moltres, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:17:22 - Pokémon no capturado
+2023-05-17 13:17:22 - Pokémon no capturado
+2023-05-17 13:22:33 - ¡Has iniciado un combate Pokémon!
+2023-05-17 13:54:56 - Pokémon no capturado
+2023-05-17 13:54:57 - Pokémon no capturado
+2023-05-17 13:54:57 - Pokémon no capturado
+2023-05-17 13:54:58 - Pokémon no capturado
+2023-05-17 13:54:58 - Pokémon no capturado
+2023-05-17 13:54:58 - ¡Has capturado a Primeape,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:57:36 - Pokémon no capturado
+2023-05-17 13:57:36 - Pokémon no capturado
+2023-05-17 13:57:36 - Pokémon no capturado
+2023-05-17 13:57:40 - Pokémon no capturado
+2023-05-17 13:57:40 - ¡Has capturado a Primeape,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:57:40 - ¡Has capturado a Primeape,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:57:41 - Pokémon no capturado
+2023-05-17 13:57:44 - ¡Has capturado a Kadabra,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:57:50 - ¡Has capturado a Blastoise,el Pokémon se ha enviado a tu equipo!
+2023-05-17 13:58:52 - Pokémon no capturado
+2023-05-17 13:58:53 - ¡Has capturado a Charizard, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 13:59:02 - ¡Has iniciado un combate Pokémon!
+2023-05-17 13:59:07 - ¡HAS GANADO EL COMBATE!¡Primeape ha ganado 101 de experiencia!
+2023-05-17 13:59:07 - ¡HAS GANADO EL COMBATE!¡Primeape ha ganado 94 de experiencia!
+2023-05-17 14:09:35 - ¡Has capturado a Tangela,el Pokémon se ha enviado a tu equipo!
