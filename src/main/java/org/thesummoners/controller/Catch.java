@@ -12,12 +12,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.thesummoners.model.movement.Movement;
+import org.thesummoners.model.movement.MovementInitializer;
+import org.thesummoners.model.pokemon.Pokedex;
 import org.thesummoners.model.pokemon.Pokemon;
 import org.thesummoners.model.trainer.Trainer;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 public class Catch {
 
@@ -38,11 +42,13 @@ public class Catch {
 
     @FXML
     private Label lblText;
+    private Label lblLevel;
     Pokemon venusaur = new Pokemon("Venusaur", 1);
 
     private Parent root;
     private Scene scene;
     private Stage stage;
+    private Pokemon p;
 
     @FXML
     void initialize()  {
@@ -59,10 +65,8 @@ public class Catch {
         imgPokemon.setImage(image2);
 
         lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
-
-
+        
     }
-
     @FXML
     void onBackToMenu(ActionEvent event) throws IOException {
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainWindow.fxml")));
@@ -72,7 +76,6 @@ public class Catch {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
     void onTryCatchPokemon(MouseEvent event) throws CloneNotSupportedException {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
@@ -80,7 +83,41 @@ public class Catch {
         //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE
 
         Trainer.getTrainer().capture(venusaur, lblText, lblPokeballs);
+    }
+    @FXML
+    void onChangePokemon(MouseEvent event) throws CloneNotSupportedException {
+
+        Random random = new Random();
+        //AQUÍ HABRÁ UN POKEMON ALEATORIO
+
+        //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
 
 
+        //CLONAMOS EN p EL NUEVO POKEMON
+        p = (Pokemon) Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
+
+        //EL POKEMON CAPTURADO SERÁ DEL MISMO NIVEL QUE EL PRIMER POKÉMON DE NUESTRO EQUIPO
+        p.adaptStatsToLevel(Trainer.getTrainer().getPokemonTeam()[0].getLevel(), p);
+
+        //SE ADAPTAN LOS MOVIMIENTOS DEL POKÉMON SEGÚN EL NIVEL
+        if(p.getLevel() >= 10){
+            p.getLearnedMovement()[1] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+            p.getLearnedMovement()[3] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+21);
+        }
+        else if(p.getLevel() >= 7){
+            p.getLearnedMovement()[1] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+            p.getLearnedMovement()[2] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+11);
+        }
+        else if(p.getLevel() >= 4)
+            p.getLearnedMovement()[1] = (Movement) MovementInitializer.movementListFull().get(random.nextInt(10)+1);
+
+        File file = new File(p.getImage());
+        Image image = new Image(file.toURI().toString());
+        imgPokemon.setImage(image);
+
+        lblPokeballs.setText("Pokeball disponibles " + Trainer.getTrainer().pokeballCount());
+        lblLevel.setText("Level: " +p.getLevel());
+        lblNamePokemon.setText("Nombre: " + p.getName());
     }
 }

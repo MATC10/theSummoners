@@ -10,8 +10,6 @@ public class Logger implements AutoCloseable {
     private BufferedWriter writer;
 
     public Logger() {
-
-
         try {
             String filePath = "doc/logs/log.txt";
             writer = new BufferedWriter(new FileWriter(filePath, true));
@@ -19,7 +17,6 @@ public class Logger implements AutoCloseable {
             e.printStackTrace();
         }
     }
-
     public void log(String message) {
         LocalDateTime now = LocalDateTime.now();
         String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -33,7 +30,6 @@ public class Logger implements AutoCloseable {
             e.printStackTrace();
         }
     }
-
     @Override
     public void close() {
         try {
