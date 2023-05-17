@@ -37,22 +37,28 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowPikachu(ActionEvent event) throws IOException, CloneNotSupportedException {
         p = PokemonCRUD.readPokemonSpecify("Pikachu");
-       if(Trainer.getTrainer().numberBoundTeamFree() < 6) {
+        Trainer.getTrainer().setPokemon1(p);
+        System.out.println(Trainer.getTrainer().getPokemonTeam()[5].getName());
+        if(Trainer.getTrainer().getPokemonTeam()[5] != null) {
+            PokemonCRUD.insertTrainerPokemon(p, 2);
+        }
+        else {
             //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
            // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
            PokemonCRUD.insertTrainerPokemon(p, 1);
         }
-        else{
-            //SI NO HAY HUECO...
-          //  Trainer.pokemonPcBill.add(p);
-           PokemonCRUD.insertTrainerPokemon(p, 2);
-        }
 
-            //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
-            LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-            for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
-                Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
+        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
+            Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
 
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -66,23 +72,28 @@ public class ChoosePokemon {
     @FXML
     public void toMainWindowBulbasaur(ActionEvent event) throws IOException, CloneNotSupportedException {
         p = PokemonCRUD.readPokemonSpecify("Bulbasaur");
-        if(Trainer.getTrainer().numberBoundTeamFree() < 6) {
-            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
-         //   Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
-            PokemonCRUD.insertTrainerPokemon(p, 1);
-        }
-        else{
-            //SI NO HAY HUECO...
-       //     Trainer.pokemonPcBill.add(p);
+        Trainer.getTrainer().setPokemon1(p);
+
+        if(Trainer.getTrainer().getPokemonTeam()[5] != null) {
             PokemonCRUD.insertTrainerPokemon(p, 2);
         }
+        else {
+            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
+            // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
+            PokemonCRUD.insertTrainerPokemon(p, 1);
+        }
 
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
         //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
         LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
             Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
 
 
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -96,25 +107,28 @@ public class ChoosePokemon {
     public void toMainWindowSquirtle(ActionEvent event) throws IOException, CloneNotSupportedException {
 
         p = PokemonCRUD.readPokemonSpecify("Squirtle");
+        Trainer.getTrainer().setPokemon1(p);
 
-        if(Trainer.getTrainer().numberBoundTeamFree() < 6) {
-            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
-            //Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
-            PokemonCRUD.insertTrainerPokemon(p, 1);
-        }
-        else{
-            //SI NO HAY HUECO...
-            //Trainer.pokemonPcBill.add(p);
+        if(Trainer.getTrainer().getPokemonTeam()[5] != null) {
             PokemonCRUD.insertTrainerPokemon(p, 2);
         }
+        else {
+            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
+            // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
+            PokemonCRUD.insertTrainerPokemon(p, 1);
+        }
 
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
         //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
         LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
             Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
 
 
-
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+            Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/ChoosedPokemon.fxml")));
         scene = new Scene(root, 600, 400);
@@ -129,23 +143,28 @@ public class ChoosePokemon {
       //TODO SOLUCIONAR PARA QUE LOS POKEMON SE METAN EN EL ESPACIO DEL TEAM QUE TOCA
         //TODO CREO QUE ES MEJOR HACER UN DELETE Y UN INSERT, O DIRECTAMENTE PONER EL NUEVO POKENON EN EL BOUND QUE TOQUE O EN EL PCBILL SI NO CABE
         p = PokemonCRUD.readPokemonSpecify("Charmander");
-        if(Trainer.getTrainer().numberBoundTeamFree() < 6) {
-            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
-          //  Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
-            PokemonCRUD.insertTrainerPokemon(p, 1);
-        }
-        else{
-            //SI NO HAY HUECO...
-           // Trainer.pokemonPcBill.add(p);
+        Trainer.getTrainer().setPokemon1(p);
+
+        if(Trainer.getTrainer().getPokemonTeam()[5] != null) {
             PokemonCRUD.insertTrainerPokemon(p, 2);
         }
-
+        else {
+            //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
+            // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
+            PokemonCRUD.insertTrainerPokemon(p, 1);
+        }
+        for(Pokemon p : Trainer.getTrainer().getPokemonTeam()) p = null;
 
         //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
         LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
-        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length; i++)
+        for(int i = 0; i < Trainer.getTrainer().getPokemonTeam().length && i < listaPokemon.size(); i++)
             Trainer.getTrainer().getPokemonTeam()[i] = listaPokemon.get(i);
 
+
+        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+        Trainer.getTrainer().getPokemonPcBill().clear();
+        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
 
 

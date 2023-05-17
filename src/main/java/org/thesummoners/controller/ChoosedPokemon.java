@@ -31,8 +31,8 @@ public class ChoosedPokemon {
 
     @FXML
     public void initialize(){
-        lblTittle.setText("¡Buena elección! tu Pokémon es " + Trainer.getTrainer().getPokemonTeam()[0].getName());
-        File file = new File(Trainer.getTrainer().getPokemonTeam()[0].getImage());
+        lblTittle.setText("¡Buena elección! tu Pokémon es " + Trainer.getTrainer().getPokemon1().getName());
+        File file = new File(Trainer.getTrainer().getPokemon1().getImage());
         Image image = new Image(file.toURI().toString());
         imgPokemon.setImage(image);
     }

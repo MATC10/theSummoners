@@ -50,3 +50,33 @@
 2023-05-16 11:34:58 - ¡Has capturado a Primeape,el Pokémon se ha enviado a tu equipo!
 2023-05-16 11:34:58 - ¡Has capturado a Primeape, el Pokémon se ha enviado a PC de Bill!
 2023-05-16 11:34:59 - Pokémon no capturado
+2023-05-17 10:20:11 - Pokémon no capturado
+2023-05-17 10:20:11 - ¡Has capturado a Dragonair,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:20:11 - ¡Has capturado a Dragonair, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:23:37 - Pokémon no capturado
+2023-05-17 10:23:37 - Pokémon no capturado
+2023-05-17 10:23:37 - Pokémon no capturado
+2023-05-17 10:23:38 - ¡Has capturado a Pidgeot,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:23:38 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:23:38 - ¡Has capturado a Pidgeot,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:23:38 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:23:38 - Pokémon no capturado
+2023-05-17 10:23:50 - ¡Has capturado a Wartortle, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:25:55 - Pokémon no capturado
+2023-05-17 10:25:56 - Pokémon no capturado
+2023-05-17 10:25:56 - Pokémon no capturado
+2023-05-17 10:25:56 - ¡Has capturado a Mankey,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:25:56 - ¡Has capturado a Mankey, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:26:31 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:26:31 - ¡Has capturado a Kakuna, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:30:48 - Pokémon no capturado
+2023-05-17 10:30:49 - Pokémon no capturado
+2023-05-17 10:30:49 - ¡Has capturado a Ekans, el Pokémon se ha enviado a tu equipo!
+2023-05-17 10:30:49 - ¡Has capturado a Ekans, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 10:43:00 - ¡Has capturado a Aerodactyl, el Pokémon se ha enviado a PC de Bill!
+2023-05-17 11:03:19 - Pokémon no capturado
+2023-05-17 11:03:20 - Pokémon no capturado
+2023-05-17 11:03:21 - Pokémon no capturado
+2023-05-17 11:03:21 - Pokémon no capturado
+2023-05-17 11:03:22 - Pokémon no capturado
+2023-05-17 11:03:22 - ¡Has capturado a Machamp, el Pokémon se ha enviado a PC de Bill!

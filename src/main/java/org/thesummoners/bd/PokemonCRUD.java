@@ -143,47 +143,87 @@ public class PokemonCRUD {
 
 }
 
-        public static List<Pokemon> readPokemonTeam() {
-            String query = "select * from pokemon";
+    public static List<Pokemon> readPokemonTeam() {
+        String query = "SELECT * FROM pokemon WHERE equipoOpc = 1";
 
-            PreparedStatement preparedStatement = null;
-            LinkedList<Pokemon> listaPokemon = new LinkedList<>();
-            for(Pokemon p : Trainer.getTrainer().getPokemonTeam())
+        PreparedStatement preparedStatement = null;
+        LinkedList<Pokemon> listaPokemon = new LinkedList<>();
 
-            try {
-                preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
-                //preparedStatement.setInt(1, id);
-                ResultSet resultSet = preparedStatement.executeQuery();
+        try {
+            preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-                while (resultSet.next()) {
-                    String name = resultSet.getString("name");
-                    int idPokedex = resultSet.getInt("ID_Pokedex");
-                    String image = resultSet.getString("Image");
-                    String imageBack = resultSet.getString("Image_Back");
-                    int hp = resultSet.getInt("HP");
-                    int level = resultSet.getInt("Level");
-                    int attackPower = resultSet.getInt("AttackPower");
-                    int specialAttack = resultSet.getInt("SpecialAttack");
-                    int defense = resultSet.getInt("Defense");
-                    int specialDefense = resultSet.getInt("SpecialDefense");
-                    int speed = resultSet.getInt("Speed");
-                    int stamina = resultSet.getInt("Stamina");
-                    String type1 = resultSet.getString("Type1");
-                    String type2 = resultSet.getString("Type2");
-                    String state = resultSet.getString("State");
-                    String sex = resultSet.getString("Sex");
-                    int experience = resultSet.getInt("experience");
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int idPokedex = resultSet.getInt("ID_Pokedex");
+                String image = resultSet.getString("Image");
+                String imageBack = resultSet.getString("Image_Back");
+                int hp = resultSet.getInt("HP");
+                int level = resultSet.getInt("Level");
+                int attackPower = resultSet.getInt("AttackPower");
+                int specialAttack = resultSet.getInt("SpecialAttack");
+                int defense = resultSet.getInt("Defense");
+                int specialDefense = resultSet.getInt("SpecialDefense");
+                int speed = resultSet.getInt("Speed");
+                int stamina = resultSet.getInt("Stamina");
+                String type1 = resultSet.getString("Type1");
+                String type2 = resultSet.getString("Type2");
+                String state = resultSet.getString("State");
+                String sex = resultSet.getString("Sex");
+                int experience = resultSet.getInt("experience");
 
-                    listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
-                            specialAttack,defense,specialDefense,speed,stamina,Type.valueOf(type1),Type.valueOf(type2),
-                            State.valueOf(state), Sex.valueOf(sex), experience));
-                }
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+                listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
+                        specialAttack, defense, specialDefense, speed, stamina, Type.valueOf(type1),
+                        Type.valueOf(type2), State.valueOf(state), Sex.valueOf(sex), experience));
             }
-
-            return listaPokemon;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
+        return listaPokemon;
+    }
+
+    public static List<Pokemon> readPokemonPcBill() {
+        String query = "SELECT * FROM pokemon WHERE equipoOpc = 2";
+
+        PreparedStatement preparedStatement = null;
+        LinkedList<Pokemon> listaPokemon = new LinkedList<>();
+
+        try {
+            preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                int idPokedex = resultSet.getInt("ID_Pokedex");
+                String image = resultSet.getString("Image");
+                String imageBack = resultSet.getString("Image_Back");
+                int hp = resultSet.getInt("HP");
+                int level = resultSet.getInt("Level");
+                int attackPower = resultSet.getInt("AttackPower");
+                int specialAttack = resultSet.getInt("SpecialAttack");
+                int defense = resultSet.getInt("Defense");
+                int specialDefense = resultSet.getInt("SpecialDefense");
+                int speed = resultSet.getInt("Speed");
+                int stamina = resultSet.getInt("Stamina");
+                String type1 = resultSet.getString("Type1");
+                String type2 = resultSet.getString("Type2");
+                String state = resultSet.getString("State");
+                String sex = resultSet.getString("Sex");
+                int experience = resultSet.getInt("experience");
+
+                listaPokemon.add(new Pokemon(name, idPokedex, image, imageBack, hp, level, attackPower,
+                        specialAttack, defense, specialDefense, speed, stamina, Type.valueOf(type1),
+                        Type.valueOf(type2), State.valueOf(state), Sex.valueOf(sex), experience));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return listaPokemon;
+    }
+
+
 
 
 
