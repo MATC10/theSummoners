@@ -65,7 +65,7 @@ public class PokemonStats {
             lblSpecialAttack.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialAttack()));
             lblSpecialDefense.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpecialDefense()));
             lblSpeed.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getSpeed()));
-            Trainer.getTrainer().pokemonCub[0].changeDisplayName();
+            //Trainer.getTrainer().pokemonCub[0].changeDisplayName();
             lblStatsPokemonName.setText(Trainer.getTrainer().pokemonCub[0].getDisplayName());
             //NIVEL
             lblPokemonLevel.setText(String.valueOf(Trainer.getTrainer().pokemonCub[0].getLevel()));
@@ -106,6 +106,7 @@ public class PokemonStats {
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
+        Trainer.getTrainer().getPokemonCub()[0] = null;
     }
 
 

@@ -322,6 +322,11 @@ public class Trainer {
                     pokemonCub[0] = son;
                     break;
                 }
+                else if (getPokemonTeam()[5] != null){
+                    pokemonCub[0] = son;
+                    getPokemonPcBill().add(son);
+                    break;
+                }
             }
             return true;
         }
@@ -333,8 +338,7 @@ public class Trainer {
      * @param mote
      */
     public void BreedingConfirmNickname(String mote){
-
-        Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
+        Trainer.getTrainer().getPokemonCub()[0].setDisplayName(mote);
     }
 
     /**
