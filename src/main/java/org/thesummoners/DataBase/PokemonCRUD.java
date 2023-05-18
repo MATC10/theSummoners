@@ -21,7 +21,8 @@ public class PokemonCRUD {
         LinkedList<Pokemon> listaPokemon = new LinkedList<>();
         try {
             preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
-            //preparedStatement.setInt(1, id);
+            int id = 0;
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 String name = resultSet.getString("name");

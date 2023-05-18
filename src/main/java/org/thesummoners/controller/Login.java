@@ -63,7 +63,7 @@ public class Login {
         stage.show();
     }
 
-    public void initialize() throws CloneNotSupportedException {
+   /* public void initialize() throws CloneNotSupportedException {
 //TRAIGO LOS POKEMON DE LA POKEDEX
         LinkedList<Pokemon> miLista = (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
         for (Pokemon p : miLista) {
@@ -82,5 +82,5 @@ public class Login {
         LinkedList<Pokemon> miListaPc = (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
         Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
-    }
+    }*/
 }
