@@ -59,7 +59,7 @@ public class PokemonBreeding {
     private Scene scene;
     private Parent root;
     private Stage stage;
-    //TODO PONER QUE TIENE QUE HABER AL MENOS UN CARÁCTER PARA CONFIRMAR MOTE
+
 
     public void initialize() {
 

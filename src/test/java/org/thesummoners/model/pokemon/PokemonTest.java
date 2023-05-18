@@ -81,7 +81,6 @@ class PokemonTest {
 
         LinkedList<Pokemon> miLista =  (LinkedList<Pokemon>) PokemonCRUD.readPokemon();
         PokemonCRUD.updatePokemon();
-        System.out.println(miLista.toString());
         for( Pokemon p : miLista){
             Pokedex.getPokedex().add(p);
         }

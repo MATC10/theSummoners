@@ -49,8 +49,10 @@ public class Register {
         imgSummonersLogo.setImage(image1);
     }
 
-    //Si la contraseña 1 y 2 coinciden y el usuario no es null, se procede al registro y se vuelve al login
-    //Y se guardan estas credenciales en los atributos del Trainer.
+    /**
+     *     Si la contraseña 1 y 2 coinciden y el usuario no es null, se procede al registro y se vuelve al login
+     *     Y se guardan estas credenciales en los atributos del Trainer.
+     */
     @FXML
     public void onRegister(ActionEvent event) throws IOException {
 

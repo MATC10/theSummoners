@@ -42,8 +42,13 @@ public class StateMovement extends Movement{
         this.numberOfTurnsDuration = random.nextInt(4)+1;
     }
 
-    //TODO METER ESTO EN FIGHT Y CALCULAR LO DE LOS TURNOS PARA EL TRAINER Y EL ENEMIGO SE METE DE MARAMETRO Pokemon1 o Pokemon2
-//TODO SEGÚN EL QUE SEA
+    /**
+     * Cambia el estado de los Pokémon en combate
+     * @param pokemon1
+     * @param pokemon2
+     * @param movement
+     * @throws InterruptedException
+     */
     public static void stateCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws InterruptedException {
         //CREAMOS UN RANDOM PARA CUANDO ESTÉ PARALIZADO
         Random random = new Random();

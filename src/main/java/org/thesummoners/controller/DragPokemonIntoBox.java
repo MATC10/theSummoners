@@ -15,6 +15,9 @@ import java.util.Objects;
 
 import static org.thesummoners.model.trainer.Trainer.getTrainer;
 
+/**
+ * @deprecated
+ */
 public class DragPokemonIntoBox {
     @FXML
     private Button btn1;
@@ -38,14 +41,7 @@ public class DragPokemonIntoBox {
 
 
     public void initialize(){
-        //UNA IDEA AQUÍ ES METER LA FOTO DEL POKEMON (ADEMÁS DEL MOTE)
-        //METEMOS EL MOTE O NOMBRE DEL POKÉMON USANDO EL displayName
 
-        /*! A T E N C I Ó N !:
-        DEBEMOS INTRODUCIR UNA MECÁNICA PARA QUE
-        NO PODAMOS DEJAR POKÉMON EN LA CAJA SI SOLAMENTE TENEMOS UNO
-        EN EL EQUIPO
-        */
         if(getTrainer().getPokemonTeam()[0] != null){
             btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
         }

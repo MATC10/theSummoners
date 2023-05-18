@@ -38,13 +38,26 @@ public class AttackMovement extends Movement {
         this.type = type;
     }
 
-    //SI EL ATAQUE ES DEL MISMO TIPO QUE ALGUNO DE LOS DEL POKÉMON, MULTIPLICAMOS EL DAÑO POR 1.5
+    /**
+     *    SI EL ATAQUE ES DEL MISMO TIPO QUE ALGUNO DE LOS DEL POKÉMON, MULTIPLICAMOS EL DAÑO POR 1.5
+     * @deprecated Ya no se usa
+     */
     public float improveAttack(Pokemon pokemon, AttackMovement attack){
         if(pokemon.getType1() == attack.getType() || pokemon.getType2() == attack.getType())
             return 1.5f;
         return 1;
     }
 
+    /**
+     * Calcula todos los daños según si el movimiento s fuerte contra un tipo
+     * Si el Pokémon es del mismo tipo que el movimiento de ataque
+     * Si el tipo del pokémon es débil contra otro tipo de pokémon
+     * El daño mínimo por ataque es 5
+     * @param pokemon1
+     * @param pokemon2
+     * @param movement
+     * @throws InterruptedException
+     */
     public static void attackCombat(Pokemon pokemon1, Pokemon pokemon2, Movement movement) throws InterruptedException {
 
         //COMPROBAMOS QUE EL MOVIMIENTO SEA DE ATAQUE Y CREAMOS LAS VARIABLES DE DAÑO
@@ -96,8 +109,6 @@ public class AttackMovement extends Movement {
             }
 
 
-            //TODO ¿¿AHORA CAMBIAR EL POKEMON2 A DEBILITADO SI TIENE 0 DE VIDA???
-            //¿HACERLO EN OTRO MÉTODO?
 
         }
 

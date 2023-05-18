@@ -43,10 +43,14 @@ public class Trainer {
     public Pokemon[] pokemonCub = new Pokemon[1];
     public Pokemon pokemonSelectedCombat;
 
+    /**
+     * Trainer es singleton
+     * Se inicia con un equipo pokemon (Array de 6 posiciones), 20 pokeballs y 100000 pokedollars
+     */
 
     public Trainer() {
         //POKEDOLLARS DE PRUEBA
-        this.pokedollar = 10000;
+        this.pokedollar = 100000;
         pokemonTeamList = new LinkedList<>();
 
         Pokemon [] pokemonTeam = new Pokemon[6];
@@ -56,7 +60,11 @@ public class Trainer {
         this.pokeball = 20;
     }
 
-
+    /**
+     * El singleton lleva un synchronized (sirve para que dos usuarios
+     * no puedan crear a la misma vez dos Trainer, aunque eso es imposible en esta aplicación)
+     * @return Método para hacer singleton
+     */
     public static Trainer getTrainer() {
         synchronized (Trainer.class){
             if(trainer == null){
@@ -74,6 +82,9 @@ public class Trainer {
         this.pokemonTeamList = pokemonTeamList;
     }
 
+    /**
+     * @return selecciona un Pokémon para trabajar con él
+     */
     public Pokemon getPokemon1() {
         return pokemon1;
     }
@@ -82,6 +93,10 @@ public class Trainer {
         this.pokemon1 = pokemon1;
     }
 
+    /**
+     *
+     * @return Contiene a los dos Pokémon padres.
+     */
     public Pokemon[] getPokemonToBreed() {
         return pokemonToBreed;
     }
@@ -94,6 +109,10 @@ public class Trainer {
         return name;
     }
 
+    /**
+     * para el password
+     * @return retorna password
+     */
     public String getPassword() {
         return password;
     }
@@ -102,8 +121,8 @@ public class Trainer {
         this.name = name;
     }
 
+
     public Pokemon[] getPokemonTeam() {
-        PokemonCRUD.readPokemon();
         return pokemonTeam;
     }
 
@@ -119,6 +138,10 @@ public class Trainer {
         this.pokedollar = pokedollar;
     }
 
+    /**
+     * Almacena los string sucedidos en combate para usarlos en distintos sitios
+     *
+     */
     public ObservableList<String> getSentencesTextFight() {
         return sentencesTextFight;
     }
@@ -127,6 +150,10 @@ public class Trainer {
         this.sentencesTextFight = sentencesTextFight;
     }
 
+    /**
+     * Almacena Pokémon en zona de crianza y otros métodos
+     * @return
+     */
     public Pokemon[] getPokemonCub() {
         return pokemonCub;
     }
@@ -147,6 +174,10 @@ public class Trainer {
         this.pokeball = pokeball;
     }
 
+    /**
+     * PcBill es donde se almacenan los Pokémon de la caja Pokémon
+     *
+     */
     public static ObservableList<Pokemon> getPokemonPcBill() {
         return pokemonPcBill;
     }
@@ -163,6 +194,10 @@ public class Trainer {
         this.pokemonSelectedCombat = pokemonSelectedCombat;
     }
 
+    /**
+     * La mochila de los objetos
+     *
+     */
     public static ObservableList<Objeto> getBackPack() {
         return backPack;
     }
@@ -171,7 +206,10 @@ public class Trainer {
         Trainer.backPack = backPack;
     }
 
-    //CREAMOS UN CONTADOR DE LOS POKEMON QUE TENEMOS EN EL pokemonTeam
+    /**
+     * CREAMOS UN CONTADOR DE LOS POKEMON QUE TENEMOS EN EL pokemonTeam
+     * @return
+     */
     public int numberPokemonInTeam(){
         int numberPokemonCounter = 0;
         for(Pokemon p : this.pokemonTeam){
@@ -182,7 +220,11 @@ public class Trainer {
         return numberPokemonCounter;
     }
 
-
+    /**
+     * @deprecated se usaba cuando íbamos a usar la mecánica de meter Pokémon en PcBill, finalmente no lo
+     * hicismos de esta forma
+     *
+     */
     public void dragPokemonIntoBox(int i){
 
         /*
@@ -208,6 +250,12 @@ public class Trainer {
     }
 
 
+    /**
+     * @deprecated lo íbamos a usar para pasar pokémon al team dependiendo del Id, finalmente el
+     * idPokemon no lo usamos, solamente el de la BBDD
+     * @param i
+     * @param idPokemon
+     */
     public void dragPokemonIntoTeam(int i, int idPokemon){
         //REVISAR SI ES POSIBLE QUITAR EL IDPOKEMON EN EL PARÁMETRO
         //O CAMBIARLO POR OTRA COSA
@@ -220,6 +268,12 @@ public class Trainer {
         }
     }
 
+    /**
+     * Mecánica para la crianza de los Pokémon, tiene en cuenta la fertilidad y el nivel
+     * (mínimo nivel 5 del Pokémon para criar)
+     * @param n
+     * @return
+     */
     public boolean pokemonBreeding(int n){
         int counter = 0;
         for(Pokemon p: pokemonTeam){
@@ -247,6 +301,12 @@ public class Trainer {
         return true;
     }
 
+    /**
+     * Pagar comprobando si tiene Pokedollars suficientes y compruba si hay hueco en el equipo
+     * de lo contrario se mete en PC de Bill
+     * @return
+     * @throws CloneNotSupportedException
+     */
     public boolean BreedingPay() throws CloneNotSupportedException {
         Random rd = new Random();
         Pokemon son = null;
@@ -267,12 +327,76 @@ public class Trainer {
         }
         return false;
     }
+
+    /**
+     * Para confirmar el NickName
+     * @param mote
+     */
     public void BreedingConfirmNickname(String mote){
 
         Trainer.getTrainer().getPokemonCub()[0].setNickName(mote);
     }
 
-
+    /**
+     * - Guardamos la Stamina de los Pokémon al inicio de la batalla
+     * - Creamos un Random y un counter para Calcular cuándo los estados dejarán de tener efecto
+     * - El Pokémon cambia automáticamente al siguientede la array si está debilitado, sea del Trainer o del Enemy
+     * - Los Pokémon comprueban su estado al principio de la batalla
+     * - Se comprueba que no estén dormidos, congelados, etc para poder hacer el movimiento
+     * - Se resta la estamina si atacan
+     * - Si el Pokémon muere (por ejemplo envenenado en su turno, el Pokémon cambia y se debilita)
+     * - Comprueba qué tipo de movimiento para acceder a las acciones de los movimientos
+     * - Si al atacar no tiene stamina, se pone a dormir automáticamente durante un turno, ese turno no ataca
+     * - Si un Pokémon ataca a otro y lo mata, el Pokémon se debilita y cambia de Pokémon, si no hay más Pokémon
+     * se da la batalla por ganada
+     * - Al final del turno, si el Pokémon se encuentra con algún estado, se comprueba si se lo quita o sigue con él
+     * - Un pokémon no puede aplicar un estado sobre otro ya existente, si está congelado se queda congelado
+     * - Un pokémon no puede quitar el estado RESTING (mientras recupera estamina) a otro.
+     * - Los movimientos de ataque quitan vida, los movimientos de improve mejoran las stats y los de estado, se lo aplican
+     * al Pokémon enemigo
+     * - El enemigo tendrá 3 Pokémon como máximo y usará ataques de forma aleatoria, sus Pokémon tendrán el mismo nivel
+     * que nuestro primer Pokémon y tendrán 4 ataques cada uno de ellos. El enemigo tiene las mismas mecánicas que el Trainer
+     * - Las stats de los Pokémon enemigos se corresponden con su nivel
+     * - Si pierdes la partida no ganas experiencia y pierdes dinero
+     * -Si ganas, tu último pokémon gana experiencia y dinero
+     * - Tenemos un logger para guardar cuándo ganamos o perdemos
+     * - Al acabar cada batalla los Pokémon del enemigo cambian
+     * -*Nota*: Tras una batalla, si el Pokémon ha subido al nivel que aprende el ataque, podrá ir a aprender el ataque
+     * pulsando en el botón correspondiente
+     *
+     * @param pokemon1
+     * @param pokemon2
+     * @param movement
+     * @param lblDisplayPkTrainer
+     * @param lblHpTrainer
+     * @param lblHpMaxTrainer
+     * @param lblLevelTrainer
+     * @param imgTrainerPokemon
+     * @param lblStateTrainer
+     * @param lblDisplayPkEnemy
+     * @param lblHpEnemy
+     * @param lblHpMaxEnemy
+     * @param lblLevelEnemy
+     * @param imgEnemy
+     * @param lblStateEnemy
+     * @param btnMove1
+     * @param btnMove2
+     * @param btnMove3
+     * @param btnMove4
+     * @param toMainWindow
+     * @param imgPokeball1
+     * @param imgPokeball2
+     * @param imgPokeball3
+     * @param imgPokeball1Trainer
+     * @param imgPokeball2Trainer
+     * @param imgPokeball3Trainer
+     * @param imgPokeball4Trainer
+     * @param imgPokeball5Trainer
+     * @param imgPokeball6Trainer
+     * @param btnMove5
+     * @throws CloneNotSupportedException
+     * @throws InterruptedException
+     */
     public void fight(Pokemon pokemon1, Pokemon pokemon2, Movement movement, Label lblDisplayPkTrainer, Label lblHpTrainer,
                       Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon,
                       Label lblStateTrainer, Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
@@ -282,7 +406,7 @@ public class Trainer {
                       ImageView imgPokeball1Trainer,  ImageView imgPokeball2Trainer,
                       ImageView imgPokeball3Trainer, ImageView imgPokeball4Trainer,  ImageView imgPokeball5Trainer,
                       ImageView imgPokeball6Trainer, Button btnMove5) throws CloneNotSupportedException, InterruptedException {
-        //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
+        //DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
         //GUARDAMOS LA STAMINA DE LOS POKEMON AL INICIO DE LA BATALLA
         Pokemon pk = pokemon1.clone();
         pk.adaptStatsToLevel(pk.getLevel(),pk);
@@ -290,7 +414,6 @@ public class Trainer {
 
         //CREAMOS UN RANDOM Y UN COUNTER PARA QUE EL ENEMY PUEDA ATACAR DE FORMA ALEATORIA
         Random random = new Random();
-        int counter = 0;
         //CON ESTA VARIABLE CALCULAREMOS CUÁNDO QUITAR LOS ESTADOS
         int removeState;
         //SI ES EL POKEMON QUE EMPIEZA DEL ENTRENADOR ES MÁS RAPIDO, ES TRUE
@@ -302,8 +425,6 @@ public class Trainer {
                 imgPokeball3Trainer, imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
 
 
-
-        //TODO EN ESTE PUNTO PODRÍA PREGUNTAR SI QUIERES CAMBIAR DE POKEMON
 
         if(pokemon1.getState() != State.RESTING && pokemon1.getState() != State.ASLEEP &&
                 pokemon1.getState() != State.DEBILITATED && pokemon1.getState() != State.FROZEN){
@@ -346,16 +467,10 @@ public class Trainer {
 
     }
 
-
-    public int numberBoundTeamFree(){
-        int bound = -1;
-        //MÉTODO PARA VER EL PRIMER BOUND LIBRE DEL POKEMON
-        for(int i = 0; i < pokemonTeam.length; i++){
-            if (pokemonTeam[i] != null) bound++;
-        }
-        return bound;
-    }
-
+    /**
+     * Se comprueba si el equipo está lleno al capturar
+     * @return return de true o false según si el equipo está lleno o no
+     */
     public boolean checkPokemonTeamFull(){
         //SI RETORNA TRUE ES PORQUE HAY ESPACIO LIBRE EN EL TEAM
         for(Pokemon p : getPokemonTeam()){
@@ -364,7 +479,10 @@ public class Trainer {
         return false;
     }
 
-
+    /**
+     * Comprueba las Pokéball disponibles y los ajusta
+     * @return
+     */
     public int pokeballCount(){
 
         if(this.getPokeball() <= 0)
@@ -373,6 +491,10 @@ public class Trainer {
             return this.pokeball;
     }
 
+    /**
+     * Comprueba los Pokedollars disponibles y los ajusta
+     * @return
+     */
     public int pokedollarCount(){
 
         if(this.getPokedollar() <= 0)
@@ -381,12 +503,19 @@ public class Trainer {
             return this.pokedollar;
     }
 
+    /**
+     * Al intentar capturar un Pokémon se gastan Pokeballs
+     * El Pokémon salvaje será del mismo nivel que el primer Pokemon de nuestro equipo Pokémon
+     * Las estadísticas de los Pokémon que capturamos se corresponden con su nivel, a más nivel mejores stats
+     * Los Pokémon que capturemos tendrán aprendidos más o menos ataques según el nivel en el que estén
+     * Tras capturar cada Pokémon se actualiza la base de datos, nuestro equipo pokémon y PcBill
+     * Tenemos un logger para guardar los Pokémon capturados y si van al equipo o al PC
+     * @param pokemon
+     * @param lblText
+     * @param lblPokeballs
+     * @throws CloneNotSupportedException
+     */
     public void capture (Pokemon pokemon, Label lblText, Label lblPokeballs) throws CloneNotSupportedException {
-        /*AQUÍ HE AÑADIDO UNA MECÁNICA PARA QUE SI EN EL EQUIPO HAY HUECOS LIBRES
-        AÑADIMOS EL NUEVO POKÉMON AL EQUIPO, SI NO HAY HUECOS LIBRES LO AÑADIMOS A LA
-        CAJA DE POKÉMON (PC de Bill).
-        EL PARÁMETRO DE ESTE MÉTODO ES EL POKEMON QUE SE VA A CAPTURAR
-         */
         //EL pokemon.changeDisplayName() ES PARA DARLE EL NOMBRE DE DISPLAY
 
         //TODO MAXIMO 0 POKEBALL HACERLO EN EL METODO DEL TRAINTER DE POKEBALL
@@ -420,6 +549,29 @@ public class Trainer {
                         try (Logger logger = new Logger()) {
                             logger.log("¡Has capturado a " + Trainer.getTrainer().getPokemonTeam()[i].getDisplayName() + ",el Pokémon se ha enviado a tu equipo!");
                         }
+
+
+                        //BORRAMOS TODOS LOS REGISTROS
+                        PokemonCRUD.deleteAllPokemon();
+                        //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+                        PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+                        //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+                        PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+                        //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+                        for(Pokemon p : Trainer.getTrainer().getPokemonTeam())
+                            p = null;
+                        LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+                        for(int u = 0; u < Trainer.getTrainer().getPokemonTeam().length && u < listaPokemon.size(); u++)
+                            Trainer.getTrainer().getPokemonTeam()[u] = listaPokemon.get(u);
+
+
+                        //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+                        Trainer.getTrainer().getPokemonPcBill().clear();
+                        LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+                        Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
+
                         break;
                     }
                 }
@@ -447,6 +599,27 @@ public class Trainer {
                 try (Logger logger = new Logger()) {
                     logger.log("¡Has capturado a " + pokemon.getDisplayName() + ", el Pokémon se ha enviado a PC de Bill!");
                 }
+
+                //BORRAMOS TODOS LOS REGISTROS
+                PokemonCRUD.deleteAllPokemon();
+                //AÑADIMOS LOS POKEMON DE NUESTRO ARRAY A LA BBDD
+                PokemonCRUD.insertTrainerPokemonTeam(Trainer.getTrainer().getPokemonTeam());
+                //AÑADIMOS POS POKEMON DE NUESTRO PCBILL A LA BBDD
+                PokemonCRUD.insertPokemonPcBill(Trainer.getTrainer().getPokemonPcBill());
+
+                //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
+                for(Pokemon p : Trainer.getTrainer().getPokemonTeam())
+                    p = null;
+                LinkedList<Pokemon> listaPokemon =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonTeam();
+                for(int u = 0; u < Trainer.getTrainer().getPokemonTeam().length && u < listaPokemon.size(); u++)
+                    Trainer.getTrainer().getPokemonTeam()[u] = listaPokemon.get(u);
+
+
+                //TRAIGO LOS POKEMON DEL PC, SI LOS HUBIERA
+                Trainer.getTrainer().getPokemonPcBill().clear();
+                LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
+                Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
+
             }
         }
         else {
@@ -460,8 +633,12 @@ public class Trainer {
 
     }
 
+    /**
+     * //EN ESTE MÉTODO PASAMOS LOS POKEMON DEL ARRAY pokemonTeam A UNA LISTA
+     * @param listTeamIntermediary
+     * @return
+     */
     public ObservableList <Pokemon> pokemonTeamArrayToList(ObservableList <Pokemon> listTeamIntermediary){
-        //EN ESTE MÉTODO PASAMOS LOS POKEMON DEL ARRAY pokemonTeam A UNA LISTA
         listTeamIntermediary.clear();
         for(int i = 0; i < Trainer.getTrainer().numberPokemonInTeam(); i++){
             listTeamIntermediary.add(Trainer.getTrainer().getPokemonTeam()[i]);
@@ -469,15 +646,23 @@ public class Trainer {
         return listTeamIntermediary;
     }
 
+    /**
+     * PASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediar A LA ARRAY pokemonTeam
+     * @param listTeamIntermediary
+     */
     public void pokemonListToPokemonTeam (ObservableList <Pokemon> listTeamIntermediary){
-        //PASAMOS LOS POKEMON DEL OBSERVABLELIST listTeamIntermediary
-        // A LA ARRAY pokemonTeam
+
         Arrays.fill(Trainer.getTrainer().getPokemonTeam(), null);
         for(int i = 0; i < listTeamIntermediary.size(); i++){
             Trainer.getTrainer().getPokemonTeam()[i] = listTeamIntermediary.get(i);
         }
     }
 
+    /**
+     * Los Pokémon del equipo se recuperan y vuelven a Alive con sus
+     * stats correspondientes según el nivel y posible objeto
+     * @throws CloneNotSupportedException
+     */
     public void centrePokemonHeal() throws CloneNotSupportedException {
 
         for(Pokemon p : Trainer.getTrainer().pokemonTeam){
@@ -489,6 +674,12 @@ public class Trainer {
 
     }
 
+    /**
+     * Para comprar Pokeballs dependiendo del dinero que tengas
+     * @param lblPokeballs
+     * @param lblPokedollars
+     * @param lblbuyOrNot
+     */
     public void pokeballShop(Label lblPokeballs, Label lblPokedollars, Label lblbuyOrNot){
         if(getTrainer().getPokedollar() >= 100){
             getTrainer().setPokeball(getPokeball() + 1);
@@ -503,6 +694,14 @@ public class Trainer {
     }
 
 
+    /**
+     * Para comprar objetos y pasarlos entre tablas, tiene en cuenta el dinero
+     * @param btnBuyObjeto
+     * @param tvObjeto
+     * @param tvBackPack
+     * @param lblPokedollars
+     * @param lblbuyOrNot
+     */
     public void objetoShop(Button btnBuyObjeto, TableView tvObjeto, TableView tvBackPack, Label lblPokedollars, Label lblbuyOrNot){
         //TODO AÑADIR UNA BARRA DESPLAZADORA O ALGO PARA QUE NO SE MUEVA LA LISTA DE OBJETOS
         //TODO HACER QUE NO SE PUEDA COMPRAR MÁS CUANDO NO TENGAS DINERO
@@ -524,6 +723,17 @@ public class Trainer {
         else lblbuyOrNot.setText("No has comprado ningún objeto");
     }
 
+    /**
+     * @deprecated Método que ya no se usa
+     *
+     * @param lblDisplayPkTrainer
+     * @param lblHpTrainer
+     * @param lblHpMaxTrainer
+     * @param lblLevelTrainer
+     * @param imgTrainerPokemon
+     * @param lblStateTrainer
+     * @throws CloneNotSupportedException
+     */
     public void changeLabelsInitializeTrainer(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer,
                                               ImageView imgTrainerPokemon, Label lblStateTrainer) throws CloneNotSupportedException {
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
@@ -542,6 +752,26 @@ public class Trainer {
         imgTrainerPokemon.setImage(image);
     }
 
+    /**
+     * PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL TEAM EN EL LABEL CORRESPONDIENTE
+     * CALCULAMOS LA VIDA MÁXIMA
+     * PONEMOS LA IMAGEN DEL PRIMER POKÉMON DEL TEAM
+     * CAMBIAMOS LABELS E IMÁGEMENS SEGÚN CORRESPONDA
+     *
+     * @param lblDisplayPkTrainer
+     * @param lblHpTrainer
+     * @param lblHpMaxTrainer
+     * @param lblLevelTrainer
+     * @param imgTrainerPokemon
+     * @param lblStateTrainer
+     * @param imgPokeball1Trainer
+     * @param imgPokeball2Trainer
+     * @param imgPokeball3Trainer
+     * @param imgPokeball4Trainer
+     * @param imgPokeball5Trainer
+     * @param imgPokeball6Trainer
+     * @throws CloneNotSupportedException
+     */
     public void changeLabelsInFight(Label lblDisplayPkTrainer, Label lblHpTrainer, Label  lblHpMaxTrainer, Label  lblLevelTrainer,
                                     ImageView imgTrainerPokemon, Label lblStateTrainer,
                                     ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
@@ -563,8 +793,7 @@ public class Trainer {
 
         for(int i = 0; i < this.pokemonTeam.length; i++) {
             //POKEBALL TRAINER
-            //TODO TERMINAR LOS PARAMETROS DE LA IMAGEN ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
-            //                                ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer
+
             if (i < this.pokemonTeam.length && this.pokemonTeam[i] == null) {
                 File file2 = new File("doc/images/PokeballDefeat.png");
                 Image image2 = new Image(file2.toURI().toString());
@@ -599,7 +828,19 @@ public class Trainer {
         }
     }
 
-
+    /**
+     * Entrenar cuesta dinero
+     * En el controlador de Train, el Pokémon va subiendo de nivel y subiendo stats,
+     * también va aprendiendo ataques según corresponda. Cuando tiene aprendidos los 4 movimientos
+     * se activará un botón en el que se puede aprender un nuevo ataque por otro ya aprendido
+     *
+     * @param p
+     * @param lblActualLevel
+     * @param lblPrice
+     * @param lblPokedollars
+     * @param lblLevel
+     * @throws CloneNotSupportedException
+     */
     public void train(Pokemon p, Label lblActualLevel, Label lblPrice, Label lblPokedollars, Label lblLevel) throws CloneNotSupportedException {
         //MÉTODO PARA ENTRENAR POKÉMONS
         if(p != null){
@@ -617,6 +858,11 @@ public class Trainer {
         }
     }
 
+    /**
+     * Cuando el Pokémon se debilita se cambia al siguiente
+     * Si no quedan nuevos Pokémon pierdes la batalla, te quitan dinero y no ganas experiencia
+     * Se cambian las labels e imágenes
+     */
     public void changePokemonInFightTrainer(Label lblDisplayPkTrainer,Label lblHpTrainer,Label lblHpMaxTrainer,Label lblLevelTrainer,ImageView imgTrainerPokemon,Label lblStateTrainer,
                                             ImageView imgPokeball1Trainer, ImageView imgPokeball2Trainer, ImageView imgPokeball3Trainer,
                                             ImageView imgPokeball4Trainer, ImageView imgPokeball5Trainer, ImageView imgPokeball6Trainer,
@@ -640,7 +886,7 @@ public class Trainer {
                 Trainer.getTrainer().getSentencesTextFight().add("¡HAS PERDIDO EL COMBATE!");
                 Trainer.getTrainer().getSentencesTextFight().add("Tus Pokémon no recibirán experiencia");
 
-                //EL ENTRENADOR PIERDE UN TERCIO DE TODO SU DINERO
+                //EL ENTRENADOR PIERDE UN TERCIO DE  SU DINERO
                 int dollars = Trainer.getTrainer().getPokedollar() - (Trainer.getTrainer().getPokedollar()/3);
                 Trainer.getTrainer().setPokedollar(dollars);
                 Trainer.getTrainer().getSentencesTextFight().add("Has perdido un tercio de tus Pokedollars");
@@ -669,7 +915,10 @@ public class Trainer {
 
     }
 
-
+    /**
+     *
+     * @return comprueba que el Pokémon está vivo en la batalla
+     */
     public boolean pokemonAliveInTeam() {
         for (int i = 0; i < 6; i++) {
             if (Trainer.getTrainer().getPokemonTeam()[i] != null && Trainer.getTrainer().getPokemonTeam()[i].getHp() > 0) {

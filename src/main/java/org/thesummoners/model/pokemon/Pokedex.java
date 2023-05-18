@@ -12,18 +12,8 @@ public class Pokedex {
     static private HashMap<Type, List<Type>> strong;
     static private HashMap<Type, List<Type>> weak;
 
-    //TIPOS FUERTES CONTRA OTROS
-
 
     public static ObservableList<Pokemon> getPokedex() throws CloneNotSupportedException {
-        /*
-        pokedex.clear();
-        pokedex.add(new Pokemon("Bulbasaur", 1, "doc/images/Bulbasaur.png", "doc/images/spritesback/3a-b__001__xy.gif",145,1, 49,65,49,65,45, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.M, 0, null));
-        pokedex.add(new Pokemon("Squirtle", 7, "doc/images/Squirtle.png", "doc/images/spritesback/3a-b__007__xy.gif",144,1, 48,50,65,64,43, 150, Type.WATER, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Charmander", 4, "doc/images/Charmander.png", "doc/images/spritesback/3a-b__004__xy.gif",139,1, 52,60,43,50,65, 150, Type.FIRE, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Pikachu", 25, "doc/images/Pikachu.png", "doc/images/spritesback/3a-b__025__xy.gif",135,1, 55,50,40,50,90, 150, Type.ELECTRIC, null, State.ALIVE, Sex.F, 0, null));
-        pokedex.add(new Pokemon("Venusaur", 3, "doc/images/Venusaur.png", "doc/images/spritesback/3a-b__003__xy.gif",180,1, 83,100,83,100,80, 150, Type.GRASS, Type.POISON, State.ALIVE, Sex.F, 0, null));
-        */
         return pokedex;
     }
 
@@ -31,6 +21,10 @@ public class Pokedex {
         Pokedex.pokedex = pokedex;
     }
 
+    /**
+     * Tipos fuertes contra otros
+     * @return
+     */
     public static HashMap<Type, List<Type>> getStrong() {
         strong = new HashMap<>();
 
@@ -59,6 +53,10 @@ public class Pokedex {
         this.strong = strong;
     }
 
+    /**
+     * Tipos débiles contra otros
+     * @return
+     */
     public static HashMap<Type, List<Type>> getWeak() {
         weak = new HashMap<>();
         if(weak.get(2) == null){
@@ -87,7 +85,13 @@ public class Pokedex {
     }
 
 
-
+    /**
+     * Según lo que un tipo afecte a otro, devuelve un número que será un multiplicador de daño mayor o menor
+     * @param pokemonTrainer
+     * @param pokemonEnemy
+     * @param movement
+     * @return
+     */
     public static float compareAdvantage (Pokemon pokemonTrainer, Pokemon pokemonEnemy, Movement movement){
 
         AttackMovement attackMovement = (AttackMovement) movement;
@@ -97,22 +101,12 @@ public class Pokedex {
         if(Pokedex.getStrong().get(attackMovement.getType()).contains(pokemonEnemy.getType2()))
             return 2f;
 
-       /* ESTÁ COMENTADO PORQUE ESTO ES PARA QUE QUE EL DAÑO DEPENDA DEL TIPO DE LOS POKEMON Y NO DE LOS MOVIMIENTOS
-        if( pokemonTrainer.getType2() != null && (Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
-                Pokedex.getStrong().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType2())))
-            return 2f;
-*/
         //SI ALGUNO DE LOS TIPOS DEL POKEMON ES DEBIL CONTRA ALGUNO DE LOS 2 TIPOS DEL OTRO ATACA X0.5
         if(Pokedex.getWeak().get(attackMovement.getType()).contains(pokemonEnemy.getType1()))
             return 0.5f;
         if(Pokedex.getWeak().get(attackMovement.getType()).contains(pokemonEnemy.getType2()))
             return 0.5f;
 
-        /* ESTÁ COMENTADO PORQUE ESTO ES PARA QUE QUE EL DAÑO DEPENDA DEL TIPO DE LOS POKEMON Y NO DE LOS MOVIMIENTOS
-        if( pokemonTrainer.getType2() != null && (Pokedex.getWeak().get(pokemonTrainer.getType2()).contains(pokemonEnemy.getType1()) ||
-                Pokedex.getWeak().get(movement.getMovementType()).contains(pokemonEnemy.getType2())))
-            return 0.5f;
-        */
         //SI NO SUCEDE NADA DE LO ANTERIOR ATACA X1
         return 1;
     }

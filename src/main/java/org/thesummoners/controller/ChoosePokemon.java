@@ -47,7 +47,6 @@ public class ChoosePokemon {
         }
         else {
             //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
-           // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
            PokemonCRUD.insertTrainerPokemon(p, 1);
         }
         //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA
@@ -102,7 +101,6 @@ public class ChoosePokemon {
         }
         else {
             //INTRODUCIMOS EL POKEMON EN EL HUECO DE NUESTRO EQUIPO
-            // Trainer.getTrainer().getPokemonTeam()[Trainer.getTrainer().numberBoundTeamFree()] = p;
             PokemonCRUD.insertTrainerPokemon(p, 1);
         }
         //TRAIGO LOS POKEMON DEL EQUIPO, SI LOS HUBIERA

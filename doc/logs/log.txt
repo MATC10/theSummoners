@@ -201,3 +201,147 @@
 2023-05-17 20:26:53 - ¡HAS GANADO EL COMBATE!¡Metapod ha ganado 98 de experiencia!
 2023-05-17 20:26:53 - ¡HAS GANADO EL COMBATE!¡Metapod ha ganado 95 de experiencia!
 2023-05-17 20:26:57 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:03:21 - Pokémon no capturado
+2023-05-18 09:03:21 - Pokémon no capturado
+2023-05-18 09:03:21 - Pokémon no capturado
+2023-05-18 09:03:22 - ¡Has capturado a Aerodactyl,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:03:22 - Pokémon no capturado
+2023-05-18 09:03:22 - ¡Has capturado a Aerodactyl,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:03:22 - Pokémon no capturado
+2023-05-18 09:03:22 - ¡Has capturado a Aerodactyl,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:03:22 - Pokémon no capturado
+2023-05-18 09:03:22 - Pokémon no capturado
+2023-05-18 09:03:23 - Pokémon no capturado
+2023-05-18 09:03:23 - Pokémon no capturado
+2023-05-18 09:03:23 - ¡Has capturado a Aerodactyl,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:03:23 - Pokémon no capturado
+2023-05-18 09:03:23 - Pokémon no capturado
+2023-05-18 09:03:23 - ¡Has capturado a Aerodactyl,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:03:24 - Pokémon no capturado
+2023-05-18 09:03:24 - ¡Has capturado a Aerodactyl, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:03:24 - ¡Has capturado a Aerodactyl, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:03:24 - Pokémon no capturado
+2023-05-18 09:03:31 - Pokémon no capturado
+2023-05-18 09:03:31 - Pokémon no capturado
+2023-05-18 09:03:31 - Pokémon no capturado
+2023-05-18 09:03:31 - Pokémon no capturado
+2023-05-18 09:03:31 - Pokémon no capturado
+2023-05-18 09:03:32 - Pokémon no capturado
+2023-05-18 09:03:32 - Pokémon no capturado
+2023-05-18 09:03:46 - Pokémon no capturado
+2023-05-18 09:03:46 - Pokémon no capturado
+2023-05-18 09:03:46 - Pokémon no capturado
+2023-05-18 09:03:46 - Pokémon no capturado
+2023-05-18 09:03:47 - Pokémon no capturado
+2023-05-18 09:03:47 - Pokémon no capturado
+2023-05-18 09:03:47 - Pokémon no capturado
+2023-05-18 09:03:47 - Pokémon no capturado
+2023-05-18 09:03:47 - Pokémon no capturado
+2023-05-18 09:03:48 - Pokémon no capturado
+2023-05-18 09:03:48 - Pokémon no capturado
+2023-05-18 09:04:18 - Pokémon no capturado
+2023-05-18 09:04:18 - Pokémon no capturado
+2023-05-18 09:04:18 - Pokémon no capturado
+2023-05-18 09:04:19 - Pokémon no capturado
+2023-05-18 09:04:19 - Pokémon no capturado
+2023-05-18 09:04:19 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:04:19 - Pokémon no capturado
+2023-05-18 09:04:19 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:04:19 - Pokémon no capturado
+2023-05-18 09:04:20 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:04:20 - ¡Has capturado a Venusaur,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:04:20 - Pokémon no capturado
+2023-05-18 09:04:20 - Pokémon no capturado
+2023-05-18 09:04:20 - Pokémon no capturado
+2023-05-18 09:04:20 - Pokémon no capturado
+2023-05-18 09:04:21 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:04:21 - Pokémon no capturado
+2023-05-18 09:04:21 - ¡Has capturado a Venusaur, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:04:21 - Pokémon no capturado
+2023-05-18 09:04:21 - Pokémon no capturado
+2023-05-18 09:04:21 - Pokémon no capturado
+2023-05-18 09:04:22 - Pokémon no capturado
+2023-05-18 09:10:24 - Pokémon no capturado
+2023-05-18 09:10:25 - Pokémon no capturado
+2023-05-18 09:10:25 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:10:25 - Pokémon no capturado
+2023-05-18 09:10:26 - Pokémon no capturado
+2023-05-18 09:10:26 - Pokémon no capturado
+2023-05-18 09:10:27 - Pokémon no capturado
+2023-05-18 09:10:27 - Pokémon no capturado
+2023-05-18 09:10:27 - Pokémon no capturado
+2023-05-18 09:10:28 - Pokémon no capturado
+2023-05-18 09:10:28 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:10:28 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:10:29 - Pokémon no capturado
+2023-05-18 09:10:30 - Pokémon no capturado
+2023-05-18 09:10:30 - ¡Has capturado a Kakuna, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:10:31 - Pokémon no capturado
+2023-05-18 09:10:31 - Pokémon no capturado
+2023-05-18 09:10:32 - Pokémon no capturado
+2023-05-18 09:10:32 - Pokémon no capturado
+2023-05-18 09:10:32 - Pokémon no capturado
+2023-05-18 09:10:33 - Pokémon no capturado
+2023-05-18 09:10:44 - Pokémon no capturado
+2023-05-18 09:10:45 - Pokémon no capturado
+2023-05-18 09:10:45 - ¡Has capturado a Articuno, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:10:46 - Pokémon no capturado
+2023-05-18 09:10:46 - Pokémon no capturado
+2023-05-18 09:10:47 - ¡Has capturado a Articuno, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:10:47 - Pokémon no capturado
+2023-05-18 09:10:47 - ¡Has capturado a Articuno, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:12:54 - Pokémon no capturado
+2023-05-18 09:12:54 - Pokémon no capturado
+2023-05-18 09:12:55 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:12:56 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:12:56 - Pokémon no capturado
+2023-05-18 09:12:57 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:12:58 - Pokémon no capturado
+2023-05-18 09:12:58 - Pokémon no capturado
+2023-05-18 09:12:58 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:12:59 - Pokémon no capturado
+2023-05-18 09:13:00 - Pokémon no capturado
+2023-05-18 09:13:00 - ¡Has capturado a Pidgeot, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:34:06 - Pokémon no capturado
+2023-05-18 09:34:07 - ¡Has capturado a Snorlax,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:34:07 - ¡Has capturado a Snorlax,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:34:08 - ¡Has capturado a Snorlax,el Pokémon se ha enviado a tu equipo!
+2023-05-18 09:34:08 - ¡Has capturado a Snorlax, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:34:08 - Pokémon no capturado
+2023-05-18 09:34:08 - Pokémon no capturado
+2023-05-18 09:34:09 - ¡Has capturado a Snorlax, el Pokémon se ha enviado a PC de Bill!
+2023-05-18 09:34:09 - Pokémon no capturado
+2023-05-18 09:34:09 - Pokémon no capturado
+2023-05-18 09:34:09 - Pokémon no capturado
+2023-05-18 09:34:24 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:34:41 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 108 de experiencia!
+2023-05-18 09:34:41 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 101 de experiencia!
+2023-05-18 09:35:27 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:35:42 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 92 de experiencia!
+2023-05-18 09:35:42 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 106 de experiencia!
+2023-05-18 09:35:47 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:35:51 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 97 de experiencia!
+2023-05-18 09:35:51 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 98 de experiencia!
+2023-05-18 09:35:55 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:42:44 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:42:46 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 104 de experiencia!
+2023-05-18 09:42:46 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 97 de experiencia!
+2023-05-18 09:42:49 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:42:50 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 103 de experiencia!
+2023-05-18 09:42:51 - ¡HAS GANADO EL COMBATE!¡Charmander ha ganado 101 de experiencia!
+2023-05-18 09:43:44 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:43:49 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 102 de experiencia!
+2023-05-18 09:43:49 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 98 de experiencia!
+2023-05-18 09:43:54 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:44:00 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 103 de experiencia!
+2023-05-18 09:44:00 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 91 de experiencia!
+2023-05-18 09:44:03 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:44:13 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 109 de experiencia!
+2023-05-18 09:44:13 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 110 de experiencia!
+2023-05-18 09:44:18 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:44:22 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 101 de experiencia!
+2023-05-18 09:44:22 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 95 de experiencia!
+2023-05-18 09:49:15 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:49:26 - ¡Has iniciado un combate Pokémon!
+2023-05-18 09:49:47 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 96 de experiencia!
+2023-05-18 09:49:47 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 96 de experiencia!

@@ -14,6 +14,40 @@ import java.util.Random;
 public enum State {
     PARALYSED, BURNED, POISONED, ASLEEP, FROZEN, DEBILITATED, ALIVE, RESTING;
 
+    /**
+     *
+     * @param pokemon1
+     * @param staminaPokemon
+     * @param lblDisplayPkTrainer
+     * @param lblHpTrainer
+     * @param lblHpMaxTrainer
+     * @param lblLevelTrainer
+     * @param imgTrainerPokemon
+     * @param lblStateTrainer
+     * @param lblDisplayPkEnemy
+     * @param lblHpEnemy
+     * @param lblHpMaxEnemy
+     * @param lblLevelEnemy
+     * @param imgEnemy
+     * @param lblStateEnemy
+     * @param btnMove1
+     * @param btnMove2
+     * @param btnMove3
+     * @param btnMove4
+     * @param toMainWindow
+     * @param imgPokeball1
+     * @param imgPokeball2
+     * @param imgPokeball3
+     * @param imgPokeball1Trainer
+     * @param imgPokeball2Trainer
+     * @param imgPokeball3Trainer
+     * @param imgPokeball4Trainer
+     * @param imgPokeball5Trainer
+     * @param imgPokeball6Trainer
+     * @param btnMove5
+     * @throws InterruptedException
+     * @throws CloneNotSupportedException
+     */
     public static void applyState(Pokemon pokemon1, int staminaPokemon, Label lblDisplayPkTrainer, Label lblHpTrainer,
                                   Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon,
                                   Label lblStateTrainer, Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,

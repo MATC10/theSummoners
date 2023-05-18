@@ -23,14 +23,23 @@ public class Enemy {
     private static Pokemon[] enemyTeam;
     Random random = new Random();
 
+    /**
+     * EL ENTRENADO ENEMIGO TENDRÁ UN EQUIPO POKÉMON DE ENTRE 1 Y 3 POKÉMON DE FORMA ALEATORIA.
+     * @throws CloneNotSupportedException
+     */
     public Enemy() throws CloneNotSupportedException {
         //EL ENTRENADO ENEMIGO TENDRÁ UN EQUIPO POKÉMON DE ENTRE
         //1 Y 3 POKÉMON DE FORMA ALEATORIA.
-//TODO HACER UN METODO PARA QUE AL ACABAR CADA COMBATE O AL EMPEZAR SE LE PONGAN NUEVOS POKEMON
+// EN LA PELEA AL ACABAR CADA COMBATE O AL EMPEZAR SE LE PONGAN NUEVOS POKEMON
         enemyTeam = new Pokemon[random.nextInt(2)+1];
         pokemonIntoTeam();
     }
 
+    /**
+     * Enemy es singleton
+     * @return
+     * @throws CloneNotSupportedException
+     */
     public static Enemy getEnemy() throws CloneNotSupportedException {
         synchronized (Enemy.class){
             if(enemy == null){
@@ -80,6 +89,12 @@ public class Enemy {
         this.enemyTeam = enemyTeam;
     }
 
+    /**
+     * El nivel del pokemon enemigo el del mismo nivel que tu primer pokemon de Trainer.pokemonTeam
+     * METEMOS POKEMON ALEATORIOS AL EQUIPO DESDE LA ARRAY pokedex CON EL NIVEL QUE DEBEN TENER
+     * @return
+     * @throws CloneNotSupportedException
+     */
     public Pokemon[] pokemonIntoTeam() throws CloneNotSupportedException {
         Random random = new Random();
         enemyTeam = new Pokemon[random.nextInt(3)+1];
@@ -103,6 +118,42 @@ public class Enemy {
         return enemyTeam;
     }
 
+    /**
+     * La misma funcionalidad que para Trainer pero aplicado al enemigo
+     * Cuando el enemigo pierde le da dinero y experiencia al Trainer
+     * @param pokemon2
+     * @param pokemon1
+     * @param movement
+     * @param lblDisplayPkTrainer
+     * @param lblHpTrainer
+     * @param lblHpMaxTrainer
+     * @param lblLevelTrainer
+     * @param imgTrainerPokemon
+     * @param lblStateTrainer
+     * @param lblDisplayPkEnemy
+     * @param lblHpEnemy
+     * @param lblHpMaxEnemy
+     * @param lblLevelEnemy
+     * @param imgEnemy
+     * @param lblStateEnemy
+     * @param btnMove1
+     * @param btnMove2
+     * @param btnMove3
+     * @param btnMove4
+     * @param toMainWindow
+     * @param imgPokeball1
+     * @param imgPokeball2
+     * @param imgPokeball3
+     * @param imgPokeball1Trainer
+     * @param imgPokeball2Trainer
+     * @param imgPokeball3Trainer
+     * @param imgPokeball4Trainer
+     * @param imgPokeball5Trainer
+     * @param imgPokeball6Trainer
+     * @param btnMove5
+     * @throws CloneNotSupportedException
+     * @throws InterruptedException
+     */
     public void fight(Pokemon pokemon2, Pokemon pokemon1, Movement movement, Label lblDisplayPkTrainer, Label lblHpTrainer,
                       Label lblHpMaxTrainer, Label lblLevelTrainer, ImageView imgTrainerPokemon,
                       Label lblStateTrainer, Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
@@ -171,7 +222,11 @@ public class Enemy {
         }
     }
 
-
+    /**
+     * Se pone una imágen distinta dependiende de cada entrenador enemigo que quiera luchar
+     * @param imgEnemy
+     * @param lblWantsToFight
+     */
     public static void WantsToFightEnemy(ImageView imgEnemy, Label lblWantsToFight){
         //LLENAMOS EL HASHMAL Y DEVOLVEMOS EL NOMBRE Y LA IMAGEN DEL ENEMIGO A MOSTRAR
 
@@ -196,6 +251,16 @@ public class Enemy {
 
     }
 
+    /**
+     * Lo mismo que para fight pero aplicado al Enemy (el método se llama igual)
+     * @param lblDisplayPkEnemy
+     * @param lblHpEnemy
+     * @param lblHpMaxEnemy
+     * @param lblLevelEnemy
+     * @param imgEnemy
+     * @param lblStateEnemy
+     * @throws CloneNotSupportedException
+     */
     public void changeLabelsInFight(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy, Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy) throws CloneNotSupportedException {
         //PONEMOS EL NOMBRE, LEVEL Y HP DEL PRIMER POKÉMON DEL ENEMIGO EN EL LABEL CORRESPONDIENTE
         lblDisplayPkEnemy.setText(Enemy.getEnemy().getPokemon2().getDisplayName());
@@ -214,6 +279,25 @@ public class Enemy {
         imgEnemy.setImage(image2);
     }
 
+    /**
+     * Lo mismo que para fight pero aplicado al Enemy (el método se llama igual)
+     * @param lblDisplayPkEnemy
+     * @param lblHpEnemy
+     * @param lblHpMaxEnemy
+     * @param lblLevelEnemy
+     * @param imgEnemy
+     * @param lblStateEnemy
+     * @param btnMove1
+     * @param btnMove2
+     * @param btnMove3
+     * @param btnMove4
+     * @param toMainWindow
+     * @param imgPokeball1
+     * @param imgPokeball2
+     * @param imgPokeball3
+     * @param btnMove5
+     * @throws CloneNotSupportedException
+     */
     public void changePokemonInFightEnemy(Label lblDisplayPkEnemy, Label lblHpEnemy, Label lblHpMaxEnemy,
                                           Label lblLevelEnemy, ImageView imgEnemy, Label lblStateEnemy,
                                           Button btnMove1, Button btnMove2, Button btnMove3, Button btnMove4, Button toMainWindow,

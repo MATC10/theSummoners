@@ -68,7 +68,6 @@ public class Login {
         LinkedList<Pokemon> miListaPc =  (LinkedList<Pokemon>) PokemonCRUD.readPokemonPcBill();
         Trainer.getTrainer().getPokemonPcBill().addAll(miListaPc);
 
-for(Movement a : MovementInitializer.movementListFull()) System.out.println(a);
 
 
     File file = new File("doc/images/otherimages/TheSummoners_logo.png");

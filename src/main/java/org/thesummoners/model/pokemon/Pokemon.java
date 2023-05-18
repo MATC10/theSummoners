@@ -387,6 +387,16 @@ public class Pokemon implements Cloneable {
         //A LA HORA DE PELEAR TIENE QUE HABER UN TURNO QUE NO PELEE TRAS DORMIR
     }
 
+    /**
+     * Este método da experiencia al Pokémon después de cada combate
+     *
+     * Si el Pokémon llega o supera los 100 de Experiencia sube de nivel y el nuevo nivel
+     * comienza conla experiencia sobrante del anterior nivel
+     *
+     * Tras subir de nivel cambian las stats del Pokémon adaptándolas al nuevo nivel automáticamente
+     * @param experience
+     * @throws CloneNotSupportedException
+     */
     public void levelUp(int experience) throws CloneNotSupportedException {
         //LOS COMBATES DAN EXP A LOS POKEMON
         if(this.level < 100){
@@ -404,11 +414,18 @@ public class Pokemon implements Cloneable {
     }
 
 
-
-
+    /**
+     * Los pokémon suben sus estadísticas según el Pokémon y el nivel
+     * Al iniciar el método se comprueba si el Pokémon tiene objetos o no
+     * Se le sube las stats BASE al Pokémon según el nivel
+     * Se le suben las stats al Pokémon si tienen objeto tras subir sus stats base
+     * @param level
+     * @param pokemon
+     * @throws CloneNotSupportedException
+     */
     public void adaptStatsToLevel(int level, Pokemon pokemon) throws CloneNotSupportedException {
         //ESTE MÉTODO CAMBIA LAS ESTADÍSTICAS DEL POKÉMON SEGÚN SU NIVEL
-        //TODO: EN COMBATE USAMOS EL MÉTODO levelUp() PARA DAR EXPERIENCIA Y QUE LO HAGA TODO SOLO
+        //EN COMBATE USAMOS EL MÉTODO levelUp() PARA DAR EXPERIENCIA Y QUE LO HAGA SOLO
         if(level <= 100 && level > 0) {
 
 
@@ -416,7 +433,6 @@ public class Pokemon implements Cloneable {
 
             for (Pokemon p : Pokedex.getPokedex()) {
                 if (pokemon.getName().equals(p.getName())) {
-                    System.out.println(p.getName());
                     newPokemon = p.clone();
                 }
             }
@@ -459,6 +475,11 @@ public class Pokemon implements Cloneable {
         }
     }
 
+    /**
+     * EL displayName ES EL NOMBRE DEL POKEMON QUE SE MOSTRARÁ EN TODOS LOS SITIOS
+     * Si el Pokémon tiene mote se mostrará el mote en el DisplayName
+     * Si el Pokémon no tiene mote se mostrará el Nombre original del Pokémon
+     */
     public void changeDisplayName(){
         //EL displayName ES EL NOMBRE DEL POKEMON QUE SE MOSTRARÁ EN TODOS LOS SITIOS
         if(this.nickName != null && this.nickName.length() > 0){
@@ -467,9 +488,14 @@ public class Pokemon implements Cloneable {
         else this.displayName = this.name;
     }
 
+    /**
+     * Según el tipo de objeto subirá las stats del Pokémon
+     * @param pokemon
+     * @param objeto
+     * @return
+     */
     public boolean statisticsWithObjeto(Pokemon pokemon, Objeto objeto){
         //SEGÚN EL OBJETO EQUIPADO, EL POKÉMON TENDRÁ DETERMINADAS ESTADÍSTICAS
-        //SE DEBE HACER OTRO MÉTODO PARA RECUPERAR SUS STATS BASE AL QUITAR EL OBJETO
         if(objeto.getName().equals("pesa")){
             pokemon.setAttackPower((int) (pokemon.getAttackPower() * objeto.getAttack()));
             pokemon.setDefense((int) (pokemon.getDefense() * objeto.getDefense()));
@@ -502,7 +528,9 @@ public class Pokemon implements Cloneable {
         return false;
     }
 
-
+    /**
+     * Comprueba que la vida mínima nunca baje de 0
+     */
     public void minimumHp (){
         //MÉTODO PARA NO BAJAR DE 0 DE VIDA, INCLUIDO EN setHp();
         if(this.hp <= 0){
@@ -510,6 +538,14 @@ public class Pokemon implements Cloneable {
         }
     }
 
+    /**
+     * @deprecated Método que se iba a usar para aprender nuevos movimientos pero que finalmente
+     * no se usa
+     * @param lblText
+     * @param btnMove2
+     * @param btnMove3
+     * @param btnMove4
+     */
     public void learnNewMovement(Label lblText, Button btnMove2, Button btnMove3, Button btnMove4){
         int i = this.getLevel();
 
@@ -530,10 +566,19 @@ public class Pokemon implements Cloneable {
         }
     }
 
-    public void overwritesMovement(){
-
-    }
-
+    /**
+     * Para aprender movimientos nuevos
+     * @param lblText
+     * @param btnLearnMove
+     * @param btnP1
+     * @param btnP2
+     * @param btnP3
+     * @param btnP4
+     * @param btnP5
+     * @param btnP6
+     * @param btnLevel
+     * @param btnBack
+     */
     public void learnMoveInTrainWindow(Label lblText, Button btnLearnMove, Button btnP1, Button btnP2,
                                        Button btnP3, Button btnP4, Button btnP5, Button btnP6,
                                        Button btnLevel, Button btnBack) {
@@ -563,6 +608,12 @@ public class Pokemon implements Cloneable {
         }
     }
 
+    /**
+     * Busca un objeto de movimiento por su nombre (esto se usará en el CRUD
+     * para insertarlos en los Pokémon aprendidos por el Pokémon)
+     * @param movementName
+     * @return
+     */
     public static Movement getMovementByName(String movementName) {
         List<Movement> movementList = MovementInitializer.movementListFull();
         for (Movement movement : movementList) {

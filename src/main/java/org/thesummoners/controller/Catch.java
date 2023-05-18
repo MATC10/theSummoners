@@ -67,9 +67,6 @@ public class Catch {
         Image image1 = new Image(file1.toURI().toString());
         imgPokeball.setImage(image1);
 
-        //FIXME AQUÍ CAMBIAR LA FOTO DEL POKEMON SEGÚN EL POKEMON QUE SEA
-
-
         //CLONAMOS EN p EL NUEVO POKEMON
         p = Pokedex.getPokedex().get(random.nextInt(Pokedex.getPokedex().size())).clone();
 
@@ -116,8 +113,6 @@ public class Catch {
     @FXML
     void onTryCatchPokemon(MouseEvent event) throws CloneNotSupportedException {
         //EN EL PARÁMETRO LE TENEMOS QUE METER UN POKEMON DE LA LISTA DE POKEMON DE LA POKEDEX
-        //TODO HAY QUE CAMBIAR EL TEXTO MOSTRADO Y ADAPTARLO AL POKEMON QUE TOQUE
-        //TODO HAY QUE COMPROBAR QUE LA MECÁNICA DE CAPTURA FUNCIONE
 
         Trainer.getTrainer().capture(p, lblText, lblPokeballs);
 

@@ -40,7 +40,7 @@ public class ChangePokemonNickName {
     public void toConfirm (ActionEvent event) throws IOException{
         //SI EL NICK NO ES ADECUADO SE MODIFICA EL LABEL TRAS DAR A CONFIRMAR
         //SI EL NICK ES CORRECTO PASA A LA MainWindow TRAS DAR A CONFIRMAR
-        //esto es una prueba
+
         if(txtNickName.getText().equals("error")){
             lblVerify.setText("El mote que has elegido no es adecuado");
             lblVerify.setTextFill(Color.RED);

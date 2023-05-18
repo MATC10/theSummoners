@@ -18,8 +18,6 @@ import java.util.Objects;
 import java.util.Random;
 
 public class WantsToFight {
-    @FXML
-    private Button btnFight;
 
     @FXML
     private ImageView imgEnemy;

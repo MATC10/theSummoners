@@ -59,8 +59,6 @@ public class PokemonCRUD {
     }
 
     //HACER SELECT DE UN POKEMON ESPECIFICO
-    //(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience) {
-    //
     public static Pokemon readPokemonSpecify(String name) {
         String query = "SELECT * FROM pokedex WHERE name = ?";
 
@@ -98,8 +96,7 @@ public class PokemonCRUD {
     }
 
 
-//(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience) {
-//
+
     public static void insertTrainerPokemon(Pokemon pokemon, int equipoOpc) {
         String query = "INSERT INTO pokemon (ID_Pokedex, ID_Trainer, Name, NickName, " +
                 "HP, Level, AttackPower, Fertility, SpecialAttack, SpecialDefense, Defense, Speed, Stamina, Type1," +
@@ -179,12 +176,12 @@ public class PokemonCRUD {
                 String move3 = resultSet.getString("move3");
                 String move4 = resultSet.getString("move4");
 
-                // Si move1 está vacío, asignar "Placaje" por defecto
+                // SE ASIGNA PLACAJE CUANDO EL MOVE1 ESTÁ VACÍO
                 if (move1 == null) {
                     move1 = "Placaje";
                 }
 
-                // Crear objeto Objeto a partir del nombre del objeto
+                // CREAMOS EL OBJETO A PARTIR DEL OBJETO
                 Objeto objetoPokemon = null;
                 if (objeto != null) {
                     objetoPokemon = new Objeto(objeto);
@@ -195,7 +192,7 @@ public class PokemonCRUD {
                         Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
                         Sex.valueOf(sex), experience, objetoPokemon);
 
-                // Obtener los movimientos utilizando el método getMovementByName
+                // OBJETENEMOS LOS MOVIMIENTOS A TRAVÉS DE getMovementByName()
                 pokemon.setLearnedMovement(new Movement[]{
                         getMovementByName(move1),
                         getMovementByName(move2),
@@ -249,12 +246,12 @@ public class PokemonCRUD {
                 String move3 = resultSet.getString("move3");
                 String move4 = resultSet.getString("move4");
 
-                // Si move1 está vacío, asignar "Placaje" por defecto
+
                 if (move1 == null) {
                     move1 = "Placaje";
                 }
 
-                // Crear objeto Objeto a partir del nombre del objeto
+
                 Objeto objetoPokemon = null;
                 if (objeto != null) {
                     objetoPokemon = new Objeto(objeto);
@@ -265,7 +262,7 @@ public class PokemonCRUD {
                         Type.valueOf(type1), Type.valueOf(type2), State.valueOf(state),
                         Sex.valueOf(sex), experience, objetoPokemon);
 
-                // Obtener los movimientos utilizando el método getMovementByName
+
                 pokemon.setLearnedMovement(new Movement[]{
                         getMovementByName(move1),
                         getMovementByName(move2),

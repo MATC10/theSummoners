@@ -38,24 +38,7 @@ public abstract class Movement {
         this.stamina = stamina;
     }
 
-/*
-    public int getUpgradeToApply() {
-        return upgradeToApply;
-    }
 
-    public void setUpgradeToApply(int upgradeToApply) {
-        this.upgradeToApply = upgradeToApply;
-    }
-
-    public int getNumberOfTurnsDuration() {
-        return numberOfTurnsDuration;
-    }
-
-    public void setNumberOfTurnsDuration(int getNumberOfTurnsDuration) {
-        this.numberOfTurnsDuration = getNumberOfTurnsDuration;
-    }
-
- */
 
     @Override
     public String toString() {
