@@ -201,3 +201,19 @@
 2023-05-17 20:26:53 - ¡HAS GANADO EL COMBATE!¡Metapod ha ganado 98 de experiencia!
 2023-05-17 20:26:53 - ¡HAS GANADO EL COMBATE!¡Metapod ha ganado 95 de experiencia!
 2023-05-17 20:26:57 - ¡Has iniciado un combate Pokémon!
+2023-05-18 10:23:41 - Pokémon no capturado
+2023-05-18 10:23:42 - ¡Has capturado a Articuno,el Pokémon se ha enviado a tu equipo!
+2023-05-18 11:30:00 - ¡Has iniciado un combate Pokémon!
+2023-05-18 11:30:37 - Pokémon no capturado
+2023-05-18 11:30:38 - ¡Has capturado a Gyarados,el Pokémon se ha enviado a tu equipo!
+2023-05-18 11:32:57 - ¡Has capturado a Lapras,el Pokémon se ha enviado a tu equipo!
+2023-05-18 12:12:08 - Pokémon no capturado
+2023-05-18 12:12:08 - Pokémon no capturado
+2023-05-18 12:12:09 - Pokémon no capturado
+2023-05-18 12:12:09 - ¡Has capturado a Arbok,el Pokémon se ha enviado a tu equipo!
+2023-05-18 12:12:14 - ¡Has capturado a Tangela,el Pokémon se ha enviado a tu equipo!
+2023-05-18 12:39:25 - ¡Has iniciado un combate Pokémon!
+2023-05-18 12:39:58 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 109 de experiencia!
+2023-05-18 12:39:58 - ¡HAS GANADO EL COMBATE!¡Lapras ha ganado 100 de experiencia!
+2023-05-18 12:49:46 - Pokémon no capturado
+2023-05-18 12:49:46 - ¡Has capturado a Machoke,el Pokémon se ha enviado a tu equipo!

@@ -64,41 +64,83 @@ public class PokemonBreeding {
     public void initialize() {
 
         if (getTrainer().getPokemonTeam()[0] != null) {
-            btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
+            if (getTrainer().getPokemonTeam()[0].getLevel() >= 5) {
+                btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
+                btn1.setDisable(false);
+            }
+            else {
+                btn1.setText(getTrainer().getPokemonTeam()[0].getDisplayName());
+                btn1.setDisable(true);
+            }
         } else {
             btn1.setText("No Pokémon");
             btn1.setDisable(true);
         }
         if (getTrainer().getPokemonTeam()[1] != null) {
-            btn2.setText(getTrainer().getPokemonTeam()[1].getDisplayName());
+            if (getTrainer().getPokemonTeam()[1].getLevel() >= 5) {
+                btn2.setText(getTrainer().getPokemonTeam()[1].getDisplayName());
+                btn2.setDisable(false);
+            }
+            else {
+                btn2.setText(getTrainer().getPokemonTeam()[1].getDisplayName());
+                btn2.setDisable(true);
+            }
         } else {
             btn2.setText("No Pokémon");
             btn2.setDisable(true);
         }
 
         if (getTrainer().getPokemonTeam()[2] != null) {
-            btn3.setText(getTrainer().getPokemonTeam()[2].getDisplayName());
+            if (getTrainer().getPokemonTeam()[2].getLevel() >= 5) {
+                btn3.setText(getTrainer().getPokemonTeam()[2].getDisplayName());
+                btn3.setDisable(false);
+            }
+            else {
+                btn3.setText(getTrainer().getPokemonTeam()[2].getDisplayName());
+                btn3.setDisable(true);
+            }
         } else {
             btn3.setText("No Pokémon");
             btn3.setDisable(true);
         }
 
         if (getTrainer().getPokemonTeam()[3] != null) {
-            btn4.setText(getTrainer().getPokemonTeam()[3].getDisplayName());
+            if (getTrainer().getPokemonTeam()[3].getLevel() >= 5) {
+                btn4.setText(getTrainer().getPokemonTeam()[3].getDisplayName());
+                btn4.setDisable(false);
+            }
+            else {
+                btn4.setText(getTrainer().getPokemonTeam()[3].getDisplayName());
+                btn4.setDisable(true);
+            }
         } else {
             btn4.setText("No Pokémon");
             btn4.setDisable(true);
         }
 
         if (getTrainer().getPokemonTeam()[4] != null) {
-            btn5.setText(getTrainer().getPokemonTeam()[4].getDisplayName());
+            if (getTrainer().getPokemonTeam()[4].getLevel() >= 5) {
+                btn5.setText(getTrainer().getPokemonTeam()[4].getDisplayName());
+                btn5.setDisable(false);
+            }
+            else {
+                btn5.setText(getTrainer().getPokemonTeam()[4].getDisplayName());
+                btn5.setDisable(true);
+            }
         } else {
             btn5.setText("No Pokémon");
             btn5.setDisable(true);
         }
 
         if (getTrainer().getPokemonTeam()[5] != null) {
-            btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
+            if (getTrainer().getPokemonTeam()[5].getLevel() >= 5) {
+                btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
+                btn6.setDisable(false);
+            }
+            else {
+                btn6.setText(getTrainer().getPokemonTeam()[5].getDisplayName());
+                btn6.setDisable(true);
+            }
         } else {
             btn6.setText("No Pokémon");
             btn6.setDisable(true);
@@ -327,18 +369,22 @@ public class PokemonBreeding {
     @FXML
     public void pokemonBreedConfirmNickname(ActionEvent event) throws IOException {
         if (txtMote.getText().isEmpty()){
-            Trainer.getTrainer().BreedingConfirmNickname(getTrainer().getPokemonCub()[0].getDisplayName());
+            //Trainer.getTrainer().BreedingConfirmNickname(getTrainer().getPokemonCub()[0].getName());
+            Trainer.getTrainer().getPokemonCub()[0].setNickName(getTrainer().getPokemonCub()[0].getName());
+            Trainer.getTrainer().getPokemonCub()[0].changeDisplayName();
         }
         else {
-            Trainer.getTrainer().BreedingConfirmNickname(txtMote.getText());
+            //Trainer.getTrainer().BreedingConfirmNickname(txtMote.getText());
+            Trainer.getTrainer().getPokemonCub()[0].setNickName(txtMote.getText());
+            Trainer.getTrainer().getPokemonCub()[0].changeDisplayName();
         }
         btnConfirmMote.setDisable(true);
-        txtMote.setText(""); //Esto es una marranada pero no se como quito el texto obviando el txtMote.deleteText();
+        txtMote.setText("");
         txtMote.setDisable(true);
         btnNoMote.setDisable(true);
         root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonStats.fxml")));
         scene = new Scene(root, 600, 400);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()) .getScene().getWindow();
         stage.setTitle("TheSummoners");
         stage.setScene(scene);
         stage.show();
