@@ -136,20 +136,17 @@ public class Fight {
             logger.log("¡Has iniciado un combate Pokémon!");
         }
         btnMove5.setDisable(true);
-        //TODO PONERLO EN TRUE AL ACABAR LAS MECÁNICAS DE COMBATE
+
         toMainWindow.setDisable(false);
         //SACAMOS EL PRIMER POKEMON DE AMBOS EQUIPOS
         Trainer.getTrainer().setPokemon1(Trainer.getTrainer().getPokemonTeam()[0]);
         Enemy.getEnemy().setPokemon2(Enemy.getEnemy().pokemonIntoTeam()[0]);
 
-        //Trainer.getTrainer().changeLabelsInitializeTrainer(lblDisplayPkTrainer,  lblHpTrainer,   lblHpMaxTrainer,   lblLevelTrainer,
-        //         imgTrainerPokemon,  lblStateTrainer);
         Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,
                 imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
                 imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer);
 
-        //Enemy.getEnemy().changeLabelsInFight( lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy);
-        Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
+         Enemy.getEnemy().changePokemonInFightEnemy(lblDisplayPkEnemy,  lblHpEnemy,  lblHpMaxEnemy,  lblLevelEnemy,  imgEnemy,  lblStateEnemy,
                 btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3, btnMove5);
         Trainer.getTrainer().changePokemonInFightTrainer(lblDisplayPkTrainer,lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer,
                 imgTrainerPokemon, lblStateTrainer,  imgPokeball1Trainer,  imgPokeball2Trainer,
@@ -174,7 +171,7 @@ public class Fight {
         else  Trainer.getTrainer().getSentencesTextFight().add(Trainer.getTrainer().getPokemon1().getDisplayName() + " comienza atacando");
 
 
-//TODO TODO ESTO PASARLO AL MÉTODO QUE HAGA LA MECÁNICA DEL NUEVO POKEMON QUE ENTRA A COMBATIR
+
         btnMove1.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[0].getName());
         if(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1] != null) btnMove2.setText(Trainer.getTrainer().getPokemon1().getLearnedMovement()[1].getName());
         else btnMove2.setText("Sin movimiento");
@@ -209,8 +206,7 @@ public class Fight {
                     btnMove1,  btnMove2,  btnMove3,  btnMove4,  toMainWindow,  imgPokeball1,  imgPokeball2,  imgPokeball3,
                     imgPokeball1Trainer,  imgPokeball2Trainer,  imgPokeball3Trainer,
                     imgPokeball4Trainer,  imgPokeball5Trainer,  imgPokeball6Trainer, btnMove5);
-            //TODO CREAR UN IF PARA IDENTIFICAR CUÁNDO A UNO DE LOS DOS SE LE HAN DEBILITADO TODOS LOS POKEMON
-            //TODO DESPUÉS DEL MÉTODO FIGHT HACEMOS COMPROBACIÓN DE POKEMON VIVOS Y SE SACA OTRO SI ESTÁ DEBILITADO
+
 
             //CAMBIAMOS LOS LABELS Y LAS IMAGENES
             Trainer.getTrainer().changeLabelsInFight(lblDisplayPkTrainer, lblHpTrainer, lblHpMaxTrainer, lblLevelTrainer, imgTrainerPokemon, lblStateTrainer,

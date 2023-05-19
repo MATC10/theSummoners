@@ -363,3 +363,19 @@
 2023-05-19 12:18:06 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
 2023-05-19 12:18:07 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
 2023-05-19 12:18:36 - ¡Has iniciado un combate Pokémon!
+2023-05-19 15:42:03 - ¡Has iniciado un combate Pokémon!
+2023-05-19 15:42:04 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars
+2023-05-19 15:42:16 - Pokémon no capturado
+2023-05-19 15:42:16 - Pokémon no capturado
+2023-05-19 15:42:16 - ¡Has capturado a Alakazam,el Pokémon se ha enviado a tu equipo!
+2023-05-19 15:42:16 - ¡Has capturado a Alakazam,el Pokémon se ha enviado a tu equipo!
+2023-05-19 15:42:16 - Pokémon no capturado
+2023-05-19 15:42:16 - Pokémon no capturado
+2023-05-19 15:42:17 - ¡Has capturado a Alakazam,el Pokémon se ha enviado a tu equipo!
+2023-05-19 15:42:17 - Pokémon no capturado
+2023-05-19 15:42:17 - Pokémon no capturado
+2023-05-19 15:42:17 - Pokémon no capturado
+2023-05-19 15:42:17 - Pokémon no capturado
+2023-05-19 15:42:22 - ¡Has iniciado un combate Pokémon!
+2023-05-19 15:42:29 - ¡HAS GANADO EL COMBATE!¡Alakazam ha ganado 110 de experiencia!
+2023-05-19 15:42:29 - ¡HAS GANADO EL COMBATE!¡Alakazam ha ganado 92 de experiencia!

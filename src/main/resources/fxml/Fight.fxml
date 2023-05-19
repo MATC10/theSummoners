@@ -111,7 +111,7 @@
                </font></Label>
             <Label fx:id="lblHpMaxTrainer" layoutX="14.0" layoutY="183.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
             <Label fx:id="lblLevelEnemy" layoutX="475.0" layoutY="26.0" prefHeight="18.0" prefWidth="149.0" text="Label" />
-            <Button fx:id="toMainWindow" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal (provisional para prueba)" />
+            <Button fx:id="toMainWindow" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toMainWindow" prefHeight="26.0" prefWidth="290.0" text="Volver a menú principal" />
             <Label fx:id="lblLevelTrainer" layoutX="14.0" layoutY="161.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
             <Label fx:id="lblDisplayPkEnemy" layoutX="475.0" layoutY="1.0" prefHeight="18.0" prefWidth="150.0" text="Label">
                <font>
