@@ -13,12 +13,8 @@ import org.thesummoners.model.trainer.Trainer;
 
 import java.util.*;
 
-/**
- *
- * Hola
- */
+
 public class Pokemon implements Cloneable {
-    //LISTA CON TODOS LOS POKEMON DEL JUEGO ¿private o public?
 
     static int counterPokemon = 0;
     private int idPokemon;
@@ -43,15 +39,14 @@ public class Pokemon implements Cloneable {
     private Sex sex;
     private int experience;
 
-    //Metemos en el HashMap el nivel en el que el pokemon aprend un ataque, y el ataque.
-    //cuando un pokemon suba a X nivel aprender Y movimiento.
+
     public static HashMap <Integer, Movement> movementLevel;
 
     private Movement [] learnedMovement;
 
     public static List <Movement> movementList = new ArrayList<>();
 
-    //EL OBJETO PODRÍA SER UNA ARRAY DE UN HUECO
+
     private Objeto objeto;
 
     /**
@@ -78,7 +73,26 @@ public class Pokemon implements Cloneable {
      */
 
 
-
+    /**
+     * Otro constructor para Pokémon
+     * @param name
+     * @param idPokedex
+     * @param image
+     * @param imageBack
+     * @param hp
+     * @param level
+     * @param attackPower
+     * @param specialAttack
+     * @param defense
+     * @param specialDefense
+     * @param speed
+     * @param stamina
+     * @param type1
+     * @param type2
+     * @param state
+     * @param sex
+     * @param experience
+     */
     public Pokemon(String name, int idPokedex, String image, String imageBack, int hp, int level, int attackPower, int specialAttack, int defense, int specialDefense, int speed, int stamina, Type type1, Type type2, State state, Sex sex, int experience) {
         this.name = name;
         this.idPokedex = idPokedex;

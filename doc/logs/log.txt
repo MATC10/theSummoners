@@ -353,3 +353,13 @@
 2023-05-19 10:18:56 - ¡HAS GANADO EL COMBATE!¡Charizard ha ganado 91 de experiencia!
 2023-05-19 10:19:35 - ¡Has iniciado un combate Pokémon!
 2023-05-19 10:20:05 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars
+2023-05-19 12:18:04 - Pokémon no capturado
+2023-05-19 12:18:05 - Pokémon no capturado
+2023-05-19 12:18:05 - Pokémon no capturado
+2023-05-19 12:18:05 - Pokémon no capturado
+2023-05-19 12:18:06 - Pokémon no capturado
+2023-05-19 12:18:06 - Pokémon no capturado
+2023-05-19 12:18:06 - Pokémon no capturado
+2023-05-19 12:18:06 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-19 12:18:07 - ¡Has capturado a Kakuna,el Pokémon se ha enviado a tu equipo!
+2023-05-19 12:18:36 - ¡Has iniciado un combate Pokémon!

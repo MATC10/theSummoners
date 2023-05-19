@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2023 a las 20:29:21
+-- Tiempo de generación: 19-05-2023 a las 12:22:54
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -75,7 +75,7 @@ ALTER TABLE `pokemon`
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `ID_Pokemon` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1847;
+  MODIFY `ID_Pokemon` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1875;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

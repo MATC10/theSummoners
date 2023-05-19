@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Main extends Application {
-    private static Connection connection;
 
     @Override
     public void start(Stage stage) throws IOException {
