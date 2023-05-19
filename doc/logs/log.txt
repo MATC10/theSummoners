@@ -345,3 +345,11 @@
 2023-05-18 09:49:26 - ¡Has iniciado un combate Pokémon!
 2023-05-18 09:49:47 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 96 de experiencia!
 2023-05-18 09:49:47 - ¡HAS GANADO EL COMBATE!¡Squirtle ha ganado 96 de experiencia!
+2023-05-19 10:09:28 - ¡Has iniciado un combate Pokémon!
+2023-05-19 10:10:07 - ¡HAS GANADO EL COMBATE!¡Charizard ha ganado 106 de experiencia!
+2023-05-19 10:10:07 - ¡HAS GANADO EL COMBATE!¡Charizard ha ganado 96 de experiencia!
+2023-05-19 10:18:45 - ¡Has iniciado un combate Pokémon!
+2023-05-19 10:18:55 - ¡HAS GANADO EL COMBATE!¡Charizard ha ganado 95 de experiencia!
+2023-05-19 10:18:56 - ¡HAS GANADO EL COMBATE!¡Charizard ha ganado 91 de experiencia!
+2023-05-19 10:19:35 - ¡Has iniciado un combate Pokémon!
+2023-05-19 10:20:05 - ¡HAS PERDIDO EL COMBATE!Tus Pokémon no recibirán experienciaHas perdido un tercio de tus Pokedollars
